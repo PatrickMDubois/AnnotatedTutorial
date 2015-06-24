@@ -1488,7 +1488,7 @@ body {
   margin: 20px 0 20px 0;
 }
 
-.notes {
+.note {
   margin: 20px;
 }
 
@@ -1498,4 +1498,6 @@ body {
   padding: 0 5px 0 5px;
   width: 20px;
   text-align: center;
+  position: relative;
+  top: -20px;
 }

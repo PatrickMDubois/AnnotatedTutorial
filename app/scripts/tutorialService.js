@@ -1,4 +1,4 @@
-angular.module('BranchedTutorial')
+angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http){
         'use strict';
 

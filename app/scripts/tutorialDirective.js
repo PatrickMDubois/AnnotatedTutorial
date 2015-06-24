@@ -1,4 +1,4 @@
-angular.module('BranchedTutorial')
+angular.module('AnnotatedTutorial')
     .directive('tutorial', function(RecursionHelper) {
         'use strict';
 

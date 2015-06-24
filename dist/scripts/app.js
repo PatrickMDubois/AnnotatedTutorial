@@ -48,9 +48,9 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
 (function(w) {
     'use strict';
 
-        w.app = angular.module('BranchedTutorial', ['app-templates', 'RecursionHelper']);
+        w.app = angular.module('AnnotatedTutorial', ['app-templates', 'RecursionHelper']);
 })(window);
-angular.module('BranchedTutorial')
+angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http){
         'use strict';
 
@@ -71,17 +71,16 @@ angular.module('BranchedTutorial')
             tutorial: tutorial
         };
     });
-angular.module('BranchedTutorial')
+angular.module('AnnotatedTutorial')
     .controller('mainController', function($scope, TutorialService){
         'use strict';
 
         TutorialService.loaded
             .then(function() {
                 $scope.tutorial = TutorialService.tutorial;
-                $scope.selectedVersion = 'original';
             });
     });
-angular.module('BranchedTutorial')
+angular.module('AnnotatedTutorial')
     .directive('tutorial', function(RecursionHelper) {
         'use strict';
 

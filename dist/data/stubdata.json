@@ -1,10 +1,23 @@
 [
   {
-    "note": "This is a sample note.",
-    "pos": 2
+    "content": "First paragraph",
+    "notes":
+    [
+      "This is a sample note."
+    ]
   },
   {
-    "note": "This is another note.",
-    "pos": 3
+    "content": "Second paragraph",
+    "notes":
+    [
+    ]
+  },
+  {
+    "content": "Third paragraph",
+    "notes":
+    [
+      "This is another note.",
+      "This is the second note for a section."
+    ]
   }
 ]
