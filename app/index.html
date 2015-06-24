@@ -14,9 +14,9 @@
     <h1>Tutorial Title</h1>
     <div>
       <div class="content" ng-repeat="section in tutorial">
-        <span class="icon" ng-if="section.notes.length > 0">!</span>
+        <button class="icon" ng-click="showNote = true" ng-if="section.notes.length > 0">!</button>
         {{section.content}}
-        <div class="note" ng-repeat="note in section.notes">{{note}}</div>
+        <div class="note" ng-show="showNote" ng-repeat="note in section.notes">{{note}}</div>
       </div>
     </div>
 
