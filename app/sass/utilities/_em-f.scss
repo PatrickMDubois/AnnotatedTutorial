@@ -1,0 +1,18 @@
+/**
+ *  EM FUNCTION
+ *
+ *  returns size in EM units from given PX units
+ *
+ *  @param $pixel-size {px}
+ *    amount of pixels that should be converted to em units
+ *
+ *  @param $base-size {px} [$global-font-size]
+ *    base value for the conversion
+ *
+ *  @returns {em}
+ *    $pixel-size converted to em units relative to the $base-size
+ *
+ */
+@function em($pixel-size, $base-size:$global-font-size) {
+  @return #{$pixel-size/$base-size}em;
+}

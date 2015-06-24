@@ -1,0 +1,72 @@
+Original:
+
+<p>Here’s one technique that I like to use. I’m going to illustrate it on a pet photo featuring “green eye”, but the same trick works on people with red eye, too.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-1.jpg' />
+<p>1. Zoom in on the eye of your subject</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-2.jpg' />
+<p>2. Get your Paintbrush (Keyboard shortcut B)</p>
+<p>3. Set your foreground color to black</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-3.jpg' />
+<p>4. In the options bar, set the brush mode to Color, opacity 100%</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-4.jpg' />
+<p>By painting with the brush in this mode, we will desaturate the area that we paint.</p>
+<p>5. Using a small brush with a medium-soft edge, paint the mis-colored part of the eye to desaturate it.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-5.jpg' />
+<p>Since all we are doing is desaturating, this leaves the highlight and other gradients that reveal the shape of the eye intact. If we simply painted black we would destroy these details that make the eye look realistic.</p>
+<p>After desaturating, all we need to do is darken the pupil.</p>
+<p>6. Get the Burn tool</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-6.jpg' />
+<p>7. In the options bar, select Midtones, Exposure 20%</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-7.jpg' />
+<p>8. Paint gradually in the pupil to burn (darken) the Midtones</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-8.jpg' />
+<p>By restricting our burn to the Midtones, we avoid destroying the highlight in the eye or darkening that natural rim around the eye. We only affect the middle gray that was originally colored red or green.</p>
+<p>9. Darken the pupil to a reasonably dark gray (not pure black), and you’re done!</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-9.jpg' />
+<p>Of course, this technique won’t work in every case, because there are a lot of different types of “red eye” in people and animals, but it’s usually my first go-to method for tough cases.</p>
+
+Condensed:
+
+<p>Here’s one technique that I like to use. I’m going to illustrate it on a pet photo featuring “green eye”, but the same trick works on people with red eye, too.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-1.jpg' />
+<p>1. Zoom in on the eye of your subject</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-2.jpg' />
+<p>2. Get your Paintbrush</p>
+<p>3. Set your foreground color to black</p>
+<p>4. In the options bar, set the brush mode to Color, opacity 100%</p>
+<p>5. Using a small brush with a medium-soft edge, paint the mis-colored part of the eye.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-5.jpg' />
+<p>6. Get the Burn tool</p>
+<p>7. In the options bar, select Midtones, Exposure 20%</p>
+<p>8. Paint gradually in the pupil to burn the Midtones</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-8.jpg' />
+<p>9. Darken the pupil to a reasonably dark gray, and you’re done!</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-9.jpg' />
+<p>Of course, this technique won’t work in every case, but it’s usually my first go-to method.</p>
+
+Expanded:
+
+<p>Here’s one technique that I like to use. I’m going to illustrate it on a pet photo featuring “green eye”, but the same trick works on people with red eye, too.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-1.jpg' />
+<p>1. Zoom in (Keyboard shortcut Ctrl++) on the eye of your subject</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-2.jpg' />
+<p>2. Get your Brush (Keyboard shortcut B). If you can't find the Brush tool, look for the Pencil tool, Color Replacement tool or Mixer Brush tool. All of these are at the same location, but only one will be shown. Click and hold on it, and then hidden tools will be displayed, choose the Paintbrush.</p>
+<p>3. Set your foreground color to black</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-3.jpg' />
+<p>4. In the options bar, set the brush mode to Color, opacity 100%</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-4.jpg' />
+<p>By painting with the brush in this mode, we will desaturate the area that we paint.</p>
+<p>5. Using a small brush with a medium-soft edge, paint the mis-colored part of the eye to desaturate it.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-5.jpg' />
+<p>Since all we are doing is desaturating, this leaves the highlight and other gradients that reveal the shape of the eye intact. If we simply painted black we would destroy these details that make the eye look realistic.</p>
+<p>After desaturating, all we need to do is darken the pupil.</p>
+<p>6. Get the Burn tool (Keyboard shortcut O). Again, when selecting it, you might need to click and hold to select the Burn tool instead of the Dodge or Sponge tools.</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-6.jpg' />
+<p>7. In the options bar, select Midtones, Exposure 20%</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-7.jpg' />
+<p>8. Paint gradually in the pupil to burn (darken) the Midtones</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-8.jpg' />
+<p>By restricting our burn to the Midtones, we avoid destroying the highlight in the eye or darkening that natural rim around the eye. We only affect the middle gray that was originally colored red or green.</p>
+<p>9. Darken the pupil to a reasonably dark gray (not pure black), and you’re done!</p>
+<img src='http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-9.jpg' />
+<p>Of course, this technique won’t work in every case, because there are a lot of different types of “red eye” in people and animals, but it’s usually my first go-to method for tough cases.</p>

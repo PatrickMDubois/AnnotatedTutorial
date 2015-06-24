@@ -1,0 +1,41 @@
+/**
+ *  JUSTIFIED LAYOUT
+ *
+ *  distributes items evenly in the parent using inline-blocks and text-align:justify
+ *  usage of inline-blocks also enables vertical alignment with vertical-align property
+ *
+ *  .l-justified
+ *    &__item
+ *
+ *  @warning
+ *    font-size and line-height inside .l-justified__item are reset to the base values
+ *    so, if your module has custom font-size and/or line-height, you should probably
+ *    use different layout
+ *
+ */
+.l-justified {
+  text-align: justify;
+  text-justify: distribute-all-lines;
+
+  font-size: 0;
+  line-height: 0;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+
+    font-size: $global-font-size;
+    line-height: $global-line-height;
+
+    text-align: left;
+    text-justify: auto;
+
+    @extend %cf;
+  }
+}

@@ -1,0 +1,50 @@
+/**
+ *  BLOCK LAYOUT
+ *
+ *  maintains vertical spacing between different modules
+ *  for each of block types:
+ *    - block-small
+ *    - block
+ *    - block-med
+ *    - block-large
+ *  for different breakpoints
+ *
+ *  .l-{ block-type }
+ *  .l-{ block-type }-lt-{ breakpoint-type }
+ *  .l-{ block-type }-gt-{ breakpoint-type }
+ *
+ */
+$blocks: (
+  'block-small'  : $global-baseline,
+  'block'        : $global-baseline * 2,
+  'block-med'    : $global-baseline * 3,
+  'block-large'  : $global-baseline * 4
+);
+
+[class^="l-block"] {
+  display: block;
+}
+
+@each $block-name, $block-margin in $blocks {
+  .l-#{$block-name} {
+    margin-bottom: $block-margin;
+  }
+
+  /**
+   *  RESPONSIVE
+   *
+   */
+  // @each $bp-name, $bp-val in $breakpoints {
+  //   .l-#{$block-name}-lt-#{$bp-name} {
+  //     @include breakpoint( '(max-width: #{$bp-val - 1px})' ) {
+  //       margin-bottom: $block-margin;
+  //     }
+  //   }
+
+  //   .l-#{$block-name}-gt-#{$bp-name} {
+  //     @include breakpoint( '(min-width: #{$bp-val})' ) {
+  //       margin-bottom: $block-margin;
+  //     }
+  //   }
+  // }
+}

@@ -1,0 +1,70 @@
+/**
+ *  LIST LAYOUT
+ *
+ *  layouts for unstyled block list and inline list
+ *  with the following modifiers
+ *    - collapsed
+ *    - small
+ *    - large
+ *
+ *  .l-list
+ *    &__item
+ *    &--{ modifier }
+ *
+ *  .l-list-inline
+ *    &__item
+ *    &--{ modifier }
+ *
+ */
+$list-modifiers: (
+  'small'    : $global-baseline,
+  'large'    : $global-baseline * 4,
+  'collapsed': 0.1px
+);
+
+.l-list {
+  margin: 0;
+  padding: 0;
+  margin-bottom: - $global-baseline * 2;
+  list-style: none;
+
+  & > &__item {
+    display: block;
+    margin-bottom: $global-baseline * 2;
+  }
+}
+  @each $modifier-name, $modifier-margin in $list-modifiers {
+    .l-list--#{$modifier-name} {
+      margin-bottom: - $modifier-margin;
+
+      & > .l-list__item {
+        margin-bottom: $modifier-margin;
+      }
+    }
+  }
+
+.l-list-inline {
+  margin: 0;
+  padding: 0;
+  margin-bottom: - $global-baseline * 2;
+  margin-left: - $global-baseline * 2;
+  list-style: none;
+
+  & > &__item {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: $global-baseline * 2;
+    margin-left: $global-baseline * 2;
+  }
+}
+  @each $modifier-name, $modifier-margin in $list-modifiers {
+    .l-list-inline--#{$modifier-name} {
+      margin-bottom: - $modifier-margin;
+      margin-left: - $modifier-margin;
+
+      & > .l-list-inline__item {
+        margin-bottom: $modifier-margin;
+        margin-left: $modifier-margin;
+      }
+    }
+  }

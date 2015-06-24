@@ -1,0 +1,113 @@
+/**
+ *  RESETS
+ */
+
+/**
+ *  Box model
+ */
+* {
+  margin: 0;
+  padding: 0;
+
+  &:active {
+    outline: none;
+  }
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ *  Controls
+ */
+input::-webkit-input-placeholder {
+  font-family: $global-font-family;
+  font-weight: 300;
+  font-size: $global-font-size;
+  line-height: $global-line-height;
+
+  color: $color-tx-muted;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input, textarea {
+  @include appearance(none);
+  font: inherit;
+  line-height: inherit;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  line-height: inherit;
+
+  color: inherit;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+}
+
+/**
+ *  Typography
+ */
+
+html,
+body {
+  height: 100%;
+
+  font-family: $global-font-family;
+  font-size: $global-font-size;
+  line-height: $global-line-height;
+
+  color: $color-tx;
+  background-color: $color-bg;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, small {
+  margin:0;
+  padding:0;
+  font: inherit;
+  line-height: inherit;
+}
+
+span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+/**
+ *  Other
+ */
+iframe {
+  border: none;
+}

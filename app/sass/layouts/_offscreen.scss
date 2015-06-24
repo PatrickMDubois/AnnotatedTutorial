@@ -1,0 +1,77 @@
+/**
+ *  OFFSCREEN LAYOUT
+ *
+ *  offscreen navigation for small screen sizes
+ *
+ *  .l-offscreen
+ *    &__sidebar
+ *      &--left
+ *      &--right
+ *    &__overlay
+ *    &--open-left
+ *    &--open-right
+ *
+ */
+$offscreen-sidebar-size: $global-baseline * 30;
+
+.l-offscreen {
+  // ...
+
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    -webkit-backface-visibility:hidden;
+
+    width: $offscreen-sidebar-size - 1px;
+    max-width: 100%;
+    height: 100%;
+
+    @include transition-property(transform);
+    @include transition-duration(0.3s);
+
+    &--left {
+      left: 0;
+      @include translateX( - $offscreen-sidebar-size );
+    }
+
+    &--right {
+      right: 0;
+      @include translateX( $offscreen-sidebar-size );
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;left: 0;
+    z-index: 400;
+    -webkit-backface-visibility:hidden;
+
+    display: none;
+    height: 100%;width: 100%;
+
+    background: white;
+    background: rgba(white, 0.9);
+  }
+}
+  .l-offscreen--open-left {
+    // ...
+
+    .l-offscreen__sidebar--left {
+      @include translateX(0);
+    }
+
+    .l-offscreen__overlay {
+      display: block;
+    }
+  }
+  .l-offscreen--open-right {
+    // ...
+
+    .l-offscreen__sidebar--right {
+      @include translateX(0);
+    }
+    .l-offscreen__overlay {
+      display: block;
+    }
+  }

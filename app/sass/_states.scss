@@ -1,0 +1,75 @@
+/**
+ *  GLOBAL STATE STYLES
+ *
+ */
+.is-top-aligned { vertical-align: top !important; }
+.is-middle-aligned { vertical-align: middle !important; }
+.is-bottom-aligned { vertical-align: bottom !important; }
+
+.is-floated-right { float: right; }
+.is-floated-left { float: left; }
+
+.is-hidden { display: none; }
+.is-frozen { overflow: hidden; }
+
+.new-positioning-grid {
+  position: relative;
+}
+
+.is-left-aligned { text-align: left !important; }
+.is-right-aligned { text-align: right !important; }
+.is-center-aligned { text-align: center !important; }
+
+/**
+ *  RESPONSIVE VISIBILITY
+ *
+ */
+// @each $bp-name, $bp-val in $breakpoints {
+//   .only-gt-#{$bp-name} {
+//     @include breakpoint( '(max-width: #{$bp-val - 1px})' ) {
+//       display: none !important;
+//     }
+//   }
+
+//   .only-lt-#{$bp-name} {
+//     @include breakpoint( '(min-width: #{$bp-val})' ) {
+//       display: none !important;
+//     }
+//   }
+
+//   .lt-#{$bp-name}-left-aligned {
+//     @include breakpoint( '(max-width: #{$bp-val})' ) {
+//       text-align: left;
+//     }
+//   }
+
+//   .lt-#{$bp-name}-right-aligned {
+//     @include breakpoint( '(max-width: #{$bp-val})' ) {
+//       text-align: right;
+//     }
+//   }
+
+//   .lt-#{$bp-name}-center-aligned {
+//     @include breakpoint( '(max-width: #{$bp-val})' ) {
+//       text-align: center;
+//     }
+//   }
+
+//   .gt-#{$bp-name}-left-aligned {
+//     @include breakpoint( '(min-width: #{$bp-val})' ) {
+//       text-align: left;
+//     }
+//   }
+
+//   .gt-#{$bp-name}-right-aligned {
+//     @include breakpoint( '(min-width: #{$bp-val - 1px})' ) {
+//       text-align: right;
+//     }
+//   }
+
+//   .gt-#{$bp-name}-center-aligned {
+//     @include breakpoint( '(min-width: #{$bp-val - 1px})' ) {
+//       text-align: center;
+//     }
+//   }
+// }

@@ -1,0 +1,18 @@
+/**
+ *  CENTER PARTIAL
+ *
+ *  creates pseudo-element with vertical-align: middle
+ *  inside parent element, so that child elements
+ *  could be positioned exactly in the middle (vertically)
+ *  of the parent
+ *
+ */
+%center {
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    margin-left: -0.25em;
+  }
+}

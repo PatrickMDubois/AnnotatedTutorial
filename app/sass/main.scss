@@ -1,0 +1,125 @@
+/**
+ *
+ *    < RELCSS >
+ *  Relational CSS
+ *
+ *
+ *  FILE STRUCTURE
+ *  ==============
+ *
+ *    utilities/  : functions (-f), mixins (-m), partials (-p)
+ *    configs/    : global resets, global variables
+ *    layouts/    : positioning patterns (how modules are positioned relative to each other and the page)
+ *    modules/    : module styling
+ *    vendor/     : overwrites of 3rd-party styles
+ *
+ *    states.scss   : global state styles
+ *    shame.scss    : quick-n-dirty solutions, everything that should be refactored
+ *    dev-grid.scss : baseline grid overlay for development
+ *
+ *
+ *  NAMING CONVENTIONS
+ *  ==================
+ *
+ *    Incapsulation
+ *    -------------
+ *
+ *      Module's attributes are denoted by appending double underscore
+ *      and attribute name to the name of the module.
+ *
+ *        .table
+ *          .table__header
+ *
+ *      Notation
+ *
+ *        .table
+ *          &__header
+ *
+ *    Polymorphism
+ *    ------------
+ *
+ *      Module's behaviour could depend on where this module is placed.
+ *      If such polymorphic behaviour is required, appending modifier class
+ *      to module's class overwrights styles for its attributes.
+ *
+ *      Modifier class does not contain any additional attributes. If additional
+ *      objects appear, it's better to use inheritance.
+ *
+ *        .table
+ *          .table__row
+ *          .table__row.table__row--selected
+ *          .table__row
+ *
+ *      Notation
+ *
+ *        .table
+ *          &__row
+ *            &--selected
+ *
+ *    Inheritance
+ *    -----------
+ *
+ *      Inheritance could be used if a new variation of module has additional
+ *      attributes. In this case, new module is created by appending a single dash
+ *      and a subclass name to the original module's class. Parent module's properties
+ *      can be inherited using SASS @extend directive.
+ *
+ *        .employer {
+ *          // some css goes here
+ *        }
+ *
+ *        .employer-manager {
+ *          @extend .employer;
+ *
+ *          // overwrights and additional attributes
+ *        }
+ *
+ *      Notation
+ *
+ *        .employer
+ *        <---  .employer-manager
+ *
+ *    Composition
+ *    -----------
+ *
+ *      Relationship between two closely connected modules. Composition is used when two modules
+ *      are coupled and make no sence without each other in the context of the current application.
+ *      Composee module is prefixed by abbreviation of its composer module's class and a single dash.
+ *
+ *        .human-body
+ *          .hb-brain
+ *
+ *      Notation
+ *
+ *        .human-body
+ *          <>--  .hb-brain
+ */
+
+@import 'compass';
+
+@import 'configs/variables',
+        'configs/resets';
+
+@import 'utilities/clearfix-p',
+        'utilities/center-p',
+        'utilities/arrow-m',
+        'utilities/breakpoint-m',
+        'utilities/em-f',
+        'utilities/nounit-f';
+
+@import 'layouts/wrap',
+        'layouts/grid',
+        'layouts/list',
+        'layouts/stacked',
+        'layouts/split',
+        'layouts/justified',
+        'layouts/tricol',
+        'layouts/media',
+        'layouts/block',
+        'layouts/offscreen';
+
+// module imports here
+
+@import 'states',
+        'dev-grid',
+        'shame';

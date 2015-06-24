@@ -1,0 +1,40 @@
+/**
+ *  MEDIA LAYOUT
+ *
+ *  layout of type "figure-content" or "content-figure" with floated figure
+ *  and new block formatting context for the content part
+ *
+ *  more info here: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ *
+ *  .l-media
+ *    &__figure
+ *    &__body
+ *    &--rev
+ *
+ */
+.l-media {
+  @extend %cf;
+
+  &__figure {
+    float: left;
+    margin-right: $global-baseline * 2;
+
+    .l-media--rev & {
+      float: right;
+      margin-right: 0;
+      margin-left: $global-baseline * 2;
+    }
+  }
+
+  &__body {
+    // apply new block formatting context
+    .flexbox & {
+      display: flex; display: -webkit-flex;
+      flex-direction: column; -webkit-flex-direction: column;
+    }
+
+    .no-flexbox & {
+      overflow: hidden;
+    }
+  }
+}

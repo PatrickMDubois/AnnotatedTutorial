@@ -1,0 +1,15 @@
+/**
+ *  NOUNIT FUNCTION
+ *
+ *  strips units from the value
+ *
+ *  @param $number {string}
+ *    number with units specified, e.g. 120px or 36.2em
+ *
+ *  @returns {number}
+ *    the same number without unit, e.g. 120 or 36.2
+ *
+ */
+@function nounit($number){
+  @return $number / ($number * 0 + 1);
+}

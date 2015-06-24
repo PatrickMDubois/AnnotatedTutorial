@@ -1,0 +1,13 @@
+/**
+ *  CF PARTIAL
+ *
+ *  clears floats inside the box
+ *
+ */
+%cf {
+  &:after{
+    content:"";
+    display:table;
+    clear:both;
+  }
+}

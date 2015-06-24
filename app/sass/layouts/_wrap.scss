@@ -1,0 +1,13 @@
+/**
+ *  WRAP LAYOUT
+ *
+ *  maintains horizontal boundaries for the page
+ *
+ *  .l-wrap
+ *
+ */
+.l-wrap {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}

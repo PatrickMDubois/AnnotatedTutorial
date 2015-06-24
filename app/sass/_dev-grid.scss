@@ -1,0 +1,25 @@
+/**
+ *  DEVELOPMENT GRID HELPER
+ *
+ *  grid helper based on $global-baseline value
+ *
+ */
+$grid-color: red;
+
+.dev-grid {
+  display: block;
+  height: 1000%; width: 100%;
+
+  position: absolute;
+  top: 0; bottom: 0;
+  z-index: 9999;
+
+  background-image: linear-gradient( 0deg, rgba($grid-color, 0.2) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba($grid-color, 0.2) 1px, transparent 1px),
+                    linear-gradient( 0deg, rgba($grid-color, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba($grid-color, 0.1) 1px, transparent 1px);
+  background-size:  $global-baseline*2 $global-baseline*2,
+                    $global-baseline*2 $global-baseline*2,
+                    $global-baseline $global-baseline,
+                    $global-baseline $global-baseline;
+}

@@ -1,0 +1,14 @@
+/**
+ *  BREAKPOINT MIXIN
+ *
+ *  provides wrapper for media-query based on given breakpoint
+ *
+ *  @param $condition {string}
+ *    media-query condition
+ *
+ */
+@mixin breakpoint( $condition ){
+  @media only screen and #{$condition} {
+    @content;
+  }
+}

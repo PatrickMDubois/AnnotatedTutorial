@@ -1,0 +1,8 @@
+{
+  "name": "tweets-to-software",
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "angularjs": "~1.4.0",
+    "medium-editor": "~4.12.2"
+  }
+}

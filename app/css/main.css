@@ -1,0 +1,1501 @@
+/**
+ *
+ *    < RELCSS >
+ *  Relational CSS
+ *
+ *
+ *  FILE STRUCTURE
+ *  ==============
+ *
+ *    utilities/  : functions (-f), mixins (-m), partials (-p)
+ *    configs/    : global resets, global variables
+ *    layouts/    : positioning patterns (how modules are positioned relative to each other and the page)
+ *    modules/    : module styling
+ *    vendor/     : overwrites of 3rd-party styles
+ *
+ *    states.scss   : global state styles
+ *    shame.scss    : quick-n-dirty solutions, everything that should be refactored
+ *    dev-grid.scss : baseline grid overlay for development
+ *
+ *
+ *  NAMING CONVENTIONS
+ *  ==================
+ *
+ *    Incapsulation
+ *    -------------
+ *
+ *      Module's attributes are denoted by appending double underscore
+ *      and attribute name to the name of the module.
+ *
+ *        .table
+ *          .table__header
+ *
+ *      Notation
+ *
+ *        .table
+ *          &__header
+ *
+ *    Polymorphism
+ *    ------------
+ *
+ *      Module's behaviour could depend on where this module is placed.
+ *      If such polymorphic behaviour is required, appending modifier class
+ *      to module's class overwrights styles for its attributes.
+ *
+ *      Modifier class does not contain any additional attributes. If additional
+ *      objects appear, it's better to use inheritance.
+ *
+ *        .table
+ *          .table__row
+ *          .table__row.table__row--selected
+ *          .table__row
+ *
+ *      Notation
+ *
+ *        .table
+ *          &__row
+ *            &--selected
+ *
+ *    Inheritance
+ *    -----------
+ *
+ *      Inheritance could be used if a new variation of module has additional
+ *      attributes. In this case, new module is created by appending a single dash
+ *      and a subclass name to the original module's class. Parent module's properties
+ *      can be inherited using SASS @extend directive.
+ *
+ *        .employer {
+ *          // some css goes here
+ *        }
+ *
+ *        .employer-manager {
+ *          @extend .employer;
+ *
+ *          // overwrights and additional attributes
+ *        }
+ *
+ *      Notation
+ *
+ *        .employer
+ *        <---  .employer-manager
+ *
+ *    Composition
+ *    -----------
+ *
+ *      Relationship between two closely connected modules. Composition is used when two modules
+ *      are coupled and make no sence without each other in the context of the current application.
+ *      Composee module is prefixed by abbreviation of its composer module's class and a single dash.
+ *
+ *        .human-body
+ *          .hb-brain
+ *
+ *      Notation
+ *
+ *        .human-body
+ *          <>--  .hb-brain
+ */
+/*
+ * GENERAL
+ *
+ */
+/*
+ * RESPONSIVE
+ *
+ */
+/**
+ *  RESETS
+ */
+/**
+ *  Box model
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+*:active {
+  outline: none;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ *  Controls
+ */
+input::-webkit-input-placeholder {
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #969696;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input, textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  line-height: inherit;
+  background-color: transparent;
+}
+input:focus, textarea:focus {
+  outline: none;
+}
+
+button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/**
+ *  Typography
+ */
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #444444;
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, small {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: inherit;
+}
+
+span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+/**
+ *  Other
+ */
+iframe {
+  border: none;
+}
+
+/**
+ *  CF PARTIAL
+ *
+ *  clears floats inside the box
+ *
+ */
+.l-split:after, .l-justified__item:after, .l-tricol:after, .l-media:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/**
+ *  CENTER PARTIAL
+ *
+ *  creates pseudo-element with vertical-align: middle
+ *  inside parent element, so that child elements
+ *  could be positioned exactly in the middle (vertically)
+ *  of the parent
+ *
+ */
+/**
+ *  SIMPLE ARROW MIXIN
+ *
+ *  arrow made using border-width on one side of an empty box
+ *
+ *  @param $size {px}
+ *    resulting height of the arrow
+ *
+ *  @param $color {rgb}
+ *    background color of the arrow
+ *
+ *  @param $position-quadrant { 'quadrant-1' | 'quadrant-2' | 'quadrant-3' | 'quadrant-4'}
+ *    where to calculate arrow's position from
+ *
+ *                    |
+ *      quadrant-1    |    quadrant-2
+ *      (top left)    |    (top right)
+ *                    |
+ *    ----------------------------------
+ *                    |
+ *      quadrant-3    |    quadrant-4
+ *     (bottom left)  |  (bottom right)
+ *                    |
+ *
+ *  @param $position-x {px}
+ *    x coordinate of the arrow (in given quadrant)
+ *
+ *  @param $position-y {px}
+ *    y coordinate of the arrow (in given quadrant)
+ *
+ *  @param $direction { 'top' | 'right' | 'bottom' | 'left' }
+ *    direction where arrow will be pointing to
+ *
+ */
+/**
+ *  @mixin
+ *  TOP ARROW
+ *
+ *  top arrow made with a box rotated by 45 degrees, enables use of borders and box-shadows.
+ *
+ *  @param $size {px}
+ *    width of the square that will be rotated;
+ *    height of the actual arrow (rotated square) will be
+ *    $size * sqrt(2)/2
+ *
+ *  @param $color {rgb}
+ *    background color of the suare used to make the arrow
+ *
+ *  @param $pivot { 'left' | 'right' }
+ *    where to calculate position of the arrow from
+ *
+ *  @param $position {px}
+ *    position of the arrow from the given pivot
+ *
+ */
+/**
+ *  @mixin
+ *  TOP ARROW FIX
+ *
+ *  hide bottom part of the arrow made with rotated square
+ *
+ *  @param $arrow-size {px}
+ *    width of the box used for the arrow
+ *
+ *  @param $shadow-size {px}
+ *    shadow size of the arrow
+ *
+ *  @param $color {rgb}
+ *    background color
+ *
+ *  @param $pivot { 'left' | 'right' }
+ *    where to calculate position of the fix from
+ *
+ *  @param $position {px}
+ *    position of the fix from the given pivot
+ *
+ */
+/**
+ *  BREAKPOINT MIXIN
+ *
+ *  provides wrapper for media-query based on given breakpoint
+ *
+ *  @param $condition {string}
+ *    media-query condition
+ *
+ */
+/**
+ *  EM FUNCTION
+ *
+ *  returns size in EM units from given PX units
+ *
+ *  @param $pixel-size {px}
+ *    amount of pixels that should be converted to em units
+ *
+ *  @param $base-size {px} [$global-font-size]
+ *    base value for the conversion
+ *
+ *  @returns {em}
+ *    $pixel-size converted to em units relative to the $base-size
+ *
+ */
+/**
+ *  NOUNIT FUNCTION
+ *
+ *  strips units from the value
+ *
+ *  @param $number {string}
+ *    number with units specified, e.g. 120px or 36.2em
+ *
+ *  @returns {number}
+ *    the same number without unit, e.g. 120 or 36.2
+ *
+ */
+/**
+ *  WRAP LAYOUT
+ *
+ *  maintains horizontal boundaries for the page
+ *
+ *  .l-wrap
+ *
+ */
+.l-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*------------------------------------*\
+    $CSSWIZARDRY-GRIDS
+\*------------------------------------*/
+/**
+ * CONTENTS
+ * INTRODUCTION.........How the grid system works.
+ * VARIABLES............Your settings.
+ * MIXINS...............Library mixins.
+ * GRID SETUP...........Build the grid structure.
+ * WIDTHS...............Build our responsive widths around our breakpoints.
+ * PUSH.................Push classes.
+ * PULL.................Pull classes.
+ */
+/*------------------------------------*\
+    $INTRODUCTION
+\*------------------------------------*/
+/**
+ * csswizardry grids provides you with widths to suit a number of breakpoints
+ * designed around devices of a size you specify. Out of the box, csswizardry
+ * grids caters to the following types of device:
+ *
+ * palm     --  palm-based devices, like phones and small tablets
+ * lap      --  lap-based devices, like iPads or laptops
+ * portable --  all of the above
+ * desk     --  stationary devices, like desktop computers
+ * regular  --  any/all types of device
+ *
+ * These namespaces are then used in the library to give you the ability to
+ * manipulate your layouts based around them, for example:
+ *
+   <div class="grid__item  one-whole  lap--one-half  desk--one-third">
+ *
+ * This would give you a grid item which is 100% width unless it is on a lap
+ * device, at which point it become 50% wide, or it is on a desktop device, at
+ * which point it becomes 33.333% width.
+ *
+ * csswizardry grids also has push and pull classes which allow you to nudge
+ * grid items left and right by a defined amount. These follow the same naming
+ * convention as above, but are prepended by either 'push--' or 'pull--', for
+ * example:
+ *
+   'class="grid__item  one-half  push--one-half"'
+ *
+ * This would give you a grid item which is 50% width and pushed over to the
+ * right by 50%.
+ *
+ * All classes in csswizardry grids follow this patten, so you should fairly
+ * quickly be able to piece together any combinations you can imagine, for
+ * example:
+ *
+   'class="grid__item  one-whole  lap--one-half  desk--one-third  push--desk--one-third"'
+ *
+   'class="grid__item  one-quarter  palm--one-half  push--palm--one-half"'
+ *
+   'class="grid__item  palm--one-third  desk--five-twelfths"'
+ */
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/**
+ * If you are building a non-responsive site but would still like to use
+ * csswizardry-grids, set this to 'false':
+ */
+/**
+ * Is this build mobile first? Setting to 'true' means that all grids will be
+ * 100% width if you do not apply a more specific class to them.
+ */
+/**
+ * Set the spacing between your grid items.
+ */
+/**
+ * Would you like Sass' silent classes, or regular CSS classes?
+ */
+/**
+ * Would you like push and pull classes enabled?
+ */
+/**
+ * Using 'inline-block' means that the grid items need their whitespace removing
+ * in order for them to work correctly. Set the following to true if you are
+ * going to achieve this by manually removing/commenting out any whitespace in
+ * your HTML yourself.
+ *
+ * Setting this to false invokes a hack which cannot always be guaranteed,
+ * please see the following for more detail:
+ *
+ * github.com/csswizardry/csswizardry-grids/commit/744d4b23c9d2b77d605b5991e54a397df72e0688
+ * github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+ */
+/**
+ * Define your breakpoints. The first value is the prefix that shall be used for
+ * your classes (e.g. '.palm--one-half'), the second value is the media query
+ * that the breakpoint fires at.
+ */
+/**
+ * Define which namespaced breakpoints you would like to generate for each of
+ * widths, push and pull. This is handy if you only need pull on, say, desk, or
+ * you only need a new width breakpoint at mobile sizes. It allows you to only
+ * compile as much CSS as you need. All are turned on by default, but you can
+ * add and remove breakpoints at will.
+ *
+ * Push and pull shall only be used if '$push' and/or '$pull' and '$responsive'
+ * have been set to 'true'.
+ */
+/**
+ * You do not need to edit anything from this line onward; csswizardry-grids is
+ * good to go. Happy griddin'!
+ */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * These mixins are for the library to use only, you should not need to modify
+ * them at all.
+ *
+ * Enclose a block of code with a media query as named in '$grid-breakpoints'.
+ */
+/**
+ * Drop relative positioning into silent classes which can't take advantage of
+ * the '[class*="push--"]' and '[class*="pull--"]' selectors.
+ */
+/*------------------------------------*\
+    $GRID SETUP
+\*------------------------------------*/
+/**
+ * 1. Allow the grid system to be used on lists.
+ * 2. Remove any margins and paddings that might affect the grid system.
+ * 3. Apply a negative 'margin-left' to negate the columns' gutters.
+ */
+.grid {
+  list-style: none;
+  /* [1] */
+  margin: 0;
+  /* [2] */
+  padding: 0;
+  /* [2] */
+  margin-left: -48px;
+  /* [3] */
+}
+
+/**
+ * 1. Cause columns to stack side-by-side.
+ * 2. Space columns apart.
+ * 3. Align columns to the tops of each other.
+ * 4. Full-width unless told to behave otherwise.
+ * 5. Required to combine fluid widths and fixed gutters.
+ */
+.grid__item {
+  display: inline-block;
+  /* [1] */
+  padding-left: 48px;
+  /* [2] */
+  vertical-align: top;
+  /* [3] */
+  -webkit-box-sizing: border-box;
+  /* [5] */
+  -moz-box-sizing: border-box;
+  /* [5] */
+  box-sizing: border-box;
+  /* [5] */
+}
+
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends '.grid'.
+ */
+.grid--rev {
+  direction: rtl;
+  text-align: left;
+}
+.grid--rev > .grid__item {
+  direction: ltr;
+  text-align: left;
+}
+
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ * Extends '.grid'.
+ */
+.grid--full {
+  margin-left: 0;
+}
+.grid--full > .grid__item {
+  padding-left: 0;
+}
+
+/**
+ * Align the entire grid to the right. Extends '.grid'.
+ */
+.grid--right {
+  text-align: right;
+}
+.grid--right > .grid__item {
+  text-align: left;
+}
+
+/**
+ * Centered grids align grid items centrally without needing to use push or pull
+ * classes. Extends '.grid'.
+ */
+.grid--center {
+  text-align: center;
+}
+.grid--center > .grid__item {
+  text-align: left;
+}
+
+/**
+ * Align grid cells vertically ('.grid--middle' or '.grid--bottom'). Extends
+ * '.grid'.
+ */
+.grid--middle > .grid__item {
+  vertical-align: middle;
+}
+
+.grid--bottom > .grid__item {
+  vertical-align: bottom;
+}
+
+/**
+ * Create grids with narrower gutters. Extends '.grid'.
+ */
+.grid--narrow {
+  margin-left: -24px;
+}
+.grid--narrow > .grid__item {
+  padding-left: 24px;
+}
+
+/**
+ * Create grids with wider gutters. Extends '.grid'.
+ */
+.grid--wide {
+  margin-left: -96px;
+}
+.grid--wide > .grid__item {
+  padding-left: 96px;
+}
+
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Create our width classes, prefixed by the specified namespace.
+ */
+/**
+ * Our regular, non-responsive width classes.
+ */
+/**
+ * Whole
+ */
+.one-whole {
+  width: 100%;
+}
+
+/**
+ * Halves
+ */
+.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
+  width: 50%;
+}
+
+/**
+ * Thirds
+ */
+.one-third, .two-sixths, .four-twelfths {
+  width: 33.333%;
+}
+
+.two-thirds, .four-sixths, .eight-twelfths {
+  width: 66.666%;
+}
+
+/**
+ * Quarters
+ */
+.one-quarter, .two-eighths, .three-twelfths {
+  width: 25%;
+}
+
+.three-quarters, .six-eighths, .nine-twelfths {
+  width: 75%;
+}
+
+/**
+ * Fifths
+ */
+.one-fifth, .two-tenths {
+  width: 20%;
+}
+
+.two-fifths, .four-tenths {
+  width: 40%;
+}
+
+.three-fifths, .six-tenths {
+  width: 60%;
+}
+
+.four-fifths, .eight-tenths {
+  width: 80%;
+}
+
+/**
+ * Sixths
+ */
+.one-sixth, .two-twelfths {
+  width: 16.666%;
+}
+
+.five-sixths, .ten-twelfths {
+  width: 83.333%;
+}
+
+/**
+ * Eighths
+ */
+.one-eighth {
+  width: 12.5%;
+}
+
+.three-eighths {
+  width: 37.5%;
+}
+
+.five-eighths {
+  width: 62.5%;
+}
+
+.seven-eighths {
+  width: 87.5%;
+}
+
+/**
+ * Tenths
+ */
+.one-tenth {
+  width: 10%;
+}
+
+.three-tenths {
+  width: 30%;
+}
+
+.seven-tenths {
+  width: 70%;
+}
+
+.nine-tenths {
+  width: 90%;
+}
+
+/**
+ * Twelfths
+ */
+.one-twelfth {
+  width: 8.333%;
+}
+
+.five-twelfths {
+  width: 41.666%;
+}
+
+.seven-twelfths {
+  width: 58.333%;
+}
+
+.eleven-twelfths {
+  width: 91.666%;
+}
+
+/**
+ * Our responsive classes, if we have enabled them.
+ */
+/*------------------------------------*\
+    $PUSH
+\*------------------------------------*/
+/**
+ * Push classes, to move grid items over to the right by certain amounts.
+ */
+/**
+ * Not a particularly great selector, but the DRYest way to do things.
+ */
+[class*="push--"] {
+  position: relative;
+}
+
+/**
+ * Whole
+ */
+.push--one-whole {
+  margin-left: 100%;
+}
+
+/**
+ * Halves
+ */
+.push--one-half, .push--two-quarters, .push--three-sixths, .push--four-eighths, .push--five-tenths, .push--six-twelfths {
+  margin-left: 50%;
+}
+
+/**
+ * Thirds
+ */
+.push--one-third, .push--two-sixths, .push--four-twelfths {
+  margin-left: 33.333%;
+}
+
+.push--two-thirds, .push--four-sixths, .push--eight-twelfths {
+  margin-left: 66.666%;
+}
+
+/**
+ * Quarters
+ */
+.push--one-quarter, .push--two-eighths, .push--three-twelfths {
+  margin-left: 25%;
+}
+
+.push--three-quarters, .push--six-eighths, .push--nine-twelfths {
+  margin-left: 75%;
+}
+
+/**
+ * Fifths
+ */
+.push--one-fifth, .push--two-tenths {
+  margin-left: 20%;
+}
+
+.push--two-fifths, .push--four-tenths {
+  margin-left: 40%;
+}
+
+.push--three-fifths, .push--six-tenths {
+  margin-left: 60%;
+}
+
+.push--four-fifths, .push--eight-tenths {
+  margin-left: 80%;
+}
+
+/**
+ * Sixths
+ */
+.push--one-sixth, .push--two-twelfths {
+  margin-left: 16.666%;
+}
+
+.push--five-sixths, .push--ten-twelfths {
+  margin-left: 83.333%;
+}
+
+/**
+ * Eighths
+ */
+.push--one-eighth {
+  margin-left: 12.5%;
+}
+
+.push--three-eighths {
+  margin-left: 37.5%;
+}
+
+.push--five-eighths {
+  margin-left: 62.5%;
+}
+
+.push--seven-eighths {
+  margin-left: 87.5%;
+}
+
+/**
+ * Tenths
+ */
+.push--one-tenth {
+  margin-left: 10%;
+}
+
+.push--three-tenths {
+  margin-left: 30%;
+}
+
+.push--seven-tenths {
+  margin-left: 70%;
+}
+
+.push--nine-tenths {
+  margin-left: 90%;
+}
+
+/**
+ * Twelfths
+ */
+.push--one-twelfth {
+  margin-left: 8.333%;
+}
+
+.push--five-twelfths {
+  margin-left: 41.666%;
+}
+
+.push--seven-twelfths {
+  margin-left: 58.333%;
+}
+
+.push--eleven-twelfths {
+  margin-left: 91.666%;
+}
+
+/*------------------------------------*\
+    $PULL
+\*------------------------------------*/
+/**
+ * Pull classes, to move grid items back to the left by certain amounts.
+ */
+/**
+ * Not a particularly great selector, but the DRYest way to do things.
+ */
+[class*="pull--"] {
+  position: relative;
+}
+
+/**
+ * Whole
+ */
+.pull--one-whole {
+  margin-right: 100%;
+}
+
+/**
+ * Halves
+ */
+.pull--one-half, .pull--two-quarters, .pull--three-sixths, .pull--four-eighths, .pull--five-tenths, .pull--six-twelfths {
+  margin-right: 50%;
+}
+
+/**
+ * Thirds
+ */
+.pull--one-third, .pull--two-sixths, .pull--four-twelfths {
+  margin-right: 33.333%;
+}
+
+.pull--two-thirds, .pull--four-sixths, .pull--eight-twelfths {
+  margin-right: 66.666%;
+}
+
+/**
+ * Quarters
+ */
+.pull--one-quarter, .pull--two-eighths, .pull--three-twelfths {
+  margin-right: 25%;
+}
+
+.pull--three-quarters, .pull--six-eighths, .pull--nine-twelfths {
+  margin-right: 75%;
+}
+
+/**
+ * Fifths
+ */
+.pull--one-fifth, .pull--two-tenths {
+  margin-right: 20%;
+}
+
+.pull--two-fifths, .pull--four-tenths {
+  margin-right: 40%;
+}
+
+.pull--three-fifths, .pull--six-tenths {
+  margin-right: 60%;
+}
+
+.pull--four-fifths, .pull--eight-tenths {
+  margin-right: 80%;
+}
+
+/**
+ * Sixths
+ */
+.pull--one-sixth, .pull--two-twelfths {
+  margin-right: 16.666%;
+}
+
+.pull--five-sixths, .pull--ten-twelfths {
+  margin-right: 83.333%;
+}
+
+/**
+ * Eighths
+ */
+.pull--one-eighth {
+  margin-right: 12.5%;
+}
+
+.pull--three-eighths {
+  margin-right: 37.5%;
+}
+
+.pull--five-eighths {
+  margin-right: 62.5%;
+}
+
+.pull--seven-eighths {
+  margin-right: 87.5%;
+}
+
+/**
+ * Tenths
+ */
+.pull--one-tenth {
+  margin-right: 10%;
+}
+
+.pull--three-tenths {
+  margin-right: 30%;
+}
+
+.pull--seven-tenths {
+  margin-right: 70%;
+}
+
+.pull--nine-tenths {
+  margin-right: 90%;
+}
+
+/**
+ * Twelfths
+ */
+.pull--one-twelfth {
+  margin-right: 8.333%;
+}
+
+.pull--five-twelfths {
+  margin-right: 41.666%;
+}
+
+.pull--seven-twelfths {
+  margin-right: 58.333%;
+}
+
+.pull--eleven-twelfths {
+  margin-right: 91.666%;
+}
+
+/**
+ *  LIST LAYOUT
+ *
+ *  layouts for unstyled block list and inline list
+ *  with the following modifiers
+ *    - collapsed
+ *    - small
+ *    - large
+ *
+ *  .l-list
+ *    &__item
+ *    &--{ modifier }
+ *
+ *  .l-list-inline
+ *    &__item
+ *    &--{ modifier }
+ *
+ */
+.l-list {
+  margin: 0;
+  padding: 0;
+  margin-bottom: -24px;
+  list-style: none;
+}
+.l-list > .l-list__item {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.l-list--small {
+  margin-bottom: -12px;
+}
+.l-list--small > .l-list__item {
+  margin-bottom: 12px;
+}
+
+.l-list--large {
+  margin-bottom: -48px;
+}
+.l-list--large > .l-list__item {
+  margin-bottom: 48px;
+}
+
+.l-list--collapsed {
+  margin-bottom: -0.1px;
+}
+.l-list--collapsed > .l-list__item {
+  margin-bottom: 0.1px;
+}
+
+.l-list-inline {
+  margin: 0;
+  padding: 0;
+  margin-bottom: -24px;
+  margin-left: -24px;
+  list-style: none;
+}
+.l-list-inline > .l-list-inline__item {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 24px;
+  margin-left: 24px;
+}
+
+.l-list-inline--small {
+  margin-bottom: -12px;
+  margin-left: -12px;
+}
+.l-list-inline--small > .l-list-inline__item {
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+
+.l-list-inline--large {
+  margin-bottom: -48px;
+  margin-left: -48px;
+}
+.l-list-inline--large > .l-list-inline__item {
+  margin-bottom: 48px;
+  margin-left: 48px;
+}
+
+.l-list-inline--collapsed {
+  margin-bottom: -0.1px;
+  margin-left: -0.1px;
+}
+.l-list-inline--collapsed > .l-list-inline__item {
+  margin-bottom: 0.1px;
+  margin-left: 0.1px;
+}
+
+/**
+ *  STACKED LAYOUT
+ *
+ *  maintains vertical spacing between blocks that
+ *  become stacked on mobile/tablet devices.
+ *  Usually used as a wrapper for grids.
+ *
+ *  possible modifiers:
+ *    - small
+ *    - normal (reset modifier for nested layouts, see @warning)
+ *    - med
+ *    - large
+ *
+ *  .l-stacked
+ *    &__item
+ *    &--{ modifier }
+ *
+ *  @warning
+ *    this module does not use direct child, because
+ *    .l-stacked and .l-stacked__item are separated
+ *    by .grid and .grid__item classes. Because of this
+ *    there could be problems with nested .l-stacked
+ *    elements. If you use .l-stacked inside .l-stacked--large,
+ *    you will need to reset its behaviour to default one, like
+ *
+ *      .l-stacked.l-stacked--large
+ *        /.../
+ *        .l-stacked.l-stacked--normal
+ *
+ */
+.l-stacked {
+  margin-bottom: -24px;
+}
+.l-stacked__item {
+  display: block;
+  padding-bottom: 24px;
+}
+
+.l-stacked--large {
+  margin-bottom: -48px;
+}
+.l-stacked--large .l-stacked__item {
+  padding-bottom: 48px;
+}
+
+.l-stacked--med {
+  margin-bottom: -36px;
+}
+.l-stacked--med .l-stacked__item {
+  padding-bottom: 36px;
+}
+
+.l-stacked--normal {
+  margin-bottom: -24px;
+}
+.l-stacked--normal .l-stacked__item {
+  padding-bottom: 24px;
+}
+
+.l-stacked--small {
+  margin-bottom: -12px;
+}
+.l-stacked--small .l-stacked__item {
+  padding-bottom: 12px;
+}
+
+/**
+ *  SPLIT LAYOUT
+ *
+ *  distributes items to the left and right sides of the parent item
+ *
+ *  .l-split
+ *    &__left
+ *    &__right
+ *
+ */
+.l-split__right {
+  float: right;
+}
+
+/**
+ *  JUSTIFIED LAYOUT
+ *
+ *  distributes items evenly in the parent using inline-blocks and text-align:justify
+ *  usage of inline-blocks also enables vertical alignment with vertical-align property
+ *
+ *  .l-justified
+ *    &__item
+ *
+ *  @warning
+ *    font-size and line-height inside .l-justified__item are reset to the base values
+ *    so, if your module has custom font-size and/or line-height, you should probably
+ *    use different layout
+ *
+ */
+.l-justified {
+  text-align: justify;
+  text-justify: distribute-all-lines;
+  font-size: 0;
+  line-height: 0;
+}
+.l-justified:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+.l-justified__item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  text-justify: auto;
+}
+
+/**
+ *  TRICOL LAYOUT
+ *
+ *  three column layout with left part, right part, and center-aligned middle part
+ *
+ *  .l-tricol
+ *    &__left
+ *    &__right
+ *    &__mid
+ *
+ */
+.l-tricol {
+  position: relative;
+}
+.l-tricol__left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.l-tricol__right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+.l-tricol__mid {
+  text-align: center;
+}
+
+/**
+ *  MEDIA LAYOUT
+ *
+ *  layout of type "figure-content" or "content-figure" with floated figure
+ *  and new block formatting context for the content part
+ *
+ *  more info here: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ *
+ *  .l-media
+ *    &__figure
+ *    &__body
+ *    &--rev
+ *
+ */
+.l-media__figure {
+  float: left;
+  margin-right: 24px;
+}
+.l-media--rev .l-media__figure {
+  float: right;
+  margin-right: 0;
+  margin-left: 24px;
+}
+.flexbox .l-media__body {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.no-flexbox .l-media__body {
+  overflow: hidden;
+}
+
+/**
+ *  BLOCK LAYOUT
+ *
+ *  maintains vertical spacing between different modules
+ *  for each of block types:
+ *    - block-small
+ *    - block
+ *    - block-med
+ *    - block-large
+ *  for different breakpoints
+ *
+ *  .l-{ block-type }
+ *  .l-{ block-type }-lt-{ breakpoint-type }
+ *  .l-{ block-type }-gt-{ breakpoint-type }
+ *
+ */
+[class^="l-block"] {
+  display: block;
+}
+
+.l-block-small {
+  margin-bottom: 12px;
+}
+
+/**
+ *  RESPONSIVE
+ *
+ */
+.l-block {
+  margin-bottom: 24px;
+}
+
+/**
+ *  RESPONSIVE
+ *
+ */
+.l-block-med {
+  margin-bottom: 36px;
+}
+
+/**
+ *  RESPONSIVE
+ *
+ */
+.l-block-large {
+  margin-bottom: 48px;
+}
+
+/**
+ *  RESPONSIVE
+ *
+ */
+/**
+ *  OFFSCREEN LAYOUT
+ *
+ *  offscreen navigation for small screen sizes
+ *
+ *  .l-offscreen
+ *    &__sidebar
+ *      &--left
+ *      &--right
+ *    &__overlay
+ *    &--open-left
+ *    &--open-right
+ *
+ */
+.l-offscreen__sidebar {
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  -webkit-backface-visibility: hidden;
+  width: 359px;
+  max-width: 100%;
+  height: 100%;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.l-offscreen__sidebar--left {
+  left: 0;
+  -moz-transform: translateX(-360px);
+  -ms-transform: translateX(-360px);
+  -webkit-transform: translateX(-360px);
+  transform: translateX(-360px);
+}
+.l-offscreen__sidebar--right {
+  right: 0;
+  -moz-transform: translateX(360px);
+  -ms-transform: translateX(360px);
+  -webkit-transform: translateX(360px);
+  transform: translateX(360px);
+}
+.l-offscreen__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+  -webkit-backface-visibility: hidden;
+  display: none;
+  height: 100%;
+  width: 100%;
+  background: white;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.l-offscreen--open-left .l-offscreen__sidebar--left {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.l-offscreen--open-left .l-offscreen__overlay {
+  display: block;
+}
+
+.l-offscreen--open-right .l-offscreen__sidebar--right {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.l-offscreen--open-right .l-offscreen__overlay {
+  display: block;
+}
+
+/**
+ *  GLOBAL STATE STYLES
+ *
+ */
+.is-top-aligned {
+  vertical-align: top !important;
+}
+
+.is-middle-aligned {
+  vertical-align: middle !important;
+}
+
+.is-bottom-aligned {
+  vertical-align: bottom !important;
+}
+
+.is-floated-right {
+  float: right;
+}
+
+.is-floated-left {
+  float: left;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-frozen {
+  overflow: hidden;
+}
+
+.new-positioning-grid {
+  position: relative;
+}
+
+.is-left-aligned {
+  text-align: left !important;
+}
+
+.is-right-aligned {
+  text-align: right !important;
+}
+
+.is-center-aligned {
+  text-align: center !important;
+}
+
+/**
+ *  RESPONSIVE VISIBILITY
+ *
+ */
+/**
+ *  DEVELOPMENT GRID HELPER
+ *
+ *  grid helper based on $global-baseline value
+ *
+ */
+.dev-grid {
+  display: block;
+  height: 1000%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(255, 0, 0, 0.2) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 24px 24px, 24px 24px, 12px 12px, 12px 12px;
+}
+
+/**
+ *  SHAME MODULE
+ *
+ *  sandbox for various experiments and other stuff that should be refactored in the future
+ *
+ */
+body {
+  width: 1000px;
+}
+
+.tutorial {
+  clear: both;
+  margin: 10px 0 0 20px;
+}
+
+.content {
+  margin: 20px 0 20px 0;
+}
+
+.notes {
+  margin: 20px;
+}
+
+.icon {
+  border: 1px solid black;
+  border-radius: 100px;
+  padding: 0 5px 0 5px;
+  width: 20px;
+  text-align: center;
+}

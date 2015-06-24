@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="BranchedTutorial">
+  <head>
+    <meta charset="UTF-8">
+    <title>Annotated Tutorial</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/medium-editor/dist/css/medium-editor.css">
+    <link rel="stylesheet" href="/medium-editor/dist/css/themes/default.css">
+    <!-- build:[src] scripts/ -->
+    <script src="modernizr/modernizr.js"></script>
+    <!-- /build -->
+  </head>
+  <body class="tutorial" ng-controller="mainController">
+
+    <div>
+      <h1>Tutorial title</h1>
+      <div class="content">First paragraph</div>
+      <div class="icon">!</div>
+      <div class="content">Second paragraph</div>
+      <div class="notes">Notes for second paragraph</div>
+      <div class="content">Third paragraph</div>
+    </div>
+
+    <div ng-repeat="note in tutorial">{{note.note}}</div>
+
+    <!-- build:js scripts/dependencies.js -->
+    <script src="/angularjs/angular.js"></script>
+    <!-- /build -->
+
+    <!-- build:js scripts/templates.js -->
+    <script src="/scripts/templates/templates.js"></script>
+    <!-- /build -->
+
+    <!-- build:js scripts/app.js -->
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/tutorialService.js"></script>
+    <script src="/scripts/mainController.js"></script>
+    <script src="/scripts/recursionHelper.js"></script>
+    <script src="/scripts/tutorialDirective.js"></script>
+    <!-- /build -->
+  </body>
+</html>

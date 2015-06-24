@@ -1,0 +1,147 @@
+/**
+ *  SIMPLE ARROW MIXIN
+ *
+ *  arrow made using border-width on one side of an empty box
+ *
+ *  @param $size {px}
+ *    resulting height of the arrow
+ *
+ *  @param $color {rgb}
+ *    background color of the arrow
+ *
+ *  @param $position-quadrant { 'quadrant-1' | 'quadrant-2' | 'quadrant-3' | 'quadrant-4'}
+ *    where to calculate arrow's position from
+ *
+ *                    |
+ *      quadrant-1    |    quadrant-2
+ *      (top left)    |    (top right)
+ *                    |
+ *    ----------------------------------
+ *                    |
+ *      quadrant-3    |    quadrant-4
+ *     (bottom left)  |  (bottom right)
+ *                    |
+ *
+ *  @param $position-x {px}
+ *    x coordinate of the arrow (in given quadrant)
+ *
+ *  @param $position-y {px}
+ *    y coordinate of the arrow (in given quadrant)
+ *
+ *  @param $direction { 'top' | 'right' | 'bottom' | 'left' }
+ *    direction where arrow will be pointing to
+ *
+ */
+@mixin simple-arrow($size, $color, $position-quadrant, $position-x, $position-y, $direction){
+  content: '';
+
+  position: absolute;
+  @if $position-quadrant == 'quadrant-1' {
+    top: $position-y; left: $position-x;
+  } @else if $position-quadrant == 'quadrant-2' {
+    top: $position-y; right: $position-x;
+  } @else if $position-quadrant == 'quadrant-3' {
+    bottom: $position-y; right: $position-x;
+  } @else if $position-quadrant == 'quadrant-4' {
+    bottom: $position-y; left: $position-x;
+  }
+
+  display: block;
+  height: 0; width: 0;
+
+  border-style: solid;
+  border-width: $size;
+  border-color: transparent;
+
+  @if $direction == 'right' {
+    border-left-color: $color;
+  } @else if $direction == 'left' {
+    border-right-color: $color;
+  } @else if $direction == 'top' {
+    border-bottom-color: $color;
+  } @else if $direction == 'bottom' {
+    border-top-color: $color;
+  }
+}
+
+/**
+ *  @mixin
+ *  TOP ARROW
+ *
+ *  top arrow made with a box rotated by 45 degrees, enables use of borders and box-shadows.
+ *
+ *  @param $size {px}
+ *    width of the square that will be rotated;
+ *    height of the actual arrow (rotated square) will be
+ *    $size * sqrt(2)/2
+ *
+ *  @param $color {rgb}
+ *    background color of the suare used to make the arrow
+ *
+ *  @param $pivot { 'left' | 'right' }
+ *    where to calculate position of the arrow from
+ *
+ *  @param $position {px}
+ *    position of the arrow from the given pivot
+ *
+ */
+@mixin top-arrow($size, $color, $pivot, $position){
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: - $size/2 + 1px;
+
+  @if $pivot == 'left' {
+    left: $position;
+  } @else if $pivot == 'right' {
+    right: $position;
+  }
+
+  display: block;
+  width: $size; height: $size;
+  background: $color;
+
+  @include rotateZ(45deg);
+}
+
+/**
+ *  @mixin
+ *  TOP ARROW FIX
+ *
+ *  hide bottom part of the arrow made with rotated square
+ *
+ *  @param $arrow-size {px}
+ *    width of the box used for the arrow
+ *
+ *  @param $shadow-size {px}
+ *    shadow size of the arrow
+ *
+ *  @param $color {rgb}
+ *    background color
+ *
+ *  @param $pivot { 'left' | 'right' }
+ *    where to calculate position of the fix from
+ *
+ *  @param $position {px}
+ *    position of the fix from the given pivot
+ *
+ */
+@mixin top-arrow-fix($arrow-size, $shadow-size, $color, $pivot, $position){
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 1px;
+
+  @if $pivot == 'left' {
+    left: $position;
+    margin-left: - $shadow-size;
+  } @else if $pivot == 'right' {
+    right: $position;
+    margin-right: - $shadow-size;
+  }
+
+  width: sqrt(2) * $arrow-size + 2 * $shadow-size;
+  height: (sqrt(2) * $arrow-size / 2) + $shadow-size;
+  background: $color;
+}

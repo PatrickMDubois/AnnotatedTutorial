@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="BranchedTutorial">
+  <head>
+    <meta charset="UTF-8">
+    <title>Annotated Tutorial</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/medium-editor/dist/css/medium-editor.css">
+    <link rel="stylesheet" href="/medium-editor/dist/css/themes/default.css">
+    <script src="scripts/modernizr.js"></script>
+  </head>
+  <body class="tutorial" ng-controller="mainController">
+
+    <div>
+      <h1>Tutorial title</h1>
+      <div class="content">First paragraph</div>
+      <div class="icon">!</div>
+      <div class="content">Second paragraph</div>
+      <div class="notes">Notes for second paragraph</div>
+      <div class="content">Third paragraph</div>
+    </div>
+
+    <div ng-repeat="note in tutorial">{{note.note}}</div>
+
+    <script src="scripts/dependencies.js"></script>
+
+    <script src="scripts/templates.js"></script>
+
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+/**
+ *  SPLIT LAYOUT
+ *
+ *  distributes items to the left and right sides of the parent item
+ *
+ *  .l-split
+ *    &__left
+ *    &__right
+ *
+ */
+.l-split {
+  @extend %cf;
+
+  &__left {
+    // nothing here for now...
+  }
+
+  &__right {
+    float: right;
+  }
+}
