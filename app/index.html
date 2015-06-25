@@ -9,10 +9,10 @@
     <script src="modernizr/modernizr.js"></script>
     <!-- /build -->
   </head>
-  <body class="tutorial" ng-controller="mainController">
+  <body ng-controller="mainController">
 
-    <h1>Tutorial Title</h1>
-    <div>
+    <div class="tutorial">
+      <h1>Remove Red Eye</h1>
       <div class="content" ng-repeat="section in tutorial">
         <div class="icon-position" ng-if="section.notes.length > 0">
           <button class="icon" ng-click="$parent.showNote = !showNote">!</button>
@@ -20,6 +20,17 @@
         {{section.content}}
         <div class="note" ng-show="showNote">
           <div ng-repeat="note in section.notes">{{note}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <div ng-hide="hideInput" ng-click="hideInput = true">V</div>
+      <div ng-show="hideInput" ng-click="hideInput = false">^</div>
+      <div ng-hide="hideInput">
+        <textarea></textarea>
+        <div>
+          <button>Submit</button>
         </div>
       </div>
     </div>

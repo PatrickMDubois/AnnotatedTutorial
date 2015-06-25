@@ -1,23 +1,79 @@
 [
   {
-    "content": "First paragraph",
+    "content": "Recent versions of photo editing software have an automatic red eye removal tool. But what do you do when that tool fails as it does all too often with people, and always with pets?",
     "notes":
     [
-      "This is a sample note."
+      "The Red Eye Removal tool removes the colour red. Pets' eyes become green instead of red, so the tool won't work in this situtation."
     ]
   },
   {
-    "content": "Second paragraph",
+    "content": "Here’s one technique that I like to use. I’m going to illustrate it on a pet photo featuring “green eye”, but the same trick works on people with red eye, too.",
     "notes":
     [
     ]
   },
   {
-    "content": "Third paragraph",
+    "content": "1. Zoom in on the eye of your subject",
     "notes":
     [
-      "This is another note.",
-      "This is the second note for a section."
+    ]
+  },
+  {
+    "content": "2. Get your Paintbrush (Keyboard shortcut B)",
+    "notes":
+    [
+      "If you can't find the Brush tool, look for the Pencil tool, Color Replacement tool or Mixer Brush tool. All of these are at the same location, but only one will be shown. Click and hold on it, and then hidden tools will be displayed, choose the Paintbrush."
+    ]
+  },
+  {
+    "content": "3. Set your foreground color to black",
+    "notes":
+    [
+    ]
+  },
+  {
+    "content": "4. In the options bar, set the brush mode to Color, opacity 100%",
+    "notes":
+    [
+      "By painting with the brush in this mode, we will desaturate the area that we paint."
+    ]
+  },
+  {
+    "content": "5. Using a small brush with a medium-soft edge, paint the mis-colored part of the eye to desaturate it.",
+    "notes":
+    [
+      "Since all we are doing is desaturating, this leaves the highlight and other gradients that reveal the shape of the eye intact. If we simply painted black we would destroy these details that make the eye look realistic."
+    ]
+  },
+  {
+    "content": "6. Get the Burn tool",
+    "notes":
+    [
+    ]
+  },
+  {
+    "content": "7. In the options bar, select Midtones, Exposure 20%",
+    "notes":
+    [
+    ]
+  },
+  {
+    "content": "8. Paint gradually in the pupil to burn (darken) the Midtones",
+    "notes":
+    [
+      "By restricting our burn to the Midtones, we avoid destroying the highlight in the eye or darkening that natural rim around the eye. We only affect the middle gray that was originally colored red or green."
+    ]
+  },
+  {
+    "content": "9. Darken the pupil to a reasonably dark gray (not pure black), and you’re done!",
+    "notes":
+    [
+    ]
+  },
+  {
+    "content": "Of course, this technique won’t work in every case, because there are a lot of different types of “red eye” in people and animals, but it’s usually my first go-to method for tough cases.",
+    "notes":
+    [
     ]
   }
 ]

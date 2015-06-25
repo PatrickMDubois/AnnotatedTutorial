@@ -15,7 +15,7 @@ body{
 }
 
 .content{
-  margin: 20px 0 20px 0;
+  margin: 25px 0 25px 0;
 }
 
 .note{
@@ -32,6 +32,7 @@ body{
   border: 1px solid black;
   border-radius: 100px;
   height: 20px;
+  left: 20px;
   line-height: 9px;
   padding: 0 5px 0 5px;
   position: relative;
@@ -42,4 +43,13 @@ body{
 
 .icon:hover{
   background-color: #eee;
+}
+
+.input-container{
+  border-radius: 10px;
+  border-top: 1px solid black;
+  bottom: 0px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
 }
