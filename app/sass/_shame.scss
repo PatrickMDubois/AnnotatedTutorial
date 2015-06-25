@@ -22,15 +22,22 @@ body{
   margin: 20px;
 }
 
+.icon-position{
+  position: relative;
+  width: 0;
+  height: 0
+}
+
 .icon{
   border: 1px solid black;
   border-radius: 100px;
+  height: 20px;
+  line-height: 9px;
   padding: 0 5px 0 5px;
-  width: 20px;
-  text-align: center;
-
   position: relative;
+  text-align: center;
   top: -20px;
+  width: 20px;
 }
 
 .icon:hover{

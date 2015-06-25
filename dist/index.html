@@ -12,9 +12,13 @@
     <h1>Tutorial Title</h1>
     <div>
       <div class="content" ng-repeat="section in tutorial">
-        <button class="icon" ng-click="showNote = true" ng-if="section.notes.length > 0">!</button>
+        <div class="icon-position" ng-if="section.notes.length > 0">
+          <button class="icon" ng-click="$parent.showNote = !showNote">!</button>
+        </div>
         {{section.content}}
-        <div class="note" ng-show="showNote" ng-repeat="note in section.notes">{{note}}</div>
+        <div class="note" ng-show="showNote">
+          <div ng-repeat="note in section.notes">{{note}}</div>
+        </div>
       </div>
     </div>
 
