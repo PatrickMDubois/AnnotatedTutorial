@@ -1,0 +1,7 @@
+.sass-cache/
+app/css/
+node_modules/
+bower_components/
+npm-debug.log
+.idea
+app/scripts/templates.js
