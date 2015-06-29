@@ -23,11 +23,19 @@
     </div>
 
     <div class="input-container">
-      <div ng-hide="hideInput" ng-click="hideInput = true">V</div>
       <div ng-show="hideInput" ng-click="hideInput = false">^</div>
       <div ng-hide="hideInput">
-        <textarea></textarea>
+        <div ng-click="hideInput = true">V</div>
+        <select>
+          <option>Alternate Method</option>
+          <option>Elaboration</option>
+          <option>Explaining the Instruction</option>
+        </select>
         <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>Choose Location</button>
           <button>Submit</button>
         </div>
       </div>
