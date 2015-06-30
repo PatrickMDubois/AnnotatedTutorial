@@ -35,6 +35,7 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
                         $scope.tutorial[$scope.selectedLine].notes.push($scope.newNote);
+                        $scope.selectedLine = -1;
                     }
                 };
             });

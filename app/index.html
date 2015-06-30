@@ -38,11 +38,11 @@
       <div ng-show="hideInput" ng-click="toggleHideInput()">^</div>
       <div ng-hide="hideInput">
         <div ng-click="toggleHideInput()">V</div>
+        <button ng-click="toggleSelectMode()">Choose Location</button>
         <div>
           <textarea ng-model="newNote"></textarea>
         </div>
         <div>
-          <button ng-click="toggleSelectMode()">Choose Location</button>
           <button ng-click="submitNote()">Submit</button>
         </div>
       </div>
