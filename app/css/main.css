@@ -1488,6 +1488,17 @@ body {
   margin: 25px 0 25px 0;
 }
 
+.hoverLine:hover {
+  background: #ccf;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selectedLine {
+  border: solid 1px #ccf;
+  border-radius: 5px;
+}
+
 .note {
   margin: 20px;
 }

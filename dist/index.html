@@ -12,10 +12,20 @@
     <div class="tutorial">
       <h1>Remove Red Eye</h1>
       <div class="content" ng-repeat="section in tutorial">
+
+        <!-- Icons for notes -->
         <div class="icon-position" ng-if="section.notes.length > 0">
           <button class="icon" ng-click="$parent.showNote = !showNote">!</button>
         </div>
-        {{section.content}}
+
+        <!-- Tutorial step -->
+        <div ng-class="{'hoverLine': $parent.selectingLine,
+              'selectedLine': $parent.selectedLine == $index}"
+             ng-click="lineClicked($index)">
+          {{section.content}}
+        </div>
+
+        <!-- Notes for step -->
         <div class="note" ng-show="showNote">
           <div ng-repeat="note in section.notes">{{note}}</div>
         </div>
@@ -23,20 +33,15 @@
     </div>
 
     <div class="input-container">
-      <div ng-show="hideInput" ng-click="hideInput = false">^</div>
+      <div ng-show="hideInput" ng-click="toggleHideInput()">^</div>
       <div ng-hide="hideInput">
-        <div ng-click="hideInput = true">V</div>
-        <select>
-          <option>Alternate Method</option>
-          <option>Elaboration</option>
-          <option>Explaining the Instruction</option>
-        </select>
+        <div ng-click="toggleHideInput()">V</div>
         <div>
-          <textarea></textarea>
+          <textarea ng-model="newNote"></textarea>
         </div>
         <div>
-          <button>Choose Location</button>
-          <button>Submit</button>
+          <button ng-click="toggleSelectMode()">Choose Location</button>
+          <button ng-click="submitNote()">Submit</button>
         </div>
       </div>
     </div>

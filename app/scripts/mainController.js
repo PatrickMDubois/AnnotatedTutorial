@@ -5,5 +5,37 @@ angular.module('AnnotatedTutorial')
         TutorialService.loaded
             .then(function() {
                 $scope.tutorial = TutorialService.tutorial;
+
+                $scope.selectingLine = false;
+                $scope.selectedLine = -1;
+                $scope.newNote = "";
+                $scope.hideInput = false;
+
+                $scope.toggleSelectMode = function(){
+                    $scope.selectingLine = !$scope.selectingLine;
+
+                    if(!$scope.selectingLine){
+                        $scope.selectedLine = -1;
+                    }
+                };
+
+                $scope.lineClicked = function($index){
+
+                    if($scope.selectingLine) {
+                        $scope.selectedLine = $index;
+                        $scope.selectingLine = false;
+                    }
+                };
+
+                $scope.toggleHideInput = function(){
+                    $scope.hideInput = !$scope.hideInput;
+                };
+
+                $scope.submitNote = function(){
+
+                    if($scope.selectedLine > -1 && $scope.newNote) {
+                        $scope.tutorial[$scope.selectedLine].notes.push($scope.newNote);
+                    }
+                };
             });
     });
