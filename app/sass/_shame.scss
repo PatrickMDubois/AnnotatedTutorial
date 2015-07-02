@@ -5,28 +5,17 @@
  *
  */
 
-body{
-  width: 1000px;
-}
-
-.tutorial{
-  clear: both;
-  margin: 10px 0 0 20px;
-}
+.tutorial{margin: 10px 0 0 20px;}
+.overlay{background-color: #aaa;}
 
 .content{
   margin: 25px 0 30px 0;
+  width: 1000px;
 }
 
 .hoverLine:hover{
-  background: #ddf;
-  border-radius: 5px;
+  background: #ffd;
   cursor: pointer;
-}
-
-.selectedLine{
-  background: #dff;
-  border-radius: 5px;
 }
 
 .icon-position{
@@ -41,7 +30,7 @@ body{
   height: 20px;
   line-height: 9px;
   position: relative;
-  top: -20px;
+  top: -22px;
   width: 20px;
 }
 
@@ -65,12 +54,21 @@ body{
 .note-methods{background-color: #fdf;}
 .note-command{background-color: #dfd;}
 
-.input-container{
+.input-start-container{
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
+  text-align: right;
+}
+
+.input-start{
   background-color: #fff;
   border-radius: 10px;
-  border-top: 1px solid black;
-  bottom: 0px;
-  position: fixed;
-  text-align: center;
-  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.highlight{
+  background-color: #ff0;
 }

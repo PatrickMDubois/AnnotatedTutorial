@@ -9,7 +9,7 @@
     <script src="modernizr/modernizr.js"></script>
     <!-- /build -->
   </head>
-  <body ng-controller="mainController">
+  <body ng-controller="mainController" ng-class="{'overlay': selectingLine}">
 
     <div class="tutorial">
       <h1>Remove Red Eye</h1>
@@ -33,7 +33,7 @@
 
         <!-- Tutorial step -->
         <div ng-class="{'hoverLine': $parent.selectingLine,
-              'selectedLine': $parent.selectedLine == $index}"
+              'highlight': $parent.selectedLine == $index}"
              ng-click="lineClicked($index)">
           {{section.content}}
         </div>
@@ -54,20 +54,9 @@
       </div>
     </div>
 
-    <div class="input-container">
-      <button ng-show="hideInput" ng-click="toggleHideInput()">Add a note (Show)</button>
-      <div ng-hide="hideInput">
-        <button ng-click="toggleHideInput()">Add a note (Hide)</button>
-        <div>
-          <button ng-click="toggleSelectMode()">Choose Location</button>
-        </div>
-        <div>
-          <textarea ng-model="newNote"></textarea>
-        </div>
-        <div>
-          <button ng-click="submitNote()">Submit Note</button>
-        </div>
-      </div>
+    <div class="input-start-container">
+      <div class="highlight input-start" ng-if="selectingLine">Please select the location for your note.</div>
+      <button class="input-start" ng-class="{'highlight': selectingLine}" ng-click="toggleSelectMode()">Add a note</button>
     </div>
 
     <!-- build:js scripts/dependencies.js -->
