@@ -1485,22 +1485,18 @@ body {
 }
 
 .content {
-  margin: 25px 0 25px 0;
+  margin: 25px 0 30px 0;
 }
 
 .hoverLine:hover {
-  background: #ccf;
+  background: #ddf;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .selectedLine {
-  border: solid 1px #ccf;
+  background: #dff;
   border-radius: 5px;
-}
-
-.note {
-  margin: 20px;
 }
 
 .icon-position {
@@ -1513,20 +1509,67 @@ body {
   border: 1px solid black;
   border-radius: 100px;
   height: 20px;
-  left: 20px;
   line-height: 9px;
-  padding: 0 5px 0 5px;
   position: relative;
-  text-align: center;
   top: -20px;
   width: 20px;
 }
 
-.icon:hover {
-  background-color: #eee;
+.icon-details {
+  left: 20px;
+}
+
+.icon-corrections {
+  left: 50px;
+}
+
+.icon-methods {
+  left: 80px;
+}
+
+.icon-command {
+  left: 110px;
+}
+
+.icon-details:hover {
+  background-color: #ddf;
+}
+
+.icon-corrections:hover {
+  background-color: #fdd;
+}
+
+.icon-methods:hover {
+  background-color: #fdf;
+}
+
+.icon-command:hover {
+  background-color: #dfd;
+}
+
+.note {
+  margin: 10px;
+  padding: 10px;
+}
+
+.note-details {
+  background-color: #ddf;
+}
+
+.note-corrections {
+  background-color: #fdd;
+}
+
+.note-methods {
+  background-color: #fdf;
+}
+
+.note-command {
+  background-color: #dfd;
 }
 
 .input-container {
+  background-color: #fff;
   border-radius: 10px;
   border-top: 1px solid black;
   bottom: 0px;
