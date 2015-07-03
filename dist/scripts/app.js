@@ -36,6 +36,7 @@ angular.module('AnnotatedTutorial')
                 $scope.selectedLine = -1;
                 $scope.newNote = "";
                 $scope.hideInput = false;
+                $scope.inputPos = [-1, -1];
 
                 $scope.toggleSelectMode = function(){
                     $scope.selectingLine = !$scope.selectingLine;
@@ -45,11 +46,12 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
-                $scope.lineClicked = function($index){
+                $scope.lineClicked = function($index, $event){
 
                     if($scope.selectingLine) {
                         $scope.selectedLine = $index;
                         $scope.selectingLine = false;
+                        $scope.inputPos = [$event.x, $event.y];
                     }
                 };
 

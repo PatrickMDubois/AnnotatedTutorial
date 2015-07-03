@@ -34,7 +34,7 @@
         <!-- Tutorial step -->
         <div ng-class="{'hoverLine': $parent.selectingLine,
               'highlight': $parent.selectedLine == $index}"
-             ng-click="lineClicked($index)">
+             ng-click="lineClicked($index, $event)">
           {{section.content}}
         </div>
 
@@ -57,6 +57,12 @@
     <div class="input-start-container">
       <div class="highlight input-start" ng-if="selectingLine">Please select the location for your note.</div>
       <button class="input-start" ng-class="{'highlight': selectingLine}" ng-click="toggleSelectMode()">Add a note</button>
+    </div>
+
+    <div class="input-container"
+         ng-if="inputPos[1] >= 0"
+         ng-style="{'left':inputPos[0] + 'px', 'top':inputPos[1] + 'px'}">
+      <textarea></textarea>
     </div>
 
     <!-- build:js scripts/dependencies.js -->

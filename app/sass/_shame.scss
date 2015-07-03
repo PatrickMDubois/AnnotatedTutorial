@@ -6,7 +6,7 @@
  */
 
 .tutorial{margin: 10px 0 0 20px;}
-.overlay{background-color: #aaa;}
+.overlay{background-color: #ccc;}
 
 .content{
   margin: 25px 0 30px 0;
@@ -67,6 +67,13 @@
   border: 1px solid black;
   margin-bottom: 10px;
   padding: 5px;
+}
+
+.input-container{
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid black;
+  position: absolute;
 }
 
 .highlight{
