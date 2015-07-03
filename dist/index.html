@@ -60,7 +60,12 @@
     <div class="input-container"
          ng-if="inputPos[1] >= 0"
          ng-style="{'left':inputPos[0] + 'px', 'top':inputPos[1] + 'px'}">
-      <textarea></textarea>
+      <!-- use radio buttons? -->
+      <button ng-click="showTextarea = true" class="icon icon-details">+</button>
+      <button ng-click="showTextarea = true" class="icon icon-corrections">!</button>
+      <button ng-click="showTextarea = true" class="icon icon-methods">&#8618;</button>
+      <button ng-click="showTextarea = true" class="icon icon-command">?</button>
+      <textarea ng-show="showTextarea"></textarea>
     </div>
 
     <script src="scripts/dependencies.js"></script>
