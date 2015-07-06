@@ -11,6 +11,7 @@ angular.module('AnnotatedTutorial')
                 $scope.newNote = "";
                 $scope.hideInput = false;
                 $scope.inputPos = -1;
+                $scope.inputType = "";
 
                 $scope.toggleSelectMode = function(){
                     $scope.selectingLine = !$scope.selectingLine;
@@ -31,7 +32,12 @@ angular.module('AnnotatedTutorial')
 
                 $scope.toggleHideInput = function(){
                     $scope.hideInput = !$scope.hideInput;
+                    $scope.inputType = "test";
                 };
+
+                $scope.typeSelected = function(){
+                    $scope.showTextarea = true
+                }
 
                 $scope.submitNote = function(){
 

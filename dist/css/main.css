@@ -1496,8 +1496,8 @@ iframe {
   border: 1px solid black;
   border-radius: 10px;
   height: 20px;
-  left: 20px;
   line-height: 9px;
+  margin-left: 10px;
   position: relative;
   width: 20px;
 }
@@ -1558,7 +1558,6 @@ iframe {
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid black;
-  position: absolute;
 }
 
 .highlight {
