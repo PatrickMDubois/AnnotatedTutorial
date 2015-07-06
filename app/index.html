@@ -11,63 +11,71 @@
   </head>
   <body ng-controller="mainController" ng-class="{'overlay': selectingLine}">
 
-    <div class="tutorial">
-      <h1>Remove Red Eye</h1>
-      <div class="content" ng-repeat="section in tutorial">
+    <div class="l-wrap">
+      <div class="grid grid--full is-extended">
+        <div class="grid__item three-quarters is-extended">
+          <div class="document">
+            <h1>Remove Red Eye</h1>
+            <div class="content" ng-repeat="section in tutorial">
 
-        <!-- Icons for notes -->
-        <div class="icon-position">
-          <button class="icon icon-details"
-                  ng-if="section.notes.details.length > 0"
-                  ng-click="$parent.showDetails = !showDetails">+</button>
-          <button class="icon icon-corrections"
-                  ng-if="section.notes.corrections.length > 0"
-                  ng-click="$parent.showCorrections = !showCorrections">!</button>
-          <button class="icon icon-methods"
-                  ng-if="section.notes.methods.length > 0"
-                  ng-click="$parent.showMethods = !showMethods">&#8618;</button>
-          <button class="icon icon-command"
-                  ng-if="section.notes.command.length > 0"
-                  ng-click="$parent.showCommand = !showCommand">?</button>
+              <!-- Icons for notes -->
+              <div class="icon-container">
+                <button class="icon icon-details"
+                        ng-if="section.notes.details.length > 0"
+                        ng-click="$parent.showDetails = !showDetails">+</button>
+                <button class="icon icon-corrections"
+                        ng-if="section.notes.corrections.length > 0"
+                        ng-click="$parent.showCorrections = !showCorrections">!</button>
+                <button class="icon icon-methods"
+                        ng-if="section.notes.methods.length > 0"
+                        ng-click="$parent.showMethods = !showMethods">&#8618;</button>
+                <button class="icon icon-command"
+                        ng-if="section.notes.command.length > 0"
+                        ng-click="$parent.showCommand = !showCommand">?</button>
+              </div>
+
+              <!-- Tutorial step -->
+              <div ng-class="{'hoverLine': $parent.selectingLine,
+                    'highlight': $parent.selectedLine == $index}"
+                   ng-click="lineClicked($index, $event)">
+                {{section.content}}
+              </div>
+
+              <!-- Notes for step -->
+              <div ng-show="showDetails">
+                <div class="note note-details" ng-repeat="note in section.notes.details">{{note}}</div>
+              </div>
+              <div ng-show="showCorrections">
+                <div class="note note-corrections" ng-repeat="note in section.notes.corrections">{{note}}</div>
+              </div>
+              <div ng-show="showMethods">
+                <div class="note note-methods" ng-repeat="note in section.notes.methods">{{note}}</div>
+              </div>
+              <div ng-show="showCommand">
+                <div class="note note-command" ng-repeat="note in section.notes.command">{{note}}</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Tutorial step -->
-        <div ng-class="{'hoverLine': $parent.selectingLine,
-              'highlight': $parent.selectedLine == $index}"
-             ng-click="lineClicked($index, $event)">
-          {{section.content}}
+        <div class="grid__item one-quarter">
+          <div class="input-container" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}">
+            <!-- use radio buttons? -->
+            <div>
+              <button ng-click="showTextarea = true" class="icon icon-details">+</button>
+              <button ng-click="showTextarea = true" class="icon icon-corrections">!</button>
+              <button ng-click="showTextarea = true" class="icon icon-methods">&#8618;</button>
+              <button ng-click="showTextarea = true" class="icon icon-command">?</button>
+            </div>
+            <textarea ng-show="showTextarea"></textarea>
+          </div>
         </div>
 
-        <!-- Notes for step -->
-        <div ng-show="showDetails">
-          <div class="note note-details" ng-repeat="note in section.notes.details">{{note}}</div>
-        </div>
-        <div ng-show="showCorrections">
-          <div class="note note-corrections" ng-repeat="note in section.notes.corrections">{{note}}</div>
-        </div>
-        <div ng-show="showMethods">
-          <div class="note note-methods" ng-repeat="note in section.notes.methods">{{note}}</div>
-        </div>
-        <div ng-show="showCommand">
-          <div class="note note-command" ng-repeat="note in section.notes.command">{{note}}</div>
+        <div class="input-start-container">
+          <div class="highlight input-start" ng-if="selectingLine">Please select the location for your note.</div>
+          <button class="input-start" ng-class="{'highlight': selectingLine}" ng-click="toggleSelectMode()">Add a note</button>
         </div>
       </div>
-    </div>
-
-    <div class="input-start-container">
-      <div class="highlight input-start" ng-if="selectingLine">Please select the location for your note.</div>
-      <button class="input-start" ng-class="{'highlight': selectingLine}" ng-click="toggleSelectMode()">Add a note</button>
-    </div>
-
-    <div class="input-container"
-         ng-if="inputPos[1] >= 0"
-         ng-style="{'left':inputPos[0] + 'px', 'top':inputPos[1] + 'px'}">
-      <!-- use radio buttons? -->
-      <button ng-click="showTextarea = true" class="icon icon-details">+</button>
-      <button ng-click="showTextarea = true" class="icon icon-corrections">!</button>
-      <button ng-click="showTextarea = true" class="icon icon-methods">&#8618;</button>
-      <button ng-click="showTextarea = true" class="icon icon-command">?</button>
-      <textarea ng-show="showTextarea"></textarea>
     </div>
 
     <!-- build:js scripts/dependencies.js -->

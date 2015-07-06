@@ -5,39 +5,27 @@
  *
  */
 
-.tutorial{margin: 10px 0 0 20px;}
 .overlay{background-color: #ccc;}
-
-.content{
-  margin: 25px 0 30px 0;
-  width: 1000px;
-}
+.content{margin: 5px 0 10px 0;}
 
 .hoverLine:hover{
   background: #ffd;
   cursor: pointer;
 }
 
-.icon-position{
-  position: relative;
-  width: 0;
-  height: 0;
+.icon-container{
+  height: 20px;
 }
 
 .icon{
   border: 1px solid black;
-  border-radius: 100px;
+  border-radius: 10px;
   height: 20px;
+  left: 20px;
   line-height: 9px;
   position: relative;
-  top: -23px;
   width: 20px;
 }
-
-.icon-details{left: 20px;}
-.icon-corrections{left: 50px;}
-.icon-methods{left: 80px;}
-.icon-command{left: 110px;}
 
 .icon-details:hover{background-color: #ddf;}
 .icon-corrections:hover{background-color: #fdd;}

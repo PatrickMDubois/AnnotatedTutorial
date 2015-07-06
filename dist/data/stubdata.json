@@ -7,9 +7,9 @@
       [
         "The Red Eye Removal tool removes the colour red. Pets' eyes become green instead of red, so the tool won't work in this situation."
       ],
-      "corrections": ["test"],
-      "methods": ["test"],
-      "command": ["test"]
+      "corrections": [],
+      "methods": [],
+      "command": []
     }
   },
   {
