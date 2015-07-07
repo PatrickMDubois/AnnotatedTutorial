@@ -1565,6 +1565,19 @@ iframe {
   width: 100%;
 }
 
+.plain-button {
+  border: 1px solid black;
+  float: right;
+  padding: 0 5px;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+
+.plain-button:hover {
+  background: #ddd;
+}
+
 .highlight {
   background-color: #ff0;
 }

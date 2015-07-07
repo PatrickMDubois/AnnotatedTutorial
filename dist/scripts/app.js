@@ -65,6 +65,14 @@ angular.module('AnnotatedTutorial')
                     $scope.inputType = type;
                 }
 
+                $scope.closeInput = function(){
+                    $scope.showTextarea = false;
+                    $scope.inputType = "";
+                    $scope.newNote = "";
+                    $scope.selectedLine = -1;
+                    $scope.inputPos = -1;
+                }
+
                 $scope.submitNote = function(){
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
@@ -74,8 +82,7 @@ angular.module('AnnotatedTutorial')
                         if($scope.inputType == 'methods'){$scope.tutorial[$scope.selectedLine].notes.methods.push($scope.newNote);}
                         if($scope.inputType == 'command'){$scope.tutorial[$scope.selectedLine].notes.command.push($scope.newNote);}
 
-                        $scope.newNote = "";
-                        $scope.selectedLine = -1;
+                        $scope.closeInput()
                     }
                 };
             });
