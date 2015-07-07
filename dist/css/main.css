@@ -1556,8 +1556,13 @@ iframe {
 
 .input-container {
   background-color: #fff;
-  border-radius: 10px;
   border: 1px solid black;
+  padding: 5px;
+  position: absolute;
+}
+
+.input-text {
+  width: 100%;
 }
 
 .highlight {

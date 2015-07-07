@@ -57,18 +57,20 @@
         </div>
 
         <div class="grid__item one-quarter">
-          <!--<div class="input-container" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}">-->
-          <div class="input-container">
-            <!-- use radio buttons? -->
+          <div class="input-container" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}">
             <div>
-              <button ng-click="typeSelected()" class="icon icon-details">+</button>
-              <button ng-click="typeSelected()" class="icon icon-corrections">!</button>
-              <button ng-click="typeSelected()" class="icon icon-methods">&#8618;</button>
-              <button ng-click="typeSelected()" class="icon icon-command">?</button>
+              <button ng-click="typeSelected('details')" class="icon icon-details">+</button>
+              <button ng-click="typeSelected('corrections')" class="icon icon-corrections">!</button>
+              <button ng-click="typeSelected('methods')" class="icon icon-methods">&#8618;</button>
+              <button ng-click="typeSelected('command')" class="icon icon-command">?</button>
             </div>
             <div ng-show="showTextarea">
-              <div>{{inputType}}</div>
-              <textarea></textarea>
+              <div ng-if="inputType == 'details'">Additional details help other readers understand how to complete a step and why it is important.</div>
+              <div ng-if="inputType == 'corrections'">Corrections alert other readers of an error in the tutorial, or of a detail that might differ in different software versions.</div>
+              <div ng-if="inputType == 'methods'">Alternate methods describe a different way of accomplishing a step.</div>
+              <div ng-if="inputType == 'command'">Command locations help other readers locate a command, tool, option or other menu item.</div>
+              <textarea class="input-text" ng-model="newNote" placeholder="Please enter your note here."></textarea>
+              <button ng-click="submitNote()">Submit</button>
             </div>
           </div>
         </div>

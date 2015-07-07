@@ -58,17 +58,22 @@ angular.module('AnnotatedTutorial')
 
                 $scope.toggleHideInput = function(){
                     $scope.hideInput = !$scope.hideInput;
-                    $scope.inputType = "test";
                 };
 
-                $scope.typeSelected = function(){
-                    $scope.showTextarea = true
+                $scope.typeSelected = function(type){
+                    $scope.showTextarea = true;
+                    $scope.inputType = type;
                 }
 
                 $scope.submitNote = function(){
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
-                        $scope.tutorial[$scope.selectedLine].notes.push($scope.newNote);
+
+                        if($scope.inputType == 'details'){$scope.tutorial[$scope.selectedLine].notes.details.push($scope.newNote);}
+                        if($scope.inputType == 'corrections'){$scope.tutorial[$scope.selectedLine].notes.corrections.push($scope.newNote);}
+                        if($scope.inputType == 'methods'){$scope.tutorial[$scope.selectedLine].notes.methods.push($scope.newNote);}
+                        if($scope.inputType == 'command'){$scope.tutorial[$scope.selectedLine].notes.command.push($scope.newNote);}
+
                         $scope.newNote = "";
                         $scope.selectedLine = -1;
                     }
