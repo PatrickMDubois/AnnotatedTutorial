@@ -5,16 +5,20 @@
  *
  */
 
-.overlay{background-color: #ccc;}
+.overlay{/*background-color: #ccc;*/}
 .content{margin: 5px 0 10px 0;}
 
+.highlight{
+  background-color: #ff9500;
+}
+
 .hoverLine:hover{
-  background: #ffd;
+  background: #ffddaa;
   cursor: pointer;
 }
 
 .icon-container{
-  height: 20px;
+  height: 25px;
 }
 
 .icon{
@@ -23,7 +27,6 @@
   height: 20px;
   line-height: 9px;
   margin-left: 10px;
-  position: relative;
   width: 20px;
 }
 
@@ -57,6 +60,10 @@
   padding: 5px;
 }
 
+.input-start-button:hover{
+  background: #ddd;
+}
+
 .input-container{
   background-color: #fff;
   border: 1px solid black;
@@ -79,8 +86,4 @@
 
 .plain-button:hover{
   background: #ddd;
-}
-
-.highlight{
-  background-color: #ff0;
 }
