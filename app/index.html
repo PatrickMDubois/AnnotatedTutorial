@@ -37,6 +37,10 @@
                 {{section.content}}
               </div>
 
+              <div ng-if="section.image">
+                <img src="{{section.image}}" />
+              </div>
+
               <div ng-show="showDetails">
                 <div class="note note-details" ng-repeat="note in section.notes.details">{{note}}</div>
               </div>
