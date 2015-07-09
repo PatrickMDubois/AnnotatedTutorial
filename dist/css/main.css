@@ -1475,14 +1475,6 @@ iframe {
  *  sandbox for various experiments and other stuff that should be refactored in the future
  *
  */
-.overlay {
-  /*background-color: #ccc;*/
-}
-
-.content {
-  margin: 5px 0 10px 0;
-}
-
 .highlight {
   background-color: #ff9500;
 }
@@ -1492,16 +1484,11 @@ iframe {
   cursor: pointer;
 }
 
-.icon-container {
-  height: 25px;
-}
-
 .icon {
   border: 1px solid black;
   border-radius: 10px;
   height: 20px;
   line-height: 9px;
-  margin-left: 10px;
   width: 20px;
 }
 

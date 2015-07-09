@@ -1,5 +1,15 @@
 [
   {
+    "content": "Remove Red Eye",
+    "notes":
+    {
+      "details": ["test"],
+      "corrections": ["test"],
+      "methods": ["test"],
+      "command": ["test"]
+    }
+  },
+  {
     "content": "Recent versions of photo editing software have an automatic red eye removal tool. But what do you do when that tool fails as it does all too often with people, and always with pets?",
     "notes":
     {

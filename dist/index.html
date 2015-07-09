@@ -7,16 +7,13 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="scripts/modernizr.js"></script>
   </head>
-  <body ng-controller="mainController" ng-class="{'overlay': selectingLine}">
+  <body ng-controller="mainController">
 
     <div class="l-wrap">
       <div class="grid grid--full is-extended">
         <div class="grid__item three-quarters is-extended">
-          <h1>Remove Red Eye</h1>
-          <div class="content" ng-repeat="section in tutorial">
-
-            <!-- Icons for notes -->
-            <div class="icon-container">
+          <div class="l-block grid grid--full" ng-repeat="section in tutorial">
+            <div class="grid__item one-eighth is-right-aligned">
               <button class="icon icon-details"
                       ng-if="section.notes.details.length > 0"
                       ng-click="$parent.showDetails = !showDetails">+</button>
@@ -31,25 +28,25 @@
                       ng-click="$parent.showCommand = !showCommand">?</button>
             </div>
 
-            <!-- Tutorial step -->
-            <div ng-class="{'hoverLine': $parent.selectingLine,
-                  'highlight': $parent.selectedLine == $index}"
-                 ng-click="lineClicked($index, $event)">
-              {{section.content}}
-            </div>
+            <div class="grid__item seven-eighths">
+              <div ng-class="{'hoverLine': $parent.selectingLine,
+                    'highlight': $parent.selectedLine == $index}"
+                   ng-click="lineClicked($index, $event)">
+                {{section.content}}
+              </div>
 
-            <!-- Notes for step -->
-            <div ng-show="showDetails">
-              <div class="note note-details" ng-repeat="note in section.notes.details">{{note}}</div>
-            </div>
-            <div ng-show="showCorrections">
-              <div class="note note-corrections" ng-repeat="note in section.notes.corrections">{{note}}</div>
-            </div>
-            <div ng-show="showMethods">
-              <div class="note note-methods" ng-repeat="note in section.notes.methods">{{note}}</div>
-            </div>
-            <div ng-show="showCommand">
-              <div class="note note-command" ng-repeat="note in section.notes.command">{{note}}</div>
+              <div ng-show="showDetails">
+                <div class="note note-details" ng-repeat="note in section.notes.details">{{note}}</div>
+              </div>
+              <div ng-show="showCorrections">
+                <div class="note note-corrections" ng-repeat="note in section.notes.corrections">{{note}}</div>
+              </div>
+              <div ng-show="showMethods">
+                <div class="note note-methods" ng-repeat="note in section.notes.methods">{{note}}</div>
+              </div>
+              <div ng-show="showCommand">
+                <div class="note note-command" ng-repeat="note in section.notes.command">{{note}}</div>
+              </div>
             </div>
           </div>
         </div>

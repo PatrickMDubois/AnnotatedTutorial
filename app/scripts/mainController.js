@@ -15,10 +15,6 @@ angular.module('AnnotatedTutorial')
 
                 $scope.toggleSelectMode = function(){
                     $scope.selectingLine = !$scope.selectingLine;
-
-                    if(!$scope.selectingLine){
-                        $scope.selectedLine = -1;
-                    }
                 };
 
                 $scope.lineClicked = function($index, $event){
