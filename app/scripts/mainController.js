@@ -22,7 +22,7 @@ angular.module('AnnotatedTutorial')
                     if($scope.selectingLine) {
                         $scope.selectedLine = $index;
                         $scope.selectingLine = false;
-                        $scope.inputPos = $event.y;
+                        $scope.inputPos = $event.pageY;
                     }
                 };
 
