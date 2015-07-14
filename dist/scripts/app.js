@@ -35,6 +35,7 @@ angular.module('AnnotatedTutorial')
                 $scope.selectingLine = false;
                 $scope.selectedLine = -1;
                 $scope.newNote = "";
+                $scope.extraInput = "";
                 $scope.hideInput = false;
                 $scope.inputPos = -1;
                 $scope.inputType = "";
@@ -65,6 +66,7 @@ angular.module('AnnotatedTutorial')
                     $scope.showTextarea = false;
                     $scope.inputType = "";
                     $scope.newNote = "";
+                    $scope.extraInput = "";
                     $scope.selectedLine = -1;
                     $scope.inputPos = -1;
                 }
@@ -73,10 +75,18 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
 
-                        if($scope.inputType == 'details'){$scope.tutorial[$scope.selectedLine].notes.details.push($scope.newNote);}
-                        if($scope.inputType == 'corrections'){$scope.tutorial[$scope.selectedLine].notes.corrections.push($scope.newNote);}
-                        if($scope.inputType == 'methods'){$scope.tutorial[$scope.selectedLine].notes.methods.push($scope.newNote);}
-                        if($scope.inputType == 'command'){$scope.tutorial[$scope.selectedLine].notes.command.push($scope.newNote);}
+                        if($scope.inputType == 'details'){
+                            $scope.tutorial[$scope.selectedLine].notes.details.push($scope.newNote);
+                        }
+                        else if($scope.inputType == 'corrections'){
+                            $scope.tutorial[$scope.selectedLine].notes.corrections.push($scope.newNote);
+                        }
+                        else if($scope.inputType == 'methods'){
+                            $scope.tutorial[$scope.selectedLine].notes.methods.push({"software": $scope.extraInput, "note": $scope.newNote});
+                        }
+                        else if($scope.inputType == 'command'){
+                            $scope.tutorial[$scope.selectedLine].notes.command.push({"software": $scope.extraInput, "note": $scope.newNote});
+                        }
 
                         $scope.closeInput()
                     }

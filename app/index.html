@@ -48,10 +48,15 @@
                 <div class="note note-corrections" ng-repeat="note in section.notes.corrections">{{note}}</div>
               </div>
               <div ng-show="showMethods">
-                <div class="note note-methods" ng-repeat="note in section.notes.methods">{{note}}</div>
+                <div class="note note-methods" ng-repeat="note in section.notes.methods">
+                  <div>Software: {{note.software}}</div>
+                  <div>{{note.note}}</div>
+                </div>
               </div>
               <div ng-show="showCommand">
-                <div class="note note-command" ng-repeat="note in section.notes.command">{{note}}</div>
+                <div class="note note-command" ng-repeat="note in section.notes.command">
+                  <div>Software: {{note.software}}</div>
+                  <div>{{note.note}}</div></div>
               </div>
             </div>
           </div>
@@ -70,6 +75,7 @@
             <div ng-if="inputType == 'corrections'">Corrections alert other readers of an error in the tutorial, or of a detail that might change in different software versions.</div>
             <div ng-if="inputType == 'methods'">Alternate methods describe a different way of accomplishing a step.</div>
             <div ng-if="inputType == 'command'">Command locations help other readers locate a command, tool, option or other menu item.</div>
+            <div ng-if="inputType == 'methods' || inputType == 'command'"><input type="text" ng-model="$parent.$parent.extraInput" /></div>
             <textarea class="input-text" ng-model="$parent.newNote" placeholder="Please enter your note here."></textarea>
             <button ng-click="submitNote()" class="plain-button">Submit</button>
           </div>

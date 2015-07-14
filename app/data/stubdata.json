@@ -6,8 +6,8 @@
     {
       "details": ["test"],
       "corrections": ["test"],
-      "methods": ["test"],
-      "command": ["test"]
+      "methods": [{"software": "GIMP", "note": "test"}],
+      "command": [{"software": "GIMP", "note": "test"}]
     }
   },
   {
