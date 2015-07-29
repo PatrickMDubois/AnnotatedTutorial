@@ -1476,11 +1476,11 @@ iframe {
  *
  */
 .highlight {
-  background-color: #ff9500;
+  background-color: #eaf;
 }
 
 .hover-line:hover {
-  background: #ffddaa;
+  background: #fcf;
   cursor: pointer;
 }
 
@@ -1502,7 +1502,7 @@ iframe {
 }
 
 .highlight-methods {
-  box-shadow: 0 0 5px 3px #e8e;
+  box-shadow: 0 0 5px 3px #ff9500;
 }
 
 .highlight-command {
@@ -1510,19 +1510,19 @@ iframe {
 }
 
 .icon-details:hover {
-  background-color: #ddf;
+  background-color: #eef;
 }
 
 .icon-corrections:hover {
-  background-color: #fdd;
+  background-color: #fee;
 }
 
 .icon-methods:hover {
-  background-color: #fdf;
+  background-color: #fec;
 }
 
 .icon-command:hover {
-  background-color: #dfd;
+  background-color: #efe;
 }
 
 .note {
@@ -1531,19 +1531,19 @@ iframe {
 }
 
 .note-details {
-  background-color: #ddf;
+  background-color: #eef;
 }
 
 .note-corrections {
-  background-color: #fdd;
+  background-color: #fee;
 }
 
 .note-methods {
-  background-color: #fdf;
+  background-color: #fec;
 }
 
 .note-command {
-  background-color: #dfd;
+  background-color: #efe;
 }
 
 .input-start-container {
