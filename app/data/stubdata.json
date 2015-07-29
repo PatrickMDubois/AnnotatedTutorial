@@ -7,7 +7,10 @@
       "details": ["test"],
       "corrections": ["test"],
       "methods": [{"software": "GIMP", "note": "test"}],
-      "command": [{"software": "GIMP", "note": "test"}]
+      "command":{
+        "software": ["GIMP"],
+        "notes": [{"software": "GIMP", "note": "test"}]
+      }
     }
   },
   {
@@ -21,7 +24,12 @@
       ],
       "corrections": [],
       "methods": [],
-      "command": []
+      "command": {
+        "software": ["GIMP", "PS6"],
+        "notes": [{"software": "GIMP", "note": "test"},
+          {"software": "GIMP", "note": "second"},
+          {"software": "PS6", "note": "third"}]
+      }
     }
   },
   {

@@ -9,7 +9,7 @@
   background-color: #ff9500;
 }
 
-.hoverLine:hover{
+.hover-line:hover{
   background: #ffddaa;
   cursor: pointer;
 }
@@ -22,6 +22,11 @@
   margin-right: 4px;
   width: 20px;
 }
+
+.highlight-details{box-shadow: 0 0 5px 3px #88e;}
+.highlight-corrections{box-shadow: 0 0 5px 3px #e88;}
+.highlight-methods{box-shadow: 0 0 5px 3px #e8e;}
+.highlight-command{box-shadow: 0 0 5px 3px #8e8;}
 
 .icon-details:hover{background-color: #ddf;}
 .icon-corrections:hover{background-color: #fdd;}
