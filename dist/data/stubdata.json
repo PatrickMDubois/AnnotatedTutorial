@@ -48,10 +48,13 @@
     "image": "http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-2.jpg",
     "notes":
     {
-      "details": [],
+      "details": ["Zooming in will simply make your image easier to work with."],
       "corrections": [],
       "methods": [],
-      "command": []
+      "command": {
+        "software": ["GIMP"],
+        "notes": [{"software": "GIMP", "note": "The zoom tool is a magnifying glass in the second row of the toolbox. Alternatively, use the Z key."}]
+      }
     }
   },
   {
