@@ -10,7 +10,7 @@
 }
 
 .hover-line:hover{
-  background: #fcf;
+  background-color: #fcf;
   cursor: pointer;
 }
 
@@ -58,15 +58,30 @@
   padding: 5px;
 }
 
+.input-start-button{
+  background-color: #fff;
+}
+
 .input-start-button:hover{
-  background: #ddd;
+  background-color: #fff;
 }
 
 .input-container{
   background-color: #fff;
   border: 1px solid black;
+  font-size: 0.9em;
   padding: 5px;
   position: absolute;
+}
+
+.description{
+  border: 1px #ccc dotted;
+  margin: 5px 0;
+  padding: 2px;
+}
+
+.software-container{
+  padding-bottom: 5px;
 }
 
 .input-text{

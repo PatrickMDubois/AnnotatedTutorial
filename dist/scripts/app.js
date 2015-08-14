@@ -32,6 +32,7 @@ angular.module('AnnotatedTutorial')
             .then(function() {
                 $scope.tutorial = TutorialService.tutorial;
 
+                $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "";
                 $scope.selectingLine = false;
                 $scope.selectedLine = -1;
