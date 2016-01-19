@@ -1475,6 +1475,13 @@ iframe {
  *  sandbox for various experiments and other stuff that should be refactored in the future
  *
  */
+.header {
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 10px;
+  position: fixed;
+}
+
 .highlight {
   background-color: #eaf;
 }
