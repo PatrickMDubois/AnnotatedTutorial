@@ -10,10 +10,9 @@
     <!-- /build -->
   </head>
   <body ng-controller="mainController">
-
     <div class="l-wrap">
       <div class="grid grid--full is-extended">
-        <div class="grid__item three-quarters is-extended">
+        <div class="grid__item three-quarters is-extended content">
           <div class="grid__item three-quarters is-extended header">Highlight notes for: <select ng-model="selectedSoftware">
             <option>All software</option>
             <option ng-repeat="software in availableSoftware">{{software}}</option>
@@ -32,6 +31,7 @@
                       ng-if="section.notes.corrections.length > 0"
                       ng-click="$parent.showCorrections = !showCorrections">!</button>
               <button class="icon icon-methods"
+                      ng-class="{'highlight-methods': section.notes.command.software.indexOf(selectedSoftware) > -1}"
                       ng-if="section.notes.methods.length > 0"
                       ng-click="$parent.showMethods = !showMethods">&#8618;</button>
               <button class="icon icon-command"
@@ -58,7 +58,8 @@
                 <div class="note note-corrections" ng-repeat="note in section.notes.corrections">{{note}}</div>
               </div>
               <div ng-show="showMethods">
-                <div class="note note-methods" ng-repeat="note in section.notes.methods">
+                <div class="note note-methods" ng-repeat="note in section.notes.methods"
+                     ng-class="{'highlight-methods': note.software === selectedSoftware}">
                   <div>Software: {{note.software}}</div>
                   <div>{{note.note}}</div>
                 </div>

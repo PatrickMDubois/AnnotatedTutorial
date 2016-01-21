@@ -1475,11 +1475,20 @@ iframe {
  *  sandbox for various experiments and other stuff that should be refactored in the future
  *
  */
-.header {
+html, body {
+  background-color: #e0e0e0;
+}
+
+.content {
   background-color: #fff;
-  border: 1px solid black;
+}
+
+.header {
+  background-color: #e0e0e0;
   padding: 10px;
   position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 .icon {
