@@ -12,16 +12,8 @@
   position: fixed;
 }
 
-.highlight{
-  background-color: #eaf;
-}
-
-.hover-line:hover{
-  background-color: #fcf;
-  cursor: pointer;
-}
-
 .icon{
+  background-color: #fff;
   border: 1px solid black;
   border-radius: 10px;
   height: 20px;
@@ -29,6 +21,8 @@
   margin-right: 4px;
   width: 20px;
 }
+
+.selected-step{background-color: #FFFFCC;}
 
 .highlight-details{box-shadow: 0 0 5px 3px #88e;}
 .highlight-corrections{box-shadow: 0 0 5px 3px #e88;}
@@ -50,27 +44,12 @@
 .note-methods{background-color: #fec;}
 .note-command{background-color: #efe;}
 
-.input-start-container{
-  bottom: 20px;
-  position: fixed;
-  right: 20px;
-  text-align: right;
-}
-
 .input-start{
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid black;
-  margin-bottom: 10px;
   padding: 5px;
-}
-
-.input-start-button{
-  background-color: #fff;
-}
-
-.input-start-button:hover{
-  background-color: #fff;
+  position: absolute;
 }
 
 .input-container{

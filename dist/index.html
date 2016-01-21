@@ -13,10 +13,15 @@
       <div class="grid grid--full is-extended">
         <div class="grid__item three-quarters is-extended">
           <div class="grid__item three-quarters is-extended header">Highlight notes for: <select ng-model="selectedSoftware">
-            <option></option>
+            <option>All software</option>
             <option ng-repeat="software in availableSoftware">{{software}}</option>
           </select></div>
-          <div class="l-block grid grid--full" ng-repeat="section in tutorial">
+          <div class="l-block grid grid--full"
+               ng-repeat="section in tutorial"
+               ng-mouseenter="hover = true"
+               ng-mouseleave="hover = false"
+               ng-class="{'selected-step': selectedLine === $index}">
+            <!-- Buttons to toggle on/off notes -->
             <div class="grid__item one-eighth is-right-aligned">
               <button class="icon icon-details"
                       ng-if="section.notes.details.length > 0"
@@ -33,17 +38,17 @@
                       ng-click="$parent.showCommand = !showCommand">?</button>
             </div><!--
 
-            --><div class="grid__item seven-eighths">
-              <div ng-class="{'hover-line': $parent.selectingLine,
-                    'highlight': $parent.selectedLine == $index}"
-                   ng-click="lineClicked($index, $event)">
-                {{section.content}}
-              </div>
+            --><div class="grid__item six-eighths">
 
+              <!-- Step content -->
+              <div>{{section.content}}</div>
+
+              <!-- Step's image, if any -->
               <div ng-if="section.image">
                 <img src="{{section.image}}" />
               </div>
 
+              <!-- Step's notes, if toggled on -->
               <div ng-show="showDetails">
                 <div class="note note-details" ng-repeat="note in section.notes.details">{{note}}</div>
               </div>
@@ -62,6 +67,11 @@
                   <div>Software: {{note.software}}</div>
                   <div>{{note.note}}</div></div>
               </div>
+            </div><!--
+
+            --><div class="grid__item one-eighth input-start-container" ng-show="hover && selectedLine != $index">
+              <!-- Button for adding a note -->
+              <button class="input-start" ng-click="lineClicked($index, $event)">Add note</button>
             </div>
           </div>
         </div><!--
@@ -85,11 +95,6 @@
             <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your note here."></textarea>
             <button ng-click="submitNote()" class="plain-button">Submit</button>
           </div>
-        </div>
-
-        <div class="input-start-container">
-          <div class="highlight input-start" ng-if="selectingLine">Please select the location for your note.</div>
-          <button class="input-start input-start-button" ng-class="{'highlight': selectingLine}" ng-click="toggleSelectMode()">Add a note</button>
         </div>
       </div>
     </div>

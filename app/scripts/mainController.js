@@ -7,8 +7,7 @@ angular.module('AnnotatedTutorial')
                 $scope.tutorial = TutorialService.tutorial;
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
-                $scope.selectedSoftware = "";
-                $scope.selectingLine = false;
+                $scope.selectedSoftware = "All software";
                 $scope.selectedLine = -1;
                 $scope.newNote = "";
                 $scope.extraInput = "";
@@ -16,17 +15,10 @@ angular.module('AnnotatedTutorial')
                 $scope.inputPos = -1;
                 $scope.inputType = "";
 
-                $scope.toggleSelectMode = function(){
-                    $scope.selectingLine = !$scope.selectingLine;
-                };
-
                 $scope.lineClicked = function($index, $event){
 
-                    if($scope.selectingLine) {
-                        $scope.selectedLine = $index;
-                        $scope.selectingLine = false;
-                        $scope.inputPos = $event.pageY;
-                    }
+                    $scope.selectedLine = $index;
+                    $scope.inputPos = $event.srcElement.offsetTop;
                 };
 
                 $scope.toggleHideInput = function(){
