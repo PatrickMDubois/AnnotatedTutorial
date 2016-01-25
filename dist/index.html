@@ -10,11 +10,11 @@
   <body ng-controller="mainController">
     <div class="l-wrap">
       <div class="grid grid--full is-extended">
+        <div class="header">Highlight notes for: <select ng-model="selectedSoftware">
+          <option>All software</option>
+          <option ng-repeat="software in availableSoftware">{{software}}</option>
+        </select></div>
         <div class="grid__item three-quarters is-extended content">
-          <div class="grid__item three-quarters is-extended header">Highlight notes for: <select ng-model="selectedSoftware">
-            <option>All software</option>
-            <option ng-repeat="software in availableSoftware">{{software}}</option>
-          </select></div>
           <div class="l-block grid grid--full"
                ng-repeat="section in tutorial"
                ng-mouseenter="hover = true"

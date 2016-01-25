@@ -1481,6 +1481,8 @@ html, body {
 
 .content {
   background-color: #fff;
+  margin: 44px 0px;
+  padding: 10px 0px;
 }
 
 .header {
