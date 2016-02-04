@@ -1494,15 +1494,17 @@ html, body {
 }
 
 .icon {
-  background-color: #fff;
   background-repeat: no-repeat;
-  background-size: 15px;
-  border: 1px solid black;
+  background-size: 16px;
+  border: 1px solid #fff;
   border-radius: 10px;
-  height: 20px;
+  height: 24px;
   line-height: 9px;
-  margin-right: 4px;
-  width: 20px;
+  width: 24px;
+}
+
+.icon:hover {
+  border: 1px solid #e0e0e0;
 }
 
 .icon:focus {
@@ -1550,23 +1552,24 @@ html, body {
 
 .icon-details {
   background-image: url(../images/PNG/pin.png);
-  background-position: 2px;
+  background-size: 17px;
+  background-position: 3px 3px;
 }
 
 .icon-corrections {
   background-image: url(../images/PNG/healing.png);
-  background-position: 1px;
+  background-position: 3px;
 }
 
 .icon-methods {
   background-image: url(../images/PNG/fork.png);
-  background-size: 13px;
-  background-position: 2px;
+  background-size: 14px;
+  background-position: 4px 3px;
 }
 
 .icon-command {
   background-image: url(../images/PNG/clippy.png);
-  background-position: 2px 1px;
+  background-position: 4px 2px;
 }
 
 .icon-details:hover {
@@ -1614,6 +1617,10 @@ html, body {
   height: 25px;
   position: absolute;
   width: 25px;
+}
+
+.input-start:hover {
+  background-color: #f5f5f5;
 }
 
 .input-container {
