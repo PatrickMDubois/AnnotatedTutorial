@@ -27,21 +27,21 @@
               <button class="icon icon-details"
                       ng-if="section.notes.details.length > 0"
                       ng-click="$parent.showDetails = !showDetails"
-                      tooltip="Additional Details">+</button>
+                      tooltip="Additional Details"></button>
               <button class="icon icon-corrections"
                       ng-if="section.notes.corrections.length > 0"
                       ng-click="$parent.showCorrections = !showCorrections"
-                      tooltip="Corrections">!</button>
+                      tooltip="Corrections"></button>
               <button class="icon icon-methods"
                       ng-class="{'highlight-methods': section.notes.command.software.indexOf(selectedSoftware) > -1}"
                       ng-if="section.notes.methods.length > 0"
                       ng-click="$parent.showMethods = !showMethods"
-                      tooltip="Alternate Methods">&#8618;</button>
+                      tooltip="Alternate Methods"></button>
               <button class="icon icon-command"
                       ng-class="{'highlight-command': section.notes.command.software.indexOf(selectedSoftware) > -1}"
                       ng-if="section.notes.command.notes.length > 0"
                       ng-click="$parent.showCommand = !showCommand"
-                      tooltip="Command Location">?</button>
+                      tooltip="Command Location"></button>
             </div><!--
 
             --><div class="grid__item six-eighths">
@@ -78,17 +78,17 @@
 
             --><div class="grid__item one-eighth input-start-container" ng-show="hover && selectedLine != $index">
               <!-- Button for adding a note -->
-              <button class="input-start" ng-click="lineClicked($index, $event)" tooltip="Add a Note">Add note</button>
+              <button class="input-start icon" ng-click="lineClicked($index, $event)" tooltip="Add Note"></button>
             </div>
           </div>
         </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
           <div>
-            <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'note-details': inputType == 'details'}">+</button>
-            <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'note-corrections': inputType == 'corrections'}">!</button>
-            <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'note-methods': inputType == 'methods'}">&#8618;</button>
-            <button ng-click="typeSelected('command')" class="icon icon-command" ng-class="{'note-command': inputType == 'command'}">?</button>
+            <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'note-details': inputType == 'details'}"></button>
+            <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'note-corrections': inputType == 'corrections'}"></button>
+            <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'note-methods': inputType == 'methods'}"></button>
+            <button ng-click="typeSelected('command')" class="icon icon-command" ng-class="{'note-command': inputType == 'command'}"></button>
             <button ng-click="closeInput()" class="plain-button">Close</button>
           </div>
           <div ng-show="showTextarea">

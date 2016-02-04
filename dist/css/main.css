@@ -1495,12 +1495,18 @@ html, body {
 
 .icon {
   background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 15px;
   border: 1px solid black;
   border-radius: 10px;
   height: 20px;
   line-height: 9px;
   margin-right: 4px;
   width: 20px;
+}
+
+.icon:focus {
+  outline: 0;
 }
 
 [tooltip]:before {
@@ -1542,6 +1548,27 @@ html, body {
   box-shadow: 0 0 5px 3px #8e8;
 }
 
+.icon-details {
+  background-image: url(../images/PNG/pin.png);
+  background-position: 2px;
+}
+
+.icon-corrections {
+  background-image: url(../images/PNG/healing.png);
+  background-position: 1px;
+}
+
+.icon-methods {
+  background-image: url(../images/PNG/fork.png);
+  background-size: 13px;
+  background-position: 2px;
+}
+
+.icon-command {
+  background-image: url(../images/PNG/clippy.png);
+  background-position: 2px 1px;
+}
+
 .icon-details:hover {
   background-color: #eef;
 }
@@ -1581,10 +1608,12 @@ html, body {
 
 .input-start {
   background-color: #fff;
-  border-radius: 10px;
-  border: 1px solid black;
-  padding: 5px;
+  background-image: url(../images/PNG/tag-add-white.png);
+  background-size: 18px;
+  background-position: 3px;
+  height: 25px;
   position: absolute;
+  width: 25px;
 }
 
 .input-container {
