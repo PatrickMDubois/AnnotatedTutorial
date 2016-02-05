@@ -1493,6 +1493,10 @@ html, body {
   z-index: 2;
 }
 
+.main-content {
+  padding: 0 0 0 5px;
+}
+
 .icon {
   background-repeat: no-repeat;
   background-size: 16px;
@@ -1503,7 +1507,7 @@ html, body {
   width: 24px;
 }
 
-.icon:hover {
+.selected, .icon:hover {
   border: 1px solid #e0e0e0;
 }
 
@@ -1531,23 +1535,23 @@ html, body {
 }
 
 .selected-step {
-  background-color: #FFFFCC;
+  background-color: #FFFFEE;
 }
 
 .highlight-details {
-  box-shadow: 0 0 5px 3px #88e;
+  box-shadow: 0 0 0 3px #88e;
 }
 
 .highlight-corrections {
-  box-shadow: 0 0 5px 3px #e88;
+  box-shadow: 0 0 0 3px #e88;
 }
 
 .highlight-methods {
-  box-shadow: 0 0 5px 3px #ff9500;
+  box-shadow: 0 0 0 3px #ff9500;
 }
 
 .highlight-command {
-  box-shadow: 0 0 5px 3px #8e8;
+  box-shadow: 0 0 0 3px #8e8;
 }
 
 .icon-details {
@@ -1572,41 +1576,45 @@ html, body {
   background-position: 4px 2px;
 }
 
-.icon-details:hover {
+.selected-details, .icon-details:hover {
   background-color: #eef;
 }
 
-.icon-corrections:hover {
+.selected-corrections, .icon-corrections:hover {
   background-color: #fee;
 }
 
-.icon-methods:hover {
+.selected-methods, .icon-methods:hover {
   background-color: #fec;
 }
 
-.icon-command:hover {
+.selected-command, .icon-command:hover {
   background-color: #efe;
 }
 
 .note {
+  background-position: left 0 top 0, left 5px top 5px;
+  background-repeat: no-repeat;
+  background-size: inherit, 30px 30px;
+  border: 1px solid #e0e0e0;
   margin: 10px;
   padding: 10px;
 }
 
 .note-details {
-  background-color: #eef;
+  background-image: linear-gradient(rgba(238, 238, 255, 0.9), rgba(238, 238, 255, 0.9)), url(../images/PNG/pin.png);
 }
 
 .note-corrections {
-  background-color: #fee;
+  background-image: linear-gradient(rgba(255, 238, 238, 0.9), rgba(255, 238, 238, 0.9)), url(../images/PNG/healing.png);
 }
 
 .note-methods {
-  background-color: #fec;
+  background-image: linear-gradient(rgba(255, 238, 204, 0.9), rgba(255, 238, 204, 0.9)), url(../images/PNG/fork.png);
 }
 
 .note-command {
-  background-color: #efe;
+  background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/clippy.png);
 }
 
 .input-start {

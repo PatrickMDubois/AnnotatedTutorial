@@ -45,10 +45,10 @@
             --><div class="grid__item six-eighths">
 
               <!-- Step content -->
-              <div>{{section.content}}</div>
+              <div class="main-content">{{section.content}}</div>
 
               <!-- Step's image, if any -->
-              <div ng-if="section.image">
+              <div class="main-content" ng-if="section.image">
                 <img src="{{section.image}}" />
               </div>
 
@@ -83,10 +83,10 @@
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
           <div>
-            <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'note-details': inputType == 'details'}"></button>
-            <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'note-corrections': inputType == 'corrections'}"></button>
-            <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'note-methods': inputType == 'methods'}"></button>
-            <button ng-click="typeSelected('command')" class="icon icon-command" ng-class="{'note-command': inputType == 'command'}"></button>
+            <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputType == 'details'}"></button>
+            <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputType == 'corrections'}"></button>
+            <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputType == 'methods'}"></button>
+            <button ng-click="typeSelected('command')" class="icon icon-command" ng-class="{'selected selected-command': inputType == 'command'}"></button>
             <button ng-click="closeInput()" class="plain-button">Close</button>
           </div>
           <div ng-show="showTextarea">
