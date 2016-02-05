@@ -30,7 +30,7 @@ html,body{
   background-repeat: no-repeat;
   background-size: 16px;
   border: 1px solid #fff;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 24px;
   line-height: 9px;
   width: 24px;
@@ -57,6 +57,7 @@ html,body{
 [tooltip]:hover:before {
   opacity : 1;
   transition-delay: 0.5s;
+  white-space: nowrap;
 }
 
 .selected-step{background-color: #FFFFEE;}
@@ -96,36 +97,25 @@ html,body{
 .note{
   background-position: left 0 top 0, left 5px top 5px;
   background-repeat: no-repeat;
-  background-size: inherit, 30px 30px;
+  background-size: auto, 30px 30px;
   border: 1px solid #e0e0e0;
   margin: 10px;
   padding: 10px;
 }
 
-.note-details{
-  background-image: linear-gradient(rgba(238,238,255,0.9), rgba(238,238,255,0.9)), url(../images/PNG/pin.png);
-}
-
-.note-corrections{
-  background-image: linear-gradient(rgba(255,238,238,0.9), rgba(255,238,238,0.9)), url(../images/PNG/healing.png);
-}
-
-.note-methods{
-  background-image: linear-gradient(rgba(255,238,204,0.9), rgba(255,238,204,0.9)), url(../images/PNG/fork.png);
-}
-
-.note-command{
-  background-image: linear-gradient(rgba(238,255,238,0.9), rgba(238,255,238,0.9)), url(../images/PNG/clippy.png);
-}
+.note-details{background-image: linear-gradient(rgba(238,238,255,0.9), rgba(238,238,255,0.9)), url(../images/PNG/pin.png);}
+.note-corrections{background-image: linear-gradient(rgba(255,238,238,0.9), rgba(255,238,238,0.9)), url(../images/PNG/healing.png);}
+.note-methods{background-image: linear-gradient(rgba(255,238,204,0.9), rgba(255,238,204,0.9)), url(../images/PNG/fork.png);}
+.note-command{background-image: linear-gradient(rgba(238,255,238,0.9), rgba(238,255,238,0.9)), url(../images/PNG/clippy.png);}
 
 .input-start{
   background-color: #fff;
   background-image: url(../images/PNG/tag-add-white.png);
-  background-size: 18px;
-  background-position: 3px;
-  height: 25px;
+  background-size: 22px;
+  background-position: 4px 3px;
+  height: 30px;
   position: absolute;
-  width: 25px;
+  width: 30px;
 }
 
 .input-start:hover{background-color: #f5f5f5;}
@@ -134,6 +124,7 @@ html,body{
   background-color: #fff;
   border: 1px solid black;
   font-size: 0.9em;
+  margin: 0 0 0 -80px;
   padding: 5px;
   position: absolute;
 }
