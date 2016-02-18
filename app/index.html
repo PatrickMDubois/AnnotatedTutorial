@@ -55,7 +55,7 @@
                 <img src="{{step.image}}" />
               </div>-->
 
-              <div class="main-content">{{step.html}}</div>
+              <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
               <div ng-show="showDetails">
@@ -111,6 +111,7 @@
 
     <!-- build:js scripts/dependencies.js -->
     <script src="/angularjs/angular.js"></script>
+    <script src="/angular-sanitize/angular-sanitize.js"></script>
     <!-- /build -->
 
     <!-- build:js scripts/templates.js -->

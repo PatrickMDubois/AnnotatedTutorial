@@ -1,7 +1,7 @@
 (function(w) {
     'use strict';
 
-    w.app = angular.module('AnnotatedTutorial', ['app-templates']);
+    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize']);
 
     /*app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {

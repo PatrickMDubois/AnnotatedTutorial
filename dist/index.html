@@ -53,7 +53,7 @@
                 <img src="{{step.image}}" />
               </div>-->
 
-              <div class="main-content">{{step.html}}</div>
+              <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
               <div ng-show="showDetails">
