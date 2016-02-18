@@ -1,8 +1,52 @@
 (function(w) {
     'use strict';
 
-        w.app = angular.module('AnnotatedTutorial', ['app-templates']);
+    w.app = angular.module('AnnotatedTutorial', ['app-templates']);
+
+    /*app.factory('annotatedTutorialServer', function() {
+        if (typeof(DEVELOPMENT) === 'undefined') {
+            return '//vdziubak.com:8000'; // production environment
+        } else {
+            return '//0.0.0.0:7000'; // development environment
+        }
+    });
+
+    app.factory('currentParticipant', function() {
+        var participantId = localStorage.getItem('participant');
+
+        if (!participantId) {
+            while (!participantId) {
+              participantId = prompt('Please, enter your participant number');
+            }
+
+            localStorage.setItem('participant', participantId);
+          }
+
+        return participantId;
+    });*/
+
 })(window);
+/*function Log(data) {
+    this.message = data.msg;
+    this.participant_id = data.participantId;
+    this.created_at = moment().format();
+}
+
+angular.module('AnnotatedTutorial')
+    .factory('LoggerService', function(currentParticipant, annotatedTutorialServer, $http) {
+        'use strict';
+
+        return {
+            log: function(msg) {
+                var log = new Log({
+                  msg: msg,
+                  participantId: currentParticipant
+                });
+
+                $http.post(annotatedTutorialServer + '/logger/logs', log);
+            }
+        }
+    });*/
 angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http){
         'use strict';
@@ -10,7 +54,16 @@ angular.module('AnnotatedTutorial')
         var tutorial = {},
             promise;
 
-        promise = $http.get('/data/stubdata.json')
+        /*promise = $http.get('/data/stubdata.json')
+            .then(function(response) {
+                for (var property in response.data) {
+                    if (response.data.hasOwnProperty(property)) {
+                        tutorial[property] = response.data[property];
+                    }
+                }
+            });*/
+
+        promise = $http.get('http://127.0.0.1:8000/tutorials/tutorial/2')
             .then(function(response) {
                 for (var property in response.data) {
                     if (response.data.hasOwnProperty(property)) {
@@ -30,7 +83,7 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
             .then(function() {
-                $scope.tutorial = TutorialService.tutorial;
+                $scope.tutorial = TutorialService.tutorial.steps;
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
@@ -44,7 +97,7 @@ angular.module('AnnotatedTutorial')
                 $scope.lineClicked = function($index, $event){
 
                     $scope.selectedLine = $index;
-                    $scope.inputPos = $event.srcElement.offsetTop;
+                    $scope.inputPos = $event.pageY;
                 };
 
                 $scope.toggleHideInput = function(){
@@ -70,16 +123,16 @@ angular.module('AnnotatedTutorial')
                     if($scope.selectedLine > -1 && $scope.newNote) {
 
                         if($scope.inputType == 'details'){
-                            $scope.tutorial[$scope.selectedLine].notes.details.push($scope.newNote);
+                            //$scope.tutorial[$scope.selectedLine].notes.details.push($scope.newNote);
                         }
                         else if($scope.inputType == 'corrections'){
-                            $scope.tutorial[$scope.selectedLine].notes.corrections.push($scope.newNote);
+                            //$scope.tutorial[$scope.selectedLine].notes.corrections.push($scope.newNote);
                         }
                         else if($scope.inputType == 'methods'){
-                            $scope.tutorial[$scope.selectedLine].notes.methods.push({"software": $scope.extraInput, "note": $scope.newNote});
+                            //$scope.tutorial[$scope.selectedLine].notes.methods.push({"software": $scope.extraInput, "note": $scope.newNote});
                         }
                         else if($scope.inputType == 'command'){
-                            $scope.tutorial[$scope.selectedLine].notes.command.push({"software": $scope.extraInput, "note": $scope.newNote});
+                            //$scope.tutorial[$scope.selectedLine].notes.command.push({"software": $scope.extraInput, "note": $scope.newNote});
                         }
 
                         $scope.closeInput()
