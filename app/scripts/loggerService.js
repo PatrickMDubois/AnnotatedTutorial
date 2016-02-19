@@ -1,11 +1,11 @@
-/*function Log(data) {
+function Log(data) {
     this.message = data.msg;
     this.participant_id = data.participantId;
     this.created_at = moment().format();
 }
 
 angular.module('AnnotatedTutorial')
-    .factory('LoggerService', function(currentParticipant, annotatedTutorialServer, $http) {
+    .factory('LoggerService', function(currentParticipant, $http) {
         'use strict';
 
         return {
@@ -15,7 +15,7 @@ angular.module('AnnotatedTutorial')
                   participantId: currentParticipant
                 });
 
-                $http.post(annotatedTutorialServer + '/logger/logs', log);
+                $http.post('http://127.0.0.1:8000/logger/logs', log);
             }
         }
-    });*/
+    });

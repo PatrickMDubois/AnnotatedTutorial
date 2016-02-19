@@ -4,13 +4,10 @@
     "image": "",
     "notes":
     {
-      "details": ["test"],
-      "corrections": ["test"],
-      "methods": [{"software": "GIMP", "note": "test"}],
-      "command":{
-        "software": ["GIMP"],
-        "notes": [{"software": "GIMP", "note": "test"}]
-      }
+      "details": [],
+      "corrections": [],
+      "methods": [],
+      "command": []
     }
   },
   {
@@ -24,12 +21,7 @@
       ],
       "corrections": [],
       "methods": [],
-      "command": {
-        "software": ["GIMP", "PS6"],
-        "notes": [{"software": "GIMP", "note": "test"},
-          {"software": "GIMP", "note": "second"},
-          {"software": "PS6", "note": "third"}]
-      }
+      "command": []
     }
   },
   {

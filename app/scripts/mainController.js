@@ -1,5 +1,5 @@
 angular.module('AnnotatedTutorial')
-    .controller('mainController', function($scope, TutorialService){
+    .controller('mainController', function($scope, TutorialService, LoggerService){
         'use strict';
 
         TutorialService.loaded
@@ -56,6 +56,12 @@ angular.module('AnnotatedTutorial')
                             //$scope.tutorial[$scope.selectedLine].notes.command.push({"software": $scope.extraInput, "note": $scope.newNote});
                         }
 
+                        LoggerService.log("Submitted a note:"
+                            + " Tutorial - " + TutorialService.tutorial.title
+                            + " | Step - " + $scope.selectedLine
+                            + " | Category - " + $scope.inputType
+                            + " | Software - " + $scope.extraInput
+                            + " | Note - " + $scope.newNote);
                         $scope.closeInput()
                     }
                 };

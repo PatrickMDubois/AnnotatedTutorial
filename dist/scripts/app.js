@@ -1,7 +1,7 @@
 (function(w) {
     'use strict';
 
-    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize']);
+    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment']);
 
     /*app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
@@ -9,7 +9,7 @@
         } else {
             return '//0.0.0.0:7000'; // development environment
         }
-    });
+    });*/
 
     app.factory('currentParticipant', function() {
         var participantId = localStorage.getItem('participant');
@@ -23,17 +23,17 @@
           }
 
         return participantId;
-    });*/
+    });
 
 })(window);
-/*function Log(data) {
+function Log(data) {
     this.message = data.msg;
     this.participant_id = data.participantId;
     this.created_at = moment().format();
 }
 
 angular.module('AnnotatedTutorial')
-    .factory('LoggerService', function(currentParticipant, annotatedTutorialServer, $http) {
+    .factory('LoggerService', function(currentParticipant, $http) {
         'use strict';
 
         return {
@@ -43,10 +43,10 @@ angular.module('AnnotatedTutorial')
                   participantId: currentParticipant
                 });
 
-                $http.post(annotatedTutorialServer + '/logger/logs', log);
+                $http.post('http://127.0.0.1:8000/logger/logs', log);
             }
         }
-    });*/
+    });
 angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http){
         'use strict';
@@ -63,7 +63,7 @@ angular.module('AnnotatedTutorial')
                 }
             });*/
 
-        promise = $http.get('http://127.0.0.1:8000/tutorials/tutorial/1')
+        promise = $http.get('http://127.0.0.1:8000/tutorials/tutorial/2')
             .then(function(response) {
                 for (var property in response.data) {
                     if (response.data.hasOwnProperty(property)) {
@@ -78,7 +78,7 @@ angular.module('AnnotatedTutorial')
         };
     });
 angular.module('AnnotatedTutorial')
-    .controller('mainController', function($scope, TutorialService){
+    .controller('mainController', function($scope, TutorialService, LoggerService){
         'use strict';
 
         TutorialService.loaded
@@ -135,6 +135,12 @@ angular.module('AnnotatedTutorial')
                             //$scope.tutorial[$scope.selectedLine].notes.command.push({"software": $scope.extraInput, "note": $scope.newNote});
                         }
 
+                        LoggerService.log("Submitted a note:"
+                            + " Tutorial - " + TutorialService.tutorial.title
+                            + " | Step - " + $scope.selectedLine
+                            + " | Category - " + $scope.inputType
+                            + " | Software - " + $scope.extraInput
+                            + " | Note - " + $scope.newNote);
                         $scope.closeInput()
                     }
                 };

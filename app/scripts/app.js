@@ -1,7 +1,7 @@
 (function(w) {
     'use strict';
 
-    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize']);
+    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment']);
 
     /*app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
@@ -9,7 +9,7 @@
         } else {
             return '//0.0.0.0:7000'; // development environment
         }
-    });
+    });*/
 
     app.factory('currentParticipant', function() {
         var participantId = localStorage.getItem('participant');
@@ -23,6 +23,6 @@
           }
 
         return participantId;
-    });*/
+    });
 
 })(window);
