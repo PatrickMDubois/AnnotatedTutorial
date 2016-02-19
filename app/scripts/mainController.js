@@ -6,12 +6,13 @@ angular.module('AnnotatedTutorial')
             .then(function() {
                 $scope.tutorial = TutorialService.tutorial.steps;
 
+                console.log($scope.tutorial[0].notes);
+
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
                 $scope.selectedLine = -1;
                 $scope.newNote = "";
                 $scope.extraInput = "";
-                $scope.hideInput = false;
                 $scope.inputPos = -1;
                 $scope.inputType = "";
 
@@ -19,15 +20,15 @@ angular.module('AnnotatedTutorial')
 
                     $scope.selectedLine = $index;
                     $scope.inputPos = $event.pageY;
-                };
 
-                $scope.toggleHideInput = function(){
-                    $scope.hideInput = !$scope.hideInput;
+                    LoggerService.log("Opened input dialog");
                 };
 
                 $scope.typeSelected = function(type){
                     $scope.showTextarea = true;
                     $scope.inputType = type;
+
+                    LoggerService.log("Changed input to category: " + type);
                 }
 
                 $scope.closeInput = function(){
@@ -37,6 +38,8 @@ angular.module('AnnotatedTutorial')
                     $scope.extraInput = "";
                     $scope.selectedLine = -1;
                     $scope.inputPos = -1;
+
+                    LoggerService.log("Closed input dialog");
                 }
 
                 $scope.submitNote = function(){
@@ -65,5 +68,18 @@ angular.module('AnnotatedTutorial')
                         $scope.closeInput()
                     }
                 };
+
+                $scope.checkForCategory = function(step, category){
+
+                    var hasCategory = false;
+
+                    for(var i = 0; !hasCategory && i < step.notes.length; i++){
+                        if(step.notes[i].category === category) {
+                            hasCategory = true;
+                        }
+                    }
+
+                    return hasCategory;
+                }
             });
     });

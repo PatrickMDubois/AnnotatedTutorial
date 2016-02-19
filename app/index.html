@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- build:[src] scripts/ -->
     <script src="modernizr/modernizr.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <!-- /build -->
   </head>
   <body ng-controller="mainController">
@@ -26,56 +25,53 @@
             <!-- Buttons to toggle on/off notes -->
             <div class="grid__item one-eighth is-right-aligned">
               <button class="icon icon-details"
-                      ng-if="step.notes.details.length > 0"
+                      ng-if="checkForCategory(step, 'details')"
                       ng-click="$parent.showDetails = !showDetails"
                       tooltip="Additional Details"></button>
               <button class="icon icon-corrections"
-                      ng-if="step.notes.corrections.length > 0"
+                      ng-if="checkForCategory(step, 'corrections')"
                       ng-click="$parent.showCorrections = !showCorrections"
                       tooltip="Corrections"></button>
               <button class="icon icon-methods"
                       ng-class="{'highlight-methods': step.notes.command.software.indexOf(selectedSoftware) > -1}"
-                      ng-if="step.notes.methods.length > 0"
+                      ng-if="checkForCategory(step, 'methods')"
                       ng-click="$parent.showMethods = !showMethods"
                       tooltip="Alternate Methods"></button>
               <button class="icon icon-command"
                       ng-class="{'highlight-command': step.notes.command.software.indexOf(selectedSoftware) > -1}"
-                      ng-if="step.notes.command.notes.length > 0"
+                      ng-if="checkForCategory(step, 'command')"
                       ng-click="$parent.showCommand = !showCommand"
                       tooltip="Command Location"></button>
             </div><!--
 
             --><div class="grid__item six-eighths">
 
-              <!-- Step content -->
-              <!--<div class="main-content">{{step.content}}</div>-->
-
-              <!-- Step's image, if any -->
-              <!--<div class="main-content" ng-if="step.image">
-                <img src="{{step.image}}" />
-              </div>-->
-
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
               <div ng-show="showDetails">
-                <div class="note note-details" ng-repeat="note in step.notes.details">{{note}}</div>
+                <div class="note note-details" ng-repeat="note in step.notes" ng-if="note.category === 'details'">
+                  <div>{{note.content}}</div>
+                </div>
               </div>
               <div ng-show="showCorrections">
-                <div class="note note-corrections" ng-repeat="note in step.notes.corrections">{{note}}</div>
+                <div class="note note-corrections" ng-repeat="note in step.notes" ng-if="note.category === 'corrections'">
+                  <div>{{note.content}}</div>
+                </div>
               </div>
               <div ng-show="showMethods">
-                <div class="note note-methods" ng-repeat="note in step.notes.methods"
+                <div class="note note-methods" ng-repeat="note in step.notes" ng-if="note.category === 'methods'"
                      ng-class="{'highlight-methods': note.software === selectedSoftware}">
                   <div>Software: {{note.software}}</div>
-                  <div>{{note.note}}</div>
+                  <div>{{note.content}}</div>
                 </div>
               </div>
               <div ng-show="showCommand">
-                <div class="note note-command" ng-repeat="note in step.notes.command.notes"
+                <div class="note note-command" ng-repeat="note in step.notes" ng-if="note.category === 'command'"
                      ng-class="{'highlight-command': note.software === selectedSoftware}">
                   <div>Software: {{note.software}}</div>
-                  <div>{{note.note}}</div></div>
+                  <div>{{note.content}}</div>
+                </div>
               </div>
             </div><!--
 
