@@ -75,8 +75,6 @@ angular.module('AnnotatedTutorial')
             .then(function() {
                 $scope.tutorial = TutorialService.tutorial.steps;
 
-                console.log($scope.tutorial[0].notes);
-
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
                 $scope.selectedLine = -1;
@@ -115,18 +113,7 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
 
-                        if($scope.inputType == 'details'){
-                            //$scope.tutorial[$scope.selectedLine].notes.details.push($scope.newNote);
-                        }
-                        else if($scope.inputType == 'corrections'){
-                            //$scope.tutorial[$scope.selectedLine].notes.corrections.push($scope.newNote);
-                        }
-                        else if($scope.inputType == 'methods'){
-                            //$scope.tutorial[$scope.selectedLine].notes.methods.push({"software": $scope.extraInput, "note": $scope.newNote});
-                        }
-                        else if($scope.inputType == 'command'){
-                            //$scope.tutorial[$scope.selectedLine].notes.command.push({"software": $scope.extraInput, "note": $scope.newNote});
-                        }
+                        $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "software": $scope.extraInput, "content": $scope.newNote});
 
                         LoggerService.log("Submitted a note:"
                             + " Tutorial - " + TutorialService.tutorial.title
@@ -149,6 +136,17 @@ angular.module('AnnotatedTutorial')
                     }
 
                     return hasCategory;
+                }
+
+                $scope.showCategory = function(show, category, step){
+
+                    LoggerService.log("Toggled category: "
+                        + " Tutorial - " + TutorialService.tutorial.title
+                        + " | Category - " + category
+                        + " | Visibility - " + !show
+                        + " | Step - " + step.html.substr(0, 50) + "...");
+
+                    return !show;
                 }
             });
     });

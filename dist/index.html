@@ -24,21 +24,21 @@
             <div class="grid__item one-eighth is-right-aligned">
               <button class="icon icon-details"
                       ng-if="checkForCategory(step, 'details')"
-                      ng-click="$parent.showDetails = !showDetails"
+                      ng-click="$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
                       tooltip="Additional Details"></button>
               <button class="icon icon-corrections"
                       ng-if="checkForCategory(step, 'corrections')"
-                      ng-click="$parent.showCorrections = !showCorrections"
+                      ng-click="$parent.showCorrections = showCategory($parent.showCorrections, 'corrections', step)"
                       tooltip="Corrections"></button>
               <button class="icon icon-methods"
                       ng-class="{'highlight-methods': step.notes.command.software.indexOf(selectedSoftware) > -1}"
                       ng-if="checkForCategory(step, 'methods')"
-                      ng-click="$parent.showMethods = !showMethods"
+                      ng-click="$parent.showMethods = showCategory($parent.showMethods, 'methods', step)"
                       tooltip="Alternate Methods"></button>
               <button class="icon icon-command"
                       ng-class="{'highlight-command': step.notes.command.software.indexOf(selectedSoftware) > -1}"
                       ng-if="checkForCategory(step, 'command')"
-                      ng-click="$parent.showCommand = !showCommand"
+                      ng-click="$parent.showCommand = showCategory($parent.showCommand, 'command', step)"
                       tooltip="Command Location"></button>
             </div><!--
 
