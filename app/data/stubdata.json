@@ -78,7 +78,10 @@
     {
       "details": [],
       "corrections": [],
-      "methods": [],
+      "methods":
+      [
+        {"software": "GIMP", "note": "You can also use the D key to set the foreground to black, and background to white."}
+      ],
       "command": []
     }
   },
@@ -122,12 +125,15 @@
     }
   },
   {
-    "content": "7. In the options bar, select Midtones, Exposure 20%",
+    "content": "7. In the options bar, select Midtones, Exposure 2%",
     "image": "http://www.digital-photography-school.com/wp-content/uploads/2011/03/steele-redeye-7.jpg",
     "notes":
     {
       "details": [],
-      "corrections": [],
+      "corrections":
+      [
+        "The Exposure should probably be 20%?"
+      ],
       "methods": [],
       "command": []
     }
