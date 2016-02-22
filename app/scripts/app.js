@@ -3,13 +3,13 @@
 
     w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment']);
 
-    /*app.factory('annotatedTutorialServer', function() {
+    app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
-            return '//vdziubak.com:8000'; // production environment
+            return '//dorado.cs.umanitoba.ca:8000'; // production environment
         } else {
-            return '//0.0.0.0:7000'; // development environment
+            return 'http://127.0.0.1:8000'; // development environment
         }
-    });*/
+    });
 
     app.factory('currentParticipant', function() {
         var participantId = localStorage.getItem('participant');

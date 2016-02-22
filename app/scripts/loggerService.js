@@ -15,7 +15,8 @@ angular.module('AnnotatedTutorial')
                   participantId: currentParticipant
                 });
 
-                $http.post('http://127.0.0.1:8000/logger/logs', log);
+                //$http.post('http://127.0.0.1:8000/logger/logs', log);
+                $http.post(annotatedTutorialServer + '/logger/logs', log);
             }
         }
     });

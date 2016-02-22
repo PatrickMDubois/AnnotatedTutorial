@@ -3,8 +3,10 @@ angular.module('AnnotatedTutorial')
         'use strict';
 
         TutorialService.loaded
-            .then(function() {
-                $scope.tutorial = TutorialService.tutorial.steps;
+        .then(function() {
+                var tutorialId = prompt('tutorial number');
+
+                $scope.tutorial = TutorialService.get(tutorialId).steps;
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";

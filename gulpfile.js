@@ -74,7 +74,10 @@ gulp.task('dist:dependencies', function() {
 
     gulp.src([
             // list all dependencies here...
-            './bower_components/angularjs/angular.js'
+            './bower_components/angularjs/angular.js',
+            './bower_components/angular-sanitize/angular-sanitize.js',
+            './bower_components/moment/moment.js',
+            './bower_components/angular-moment/angular-moment.js'
         ])
         .pipe(concat('dependencies.js'))
         .pipe(gulp.dest('./dist/scripts'));

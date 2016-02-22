@@ -3,13 +3,13 @@
 
     w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment']);
 
-    /*app.factory('annotatedTutorialServer', function() {
+    app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
-            return '//vdziubak.com:8000'; // production environment
+            return '//dorado.cs.umanitoba.ca:8000'; // production environment
         } else {
-            return '//0.0.0.0:7000'; // development environment
+            return 'http://127.0.0.1:8000'; // development environment
         }
-    });*/
+    });
 
     app.factory('currentParticipant', function() {
         var participantId = localStorage.getItem('participant');
@@ -43,28 +43,37 @@ angular.module('AnnotatedTutorial')
                   participantId: currentParticipant
                 });
 
-                $http.post('http://127.0.0.1:8000/logger/logs', log);
+                //$http.post('http://127.0.0.1:8000/logger/logs', log);
+                $http.post(annotatedTutorialServer + '/logger/logs', log);
             }
         }
     });
 angular.module('AnnotatedTutorial')
-    .factory('TutorialService', function($http){
+    .factory('TutorialService', function($http, annotatedTutorialServer){
         'use strict';
 
-        var tutorial = {}, promise;
+        var tutorials = [],
+            idIndexMap = {},
+            promise;
 
-        promise = $http.get('http://127.0.0.1:8000/tutorials/tutorial/1')
+        //promise = $http.get('http://127.0.0.1:8000/tutorials/tutorials/1')
+        promise = $http.get(annotatedTutorialServer + '/tutorials/tutorials')
             .then(function(response) {
-                for (var property in response.data) {
-                    if (response.data.hasOwnProperty(property)) {
-                        tutorial[property] = response.data[property];
-                    }
-                }
+                tutorials = response.data;
+
+                idIndexMap = {};
+
+                angular.forEach(response.data, function(tutorial, index) {
+                    idIndexMap[tutorial.id] = index;
+                });
             });
 
         return {
             loaded: promise,
-            tutorial: tutorial
+            tutorials: tutorials,
+            get: function(id) {
+                return tutorials[idIndexMap[id]];
+            }
         };
     });
 angular.module('AnnotatedTutorial')
@@ -72,8 +81,10 @@ angular.module('AnnotatedTutorial')
         'use strict';
 
         TutorialService.loaded
-            .then(function() {
-                $scope.tutorial = TutorialService.tutorial.steps;
+        .then(function() {
+                var tutorialId = prompt('tutorial number');
+
+                $scope.tutorial = TutorialService.get(tutorialId).steps;
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
