@@ -1556,13 +1556,13 @@ img {
 }
 
 .icon-methods {
-  background-image: url(../images/PNG/fork.png);
+  background-image: url(../images/PNG/question.png);
   background-size: 14px;
   background-position: 4px 3px;
 }
 
 .icon-other {
-  background-image: url(../images/PNG/clippy.png);
+  background-image: url(../images/PNG/other.png);
   background-position: 4px 2px;
 }
 
@@ -1606,11 +1606,11 @@ img {
 }
 
 .note-methods {
-  background-image: linear-gradient(rgba(255, 238, 204, 0.9), rgba(255, 238, 204, 0.9)), url(../images/PNG/fork.png);
+  background-image: linear-gradient(rgba(255, 238, 204, 0.9), rgba(255, 238, 204, 0.9)), url(../images/PNG/question.png);
 }
 
 .note-other {
-  background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/clippy.png);
+  background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/other.png);
 }
 
 .input-start {
@@ -1619,11 +1619,13 @@ img {
   background-size: 22px;
   background-position: 4px 3px;
   height: 30px;
+  position: absolute;
   width: 30px;
 }
 
 .question-start {
   background-image: url(../images/PNG/tag-add-white-question.png);
+  margin-left: 35px;
 }
 
 .input-start:hover {

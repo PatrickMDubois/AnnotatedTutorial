@@ -104,12 +104,15 @@ angular.module('AnnotatedTutorial')
 
                 $scope.addingQuestion = function($index, $event){
 
-                    // Create new note with "question" as type
+                    $scope.lineClicked($index, $event);
+                    $scope.typeSelected("other");
+                    $scope.extraInput = "Question";
                 };
 
                 $scope.typeSelected = function(type){
                     $scope.showTextarea = true;
                     $scope.inputType = type;
+                    $scope.extraInput = "";
 
                     //LoggerService.log("Changed input to category: " + type);
                 };
@@ -129,7 +132,7 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
 
-                        $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "software": $scope.extraInput, "content": $scope.newNote});
+                        $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "software": $scope.extraInput, "content": $scope.newNote, "author": localStorage.getItem('participant')});
 
                         /*LoggerService.log("Submitted a note:"
                             + " Tutorial - " + TutorialService.tutorial.title
