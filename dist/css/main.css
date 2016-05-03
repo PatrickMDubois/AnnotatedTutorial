@@ -1544,22 +1544,6 @@ img {
   background-color: #FFFFEE;
 }
 
-.highlight-details {
-  box-shadow: 0 0 0 3px #88e;
-}
-
-.highlight-corrections {
-  box-shadow: 0 0 0 3px #e88;
-}
-
-.highlight-methods {
-  box-shadow: 0 0 0 3px #ff9500;
-}
-
-.highlight-command {
-  box-shadow: 0 0 0 3px #8e8;
-}
-
 .icon-details {
   background-image: url(../images/PNG/pin.png);
   background-size: 17px;
@@ -1577,7 +1561,7 @@ img {
   background-position: 4px 3px;
 }
 
-.icon-command {
+.icon-other {
   background-image: url(../images/PNG/clippy.png);
   background-position: 4px 2px;
 }
@@ -1594,7 +1578,7 @@ img {
   background-color: #fec;
 }
 
-.selected-command, .icon-command:hover {
+.selected-other, .icon-other:hover {
   background-color: #efe;
 }
 
@@ -1605,6 +1589,12 @@ img {
   border: 1px solid #e0e0e0;
   margin: 10px;
   padding: 10px;
+}
+
+.note-author {
+  font-size: 75%;
+  font-style: italic;
+  text-align: right;
 }
 
 .note-details {
@@ -1619,7 +1609,7 @@ img {
   background-image: linear-gradient(rgba(255, 238, 204, 0.9), rgba(255, 238, 204, 0.9)), url(../images/PNG/fork.png);
 }
 
-.note-command {
+.note-other {
   background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/clippy.png);
 }
 
@@ -1629,8 +1619,11 @@ img {
   background-size: 22px;
   background-position: 4px 3px;
   height: 30px;
-  position: absolute;
   width: 30px;
+}
+
+.question-start {
+  background-image: url(../images/PNG/tag-add-white-question.png);
 }
 
 .input-start:hover {

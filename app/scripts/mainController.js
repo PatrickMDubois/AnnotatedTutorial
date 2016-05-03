@@ -4,7 +4,7 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
-                var tutorialId = prompt('tutorial number');
+                var tutorialId = 1//prompt('tutorial number');
 
                 $scope.tutorial = TutorialService.get(tutorialId).steps;
 
@@ -21,15 +21,20 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedLine = $index;
                     $scope.inputPos = $event.pageY;
 
-                    LoggerService.log("Opened input dialog");
+                    //LoggerService.log("Opened input dialog");
+                };
+
+                $scope.addingQuestion = function($index, $event){
+
+                    // Create new note with "question" as type
                 };
 
                 $scope.typeSelected = function(type){
                     $scope.showTextarea = true;
                     $scope.inputType = type;
 
-                    LoggerService.log("Changed input to category: " + type);
-                }
+                    //LoggerService.log("Changed input to category: " + type);
+                };
 
                 $scope.closeInput = function(){
                     $scope.showTextarea = false;
@@ -39,8 +44,8 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedLine = -1;
                     $scope.inputPos = -1;
 
-                    LoggerService.log("Closed input dialog");
-                }
+                    //LoggerService.log("Closed input dialog");
+                };
 
                 $scope.submitNote = function(){
 
@@ -48,12 +53,12 @@ angular.module('AnnotatedTutorial')
 
                         $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "software": $scope.extraInput, "content": $scope.newNote});
 
-                        LoggerService.log("Submitted a note:"
+                        /*LoggerService.log("Submitted a note:"
                             + " Tutorial - " + TutorialService.tutorial.title
                             + " | Step - " + $scope.selectedLine
                             + " | Category - " + $scope.inputType
-                            + " | Software - " + $scope.extraInput
-                            + " | Note - " + $scope.newNote);
+                            + " | Extra Input - " + $scope.extraInput
+                            + " | Note - " + $scope.newNote);*/
                         $scope.closeInput()
                     }
                 };
@@ -69,17 +74,17 @@ angular.module('AnnotatedTutorial')
                     }
 
                     return hasCategory;
-                }
+                };
 
                 $scope.showCategory = function(show, category, step){
 
-                    LoggerService.log("Toggled category: "
+                    /*LoggerService.log("Toggled category: "
                         + " Tutorial - " + TutorialService.tutorial.title
                         + " | Category - " + category
                         + " | Visibility - " + !show
-                        + " | Step - " + step.html.substr(0, 50) + "...");
+                        + " | Step - " + step.html.substr(0, 50) + "...");*/
 
                     return !show;
-                }
+                };
             });
     });

@@ -10,10 +10,6 @@
   <body ng-controller="mainController">
     <div class="l-wrap">
       <div class="grid grid--full is-extended">
-        <!--<div class="header">Highlight notes for: <select ng-model="selectedSoftware">
-          <option>All software</option>
-          <option ng-repeat="software in availableSoftware">{{software}}</option>
-        </select></div>-->
         <div class="grid__item three-quarters is-extended content">
           <div class="l-block grid grid--full"
                ng-repeat="step in tutorial"
@@ -22,24 +18,26 @@
                ng-class="{'selected-step': selectedLine === $index}">
             <!-- Buttons to toggle on/off notes -->
             <div class="grid__item one-eighth is-right-aligned">
-              <button class="icon icon-details"
-                      ng-if="checkForCategory(step, 'details')"
-                      ng-click="$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
-                      tooltip="Additional Details"></button>
+
               <button class="icon icon-corrections"
                       ng-if="checkForCategory(step, 'corrections')"
                       ng-click="$parent.showCorrections = showCategory($parent.showCorrections, 'corrections', step)"
                       tooltip="Corrections"></button>
+
               <button class="icon icon-methods"
-                      ng-class="{'highlight-methods': step.notes.command.software.indexOf(selectedSoftware) > -1}"
                       ng-if="checkForCategory(step, 'methods')"
                       ng-click="$parent.showMethods = showCategory($parent.showMethods, 'methods', step)"
-                      tooltip="Alternate Methods"></button>
-              <button class="icon icon-command"
-                      ng-class="{'highlight-command': step.notes.command.software.indexOf(selectedSoftware) > -1}"
-                      ng-if="checkForCategory(step, 'command')"
-                      ng-click="$parent.showCommand = showCategory($parent.showCommand, 'command', step)"
-                      tooltip="Command Location"></button>
+                      tooltip="What is this?"></button>
+
+              <button class="icon icon-details"
+                      ng-if="checkForCategory(step, 'details')"
+                      ng-click="$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
+                      tooltip="Tell me more!"></button>
+
+              <button class="icon icon-other"
+                      ng-if="checkForCategory(step, 'other')"
+                      ng-click="$parent.showOther = showCategory($parent.showOther, 'other', step)"
+                      tooltip="Questions & other notes"></button>
             </div><!--
 
             --><div class="grid__item six-eighths">
@@ -47,28 +45,33 @@
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
-              <div ng-show="showDetails">
-                <div class="note note-details" ng-repeat="note in step.notes" ng-if="note.category === 'details'">
-                  <div>{{note.content}}</div>
-                </div>
-              </div>
               <div ng-show="showCorrections">
                 <div class="note note-corrections" ng-repeat="note in step.notes" ng-if="note.category === 'corrections'">
                   <div>{{note.content}}</div>
+                  <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
               </div>
+
               <div ng-show="showMethods">
-                <div class="note note-methods" ng-repeat="note in step.notes" ng-if="note.category === 'methods'"
-                     ng-class="{'highlight-methods': note.software === selectedSoftware}">
-                  <div>Software: {{note.software}}</div>
+                <div class="note note-methods" ng-repeat="note in step.notes" ng-if="note.category === 'methods'">
+                  <div>Note relevant for: {{note.software}}</div>
                   <div>{{note.content}}</div>
+                  <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
               </div>
-              <div ng-show="showCommand">
-                <div class="note note-command" ng-repeat="note in step.notes" ng-if="note.category === 'command'"
-                     ng-class="{'highlight-command': note.software === selectedSoftware}">
-                  <div>Software: {{note.software}}</div>
+
+              <div ng-show="showDetails">
+                <div class="note note-details" ng-repeat="note in step.notes" ng-if="note.category === 'details'">
                   <div>{{note.content}}</div>
+                  <div class="note-author">Submitted by {{note.author}}</div>
+                </div>
+              </div>
+
+              <div ng-show="showOther">
+                <div class="note note-other" ng-repeat="note in step.notes" ng-if="note.category === 'other'">
+                  <div>Note category: {{note.software}}</div>
+                  <div>{{note.content}}</div>
+                  <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
               </div>
             </div><!--
@@ -76,26 +79,31 @@
             --><div class="grid__item one-eighth input-start-container" ng-show="hover && selectedLine != $index">
               <!-- Button for adding a note -->
               <button class="input-start icon" ng-click="lineClicked($index, $event)" tooltip="Add a note"></button>
+              <button class="input-start question-start icon" ng-click="addingQuestion($index, $event)" tooltip="Add a question"></button>
             </div>
           </div>
         </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
           <div>
-            <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputType == 'details'}"></button>
-            <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputType == 'corrections'}"></button>
-            <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputType == 'methods'}"></button>
-            <button ng-click="typeSelected('command')" class="icon icon-command" ng-class="{'selected selected-command': inputType == 'command'}"></button>
+            <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputType == 'corrections'}" tooltip="Corrections"></button>
+            <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputType == 'methods'}" tooltip="What is this?"></button>
+            <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputType == 'details'}" tooltip="Tell me more!"></button>
+            <button ng-click="typeSelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputType == 'other'}" tooltip="Other notes"></button>
             <button ng-click="closeInput()" class="plain-button">Close</button>
           </div>
           <div ng-show="showTextarea">
             <div class="description">
-              <div ng-if="inputType == 'details'">Additional details help other readers understand how to complete a step or why it is important.</div>
-              <div ng-if="inputType == 'corrections'">Corrections alert other readers of an error in the tutorial, or of a detail that should be different.</div>
-              <div ng-if="inputType == 'methods'">Alternate methods describe a different way of accomplishing a step.</div>
-              <div ng-if="inputType == 'command'">Command locations help other readers locate a command, tool, option or other menu item.</div>
+              <div ng-if="inputType == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
+              <div ng-if="inputType == 'methods'">Information specific to software. Point out useful tools or other ways of doing the tutorial.</div>
+              <div ng-if="inputType == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
+              <div ng-if="inputType == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
             </div>
-            <div class="software-container" ng-if="inputType == 'methods' || inputType == 'command'">Software: <input type="text" ng-model="$parent.$parent.extraInput" /></div>
+            <div class="software-container" ng-if="inputType == 'methods' || inputType == 'other'">
+              <div ng-if="inputType == 'methods'">Your note is relevant for which software?</div>
+              <div ng-if="inputType == 'other'">How would you label your note?</div>
+              <input type="text" ng-model="$parent.$parent.extraInput" />
+            </div>
             <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your note here."></textarea>
             <button ng-click="submitNote()" class="plain-button">Submit</button>
           </div>
