@@ -71,6 +71,7 @@
                 <div class="note note-other" ng-repeat="note in step.notes" ng-if="note.category === 'other'">
                   <div>Note category: {{note.software}}</div>
                   <div>{{note.content}}</div>
+                  <div ng-if="(note.software|lowercase) === 'question'">SDFSDF</div>
                   <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
               </div>
