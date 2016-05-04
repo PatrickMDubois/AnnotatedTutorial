@@ -54,7 +54,7 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
 
-                        $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "software": $scope.extraInput, "content": $scope.newNote, "author": localStorage.getItem('participant')});
+                        $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "extra_info": $scope.extraInput, "content": $scope.newNote, "author": localStorage.getItem('participant')});
 
                         /*LoggerService.log("Submitted a note:"
                             + " Tutorial - " + TutorialService.tutorial.title

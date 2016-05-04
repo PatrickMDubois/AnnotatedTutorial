@@ -54,7 +54,7 @@
 
               <div ng-show="showMethods">
                 <div class="note note-methods" ng-repeat="note in step.notes" ng-if="note.category === 'methods'">
-                  <div>Note relevant for: {{note.software}}</div>
+                  <div>Note relevant for: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
                   <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
@@ -69,7 +69,7 @@
 
               <div ng-show="showOther">
                 <div class="note note-other" ng-repeat="note in step.notes" ng-if="note.category === 'other'">
-                  <div>Note category: {{note.software}}</div>
+                  <div>Note category: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
                   <div ng-if="(note.software|lowercase) === 'question'">SDFSDF</div>
                   <div class="note-author">Submitted by {{note.author}}</div>
