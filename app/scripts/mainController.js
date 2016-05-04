@@ -6,7 +6,8 @@ angular.module('AnnotatedTutorial')
         .then(function() {
                 var tutorialId = 1//prompt('tutorial number');
 
-                $scope.tutorial = TutorialService.get(tutorialId).steps;
+                $scope.tutorial = TutorialService.get(tutorialId)
+                $scope.tutorialSteps = $scope.tutorial.steps;
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
@@ -54,7 +55,7 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.selectedLine > -1 && $scope.newNote) {
 
-                        $scope.tutorial[$scope.selectedLine].notes.push({"category": $scope.inputType, "extra_info": $scope.extraInput, "content": $scope.newNote, "author": localStorage.getItem('participant')});
+                        $scope.tutorialSteps[$scope.selectedLine].notes.push({"category": $scope.inputType, "extra_info": $scope.extraInput, "content": $scope.newNote, "author": localStorage.getItem('participant')});
 
                         /*LoggerService.log("Submitted a note:"
                             + " Tutorial - " + TutorialService.tutorial.title
@@ -71,12 +72,26 @@ angular.module('AnnotatedTutorial')
                     var hasCategory = false;
 
                     for(var i = 0; !hasCategory && i < step.notes.length; i++){
-                        if(step.notes[i].category === category) {
+                        if($scope.canShowNote(step.notes[i]) && step.notes[i].category === category) {
                             hasCategory = true;
                         }
                     }
 
                     return hasCategory;
+                };
+
+                $scope.canShowNote = function(note){
+
+                  var canShow = false;
+
+                  if($scope.tutorial.show_to_all ||
+                      !note.user_submitted ||
+                      note.author === localStorage.getItem('participant')){
+
+                      canShow = true;
+                  }
+
+                  return canShow;
                 };
 
                 $scope.showCategory = function(show, category, step){
