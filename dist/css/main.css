@@ -1667,3 +1667,14 @@ img {
 .plain-button:hover {
   background: #ddd;
 }
+
+.baseline-container {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  margin: 44px 0 0 -80px;
+  padding: 10px;
+}
+
+.baseline-content {
+  background-color: #fff;
+}

@@ -20,22 +20,22 @@
             <div class="grid__item one-eighth is-right-aligned">
 
               <button class="icon icon-corrections"
-                      ng-if="checkForCategory(step, 'corrections')"
+                      ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
                       ng-click="$parent.showCorrections = showCategory($parent.showCorrections, 'corrections', step)"
                       tooltip="Corrections"></button>
 
               <button class="icon icon-methods"
-                      ng-if="checkForCategory(step, 'methods')"
+                      ng-if="!tutorial.baseline && checkForCategory(step, 'methods')"
                       ng-click="$parent.showMethods = showCategory($parent.showMethods, 'methods', step)"
                       tooltip="What is this?"></button>
 
               <button class="icon icon-details"
-                      ng-if="checkForCategory(step, 'details')"
+                      ng-if="!tutorial.baseline && checkForCategory(step, 'details')"
                       ng-click="$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
                       tooltip="Tell me more!"></button>
 
               <button class="icon icon-other"
-                      ng-if="checkForCategory(step, 'other')"
+                      ng-if="!tutorial.baseline && checkForCategory(step, 'other')"
                       ng-click="$parent.showOther = showCategory($parent.showOther, 'other', step)"
                       tooltip="Questions & other notes"></button>
             </div><!--
@@ -45,14 +45,14 @@
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
-              <div ng-show="showCorrections">
+              <div ng-if="!tutorial.baseline" ng-show="showCorrections">
                 <div class="note note-corrections" ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'">
                   <div>{{note.content}}</div>
                   <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
               </div>
 
-              <div ng-show="showMethods">
+              <div ng-if="!tutorial.baseline" ng-show="showMethods">
                 <div class="note note-methods" ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'methods'">
                   <div>Note relevant for: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
@@ -60,14 +60,14 @@
                 </div>
               </div>
 
-              <div ng-show="showDetails">
+              <div ng-if="!tutorial.baseline" ng-show="showDetails">
                 <div class="note note-details" ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'">
                   <div>{{note.content}}</div>
                   <div class="note-author">Submitted by {{note.author}}</div>
                 </div>
               </div>
 
-              <div ng-show="showOther">
+              <div ng-if="!tutorial.baseline" ng-show="showOther">
                 <div class="note note-other" ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'">
                   <div>Note category: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
@@ -77,13 +77,23 @@
               </div>
             </div><!--
 
-            --><div class="grid__item one-eighth input-start-container" ng-show="hover && selectedLine != $index">
+            --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
               <!-- Button for adding a note -->
               <button class="input-start icon" ng-click="lineClicked($index, $event)" tooltip="Add a note"></button>
               <button class="input-start question-start icon" ng-click="addingQuestion($index, $event)" tooltip="Add a question"></button>
             </div>
           </div>
         </div><!--
+
+
+        --><div class="baseline-container grid__item one-quarter" ng-if="tutorial.baseline">
+            <h1>Comments</h1>
+            <div class="baseline-content note" ng-repeat="comment in tutorialComments | orderBy:'id':false">
+              {{comment.content}}
+              <div class="plain-button">Reply</div>
+              <div class="note-author">Submitted by {{comment.author}}</div>
+            </div>
+          </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
           <div>

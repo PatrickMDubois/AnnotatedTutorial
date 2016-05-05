@@ -8,6 +8,13 @@ angular.module('AnnotatedTutorial')
 
                 $scope.tutorial = TutorialService.get(tutorialId)
                 $scope.tutorialSteps = $scope.tutorial.steps;
+                $scope.tutorialComments = [];
+
+                for(var i = 0; i < $scope.tutorialSteps.length; i++){
+                    for(var j = 0; j < $scope.tutorialSteps[i].notes.length; j++) {
+                        $scope.tutorialComments.push($scope.tutorialSteps[i].notes[j]);
+                    }
+                }
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
