@@ -86,7 +86,7 @@
         </div><!--
 
 
-        --><div class="baseline-container grid__item one-quarter" ng-if="tutorial.baseline">
+        --><div class="baseline-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}" ng-if="tutorial.baseline">
             <h1>Comments</h1>
             <div class="baseline-content note" ng-repeat="comment in tutorialComments | orderBy:'id':false">
               {{comment.content}}

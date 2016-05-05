@@ -102,6 +102,8 @@ angular.module('AnnotatedTutorial')
                 $scope.inputPos = -1;
                 $scope.inputType = "";
 
+                $scope.windowHeight = window.innerHeight - 88; // from stylesheet
+
                 $scope.lineClicked = function($index, $event){
 
                     $scope.selectedLine = $index;
