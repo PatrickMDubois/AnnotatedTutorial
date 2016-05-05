@@ -95,6 +95,10 @@
               <div class="plain-button">Reply</div>
               <div class="note-author">Submitted by {{comment.author}}</div>
             </div>
+            <hr />
+            <h1>Submit a comment</h1>
+            <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your comment here."></textarea>
+            <button ng-click="submitComment()" class="plain-button">Submit</button>
           </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">

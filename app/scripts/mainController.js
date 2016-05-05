@@ -76,6 +76,15 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
+                $scope.submitComment = function() {
+
+                    if ($scope.newNote) {
+
+                        $scope.tutorialComments.push({"content": $scope.newNote, "author": localStorage.getItem('participant')});
+                        $scope.closeInput();
+                    }
+                }
+
                 $scope.checkForCategory = function(step, category){
 
                     var hasCategory = false;
