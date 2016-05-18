@@ -71,8 +71,10 @@
                 <div class="note note-other" ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'">
                   <div>Note category: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
-                  <div class="plain-button" ng-if="(note.extra_info|lowercase) === 'question'">Post Solution</div>
-                  <div class="note-author">Submitted by {{note.author}}</div>
+                  <div class="comment-footer">
+                    <div class="plain-button reply-button" ng-if="(note.extra_info|lowercase) === 'question'">Post Solution</div>
+                    <div class="note-author">Submitted by {{note.author}}</div>
+                  </div>
                 </div>
               </div>
             </div><!--
@@ -87,16 +89,21 @@
 
 
         --><div class="baseline-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}" ng-if="tutorial.baseline">
-            <h1>Comments</h1>
-            <div class="baseline-content note" ng-repeat="comment in tutorialComments | orderBy:'id':false">
-              {{comment.content}}
-              <div class="plain-button">Reply</div>
-              <div class="note-author">Submitted by {{comment.author}}</div>
+            <div ng-if="tutorialComments">
+              <h2>Comments</h2>
+              <div class="baseline-content note" ng-repeat="comment in tutorialComments | orderBy:'id':false">
+                <div>{{comment.content}}</div>
+                <div class="comment-footer">
+                  <button class="plain-button reply-button">Reply</button>
+                  <div class="note-author">Submitted by {{comment.author}}</div>
+                </div>
+              </div>
             </div>
-            <hr />
-            <h1>Submit a comment</h1>
-            <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your comment here."></textarea>
-            <button ng-click="submitComment()" class="plain-button">Submit</button>
+            <div class="submit-comment-container">
+              <h2>Submit a comment</h2>
+              <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your comment here."></textarea>
+              <button ng-click="submitComment()" class="plain-button">Submit</button>
+            </div>
           </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
