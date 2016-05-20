@@ -72,7 +72,7 @@
                   <div>Note category: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
                   <div class="comment-footer">
-                    <div class="plain-button reply-button" ng-if="(note.extra_info|lowercase) === 'question'">Post Solution</div>
+                    <div class="plain-button reply-button" ng-click="addingReply($index, $event, note.id, note.author)" ng-if="(note.extra_info|lowercase) === 'question'">Post Answer</div>
                     <div class="note-author">Submitted by {{note.author}}</div>
                   </div>
                 </div>
@@ -94,7 +94,7 @@
               <div class="baseline-content note" ng-repeat="comment in tutorialComments | orderBy:'id':false">
                 <div>{{comment.content}}</div>
                 <div class="comment-footer">
-                  <button class="plain-button reply-button">Reply</button>
+                  <button class="plain-button reply-button" ng-click="addingReply($index, $event, comment.id, comment.author)">Reply</button>
                   <div class="note-author">Submitted by {{comment.author}}</div>
                 </div>
               </div>
@@ -107,21 +107,23 @@
           </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
-          <div>
+          <button ng-click="closeInput()" class="plain-button">Close</button>
+          <div ng-if="replyTo != -1">Replying to {{$parent.replyToAuthor}}.</div>
+          <div ng-if="!tutorial.baseline">
+            <div>Pick a category for your note.</div>
             <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputType == 'corrections'}" tooltip="Corrections"></button>
             <button ng-click="typeSelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputType == 'methods'}" tooltip="What is this?"></button>
             <button ng-click="typeSelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputType == 'details'}" tooltip="Tell me more!"></button>
             <button ng-click="typeSelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputType == 'other'}" tooltip="Other notes"></button>
-            <button ng-click="closeInput()" class="plain-button">Close</button>
           </div>
           <div ng-show="showTextarea">
-            <div class="description">
+            <div class="description"  ng-if="!tutorial.baseline">
               <div ng-if="inputType == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
               <div ng-if="inputType == 'methods'">Information specific to software. Point out useful tools or other ways of doing the tutorial.</div>
               <div ng-if="inputType == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
               <div ng-if="inputType == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
             </div>
-            <div class="software-container" ng-if="inputType == 'methods' || inputType == 'other'">
+            <div class="software-container" ng-if="(inputType == 'methods' || inputType == 'other') && !tutorial.baseline">
               <div ng-if="inputType == 'methods'">Your note is relevant for which software?</div>
               <div ng-if="inputType == 'other'">How would you label your note?</div>
               <input type="text" ng-model="$parent.$parent.extraInput" />
