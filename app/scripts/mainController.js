@@ -92,7 +92,8 @@ angular.module('AnnotatedTutorial')
                                 "category": $scope.inputType,
                                 "extra_info": $scope.extraInput,
                                 "content": $scope.newNote,
-                                "author": localStorage.getItem('participant')
+                                "author": localStorage.getItem('participant'),
+                                "reply_to": $scope.replyTo
                             });
 
                             /*LoggerService.log("Submitted a note:"
@@ -110,7 +111,11 @@ angular.module('AnnotatedTutorial')
 
                     if ($scope.newNote) {
 
-                        $scope.tutorialComments.push({"content": $scope.newNote, "author": localStorage.getItem('participant')});
+                        $scope.tutorialComments.push({
+                            "content": $scope.newNote,
+                            "author": localStorage.getItem('participant'),
+                            "reply_to": $scope.replyTo
+                        });
                         $scope.closeInput();
                     }
                 }
