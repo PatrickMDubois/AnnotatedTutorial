@@ -48,6 +48,16 @@ angular.module('AnnotatedTutorial')
             }
         }
     });
+function Note(data) {
+    this.step_id = data.step_id;
+    this.category = data.category;
+    this.extra_info = data.extra_info;
+    this.content = data.content;
+    this.author = data.author;
+    this.user_submitted = data.user_submitted;
+    this.reply_to = data.reply_to;
+}
+
 angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http, annotatedTutorialServer){
         'use strict';
@@ -73,6 +83,20 @@ angular.module('AnnotatedTutorial')
             tutorials: tutorials,
             get: function(id) {
                 return tutorials[idIndexMap[id]];
+            },
+            post: function(note) {
+                var note = new Note({
+                    step_id: note.step_id,
+                    category: note.category,
+                    extra_info: note.extra_info,
+                    content: note.content,
+                    author: note.author,
+                    user_submitted: true,
+                    reply_to: note.reply_to
+                });
+
+                //$http.post('http://127.0.0.1:8000/tutorials/notes', note);
+                $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             }
         };
     });
@@ -96,12 +120,12 @@ angular.module('AnnotatedTutorial')
 
                 $scope.availableSoftware = ["GIMP", "PS6"];
                 $scope.selectedSoftware = "All software";
-                $scope.selectedLine = -1;
+                $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
-                $scope.inputPos = -1;
+                $scope.inputPos = null;
                 $scope.inputType = "";
-                $scope.replyTo = -1;
+                $scope.replyTo = null;
                 $scope.replyToAuthor = "";
 
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
@@ -147,9 +171,9 @@ angular.module('AnnotatedTutorial')
                     $scope.inputType = "";
                     $scope.newNote = "";
                     $scope.extraInput = "";
-                    $scope.selectedLine = -1;
-                    $scope.inputPos = -1;
-                    $scope.replyTo = -1;
+                    $scope.selectedLine = null;
+                    $scope.inputPos = null;
+                    $scope.replyTo = null;
                     $scope.replyToAuthor = "";
 
                     //LoggerService.log("Closed input dialog");
@@ -166,13 +190,17 @@ angular.module('AnnotatedTutorial')
 
                         if ($scope.selectedLine > -1 && $scope.newNote) {
 
-                            $scope.tutorialSteps[$scope.selectedLine].notes.push({
+                            var note = {
+                                "step_id": $scope.selectedLine,
                                 "category": $scope.inputType,
                                 "extra_info": $scope.extraInput,
                                 "content": $scope.newNote,
                                 "author": localStorage.getItem('participant'),
                                 "reply_to": $scope.replyTo
-                            });
+                            };
+
+                            //$scope.tutorialSteps[$scope.selectedLine].notes.push(note);
+                            TutorialService.post(note);
 
                             /*LoggerService.log("Submitted a note:"
                              + " Tutorial - " + TutorialService.tutorial.title
@@ -189,11 +217,17 @@ angular.module('AnnotatedTutorial')
 
                     if ($scope.newNote) {
 
-                        $scope.tutorialComments.push({
+                        var note = {
+                            "step_id": null,
+                            "category": "comment",
+                            "extra_info": "",
                             "content": $scope.newNote,
                             "author": localStorage.getItem('participant'),
                             "reply_to": $scope.replyTo
-                        });
+                        };
+
+                        //$scope.tutorialComments.push(note);
+                        TutorialService.post(note);
                         $scope.closeInput();
                     }
                 }

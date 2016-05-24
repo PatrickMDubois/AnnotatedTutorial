@@ -1,3 +1,13 @@
+function Note(data) {
+    this.step_id = data.step_id;
+    this.category = data.category;
+    this.extra_info = data.extra_info;
+    this.content = data.content;
+    this.author = data.author;
+    this.user_submitted = data.user_submitted;
+    this.reply_to = data.reply_to;
+}
+
 angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http, annotatedTutorialServer){
         'use strict';
@@ -23,6 +33,20 @@ angular.module('AnnotatedTutorial')
             tutorials: tutorials,
             get: function(id) {
                 return tutorials[idIndexMap[id]];
+            },
+            post: function(note) {
+                var note = new Note({
+                    step_id: note.step_id,
+                    category: note.category,
+                    extra_info: note.extra_info,
+                    content: note.content,
+                    author: note.author,
+                    user_submitted: true,
+                    reply_to: note.reply_to
+                });
+
+                //$http.post('http://127.0.0.1:8000/tutorials/notes', note);
+                $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             }
         };
     });

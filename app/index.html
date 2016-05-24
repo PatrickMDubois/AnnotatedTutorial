@@ -108,9 +108,9 @@
             </div>
           </div><!--
 
-        --><div class="input-container grid__item one-quarter" ng-if="inputPos >= 0" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
+        --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
           <button ng-click="closeInput()" class="plain-button">Close</button>
-          <div ng-if="replyTo != -1">Replying to {{$parent.replyToAuthor}}.</div>
+          <div ng-if="replyTo != null">Replying to {{$parent.replyToAuthor}}.</div>
           <div ng-if="!tutorial.baseline">
             <div>Pick a category for your note.</div>
             <button ng-click="typeSelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputType == 'corrections'}" tooltip="Corrections"></button>
