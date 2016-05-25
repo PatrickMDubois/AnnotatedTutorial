@@ -1563,7 +1563,8 @@ img {
 
 .icon-other {
   background-image: url(../images/PNG/other.png);
-  background-position: 4px 2px;
+  background-size: 23px;
+  background-position: 0px 2px;
 }
 
 .selected-details, .icon-details:hover {
@@ -1611,6 +1612,7 @@ img {
 
 .note-other {
   background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/other.png);
+  background-position: 0px 0px;
 }
 
 .input-start {

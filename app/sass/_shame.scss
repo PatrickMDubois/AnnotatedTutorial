@@ -86,7 +86,8 @@ img{
 
 .icon-other{
   background-image: url(../images/PNG/other.png);
-  background-position: 4px 2px;
+  background-size: 23px;
+  background-position: 0px 2px;
 }
 
 .selected-details, .icon-details:hover{background-color: #eef;}
@@ -112,7 +113,10 @@ img{
 .note-details{background-image: linear-gradient(rgba(238,238,255,0.9), rgba(238,238,255,0.9)), url(../images/PNG/pin.png);}
 .note-corrections{background-image: linear-gradient(rgba(255,238,238,0.9), rgba(255,238,238,0.9)), url(../images/PNG/healing.png);}
 .note-methods{background-image: linear-gradient(rgba(255,238,204,0.9), rgba(255,238,204,0.9)), url(../images/PNG/question.png);}
-.note-other{background-image: linear-gradient(rgba(238,255,238,0.9), rgba(238,255,238,0.9)), url(../images/PNG/other.png);}
+.note-other{
+  background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/other.png);
+  background-position: 0px 0px;
+}
 
 .input-start{
   background-color: #fff;
