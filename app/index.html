@@ -14,7 +14,7 @@
       <div class="grid grid--full is-extended">
         <div class="grid__item three-quarters is-extended content">
           <div class="l-block grid grid--full"
-               ng-repeat="step in tutorialSteps"
+               ng-repeat="step in tutorial.steps"
                ng-mouseenter="hover = true"
                ng-mouseleave="hover = false"
                ng-class="{'selected-step': selectedLine === $index}">
@@ -74,7 +74,7 @@
                   <div>Note category: {{note.extra_info}}</div>
                   <div>{{note.content}}</div>
                   <div class="comment-footer">
-                    <div class="plain-button reply-button" ng-click="addingReply($index, $event, note.id, note.author)" ng-if="(note.extra_info|lowercase) === 'question'">Post Answer</div>
+                    <div class="plain-button reply-button" ng-click="addingReply($index, $event, note.id, note.author, note.step_id)" ng-if="(note.extra_info|lowercase) === 'question'">Post Answer</div>
                     <div class="note-author">Submitted by {{note.author}}</div>
                   </div>
                 </div>
@@ -91,9 +91,9 @@
 
 
         --><div class="baseline-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}" ng-if="tutorial.baseline">
-            <div ng-if="tutorialComments">
+            <div ng-if="tutorial.notes">
               <h2>Comments</h2>
-              <div class="baseline-content note" ng-repeat="comment in tutorialComments | orderBy:'id':false">
+              <div class="baseline-content note" ng-repeat="comment in tutorial.notes | orderBy:'id':false">
                 <div>{{comment.content}}</div>
                 <div class="comment-footer">
                   <button class="plain-button reply-button" ng-click="addingReply($index, $event, comment.id, comment.author)">Reply</button>
@@ -104,7 +104,7 @@
             <div class="submit-comment-container">
               <h2>Submit a comment</h2>
               <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your comment here."></textarea>
-              <button ng-click="submitComment()" class="plain-button">Submit</button>
+              <button ng-click="submitNote()" class="plain-button">Submit</button>
             </div>
           </div><!--
 

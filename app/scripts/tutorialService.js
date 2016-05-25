@@ -1,5 +1,6 @@
 function Note(data) {
     this.step_id = data.step_id;
+    this.tutorial_id = data.tutorial_id;
     this.category = data.category;
     this.extra_info = data.extra_info;
     this.content = data.content;
@@ -37,6 +38,7 @@ angular.module('AnnotatedTutorial')
             post: function(note) {
                 var note = new Note({
                     step_id: note.step_id,
+                    tutorial_id: note.tutorial_id,
                     category: note.category,
                     extra_info: note.extra_info,
                     content: note.content,
