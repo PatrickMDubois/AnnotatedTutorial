@@ -51,7 +51,6 @@
                 <div class="note note-corrections" ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'">
                   <div>{{note.content}}</div>
                   <div class="note-author">Submitted by {{note.author}}</div>
-                  <note></note>
                 </div>
               </div>
 
@@ -77,6 +76,7 @@
                   <div class="comment-footer">
                     <div class="plain-button reply-button" ng-click="addingReply($index, $event, note.id, note.author, note.step_id)" ng-if="(note.extra_info|lowercase) === 'question'">Post Answer</div>
                     <div class="note-author">Submitted by {{note.author}}</div>
+                    <note></note>
                   </div>
                 </div>
               </div>
@@ -99,6 +99,7 @@
                 <div class="comment-footer">
                   <button class="plain-button reply-button" ng-click="addingReply($index, $event, comment.id, comment.author)">Reply</button>
                   <div class="note-author">Submitted by {{comment.author}}</div>
+                  <note></note>
                 </div>
               </div>
             </div>
@@ -160,7 +161,7 @@
     <script src="/scripts/tutorialService.js"></script>
     <script src="/scripts/loggerService.js"></script>
     <script src="/scripts/mainController.js"></script>
-    <!--<script src="/scripts/noteDirective.js"></script>-->
+    <script src="/scripts/noteDirective.js"></script>
     <!-- /build -->
   </body>
 </html>

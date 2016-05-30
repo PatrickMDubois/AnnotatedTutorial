@@ -1,4 +1,4 @@
-angular.module('AnnotatedTutorial', [])
+angular.module('AnnotatedTutorial')
     .directive('note', function() {
         'use strict'
 
