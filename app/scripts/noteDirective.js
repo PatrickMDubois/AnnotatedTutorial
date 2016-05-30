@@ -5,7 +5,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {tutorial: '='},
+            scope: {note: '='},
             controller: function($scope) {/* ...*/},
             compile: function(element) {{/* ...*/}}
         };
