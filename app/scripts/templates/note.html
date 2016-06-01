@@ -1,6 +1,10 @@
-<div>Note category: {{note.extra_info}}</div>
-<div>{{note.content}}</div>
-<div class="comment-footer">
-    <div class="plain-button reply-button" ng-click="addingReply($index, $event, note.id, note.author, note.step_id)" ng-if="(note.extra_info|lowercase) === 'question'">Post Answer</div>
-    <div class="note-author">Submitted by {{note.author}}</div>
+<div class="note" ng-class="note.category === 'corrections' ? 'note-corrections' :
+    (note.category === 'methods' ? 'note-methods' : (note.category === 'details' ? 'note-details' : 'note-other'))">
+    <div>Note category: {{note.category}}<div ng-if="note.category === 'other'">: {{note.extra_info}}</div></div>
+    <div>{{note.content}}</div>
+    <div class="comment-footer">
+        <div class="plain-button reply-button" ng-click="addingReply($index, $event, note.id, note.author, note.step_id)" ng-if="(note.extra_info|lowercase) === 'question'">Post Answer</div>
+        <div class="note-author">Submitted by {{note.author}}</div>
+        <div ng-if="note.replies.length > 0">Has replies.</div>
+    </div>
 </div>
