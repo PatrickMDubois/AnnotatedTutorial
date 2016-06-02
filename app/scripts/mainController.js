@@ -48,7 +48,7 @@ angular.module('AnnotatedTutorial')
                     }
 
                     $scope.inputPos = $event.pageY;
-                }
+                };
 
                 $scope.typeSelected = function(type){
                     $scope.showTextarea = true;

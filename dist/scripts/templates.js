@@ -14,13 +14,13 @@ module.run(["$templateCache", function($templateCache) {
     "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
     "    <div>{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
-    "        <div class=\"plain-button reply-button\"\n" +
+    "        <button class=\"plain-button reply-button\"\n" +
     "             ng-click=\"addingReply($index, $event, note.id, note.author, note.step_id)\"\n" +
     "             ng-if=\"note.category === 'other' && (note.extra_info|lowercase) === 'question'\">\n" +
     "                Post Answer\n" +
-    "        </div>\n" +
+    "        </button>\n" +
     "        <div class=\"note-author\">Submitted by {{note.author}}</div>\n" +
-    "        <div ng-if=\"note.replies.length > 0\">Has replies.</div>\n" +
+    "        <note ng-if=\"note.replies.length > 0\" ng-repeat=\"reply in note.replies\" note=\"reply\"></note>\n" +
     "    </div>\n" +
     "</div>");
 }]);
