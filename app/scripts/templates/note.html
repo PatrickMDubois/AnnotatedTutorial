@@ -9,11 +9,11 @@
     <div>{{note.content}}</div>
     <div class="comment-footer">
         <button class="plain-button reply-button"
-             ng-click="addingReply($index, $event, note.id, note.author, note.step_id)"
+             ng-click="addReply($index, $event, note.id, note.author, note.step_id)"
              ng-if="note.category === 'other' && (note.extra_info|lowercase) === 'question'">
                 Post Answer
         </button>
         <div class="note-author">Submitted by {{note.author}}</div>
-        <note ng-if="note.replies.length > 0" ng-repeat="reply in note.replies" note="reply"></note>
+        <note ng-if="note.replies.length > 0" ng-repeat="reply in note.replies" note="reply" add-reply="addReply"></note>
     </div>
 </div>
