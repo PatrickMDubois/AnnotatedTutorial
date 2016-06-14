@@ -15,7 +15,8 @@ angular.module('AnnotatedTutorial')
 
         var tutorials = [],
             idIndexMap = {},
-            promise;
+            promise,
+            author;
 
         //promise = $http.get('http://127.0.0.1:8000/tutorials/tutorials/1')
         promise = $http.get(annotatedTutorialServer + '/tutorials/tutorials')
@@ -29,9 +30,13 @@ angular.module('AnnotatedTutorial')
                 });
             });
 
+        author = $http.get(annotatedTutorialServer + '/tutorials/author/' + localStorage.getItem('pseudonym'))
+        //.then function...
+
         return {
             loaded: promise,
             tutorials: tutorials,
+            author: author,
             get: function(id) {
                 return tutorials[idIndexMap[id]];
             },

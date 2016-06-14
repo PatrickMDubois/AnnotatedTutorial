@@ -12,7 +12,7 @@
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = localStorage.getItem('pseudonym');
+        var pseudonym = '';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {

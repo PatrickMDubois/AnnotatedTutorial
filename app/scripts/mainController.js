@@ -8,6 +8,7 @@ angular.module('AnnotatedTutorial')
 
                 //$scope.user = TutorialService.g
                 $scope.tutorial = TutorialService.get(tutorialId);
+                $scope.author = TutorialService.author;
 
                 $scope.selectedLine = null;
                 $scope.newNote = "";
