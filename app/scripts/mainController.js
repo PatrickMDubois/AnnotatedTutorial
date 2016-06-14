@@ -6,6 +6,7 @@ angular.module('AnnotatedTutorial')
         .then(function() {
                 var tutorialId = 1//prompt('tutorial number');
 
+                //$scope.user = TutorialService.g
                 $scope.tutorial = TutorialService.get(tutorialId);
 
                 $scope.selectedLine = null;
@@ -88,7 +89,7 @@ angular.module('AnnotatedTutorial')
                             "category": $scope.inputType,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
-                            "author": localStorage.getItem('participant'),
+                            "author": localStorage.getItem('pseudonym'),
                             "reply_to": $scope.replyTo
                         };
 
@@ -130,7 +131,7 @@ angular.module('AnnotatedTutorial')
 
                   if($scope.tutorial.show_to_all ||
                       !note.user_submitted ||
-                      note.author === localStorage.getItem('participant')){
+                      note.author === localStorage.getItem('pseudonym')){
 
                       canShow = true;
                   }

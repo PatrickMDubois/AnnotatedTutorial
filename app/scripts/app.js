@@ -12,17 +12,17 @@
     });
 
     app.factory('currentParticipant', function() {
-        var participantId = localStorage.getItem('participant');
+        var pseudonym = localStorage.getItem('pseudonym');
 
-        if (!participantId) {
-            while (!participantId) {
-              participantId = prompt('Please, enter your participant number');
+        if (!pseudonym) {
+            while (!pseudonym) {
+                pseudonym = prompt('Please, enter your pseudonym');
             }
 
-            localStorage.setItem('participant', participantId);
+            localStorage.setItem('pseudonym', pseudonym);
           }
 
-        return participantId;
+        return pseudonym;
     });
 
 })(window);

@@ -59,17 +59,17 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var participantId = localStorage.getItem('participant');
+        var pseudonym = localStorage.getItem('pseudonym');
 
-        if (!participantId) {
-            while (!participantId) {
-              participantId = prompt('Please, enter your participant number');
+        if (!pseudonym) {
+            while (!pseudonym) {
+                pseudonym = prompt('Please, enter your pseudonym');
             }
 
-            localStorage.setItem('participant', participantId);
+            localStorage.setItem('pseudonym', pseudonym);
           }
 
-        return participantId;
+        return pseudonym;
     });
 
 })(window);
@@ -157,6 +157,7 @@ angular.module('AnnotatedTutorial')
         .then(function() {
                 var tutorialId = 1//prompt('tutorial number');
 
+                //$scope.user = TutorialService.g
                 $scope.tutorial = TutorialService.get(tutorialId);
 
                 $scope.selectedLine = null;
@@ -239,7 +240,7 @@ angular.module('AnnotatedTutorial')
                             "category": $scope.inputType,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
-                            "author": localStorage.getItem('participant'),
+                            "author": localStorage.getItem('pseudonym'),
                             "reply_to": $scope.replyTo
                         };
 
@@ -281,7 +282,7 @@ angular.module('AnnotatedTutorial')
 
                   if($scope.tutorial.show_to_all ||
                       !note.user_submitted ||
-                      note.author === localStorage.getItem('participant')){
+                      note.author === localStorage.getItem('pseudonym')){
 
                       canShow = true;
                   }
