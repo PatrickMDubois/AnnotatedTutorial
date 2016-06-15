@@ -13,32 +13,18 @@ angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http, annotatedTutorialServer){
         'use strict';
 
-        var tutorials = [],
-            idIndexMap = {},
-            promise,
-            author;
+        var author = null;
 
-        //promise = $http.get('http://127.0.0.1:8000/tutorials/tutorials/1')
-        promise = $http.get(annotatedTutorialServer + '/tutorials/tutorials')
+        var promise = $http.get(annotatedTutorialServer + '/tutorials/author/' + localStorage.getItem('pseudonym'))
             .then(function(response) {
-                tutorials = response.data;
 
-                idIndexMap = {};
-
-                angular.forEach(response.data, function(tutorial, index) {
-                    idIndexMap[tutorial.id] = index;
-                });
+                author = response.data;
             });
-
-        author = $http.get(annotatedTutorialServer + '/tutorials/author/' + localStorage.getItem('pseudonym'))
-        //.then function...
 
         return {
             loaded: promise,
-            tutorials: tutorials,
-            author: author,
-            get: function(id) {
-                return tutorials[idIndexMap[id]];
+            get: function() {
+                return author.current_tutorial;
             },
             post: function(note) {
                 var note = new Note({
@@ -52,7 +38,6 @@ angular.module('AnnotatedTutorial')
                     reply_to: note.reply_to
                 });
 
-                //$http.post('http://127.0.0.1:8000/tutorials/notes', note);
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             }
         };

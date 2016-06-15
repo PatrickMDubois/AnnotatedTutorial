@@ -4,12 +4,7 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
-                var tutorialId = 1//prompt('tutorial number');
-
-                //$scope.user = TutorialService.g
-                $scope.tutorial = TutorialService.get(tutorialId);
-                $scope.author = TutorialService.author;
-
+                $scope.tutorial = TutorialService.get();
                 $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
@@ -86,7 +81,7 @@ angular.module('AnnotatedTutorial')
 
                         var note = {
                             "step_id": $scope.selectedLine,
-                            "tutorial_id": tutorialId,
+                            "tutorial_id": $scope.tutorial.id,
                             "category": $scope.inputType,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
