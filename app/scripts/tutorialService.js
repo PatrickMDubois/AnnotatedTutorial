@@ -10,12 +10,12 @@ function Note(data) {
 }
 
 angular.module('AnnotatedTutorial')
-    .factory('TutorialService', function($http, annotatedTutorialServer){
+    .factory('TutorialService', function($http, annotatedTutorialServer, currentParticipant){
         'use strict';
 
         var author = null;
 
-        var promise = $http.get(annotatedTutorialServer + '/tutorials/author/' + localStorage.getItem('pseudonym'))
+        var promise = $http.get(annotatedTutorialServer + '/tutorials/author/' + currentParticipant)
             .then(function(response) {
 
                 author = response.data;
@@ -24,7 +24,7 @@ angular.module('AnnotatedTutorial')
         return {
             loaded: promise,
             get: function() {
-                return author.current_tutorial;
+                return author;
             },
             post: function(note) {
                 var note = new Note({

@@ -107,12 +107,12 @@ function Note(data) {
 }
 
 angular.module('AnnotatedTutorial')
-    .factory('TutorialService', function($http, annotatedTutorialServer){
+    .factory('TutorialService', function($http, annotatedTutorialServer, currentParticipant){
         'use strict';
 
         var author = null;
 
-        var promise = $http.get(annotatedTutorialServer + '/tutorials/author/' + localStorage.getItem('pseudonym'))
+        var promise = $http.get(annotatedTutorialServer + '/tutorials/author/' + currentParticipant)
             .then(function(response) {
 
                 author = response.data;
@@ -121,7 +121,7 @@ angular.module('AnnotatedTutorial')
         return {
             loaded: promise,
             get: function() {
-                return author.current_tutorial;
+                return author;
             },
             post: function(note) {
                 var note = new Note({
@@ -145,7 +145,8 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
-                $scope.tutorial = TutorialService.get();
+                $scope.author = TutorialService.get();
+                $scope.tutorial = $scope.author.current_tutorial;
                 $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
@@ -226,7 +227,7 @@ angular.module('AnnotatedTutorial')
                             "category": $scope.inputType,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
-                            "author": localStorage.getItem('pseudonym'),
+                            "author": $scope.author.name,
                             "reply_to": $scope.replyTo
                         };
 
@@ -268,7 +269,7 @@ angular.module('AnnotatedTutorial')
 
                   if($scope.tutorial.show_to_all ||
                       !note.user_submitted ||
-                      note.author === localStorage.getItem('pseudonym')){
+                      note.author === $scope.author.name){
 
                       canShow = true;
                   }
@@ -296,7 +297,6 @@ angular.module('AnnotatedTutorial')
             restrict: 'E',
             templateUrl: 'note.html',
             scope: {note: '=', addReply: '='},
-            //require: '^^mainController',
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

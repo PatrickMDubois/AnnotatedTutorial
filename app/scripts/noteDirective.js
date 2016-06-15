@@ -6,7 +6,6 @@ angular.module('AnnotatedTutorial')
             restrict: 'E',
             templateUrl: 'note.html',
             scope: {note: '=', addReply: '='},
-            //require: '^^mainController',
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
