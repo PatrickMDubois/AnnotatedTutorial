@@ -1,9 +1,9 @@
 <div class="note" ng-class="
-    note.category === 'corrections' ? 'note-corrections' :
-    (note.category === 'methods' ? 'note-methods' :
-    (note.category === 'details' ? 'note-details' :
-    (note.category === 'questions' ? 'note-questions' :
-    (note.category === 'other' ? 'note-other' : ''))))">
+    (note.category === 'corrections' && !baseline ? 'note-corrections' :
+    (note.category === 'methods' && !baseline ? 'note-methods' :
+    (note.category === 'details' && !baseline ? 'note-details' :
+    (note.category === 'questions' && !baseline ? 'note-questions' :
+    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))">
 
     <div ng-if="note.category === 'methods'">Note relevant for: {{note.extra_info}}</div>
     <div ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
@@ -11,10 +11,15 @@
     <div class="comment-footer">
         <button class="plain-button reply-button"
              ng-click="addReply($index, $event, note.id, note.author, note.step_id)"
-             ng-if="note.category === 'questions'">
+             ng-if="note.category === 'questions' && !baseline">
                 Post Answer
         </button>
+        <button class="plain-button reply-button"
+            ng-click="addReply($index, $event, note.id, note.author, note.step_id)"
+            ng-if="baseline">
+                Reply
+        </button>
         <div class="note-author">Submitted by {{note.author}}</div>
-        <note ng-if="note.replies.length > 0" ng-repeat="reply in note.replies" note="reply" add-reply="addReply"></note>
+        <note ng-if="note.replies.length > 0" ng-repeat="reply in note.replies" note="reply" add-reply="addReply" baseline="baseline"></note>
     </div>
 </div>

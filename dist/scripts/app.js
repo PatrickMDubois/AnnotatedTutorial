@@ -59,7 +59,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = '';//localStorage.getItem('pseudonym');
+        var pseudonym = 'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
@@ -159,17 +159,10 @@ angular.module('AnnotatedTutorial')
 
                 $scope.lineClicked = function($index, $event){
 
-                    $scope.selectedLine = $index + $scope.tutorial.steps[0].id;
+                    $scope.selectedLine = $index;
                     $scope.inputPos = $event.pageY;
 
                     //LoggerService.log("Opened input dialog");
-                };
-
-                $scope.addingQuestion = function($index, $event){
-
-                    $scope.lineClicked($index, $event);
-                    $scope.typeSelected("other");
-                    $scope.extraInput = "Question";
                 };
 
                 $scope.addingReply = function($index, $event, id, author, step){
@@ -222,7 +215,7 @@ angular.module('AnnotatedTutorial')
                     if(($scope.tutorial.baseline || $scope.selectedLine > -1) && $scope.newNote){
 
                         var note = {
-                            "step_id": $scope.selectedLine,
+                            "step_id": $scope.selectedLine + $scope.tutorial.steps[0].id,
                             "tutorial_id": $scope.tutorial.id,
                             "category": $scope.inputType,
                             "extra_info": $scope.extraInput,
@@ -234,9 +227,11 @@ angular.module('AnnotatedTutorial')
                         TutorialService.post(note);
                         $scope.tutorial.notes.push(note);
 
+                        note.step_id = $scope.selectedLine;
+
                         if ($scope.selectedLine) {
 
-                            $scope.tutorial.steps[$scope.selectedLine - $scope.tutorial.steps[0].id].notes.push(note);
+                            $scope.tutorial.steps[$scope.selectedLine].notes.push(note);
                         }
 
                         $scope.closeInput();
@@ -296,7 +291,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=', addReply: '='},
+            scope: {note: '=', addReply: '=', baseline: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

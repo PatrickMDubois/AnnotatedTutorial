@@ -5,11 +5,11 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("note.html",
     "<div class=\"note\" ng-class=\"\n" +
-    "    note.category === 'corrections' ? 'note-corrections' :\n" +
-    "    (note.category === 'methods' ? 'note-methods' :\n" +
-    "    (note.category === 'details' ? 'note-details' :\n" +
-    "    (note.category === 'questions' ? 'note-questions' :\n" +
-    "    (note.category === 'other' ? 'note-other' : ''))))\">\n" +
+    "    (note.category === 'corrections' && !baseline ? 'note-corrections' :\n" +
+    "    (note.category === 'methods' && !baseline ? 'note-methods' :\n" +
+    "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
+    "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
+    "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
     "\n" +
     "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
@@ -17,11 +17,16 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.author, note.step_id)\"\n" +
-    "             ng-if=\"note.category === 'questions'\">\n" +
+    "             ng-if=\"note.category === 'questions' && !baseline\">\n" +
     "                Post Answer\n" +
     "        </button>\n" +
+    "        <button class=\"plain-button reply-button\"\n" +
+    "            ng-click=\"addReply($index, $event, note.id, note.author, note.step_id)\"\n" +
+    "            ng-if=\"baseline\">\n" +
+    "                Reply\n" +
+    "        </button>\n" +
     "        <div class=\"note-author\">Submitted by {{note.author}}</div>\n" +
-    "        <note ng-if=\"note.replies.length > 0\" ng-repeat=\"reply in note.replies\" note=\"reply\" add-reply=\"addReply\"></note>\n" +
+    "        <note ng-if=\"note.replies.length > 0\" ng-repeat=\"reply in note.replies\" note=\"reply\" add-reply=\"addReply\" baseline=\"baseline\"></note>\n" +
     "    </div>\n" +
     "</div>");
 }]);

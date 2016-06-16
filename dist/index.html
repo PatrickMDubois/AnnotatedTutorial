@@ -50,33 +50,32 @@
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" add-reply="addingReply"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" add-reply="addingReply"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" add-reply="addingReply"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" add-reply="addingReply"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" add-reply="addingReply"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" add-reply="addingReply" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" add-reply="addingReply" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" add-reply="addingReply" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" add-reply="addingReply" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" add-reply="addingReply" baseline="false"></note>
             </div><!--
 
             --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
               <!-- Button for adding a note -->
               <button class="input-start icon" ng-click="lineClicked($index, $event)" tooltip="Add a note"></button>
-              <button class="input-start question-start icon" ng-click="addingQuestion($index, $event)" tooltip="Add a question"></button>
             </div>
           </div>
         </div><!--
 
-
         --><div class="baseline-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}" ng-if="tutorial.baseline">
             <div ng-if="tutorial.notes">
               <h2>Comments</h2>
-              <div class="baseline-content note" ng-repeat="comment in tutorial.notes | orderBy:'id':false">
+              <!--<div class="baseline-content note" ng-repeat="comment in tutorial.notes | orderBy:'id':false">
                 <div>{{comment.content}}</div>
                 <div class="comment-footer">
                   <button class="plain-button reply-button" ng-click="addingReply($index, $event, comment.id, comment.author)">Reply</button>
                   <div class="note-author">Submitted by {{comment.author}}</div>
-                  <!--<note ng-repeat="reply in comment.replies" note="reply"></note>-->
                 </div>
-              </div>
+              </div>-->
+
+              <note ng-repeat="note in tutorial.notes" note="note" add-reply="addingReply" baseline="true"></note>
             </div>
             <div class="submit-comment-container">
               <h2>Submit a comment</h2>
