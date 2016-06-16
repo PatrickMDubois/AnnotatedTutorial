@@ -8,7 +8,8 @@ module.run(["$templateCache", function($templateCache) {
     "    note.category === 'corrections' ? 'note-corrections' :\n" +
     "    (note.category === 'methods' ? 'note-methods' :\n" +
     "    (note.category === 'details' ? 'note-details' :\n" +
-    "    (note.category === 'other' ? 'note-other' : '')))\">\n" +
+    "    (note.category === 'questions' ? 'note-questions' :\n" +
+    "    (note.category === 'other' ? 'note-other' : ''))))\">\n" +
     "\n" +
     "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
@@ -16,7 +17,7 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.author, note.step_id)\"\n" +
-    "             ng-if=\"note.category === 'other' && (note.extra_info|lowercase) === 'question'\">\n" +
+    "             ng-if=\"note.category === 'questions'\">\n" +
     "                Post Answer\n" +
     "        </button>\n" +
     "        <div class=\"note-author\">Submitted by {{note.author}}</div>\n" +

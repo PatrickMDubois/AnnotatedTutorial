@@ -1556,6 +1556,12 @@ img {
 }
 
 .icon-methods {
+  background-image: url(../images/PNG/method.png);
+  background-size: 14px;
+  background-position: 4px 3px;
+}
+
+.icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 14px;
   background-position: 4px 3px;
@@ -1567,27 +1573,40 @@ img {
   background-position: 0px 2px;
 }
 
-.selected-details, .icon-details:hover {
-  background-color: #eef;
+.selected-details, .note-details, .icon-details:hover {
+  background-color: #dee9ff;
 }
 
-.selected-corrections, .icon-corrections:hover {
-  background-color: #fee;
+.selected-corrections, .note-corrections, .icon-corrections:hover {
+  background-color: #ffdefa;
 }
 
-.selected-methods, .icon-methods:hover {
-  background-color: #fec;
+.selected-methods, .note-methods, .icon-methods:hover {
+  background-color: #fff4de;
 }
 
-.selected-other, .icon-other:hover {
-  background-color: #efe;
+.selected-questions, .note-questions, .icon-questions:hover {
+  background-color: #fff4de;
+}
+
+.selected-other, .note-other, .icon-other:hover {
+  background-color: #deffe3;
+}
+
+.note:before {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border: 1px solid #9b9b9b;
+  display: inline-block;
+  font-size: 75%;
+  top: -15px;
+  padding: 0 10px 0 24px;
+  position: relative;
 }
 
 .note {
-  background-position: left 0 top 0, left 5px top 5px;
-  background-repeat: no-repeat;
-  background-size: auto, 30px 30px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #9b9b9b;
   margin: 10px;
   padding: 10px;
 }
@@ -1598,21 +1617,36 @@ img {
   text-align: right;
 }
 
-.note-details {
-  background-image: linear-gradient(rgba(238, 238, 255, 0.9), rgba(238, 238, 255, 0.9)), url(../images/PNG/pin.png);
+.note-details:before {
+  background-image: url(../images/PNG/pin.png);
+  background-position: 5px 4px;
+  content: "Tell me more!";
 }
 
-.note-corrections {
-  background-image: linear-gradient(rgba(255, 238, 238, 0.9), rgba(255, 238, 238, 0.9)), url(../images/PNG/healing.png);
+.note-corrections:before {
+  background-image: url(../images/PNG/healing.png);
+  background-position: 5px 4px;
+  content: "Corrections";
 }
 
-.note-methods {
-  background-image: linear-gradient(rgba(255, 238, 204, 0.9), rgba(255, 238, 204, 0.9)), url(../images/PNG/question.png);
+.note-methods:before {
+  background-image: url(../images/PNG/method.png);
+  background-position: 7px 5px;
+  background-size: 12px;
+  content: "What is this?";
 }
 
-.note-other {
-  background-image: linear-gradient(rgba(238, 255, 238, 0.9), rgba(238, 255, 238, 0.9)), url(../images/PNG/other.png);
-  background-position: 0px 0px;
+.note-questions:before {
+  background-image: url(../images/PNG/question.png);
+  background-position: 7px 5px;
+  background-size: 12px;
+  content: "Questions";
+}
+
+.note-other:before {
+  background-image: url(../images/PNG/other.png);
+  background-position: 5px 5px;
+  content: "Other notes";
 }
 
 .input-start {
@@ -1658,7 +1692,7 @@ img {
 }
 
 .plain-button {
-  border: 1px solid black;
+  border: 1px solid #9b9b9b;
   float: right;
   padding: 0 5px;
   position: relative;
