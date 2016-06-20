@@ -262,9 +262,7 @@ angular.module('AnnotatedTutorial')
 
                   var canShow = false;
 
-                  if($scope.tutorial.show_to_all ||
-                      !note.user_submitted ||
-                      note.author === $scope.author.name){
+                  if(!note.user_submitted || note.author === $scope.author.name){
 
                       canShow = true;
                   }
