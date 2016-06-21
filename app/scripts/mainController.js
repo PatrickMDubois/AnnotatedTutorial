@@ -21,7 +21,7 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedLine = $index;
                     $scope.inputPos = $event.pageY;
 
-                    //LoggerService.log("Opened input dialog");
+                    LoggerService.log("Opened input dialog");
                 };
 
                 $scope.addingReply = function($index, $event, id, author, step){
@@ -46,7 +46,7 @@ angular.module('AnnotatedTutorial')
                     $scope.inputType = type;
                     $scope.extraInput = "";
 
-                    //LoggerService.log("Changed input to category: " + type);
+                    LoggerService.log("Changed input to category: " + type);
                 };
 
                 $scope.closeInput = function(){
@@ -59,7 +59,7 @@ angular.module('AnnotatedTutorial')
                     $scope.replyTo = null;
                     $scope.replyToAuthor = "";
 
-                    //LoggerService.log("Closed input dialog");
+                    LoggerService.log("Closed input dialog");
                 };
 
                 $scope.submitNote = function(){
@@ -95,12 +95,12 @@ angular.module('AnnotatedTutorial')
 
                         $scope.closeInput();
 
-                        /*LoggerService.log("Submitted a note:"
+                        LoggerService.log("Submitted a note:"
                          + " Tutorial - " + TutorialService.tutorial.title
                          + " | Step - " + $scope.selectedLine
                          + " | Category - " + $scope.inputType
                          + " | Extra Input - " + $scope.extraInput
-                         + " | Note - " + $scope.newNote);*/
+                         + " | Note - " + $scope.newNote);
                     }
                 };
 
@@ -131,11 +131,11 @@ angular.module('AnnotatedTutorial')
 
                 $scope.showCategory = function(show, category, step){
 
-                    /*LoggerService.log("Toggled category: "
+                    LoggerService.log("Toggled category: "
                         + " Tutorial - " + TutorialService.tutorial.title
                         + " | Category - " + category
                         + " | Visibility - " + !show
-                        + " | Step - " + step.html.substr(0, 50) + "...");*/
+                        + " | Step - " + step.html.substr(0, 50) + "...");
 
                     return !show;
                 };
