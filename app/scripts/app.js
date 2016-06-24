@@ -12,7 +12,7 @@
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = 'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = ''//'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {

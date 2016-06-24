@@ -96,7 +96,7 @@ angular.module('AnnotatedTutorial')
                         $scope.closeInput();
 
                         LoggerService.log("Submitted a note:"
-                         + " Tutorial - " + TutorialService.tutorial.title
+                         + " Tutorial - " + $scope.tutorial.title
                          + " | Step - " + $scope.selectedLine
                          + " | Category - " + $scope.inputType
                          + " | Extra Input - " + $scope.extraInput
@@ -132,7 +132,7 @@ angular.module('AnnotatedTutorial')
                 $scope.showCategory = function(show, category, step){
 
                     LoggerService.log("Toggled category: "
-                        + " Tutorial - " + TutorialService.tutorial.title
+                        + " Tutorial - " + $scope.tutorial.title
                         + " | Category - " + category
                         + " | Visibility - " + !show
                         + " | Step - " + step.html.substr(0, 50) + "...");

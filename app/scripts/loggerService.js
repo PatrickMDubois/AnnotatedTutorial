@@ -5,7 +5,7 @@ function Log(data) {
 }
 
 angular.module('AnnotatedTutorial')
-    .factory('LoggerService', function(currentParticipant, $http) {
+    .factory('LoggerService', function(annotatedTutorialServer, currentParticipant, $http) {
         'use strict';
 
         return {

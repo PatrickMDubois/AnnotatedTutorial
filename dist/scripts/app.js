@@ -59,7 +59,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = 'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = ''//'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
@@ -80,7 +80,7 @@ function Log(data) {
 }
 
 angular.module('AnnotatedTutorial')
-    .factory('LoggerService', function(currentParticipant, $http) {
+    .factory('LoggerService', function(annotatedTutorialServer, currentParticipant, $http) {
         'use strict';
 
         return {
@@ -237,7 +237,7 @@ angular.module('AnnotatedTutorial')
                         $scope.closeInput();
 
                         LoggerService.log("Submitted a note:"
-                         + " Tutorial - " + TutorialService.tutorial.title
+                         + " Tutorial - " + $scope.tutorial.title
                          + " | Step - " + $scope.selectedLine
                          + " | Category - " + $scope.inputType
                          + " | Extra Input - " + $scope.extraInput
@@ -273,7 +273,7 @@ angular.module('AnnotatedTutorial')
                 $scope.showCategory = function(show, category, step){
 
                     LoggerService.log("Toggled category: "
-                        + " Tutorial - " + TutorialService.tutorial.title
+                        + " Tutorial - " + $scope.tutorial.title
                         + " | Category - " + category
                         + " | Visibility - " + !show
                         + " | Step - " + step.html.substr(0, 50) + "...");
