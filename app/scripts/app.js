@@ -5,7 +5,7 @@
 
     app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
-            return 'http://redbud.cs.umanitoba.ca/';
+            return 'http://redbud.cs.umanitoba.ca';
             //return '//dorado.cs.umanitoba.ca:8000'; // production environment
         } else {
             return 'http://127.0.0.1:8000'; // development environment
