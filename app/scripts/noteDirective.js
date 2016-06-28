@@ -5,7 +5,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=', addReply: '=', baseline: '='},
+            scope: {note: '=', addReply: '=', canShowNote: '=', baseline: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

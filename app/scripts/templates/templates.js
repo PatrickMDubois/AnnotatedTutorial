@@ -26,7 +26,7 @@ module.run(["$templateCache", function($templateCache) {
     "                Reply\n" +
     "        </button>\n" +
     "        <div class=\"note-author\">Submitted by {{note.author}}</div>\n" +
-    "        <note ng-if=\"note.replies.length > 0\" ng-repeat=\"reply in note.replies\" note=\"reply\" add-reply=\"addReply\" baseline=\"baseline\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +
     "    </div>\n" +
     "</div>");
 }]);
