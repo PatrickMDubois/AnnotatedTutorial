@@ -67,7 +67,7 @@
         --><div class="baseline-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}" ng-if="tutorial.baseline">
             <div ng-if="tutorial.notes">
               <h2>Comments</h2>
-              <note ng-repeat="note in tutorial.notes" ng-if="!note.reply_to" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="true"></note>
+              <note ng-repeat="note in tutorial.notes" ng-if="!note.reply_to && canShowNote(note)" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="true"></note>
             </div>
             <div class="submit-comment-container">
               <h2>Submit a comment</h2>
