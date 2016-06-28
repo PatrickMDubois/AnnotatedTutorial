@@ -216,7 +216,7 @@ angular.module('AnnotatedTutorial')
                     if(($scope.tutorial.baseline || $scope.selectedLine > -1) && $scope.newNote){
 
                         var note = {
-                            "step_id": $scope.selectedLine + $scope.tutorial.steps[0].id,
+                            "step_id": $scope.selectedLine,
                             "tutorial_id": $scope.tutorial.id,
                             "category": $scope.inputType,
                             "extra_info": $scope.extraInput,
@@ -225,14 +225,22 @@ angular.module('AnnotatedTutorial')
                             "reply_to": $scope.replyTo
                         };
 
+                        if(!$scope.replyTo){
+                            note.step_id += $scope.tutorial.steps[0].id;
+                        }
+
                         TutorialService.post(note);
                         $scope.tutorial.notes.push(note);
 
                         note.step_id = $scope.selectedLine;
 
+                        if($scope.replyTo){
+                            note.step_id -= $scope.tutorial.steps[0].id;
+                        }
+
                         if ($scope.selectedLine) {
 
-                            $scope.tutorial.steps[$scope.selectedLine].notes.push(note);
+                            $scope.tutorial.steps[note.step_id].notes.push(note);
                         }
 
                         $scope.closeInput();
