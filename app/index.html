@@ -13,13 +13,45 @@
     <div class="l-wrap">
       <div class="grid grid--full is-extended">
         <div class="grid__item three-quarters is-extended content">
+
+          <h1>{{tutorial.title}}</h1>
+          <h3>by: {{tutorial.author}}</h3>
+          <div ng-click="contributorFlag = showContributors(contributorFlag)">
+              <div>[+] {{listOfAuthors.length.toString()}} Other contributors</div>
+          </div>
+          <div ng-show="contributorFlag">
+              <div class = "author" ng-repeat="author in listOfAuthors">{{author}}</div>
+          </div>
+
+            <!--<script>
+              var firstCall = true;
+
+              function show()
+              {
+                  document.getElementById("authorList").innerHTML = "hia";
+              }
+              function hide()
+              {
+                  document.getElementById("authorList").innerHTML = "";
+              }
+              function call()
+              {
+                  if(firstCall) show();
+                  else hide();
+                  firstCall = !firstCall;
+              }
+          </script>
+            <button onclick = "call();">+</button>
+            <p id="authorList"></p>-->
+
           <div class="l-block grid grid--full"
                ng-repeat="step in tutorial.steps"
                ng-mouseenter="hover = true"
                ng-mouseleave="hover = false"
                ng-class="{'selected-step': selectedLine === $index}">
+
             <!-- Buttons to toggle on/off notes -->
-            <div class="grid__item one-eighth is-right-aligned">
+              <div class="grid__item one-eighth is-right-aligned">
 
               <button class="icon icon-corrections"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"

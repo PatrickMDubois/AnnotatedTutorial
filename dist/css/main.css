@@ -1487,7 +1487,10 @@ html, body {
 
 img {
   max-width: 500px;
+  max-height: 200px;
   border: 1px solid #e0e0e0;
+  display: block;
+  margin: 0 auto;
 }
 
 .header {
@@ -1742,4 +1745,21 @@ h1 {
 h2 {
   font-size: 110%;
   font-weight: bold;
+}
+
+.authors-icon {
+  background-image: url(../images/PNG/plus.png);
+  background-position: 4px 3px;
+  background-repeat: no-repeat;
+  background-size: 19px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  height: 24px;
+  line-height: 9px;
+  width: 24px;
+}
+
+.author {
+  float: left;
+  margin: 0 2px;
 }

@@ -52,7 +52,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
 
     app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
-            return 'http://redbud.cs.umanitoba.ca';
+            return 'http://rengas.cs.umanitoba.ca';
             //return '//dorado.cs.umanitoba.ca:8000'; // production environment
         } else {
             return 'http://127.0.0.1:8000'; // development environment
@@ -155,6 +155,14 @@ angular.module('AnnotatedTutorial')
                 $scope.inputType = "";
                 $scope.replyTo = null;
                 $scope.replyToAuthor = "";
+                $scope.listOfAuthors = [];
+                for(var i = 0; i < $scope.tutorial.notes.length; i++) {
+                    if($scope.listOfAuthors.indexOf($scope.tutorial.notes[i].author) == -1) {
+                        $scope.listOfAuthors.push(($scope.tutorial.notes[i].author));
+                    }
+                }
+
+                console.log($scope.listOfAuthors);
 
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
 
@@ -289,6 +297,11 @@ angular.module('AnnotatedTutorial')
 
                     return !show;
                 };
+
+                $scope.showContributors = function(show)
+                {
+                    return !show;
+                }
             });
     });
 angular.module('AnnotatedTutorial')

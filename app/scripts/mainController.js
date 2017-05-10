@@ -13,6 +13,14 @@ angular.module('AnnotatedTutorial')
                 $scope.inputType = "";
                 $scope.replyTo = null;
                 $scope.replyToAuthor = "";
+                $scope.listOfAuthors = [];
+                for(var i = 0; i < $scope.tutorial.notes.length; i++) {
+                    if($scope.listOfAuthors.indexOf($scope.tutorial.notes[i].author) == -1) {
+                        $scope.listOfAuthors.push(($scope.tutorial.notes[i].author));
+                    }
+                }
+
+                console.log($scope.listOfAuthors);
 
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
 
@@ -147,5 +155,10 @@ angular.module('AnnotatedTutorial')
 
                     return !show;
                 };
+
+                $scope.showContributors = function(show)
+                {
+                    return !show;
+                }
             });
     });
