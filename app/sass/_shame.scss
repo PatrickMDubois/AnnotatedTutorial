@@ -19,7 +19,7 @@ img{
   max-height: 200px;
   border: 1px solid #e0e0e0;
   display: block;
-  margin: 0 auto;
+
 }
 
 .header{
@@ -42,6 +42,7 @@ img{
   height: 24px;
   line-height: 9px;
   width: 24px;
+  position: relative;
 }
 
 .selected, .icon:hover{border: 1px solid #e0e0e0;}
@@ -256,10 +257,10 @@ h2{
   font-weight: bold;
 }
 
-.authors-icon{
+.authors-plus{
   background-image: url(../images/PNG/plus.png);
   background-position: 4px 3px;
-
+  float:left;
   background-repeat: no-repeat;
   background-size: 19px;
   border: 1px solid #fff;
@@ -267,9 +268,97 @@ h2{
   height: 24px;
   line-height: 9px;
   width: 24px;
+  margin-right:4px;
+}
+
+.authors-minus{
+  background-image: url(../images/PNG/minus.png);
+  background-position: 5.9px 5.1px;
+  float:left;
+  background-repeat: no-repeat;
+  background-size: 15.3px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  height: 24px;
+  line-height: 9px;
+  width: 24px;
+  margin-right:4px;
 }
 
 .author{
+  float: left;
+  margin-right:2px;
+  font-size: small;
+  color: limegreen;
+}
+
+.author-first{
   float:left;
   margin:0 2px;
+  font-size: small;
+  color: limegreen;
+}
+
+.tutorial-title{
+  font-size:30px;
+}
+
+.tutorial-author{
+  font-size: large;
+  color: grey;
+}
+
+.author-button{
+  margin-left:2px;
+  font-size: medium;
+  color:darkgrey;
+}
+
+.note-number{
+  text-align:left;
+  font-size:medium;
+}
+
+.icon__number {
+  background-color:lightsteelblue;
+  border-radius: 50%;
+  color:black;
+
+  padding: 2px;
+  margin: 2px 2px;
+  font-size: 10px;
+  position: absolute;
+  right:-5px;
+  top:-8px;
+}
+
+.window-title{
+  font-weight:bold;
+  color:darkgrey;
+  padding: 0 25px;
+  float:left;
+}
+
+.window-button{
+  clear:both;
+  font-weight:bold;
+  color:grey;
+  padding: 0 15px;
+  position:relative;
+  outline:none;
+}
+
+.selected-button{
+  border-bottom:3px solid grey;
+}
+
+.dropdown{
+  padding:0 5px;
+  margin:0 20px;
+}
+
+.delete-button{
+  background: #fff;
+  margin-left:10px;
+  font-size: 0.8em;
 }
