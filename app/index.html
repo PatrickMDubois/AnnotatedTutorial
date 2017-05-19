@@ -14,9 +14,11 @@
       <div class="grid grid--full is-extended">
           <div class="grid__item three-quarters is-extended content">
             <div class="l-block grid grid--full">
-                <div class="grid__item one-eighth is-right-aligned"></div><!--
-              --> <div class="grid__item six-eighths">
+                <div class="grid__item one-eighth is-right-aligned"></div>
+                <nav class="top-bar"></nav>
 
+                <!--
+              --> <div class="grid__item six-eighths">
                     <h1 class="tutorial-title">{{tutorial.title}}</h1>
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
@@ -40,6 +42,7 @@
                ng-repeat="step in listOfSteps"
                ng-mouseenter="hover = true"
                ng-mouseleave="hover = false"
+               ng-if="step.step_number!== listOfSteps.length"
                ng-class="{'selected-step': selectedLine === $index}">
 
             <!-- Buttons to toggle on/off notes -->
@@ -89,11 +92,11 @@
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && step.step_number!== listOfSteps.length &&canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && step.step_number!== listOfSteps.length && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" delete-it="deleteNote" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && step.step_number!== listOfSteps.length && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && step.step_number!== listOfSteps.length && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && step.step_number!== listOfSteps.length && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
             </div><!--
 
             --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
@@ -105,7 +108,7 @@
         --><div class="baseline-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}" ng-if="tutorial.baseline">
             <div ng-if="tutorial.notes">
               <h2>Comments</h2>
-              <note ng-repeat="note in tutorial.notes" ng-if="!note.reply_to && canShowNote(note)" note="note" add-reply="addingReply" can-show-note="canShowNote" baseline="true"></note>
+              <note ng-repeat="note in tutorial.notes" ng-if="!note.reply_to && canShowNote(note)" note="note" <!--delete-note="deleteNote"--> add-reply="addingReply" can-show-note="canShowNote" baseline="true"></note>
             </div>
             <div class="submit-comment-container">
               <h2>Submit a comment</h2>
@@ -127,16 +130,23 @@
             <div class="window-title">STEP</div>
             <div class="window-title">CATEGORY</div>
             <br>
-             <select class="dropdown" ng-if="inputType==='suggestion'">
+             <select class="dropdown" ng-if="inputType==='suggestion'" id="choice" onchange="selectedChange()">
                 <option value="-1">NONE</option>
                 <option value="0">INTRO</option>
                 <option ng-repeat="number in listOfSteps"
-                        value="number.step_number"
+                        value="{{number.step_number}}"
                         ng-if="!(number.step_number==0) && !(number.step_number==(tutorial.steps.length-1))">
                         {{number.step_number}}
                 </option>
                 <option value="tutorial.steps.length-1">END</option>
-            </select>
+             </select>
+             <script>
+                 var chosen;
+                 function selectedChange() {
+                    chosen = document.getElementById("choice").value;
+                    console.log(chosen);
+                 }
+            </script>
             </select>
             <select class="dropdown" ng-if="!(inputType==='suggestion')" disabled="disabled">
                 <option value="-1">NONE</option>
@@ -163,7 +173,7 @@
               <input type="text" ng-model="$parent.$parent.extraInput" />
             </div>
             <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your note here."></textarea>
-            <button ng-click="submitNote();" class="plain-button">Submit</button>
+              <button ng-click="stepSelected();submitNote()" class="plain-button">Submit</button>
           </div>
         </div>
       </div>

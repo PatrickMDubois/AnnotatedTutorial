@@ -1851,3 +1851,16 @@ h2 {
   margin-left: 10px;
   font-size: 0.8em;
 }
+
+.top-bar {
+  position: fixed;
+  width: 62.6%;
+  top: 0px;
+  background-color: antiquewhite;
+  height: 6%;
+  z-index: 2;
+}
+
+.bar-icons {
+  z-index: 1;
+}

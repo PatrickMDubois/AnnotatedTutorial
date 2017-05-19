@@ -106,6 +106,7 @@ function Note(data) {
     this.user_submitted = data.user_submitted;
     this.reply_to = data.reply_to;
     this.type = data.type;
+    this.deleted= data.deleted;
 }
 
 angular.module('AnnotatedTutorial')
@@ -135,7 +136,8 @@ angular.module('AnnotatedTutorial')
                     author: note.author,
                     user_submitted: true,
                     reply_to: note.reply_to,
-                    type:note.type
+                    type:note.type,
+                    deleted:false
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
@@ -158,6 +160,7 @@ angular.module('AnnotatedTutorial')
                 $scope.replyTo = null;
                 $scope.replyToAuthor = "";
                 $scope.listOfAuthors = [];
+                $scope.listOfSteps = [];
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
                     if($scope.listOfAuthors.indexOf($scope.tutorial.notes[i].author) == -1) {
                         if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].author === $scope.author.name) {
@@ -165,7 +168,6 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                 }
-                $scope.listOfSteps = [];
                 for(var i = 0; i < $scope.tutorial.steps.length; i++) {
                     for(var j = 0; j < $scope.tutorial.steps.length; j++) {
                         if ($scope.tutorial.steps[j].step_number == i) {
@@ -178,9 +180,9 @@ angular.module('AnnotatedTutorial')
 
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
 
-                $scope.lineClicked = function($index, $event){
+                $scope.lineClicked = function(index, $event){
 
-                    $scope.selectedLine = $index;
+                    $scope.selectedLine = index;
                     $scope.inputPos = $event.pageY;
 
                     LoggerService.log("Opened input dialog");
@@ -216,11 +218,13 @@ angular.module('AnnotatedTutorial')
                     //LoggerService.log("Changed selection type")
                 }
 
-                /*$scope.stepSelected = function(step){
-                    var temp = document.getElementById(step.toString())
-                    var temp2 = temp.options[temp.selectedIndex.value];
-                    $scope.stepNumber = temp2;
-                }*/
+                $scope.stepSelected = function(){
+                    if(parseInt(chosen)!==-1) {
+                        $scope.selectedLine = parseInt(chosen);
+                    }else{
+                        $scope.selectedLine = $scope.listOfSteps.length;
+                    }
+                }
 
                 $scope.closeInput = function(){
                     $scope.showTextarea = false;
@@ -244,7 +248,8 @@ angular.module('AnnotatedTutorial')
                         $scope.extraInput = "";
                     }
 
-                    if(($scope.tutorial.baseline || $scope.selectedLine> -1) && $scope.newNote){
+
+                    if(($scope.tutorial.baseline|| $scope.selectedLine> -1) && $scope.newNote){
                         var note = {
                             "step_id": $scope.selectedLine,
                             "tutorial_id": $scope.tutorial.id,
@@ -256,7 +261,7 @@ angular.module('AnnotatedTutorial')
                             "type":$scope.inputType
                         };
 
-                        if(!$scope.replyTo){
+                        if(!$scope.replyTo && $scope.selectedLine !== $scope.listOfSteps.length){
                             note.step_id += $scope.tutorial.steps[0].id;
                         }
 
@@ -265,7 +270,7 @@ angular.module('AnnotatedTutorial')
 
                         note.step_id = $scope.selectedLine;
 
-                        if($scope.replyTo){
+                        if($scope.replyTo && $scope.selectedLine !== $scope.listOfSteps.length){
                             note.step_id -= $scope.tutorial.steps[0].id;
                         }
 
@@ -285,15 +290,17 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
-                $scope.deleteNote = function(stepIndex,id,step){
-                    $scope.noteNum=id;
+                $scope.deleteNote = function(note_id){
+                    console.log(note_id);
                     if(!$scope.tutorial.baseline) {
-                        var index = $scope.tutorial.step.indexOf(id);
-                        if(index!= -1) {
-                            $scope.tutorial.step.notes.splice(index,1);
+                        for(var i =0; i < $scope.tutorial.notes.length; i++) {
+                            if($scope.tutorial.notes[i].id == note_id) {
+                                $scope.tutorial.notes[i].deleted = true;
+                                console.log($scope.tutorial.notes[i].deleted);
+                                break;
+                            }
                         }
                     }
-                    console.log($scope.noteNum);
                     /*LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
                         + " | Step - " + $scope.selectedLine
@@ -320,7 +327,7 @@ angular.module('AnnotatedTutorial')
 
                   var canShow = false;
 
-                  if(!note.user_submitted || note.author === $scope.author.name){
+                  if((!note.user_submitted || note.author === $scope.author.name) && !note.deleted){
 
                       canShow = true;
                   }
@@ -368,7 +375,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=', addReply: '=', canShowNote: '=', baseline: '='},
+            scope: {note: '=',deleteIt: '=', addReply: '=', canShowNote: '=', baseline: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
