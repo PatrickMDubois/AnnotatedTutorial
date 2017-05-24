@@ -199,7 +199,7 @@ angular.module('AnnotatedTutorial')
                     }
                     else{
 
-                        $scope.selectedLine = step;
+                        $scope.replyStep = step;
                     }
 
                     $scope.inputPos = $event.pageY;
@@ -222,7 +222,7 @@ angular.module('AnnotatedTutorial')
                     if(parseInt(chosen)!==-1) {
                         $scope.selectedLine = parseInt(chosen);
                     }else{
-                        $scope.selectedLine = $scope.listOfSteps.length;
+                        $scope.selectedLine = $scope.tutorial.steps.length-1;
                     }
                 }
 
@@ -251,7 +251,7 @@ angular.module('AnnotatedTutorial')
 
                     if(($scope.tutorial.baseline|| $scope.selectedLine> -1) && $scope.newNote){
                         var note = {
-                            "step_id": $scope.selectedLine,
+                            "step_id":$scope.selectedLine,
                             "tutorial_id": $scope.tutorial.id,
                             "category": $scope.inputCategory,
                             "extra_info": $scope.extraInput,
@@ -261,8 +261,11 @@ angular.module('AnnotatedTutorial')
                             "type":$scope.inputType
                         };
 
-                        if(!$scope.replyTo && $scope.selectedLine !== $scope.listOfSteps.length){
-                            note.step_id += $scope.tutorial.steps[0].id;
+                        if(!$scope.replyTo){
+                            note.step_id = $scope.listOfSteps[$scope.selectedLine].id;//+= $scope.tutorial.steps[0].id;
+                            console.log(note.step_id);
+                        }else{
+                            note.step_id = $scope.replyStep;
                         }
 
                         TutorialService.post(note);
@@ -270,8 +273,8 @@ angular.module('AnnotatedTutorial')
 
                         note.step_id = $scope.selectedLine;
 
-                        if($scope.replyTo && $scope.selectedLine !== $scope.listOfSteps.length){
-                            note.step_id -= $scope.tutorial.steps[0].id;
+                        if($scope.replyTo){
+                            //note.step_id = $scope.replyStep;
                         }
 
                         if ($scope.selectedLine) {

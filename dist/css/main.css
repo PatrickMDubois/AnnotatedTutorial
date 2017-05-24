@@ -1837,6 +1837,10 @@ h2 {
   outline: none;
 }
 
+.window-button:hover {
+  border-bottom: 3px solid grey;
+}
+
 .selected-button {
   border-bottom: 3px solid grey;
 }
