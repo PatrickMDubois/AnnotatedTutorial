@@ -335,8 +335,22 @@ h2{
 .window-title{
   font-weight:bold;
   color:darkgrey;
-  padding: 0 25px;
   float:left;
+}
+
+.type-title {
+  margin-left:8%;
+  margin-right:15%;
+}
+
+.suggestion-title{
+  margin-left:8%;
+  margin-right:28.4%;
+}
+
+.new-title{
+  margin-left:8%;
+  margin-right:10%;
 }
 
 .window-button{
@@ -346,6 +360,8 @@ h2{
   padding: 0 15px;
   position:relative;
   outline:none;
+  margin-bottom:2px;
+
 }
 .window-button:hover{
   border-bottom:3px solid grey;
@@ -357,7 +373,8 @@ h2{
 
 .dropdown{
   padding:0 5px;
-  margin:0 20px;
+  margin-left:30px;
+  margin-right:60px;
 }
 
 .delete-button{
@@ -376,4 +393,13 @@ h2{
 
 .bar-icons {
  z-index:1;
+}
+
+.close-button{
+  margin-left: 180px;
+  font-size: 0.8em;
+
+}
+.close-button:hover{
+  text-decoration:underline black;
 }

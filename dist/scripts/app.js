@@ -141,6 +141,11 @@ angular.module('AnnotatedTutorial')
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
+            },
+            put: function(note){
+                var deleted=!note.deleted;
+                $http.put(annotatedTutorialServer + '/tutorials/notes', deleted);
+
             }
         };
     });
@@ -241,7 +246,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.submitNote = function(){
 
-                    if($scope.tutorial.baseline && $scope.newNote){
+                    if(($scope.tutorial.baseline ||$scope.inputType==='general') && $scope.newNote){
 
                         $scope.selectedLine = null;
                         $scope.inputCategory = "comment";
@@ -249,7 +254,7 @@ angular.module('AnnotatedTutorial')
                     }
 
 
-                    if(($scope.tutorial.baseline|| $scope.selectedLine> -1) && $scope.newNote){
+                    if(($scope.tutorial.baseline ||$scope.inputType==='general'|| $scope.selectedLine> -1) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedLine,
                             "tutorial_id": $scope.tutorial.id,
@@ -263,9 +268,8 @@ angular.module('AnnotatedTutorial')
 
                         if(!$scope.replyTo){
                             note.step_id = $scope.listOfSteps[$scope.selectedLine].id;//+= $scope.tutorial.steps[0].id;
-                            console.log(note.step_id);
                         }else{
-                            note.step_id = $scope.replyStep;
+                            note.step_id = null;//$scope.replyStep;
                         }
 
                         TutorialService.post(note);
@@ -297,15 +301,15 @@ angular.module('AnnotatedTutorial')
                     console.log(note_id);
                     if(!$scope.tutorial.baseline) {
                         for(var i =0; i < $scope.tutorial.notes.length; i++) {
-                            if($scope.tutorial.notes[i].id == note_id) {
-                                $scope.tutorial.notes[i].deleted = true;
+                            if($scope.tutorial.notes[i].id === note_id) {
+                                TutorialService.put($scope.tutorial.notes[i]);
                                 console.log($scope.tutorial.notes[i].deleted);
                                 break;
                             }
                         }
                     }
                     /*LoggerService.log("Deleted a note:"
-                        + " Tutorial - " + $scope.tutorial.title
+                        + " Tutorial - " + $scope.tutorial.titlenp
                         + " | Step - " + $scope.selectedLine
                         + " | Category - " + $scope.inputCategory
                         + " | Extra Input - " + $scope.extraInput

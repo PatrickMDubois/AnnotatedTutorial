@@ -43,6 +43,11 @@ angular.module('AnnotatedTutorial')
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
+            },
+            put: function(note){
+                var deleted=!note.deleted;
+                $http.put(annotatedTutorialServer + '/tutorials/notes', deleted);
+
             }
         };
     });
