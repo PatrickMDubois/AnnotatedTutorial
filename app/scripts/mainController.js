@@ -69,6 +69,10 @@ angular.module('AnnotatedTutorial')
 
                 $scope.typeSelected = function(type) {
                     $scope.inputType = type;
+                    if(type==='general'){
+                        $scope.showTextarea=true;
+                        $scope.inputCategory=null;
+                    }
                     //LoggerService.log("Changed selection type")
                 }
 
@@ -115,7 +119,7 @@ angular.module('AnnotatedTutorial')
                             "type":$scope.inputType
                         };
 
-                        if(!$scope.replyTo){
+                        if(!$scope.replyTo && !$scope.tutorial.baseline && $scope.inputType!=='general'){
                             note.step_id = $scope.listOfSteps[$scope.selectedLine].id;//+= $scope.tutorial.steps[0].id;
                         }else{
                             note.step_id = null;//$scope.replyStep;
@@ -190,6 +194,10 @@ angular.module('AnnotatedTutorial')
 
                   return canShow;
                 };
+
+                $scope.newRating = function(note){
+                    note.rating = (parseInt(note.rating)+1);
+                }
 
                 $scope.numberOfNotes = function(step,category)
                 {

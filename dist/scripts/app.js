@@ -137,14 +137,17 @@ angular.module('AnnotatedTutorial')
                     user_submitted: true,
                     reply_to: note.reply_to,
                     type:note.type,
-                    deleted:false
+                    deleted:false,
+                    rating:0
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             },
             put: function(note){
-                var deleted=!note.deleted;
-                $http.put(annotatedTutorialServer + '/tutorials/notes', deleted);
+
+                note.deleted=true;
+
+                $http.put(annotatedTutorialServer + '/tutorials/note/delete/' + note.id , note);
 
             }
         };
@@ -220,6 +223,10 @@ angular.module('AnnotatedTutorial')
 
                 $scope.typeSelected = function(type) {
                     $scope.inputType = type;
+                    if(type==='general'){
+                        $scope.showTextarea=true;
+                        $scope.inputCategory=null;
+                    }
                     //LoggerService.log("Changed selection type")
                 }
 
@@ -266,7 +273,7 @@ angular.module('AnnotatedTutorial')
                             "type":$scope.inputType
                         };
 
-                        if(!$scope.replyTo){
+                        if(!$scope.replyTo && !$scope.tutorial.baseline && $scope.inputType!=='general'){
                             note.step_id = $scope.listOfSteps[$scope.selectedLine].id;//+= $scope.tutorial.steps[0].id;
                         }else{
                             note.step_id = null;//$scope.replyStep;
@@ -341,6 +348,10 @@ angular.module('AnnotatedTutorial')
 
                   return canShow;
                 };
+
+                $scope.newRating = function(note){
+                    note.rating = (parseInt(note.rating)+1);
+                }
 
                 $scope.numberOfNotes = function(step,category)
                 {

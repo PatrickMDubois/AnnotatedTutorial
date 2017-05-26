@@ -1618,6 +1618,7 @@ img {
   font-size: 75%;
   font-style: italic;
   text-align: right;
+  margin-left: 10px;
 }
 
 .note-details:before {
@@ -1892,4 +1893,17 @@ h2 {
 
 .close-button:hover {
   text-decoration: underline black;
+}
+
+.note-rating {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.rating-button {
+  background: #fff;
+  font-weight: bold;
+  margin-left: 250px;
+  font-size: 0.8em;
+  float: left;
 }

@@ -39,14 +39,17 @@ angular.module('AnnotatedTutorial')
                     user_submitted: true,
                     reply_to: note.reply_to,
                     type:note.type,
-                    deleted:false
+                    deleted:false,
+                    rating:0
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             },
             put: function(note){
-                var deleted=!note.deleted;
-                $http.put(annotatedTutorialServer + '/tutorials/notes', deleted);
+
+                note.deleted=true;
+
+                $http.put(annotatedTutorialServer + '/tutorials/note/delete/' + note.id , note);
 
             }
         };

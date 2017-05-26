@@ -125,7 +125,7 @@
             <div class="window-title type-title">TYPE</div>
             <button ng-click="closeInput()" class="close-button">Close</button><br>
             <button ng-click="typeSelected('suggestion')" class="window-button" ng-class="{'selected-button': inputType == 'suggestion'}">SUGGESTION</button>
-            <button ng-click="typeSelected('new step')" class="window-button" ng-class="{'selected-button': inputType == 'new step'}">NEW STEP</button>
+            <button ng-if="replyTo===null" ng-click="typeSelected('new step')" class="window-button" ng-class="{'selected-button': inputType == 'new step'}">NEW STEP</button>
             <button ng-click="typeSelected('general')" class="window-button" ng-class="{'selected-button': inputType == 'general'}">GENERAL</button>
             <hr>
             <div class="window-title suggestion-title" ng-if="inputType==='suggestion'">STEP</div>
@@ -159,18 +159,17 @@
                     console.log(chosen);
                  }
             </script>
-            </select>
-              <div class="input-text" ng-if="inputType==='general'">
-                  <div class="window-title type-title">SUBMIT A COMMENT</div>
-                  <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your comment here."></textarea>
-                  <button ng-click="submitNote()" class="plain-button">Submit</button>
-              </div>
+
+             <div class="window-title" ng-if="inputType ==='general'">SUBMIT A NOTE<br></div>
+
             <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
             <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
             <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
             <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
             <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
+
           </div>
+
           <div ng-show="showTextarea">
             <div class="description"  ng-if="!tutorial.baseline">
               <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
@@ -185,7 +184,7 @@
               <input type="text" ng-model="$parent.$parent.extraInput" />
             </div>
             <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your note here."></textarea>
-              <button ng-click="stepSelected();submitNote()" class="plain-button">Submit</button>
+            <button ng-click="stepSelected();submitNote()" class="plain-button">Submit</button>
           </div>
         </div>
       </div>

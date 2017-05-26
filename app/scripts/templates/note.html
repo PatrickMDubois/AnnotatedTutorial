@@ -19,8 +19,10 @@
             ng-if="baseline">
                 Reply
         </button>
+        <button ng-click="" class="plain-button rating-button">^</button>
         <button ng-click="deleteIt(note.id)" class="plain-button delete-button">Delete</button>
         <div class="note-author">Submitted by {{note.author}}</div>
+        <div class="note-rating">{{note.rating}}</div>
         <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline"></note>
     </div>
 </div>

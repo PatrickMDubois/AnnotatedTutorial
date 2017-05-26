@@ -25,8 +25,10 @@ module.run(["$templateCache", function($templateCache) {
     "            ng-if=\"baseline\">\n" +
     "                Reply\n" +
     "        </button>\n" +
+    "        <button ng-click=\"\" class=\"plain-button rating-button\">^</button>\n" +
     "        <button ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">Delete</button>\n" +
     "        <div class=\"note-author\">Submitted by {{note.author}}</div>\n" +
+    "        <div class=\"note-rating\">{{note.rating}}</div>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +
     "    </div>\n" +
     "</div>");
