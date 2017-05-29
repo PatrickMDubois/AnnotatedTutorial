@@ -143,11 +143,16 @@ angular.module('AnnotatedTutorial')
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             },
-            put: function(note){
+            put: function(note,deleteChange, ratingChange){
 
-                note.deleted=true;
+                if(deleteChange == true) {
+                    note.deleted = true;
+                }else if(ratingChange == true){
+                    note.rating = parseInt(note.rating)+1;
+                    console.log(ratingChange);
 
-                $http.put(annotatedTutorialServer + '/tutorials/note/delete/' + note.id , note);
+                }
+                $http.put(annotatedTutorialServer + '/tutorials/note/update/' + note.id,note);
 
             }
         };
@@ -169,6 +174,10 @@ angular.module('AnnotatedTutorial')
                 $scope.replyToAuthor = "";
                 $scope.listOfAuthors = [];
                 $scope.listOfSteps = [];
+
+                $scope.ratingChange = false;
+                $scope.deleteChange = false;
+
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
                     if($scope.listOfAuthors.indexOf($scope.tutorial.notes[i].author) == -1) {
                         if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].author === $scope.author.name) {
@@ -305,23 +314,30 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.deleteNote = function(note_id){
-                    console.log(note_id);
-                    if(!$scope.tutorial.baseline) {
-                        for(var i =0; i < $scope.tutorial.notes.length; i++) {
-                            if($scope.tutorial.notes[i].id === note_id) {
-                                TutorialService.put($scope.tutorial.notes[i]);
-                                console.log($scope.tutorial.notes[i].deleted);
-                                break;
-                            }
-                        }
-                    }
-                    /*LoggerService.log("Deleted a note:"
+                    $scope.deleteChange = true;
+                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+
+                    $scope.deleteChange = false;
+
+                    LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.titlenp
                         + " | Step - " + $scope.selectedLine
                         + " | Category - " + $scope.inputCategory
                         + " | Extra Input - " + $scope.extraInput
-                        + " | Note - " + $scope.newNote);*/
+                        + " | Note - " + $scope.newNote);
 
+                }
+
+                $scope.findNote = function(note_id)
+                {
+                    if(!$scope.tutorial.baseline) {
+                        for(var i =0; i < $scope.tutorial.notes.length; i++) {
+                            if($scope.tutorial.notes[i].id === note_id) {
+                                return $scope.tutorial.notes[i];
+                            }
+                        }
+                    }
+                    return null;
                 }
 
                 $scope.checkForCategory = function(step, category){
@@ -349,8 +365,10 @@ angular.module('AnnotatedTutorial')
                   return canShow;
                 };
 
-                $scope.newRating = function(note){
-                    note.rating = (parseInt(note.rating)+1);
+                $scope.newRating = function(note_id){
+                    $scope.ratingChange = true;
+                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+                    $scope.ratingChange = false;
                 }
 
                 $scope.numberOfNotes = function(step,category)
@@ -393,7 +411,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=', addReply: '=', canShowNote: '=', baseline: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

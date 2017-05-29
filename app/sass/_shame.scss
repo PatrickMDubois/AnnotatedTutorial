@@ -128,7 +128,8 @@ img{
   font-size: 75%;
   font-style: italic;
   text-align: right;
-  margin-left:10px;
+  margin-left:20px;
+  float:right;
 }
 
 .note-details:before{
@@ -380,8 +381,9 @@ h2{
 
 .delete-button{
   background: #fff;
-  margin-left:10px;
+  margin:0 10px;
   font-size: 0.8em;
+  float:right;
 }
 .top-bar{
   position:fixed;
@@ -406,14 +408,19 @@ h2{
 }
 
 .note-rating{
-  font-size: 100%;
-  font-weight: bold;
+  text-align: right;
+  font-size: 75%;
+  margin:0px 10px;
+  float:right;
+
 }
 
 .rating-button{
   background: #fff;
   font-weight: bold;
-  margin-left:250px;
   font-size: 0.8em;
-  float:left;
+  border: 1px solid #9b9b9b;
+  padding: 0 5px;
+  margin-left:195px;
+
 }

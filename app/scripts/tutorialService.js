@@ -45,11 +45,16 @@ angular.module('AnnotatedTutorial')
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
             },
-            put: function(note){
+            put: function(note,deleteChange, ratingChange){
 
-                note.deleted=true;
+                if(deleteChange == true) {
+                    note.deleted = true;
+                }else if(ratingChange == true){
+                    note.rating = parseInt(note.rating)+1;
+                    console.log(ratingChange);
 
-                $http.put(annotatedTutorialServer + '/tutorials/note/delete/' + note.id , note);
+                }
+                $http.put(annotatedTutorialServer + '/tutorials/note/update/' + note.id,note);
 
             }
         };
