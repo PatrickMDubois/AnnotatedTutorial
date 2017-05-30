@@ -1614,7 +1614,7 @@ img {
   padding: 10px;
 }
 
-.note-author {
+.note-contributor {
   font-size: 75%;
   font-style: italic;
   text-align: right;
@@ -1749,7 +1749,7 @@ h2 {
   font-weight: bold;
 }
 
-.authors-plus {
+.contributors-plus {
   background-image: url(../images/PNG/plus.png);
   background-position: 4px 3px;
   float: left;
@@ -1763,7 +1763,7 @@ h2 {
   margin-right: 4px;
 }
 
-.authors-minus {
+.contributors-minus {
   background-image: url(../images/PNG/minus.png);
   background-position: 5.9px 5.1px;
   float: left;
@@ -1777,14 +1777,14 @@ h2 {
   margin-right: 4px;
 }
 
-.author {
+.contributor {
   float: left;
   margin-right: 2px;
   font-size: small;
   color: limegreen;
 }
 
-.author-first {
+.contributor-first {
   float: left;
   margin: 0 2px;
   font-size: small;
@@ -1800,7 +1800,7 @@ h2 {
   color: grey;
 }
 
-.author-button {
+.contributor-button {
   margin-left: 2px;
   font-size: medium;
   color: darkgrey;

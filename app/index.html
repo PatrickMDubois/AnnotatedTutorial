@@ -24,17 +24,17 @@
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
                 <div ng-click="contributorFlag = showContributors(contributorFlag)">
-                        <div class="authors-plus" ng-show="!contributorFlag"></div>
-                        <div class="authors-minus" ng-show="contributorFlag"></div>
+                        <div class="contributors-plus" ng-show="!contributorFlag"></div>
+                        <div class="contributors-minus" ng-show="contributorFlag"></div>
                 </div>
-                <div class="author-button"
-                     ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfAuthors.length.toString()}} Other contributors
+                <div class="contributor-button"
+                     ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfContributors.length.toString()}} Other contributors
                  </div>
                  <div ng-show="contributorFlag">
-                    <div ng-repeat="author in listOfAuthors">
-                         <div class="author-first" ng-if="author == listOfAuthors[0]">{{author}},</div>
-                         <div class="author" ng-if="author!=listOfAuthors[0] && author!=listOfAuthors[listOfAuthors.length-1]">{{author}},</div>
-                         <div class="author" ng-if="author!=listOfAuthors[0] && author===listOfAuthors[listOfAuthors.length-1]">{{author}}</div>
+                    <div ng-repeat="contributor in listOfContributors">
+                         <div class="contributor-first" ng-if="contributor == listOfContributors[0]">{{contributor}},</div>
+                         <div class="contributor" ng-if="contributor!=listOfContributors[0] && contributor!=listOfContributors[listOfContributors.length-1]">{{contributor}},</div>
+                         <div class="contributor" ng-if="contributor!=listOfContributors[0] && contributor===listOfContributors[listOfContributors.length-1]">{{contributor}}</div>
                     </div>
                  </div>
             </div>
@@ -120,7 +120,7 @@
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
 
-          <div ng-if="replyTo != null">Replying to {{$parent.replyToAuthor}}.</div>
+          <div ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
           <div ng-if="!tutorial.baseline">
             <div class="window-title type-title">TYPE</div>
             <button ng-click="closeInput()" class="close-button">Close</button><br>
@@ -133,15 +133,6 @@
 
             <div class="window-title" ng-if="inputType ==='suggestion' || inputType==='new step'">CATEGORY<br></div>
 
-              <!--<script>
-              var app = angular.module('selectBox',[]);
-              app.controller('myController', function($scope){
-              $scope.stepList = ["happy","sad","mad","neutral"];
-              });
-              </script>
-             <div ng-app="selectBox" ng-controller="myController">
-            <select ng-model="dropDown" ng-options="x for x in stepList"></select>
-              </div>-->
             <select class="dropdown" ng-if="inputType ==='suggestion' || inputType==='new step' && replyTo === null" id="choice" onchange="selectedChange()">
                 <option value="-1" selected>NONE</option>
                 <option value="0">INTRO</option>

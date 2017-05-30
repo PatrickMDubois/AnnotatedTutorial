@@ -10,17 +10,17 @@
     <div>{{note.content}}</div>
     <div class="comment-footer">
         <button class="plain-button reply-button"
-             ng-click="addReply($index, $event, note.id, note.author, note.step_id)"
+             ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
              ng-if="note.category === 'questions' && !baseline">
                 Post Answer
         </button>
         <button class="plain-button reply-button"
-            ng-click="addReply($index, $event, note.id, note.author, note.step_id)"
+            ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
             ng-if="baseline">
                 Reply
         </button>
         <button ng-click="deleteIt(note.id)" class="plain-button delete-button">Delete</button>
-        <div class="note-author">Submitted by {{note.author}}</div>
+        <div class="note-contributor">Submitted by {{note.contributor}}</div>
         <div class="note-rating">{{note.rating}} people found this note helpful.</div>
         <button ng-click="rateIt(note.id)" class="rating-button">^</button>
         <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline"></note>

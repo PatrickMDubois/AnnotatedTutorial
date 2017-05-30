@@ -16,17 +16,17 @@ module.run(["$templateCache", function($templateCache) {
     "    <div>{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
-    "             ng-click=\"addReply($index, $event, note.id, note.author, note.step_id)\"\n" +
+    "             ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
     "             ng-if=\"note.category === 'questions' && !baseline\">\n" +
     "                Post Answer\n" +
     "        </button>\n" +
     "        <button class=\"plain-button reply-button\"\n" +
-    "            ng-click=\"addReply($index, $event, note.id, note.author, note.step_id)\"\n" +
+    "            ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
     "            ng-if=\"baseline\">\n" +
     "                Reply\n" +
     "        </button>\n" +
     "        <button ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">Delete</button>\n" +
-    "        <div class=\"note-author\">Submitted by {{note.author}}</div>\n" +
+    "        <div class=\"note-contributor\">Submitted by {{note.contributor}}</div>\n" +
     "        <div class=\"note-rating\">{{note.rating}} people found this note helpful.</div>\n" +
     "        <button ng-click=\"rateIt(note.id)\" class=\"rating-button\">^</button>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +

@@ -4,25 +4,25 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
-                $scope.author = TutorialService.get();
-                $scope.tutorial = $scope.author.current_tutorial;
+                $scope.contributor = TutorialService.get();
+                $scope.tutorial = $scope.contributor.current_tutorial;
                 $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
                 $scope.inputPos = null;
                 $scope.inputCategory = "";
                 $scope.replyTo = null;
-                $scope.replyToAuthor = "";
-                $scope.listOfAuthors = [];
+                $scope.replyToContributor = "";
+                $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
 
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
 
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
-                    if($scope.listOfAuthors.indexOf($scope.tutorial.notes[i].author) == -1) {
-                        if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].author === $scope.author.name) {
-                            $scope.listOfAuthors.push(($scope.tutorial.notes[i].author));
+                    if($scope.listOfContributors.indexOf($scope.tutorial.notes[i].contributor) == -1) {
+                        if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].contributor === $scope.contributor.name) {
+                            $scope.listOfContributors.push(($scope.tutorial.notes[i].contributor));
                         }
                     }
                 }
@@ -46,10 +46,10 @@ angular.module('AnnotatedTutorial')
                     LoggerService.log("Opened input dialog");
                 };
 
-                $scope.addingReply = function($index, $event, id, author, step){
+                $scope.addingReply = function($index, $event, id, contributor, step){
 
                     $scope.replyTo = id;
-                    $scope.replyToAuthor = author;
+                    $scope.replyToContributor = contributor;
 
                     if($scope.tutorial.baseline){
 
@@ -96,7 +96,7 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedLine = null;
                     $scope.inputPos = null;
                     $scope.replyTo = null;
-                    $scope.replyToAuthor = "";
+                    $scope.replyToContributor = "";
 
                     LoggerService.log("Closed input dialog");
                 };
@@ -118,7 +118,7 @@ angular.module('AnnotatedTutorial')
                             "category": $scope.inputCategory,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
-                            "author": $scope.author.name,
+                            "contributor": $scope.contributor.name,
                             "reply_to": $scope.replyTo,
                             "type":$scope.inputType
                         };
@@ -198,7 +198,7 @@ angular.module('AnnotatedTutorial')
 
                   var canShow = false;
 
-                  if((!note.user_submitted || note.author === $scope.author.name) && !note.deleted){
+                  if((!note.user_submitted || note.contributor === $scope.contributor.name) && !note.deleted){
 
                       canShow = true;
                   }
@@ -237,9 +237,9 @@ angular.module('AnnotatedTutorial')
 
                 $scope.showContributors = function(show)
                 {
-                    /*LoggerService.log("Toggled contributor list: "
+                    LoggerService.log("Toggled contributor list: "
                         + " Tutorial - " + $scope.tutorial.title
-                        + " | Visibility - " + !show);*/
+                        + " | Visibility - " + !show);
 
                     return !show;
                 }

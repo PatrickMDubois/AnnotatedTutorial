@@ -4,7 +4,7 @@ function Note(data) {
     this.category = data.category;
     this.extra_info = data.extra_info;
     this.content = data.content;
-    this.author = data.author;
+    this.contributor = data.contributor;
     this.user_submitted = data.user_submitted;
     this.reply_to = data.reply_to;
     this.type = data.type;
@@ -15,18 +15,18 @@ angular.module('AnnotatedTutorial')
     .factory('TutorialService', function($http, annotatedTutorialServer, currentParticipant){
         'use strict';
 
-        var author = null;
+        var contributor = null;
 
-        var promise = $http.get(annotatedTutorialServer + '/tutorials/author/' + currentParticipant)
+        var promise = $http.get(annotatedTutorialServer + '/tutorials/contributor/' + currentParticipant)
             .then(function(response) {
 
-                author = response.data;
+                contributor = response.data;
             });
 
         return {
             loaded: promise,
             get: function() {
-                return author;
+                return contributor;
             },
             post: function(note) {
                 var note = new Note({
@@ -35,7 +35,7 @@ angular.module('AnnotatedTutorial')
                     category: note.category,
                     extra_info: note.extra_info,
                     content: note.content,
-                    author: note.author,
+                    contributor: note.contributor,
                     user_submitted: true,
                     reply_to: note.reply_to,
                     type:note.type,
