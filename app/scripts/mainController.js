@@ -16,6 +16,7 @@ angular.module('AnnotatedTutorial')
                 $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
 
+                
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
 
