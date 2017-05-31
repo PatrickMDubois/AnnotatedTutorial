@@ -19,6 +19,7 @@
 
                 <!--
               --> <div class="grid__item six-eighths">
+                    <div id="whole"></div>
                     <h1 class="tutorial-title">{{tutorial.title}}</h1>
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
@@ -43,7 +44,7 @@
                ng-mouseenter="hover = true"
                ng-mouseleave="hover = false"
                ng-if="step.step_number!== listOfSteps.length"
-               ng-class="{'selected-step': selectedLine === $index}">
+               ng-class="{'selected-step': selectedLine === $index || selectedStepsList.indexOf(step)!=-1}">
 
             <!-- Buttons to toggle on/off notes -->
               <div class="grid__item one-eighth is-right-aligned">
@@ -87,7 +88,7 @@
 
             --><div class="grid__item six-eighths">
                 <div ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-1))">
-                <h2>Step {{step.step_number}}</h2>
+                <h2 id="{{step.step_number}}">Step {{step.step_number}}</h2>
                 </div>
               <div class="main-content" ng-bind-html="step.html"></div>
 
@@ -117,47 +118,45 @@
             </div>
           </div><!--
 
-        --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':inputPos + 'px'}" style="padding: 5px;">
+        --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
 
           <div ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
           <div ng-if="!tutorial.baseline">
-            <div class="window-title type-title">TYPE</div>
-            <button ng-click="closeInput()" class="close-button">Close</button><br>
-            <button ng-click="typeSelected('suggestion')" class="window-button" ng-class="{'selected-button': inputType == 'suggestion'}">SUGGESTION</button>
-            <button ng-if="replyTo===null" ng-click="typeSelected('new step')" class="window-button" ng-class="{'selected-button': inputType == 'new step'}">NEW STEP</button>
-            <button ng-click="typeSelected('general')" class="window-button" ng-class="{'selected-button': inputType == 'general'}">GENERAL</button>
-            <hr>
-            <div class="window-title suggestion-title" ng-if="inputType==='suggestion'">STEP</div>
-            <div class="window-title new-title" ng-if="inputType==='new step'">STEP BEFORE</div>
-
-            <div class="window-title" ng-if="inputType ==='suggestion' || inputType==='new step'">CATEGORY<br></div>
-
-            <select class="dropdown" ng-if="inputType ==='suggestion' || inputType==='new step' && replyTo === null" id="choice" onchange="selectedChange()">
-                <option value="-1" selected>NONE</option>
-                <option value="0">INTRO</option>
-                <option ng-repeat="number in listOfSteps"
-                        value="{{number.step_number}}"
-                        ng-if="!(number.step_number==0) && number.step_number< tutorial.steps.length-2">
-                        {{number.step_number}}
-                </option>
-                <option value="{{tutorial.steps.length-2}}">END</option>
-            </select>
-            <script>
-                 var chosen=-1;
-                 function selectedChange() {
-                    chosen = document.getElementById("choice").value;
-                    console.log(chosen);
-                 }
-            </script>
-
+            <div ng-if="!secondMenu">
+                <div class="window-title" >COMMENTING ON</div>
+                <button class="menu-button" ng-click="menuSwitch()">></button>
+                <button class="close-button-first" ng-click="closeInput()">Close</button>
+                <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
+                <div class="selected-steps" ng-if="selectedStepsList.length !=0">STEPS: {{list.toString()}}</div>
+                <div >
+                      <button class="add-step-button">
+                          <a href="#whole">(e)</a>
+                      </button>
+                      <button class="add-step-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-add-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">+</button>
+                      <div class="step-list">WHOLE TUTORIAL</div>
+                      <div ng-repeat="step in listOfSteps">
+                        <button class="add-step-button" ng-if="step.step_number <listOfSteps.length-1">
+                            <a href="#{{step.step_number}}">(e)</a>
+                        </button>
+                        <button class="add-step-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-add-button':selectedStepsList.indexOf(step)!=-1}">+</button>
+                        <div class="step-list" ng-if="step.step_number==0">INTRO</div>
+                        <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
+                        <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2">STEP {{step.step_number}}</div>
+                      </div>
+                 </div>
+             </div>
              <div class="window-title" ng-if="inputType ==='general'">SUBMIT A NOTE<br></div>
-
-            <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
-            <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
-            <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
-            <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
-            <button ng-if="inputType ==='suggestion' || inputType==='new step'" ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
-
+            <div ng-if="secondMenu">
+                <div class="window-title" ng-if="secondMenu">CATEGORIES</div>
+                <button class="menu-button" ng-click="menuSwitch()"><</button>
+                <button class="close-button-second" ng-click="closeInput()">Close</button>
+                <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
+                <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
+                <button ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
+                <button ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
+                <button ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
+                <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
+            </div>
           </div>
 
           <div ng-show="showTextarea">
@@ -174,7 +173,7 @@
               <input type="text" ng-model="$parent.$parent.extraInput" />
             </div>
             <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your note here."></textarea>
-            <button ng-click="stepSelected();submitNote()" class="plain-button">Submit</button>
+            <button ng-click="submitNote()" class="plain-button">Submit</button>
           </div>
         </div>
       </div>

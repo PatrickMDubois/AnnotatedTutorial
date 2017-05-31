@@ -4,7 +4,6 @@
     (note.category === 'details' && !baseline ? 'note-details' :
     (note.category === 'questions' && !baseline ? 'note-questions' :
     (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))">
-
     <div ng-if="note.category === 'methods'">Note relevant for: {{note.extra_info}}</div>
     <div ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
     <div>{{note.content}}</div>
@@ -23,6 +22,7 @@
         <div class="note-contributor">Submitted by {{note.contributor}}</div>
         <div class="note-rating">{{note.rating}} people found this note helpful.</div>
         <button ng-click="rateIt(note.id)" class="rating-button">^</button>
+        <!--<div class="date">Submitted {{note.dateSubmitted}}</div>-->
         <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline"></note>
     </div>
 </div>

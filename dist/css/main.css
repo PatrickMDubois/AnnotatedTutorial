@@ -1544,7 +1544,7 @@ img {
 }
 
 .selected-step {
-  background-color: #F8FFDE;
+  background-color: #e6ffef;
 }
 
 .icon-details {
@@ -1670,11 +1670,12 @@ img {
 
 .input-container {
   background-color: #fff;
-  border: 1px solid black;
+  border: 1px solid grey;
   font-size: 0.9em;
   margin: 0 0 0 -80px;
   padding: 5px;
-  position: absolute;
+  position: fixed;
+  overflow-y: auto;
 }
 
 .description {
@@ -1826,12 +1827,8 @@ h2 {
 .window-title {
   font-weight: bold;
   color: darkgrey;
+  margin-left: 15px;
   float: left;
-}
-
-.type-title {
-  margin-left: 8%;
-  margin-right: 15%;
 }
 
 .suggestion-title {
@@ -1844,18 +1841,14 @@ h2 {
   margin-right: 10%;
 }
 
-.window-button {
-  clear: both;
+.selected-steps {
   font-weight: bold;
   color: grey;
   padding: 0 15px;
   position: relative;
   outline: none;
   margin-bottom: 2px;
-}
-
-.window-button:hover {
-  border-bottom: 3px solid grey;
+  font-size: 0.8em;
 }
 
 .selected-button {
@@ -1888,12 +1881,21 @@ h2 {
   z-index: 1;
 }
 
-.close-button {
-  margin-left: 180px;
+.close-button-first {
   font-size: 0.8em;
+  margin-left: 80px;
 }
 
-.close-button:hover {
+.close-button-second {
+  font-size: 0.8em;
+  margin-left: 111px;
+}
+
+.close-button-first:hover {
+  text-decoration: underline black;
+}
+
+.close-button-second:hover {
   text-decoration: underline black;
 }
 
@@ -1911,4 +1913,40 @@ h2 {
   border: 1px solid #9b9b9b;
   padding: 0 5px;
   margin-left: 195px;
+}
+
+.step-list {
+  border-top: 1px solid grey;
+  padding: 2px 0px;
+  padding-left: 15px;
+  text-align: left;
+  font-weight: bold;
+  color: grey;
+}
+
+.add-step-button {
+  float: right;
+  border-left: 2px solid grey;
+  padding: 2px 10px;
+  outline: none;
+}
+
+.add-step-button:hover {
+  background: lightblue;
+}
+
+.selected-add-button {
+  background: lightblue;
+}
+
+.menu-button {
+  margin-left: 60px;
+}
+
+.date {
+  font-size: 0.6em;
+}
+
+.menu-button:hover {
+  text-decoration: underline black;
 }
