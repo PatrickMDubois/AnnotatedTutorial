@@ -1670,7 +1670,7 @@ img {
 
 .input-container {
   background-color: #fff;
-  border: 1px solid grey;
+  border: 1px solid #949494;
   font-size: 0.9em;
   margin: 0 0 0 -80px;
   padding: 5px;
@@ -1843,7 +1843,7 @@ h2 {
 
 .selected-steps {
   font-weight: bold;
-  color: grey;
+  color: #4c4c4c;
   padding: 0 15px;
   position: relative;
   outline: none;
@@ -1883,12 +1883,14 @@ h2 {
 
 .close-button-first {
   font-size: 0.8em;
-  margin-left: 80px;
+  margin-left: 25px;
+  margin-right: 10px;
 }
 
 .close-button-second {
   font-size: 0.8em;
-  margin-left: 111px;
+  margin-left: 71px;
+  margin-right: 10px;
 }
 
 .close-button-first:hover {
@@ -1896,6 +1898,14 @@ h2 {
 }
 
 .close-button-second:hover {
+  text-decoration: underline black;
+}
+
+.return-button {
+  font-size: 0.8em;
+}
+
+.return-button:hover {
   text-decoration: underline black;
 }
 
@@ -1916,7 +1926,7 @@ h2 {
 }
 
 .step-list {
-  border-top: 1px solid grey;
+  border-top: 1px solid #e6e6e6;
   padding: 2px 0px;
   padding-left: 15px;
   text-align: left;
@@ -1926,7 +1936,7 @@ h2 {
 
 .add-step-button {
   float: right;
-  border-left: 2px solid grey;
+  border-left: 2px solid #e6e6e6;
   padding: 2px 10px;
   outline: none;
 }
@@ -1941,6 +1951,7 @@ h2 {
 
 .menu-button {
   margin-left: 60px;
+  float: left;
 }
 
 .date {

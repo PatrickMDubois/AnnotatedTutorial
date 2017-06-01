@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="stylesheet" href="css/main.css">
     <script src="scripts/modernizr.js"></script>
+
   </head>
   <body ng-controller="mainController">
     <div class="l-wrap">
@@ -85,9 +86,10 @@
             </div><!--
 
             --><div class="grid__item six-eighths">
-                <div ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-1))">
-                <h2 id="{{step.step_number}}">Step {{step.step_number}}</h2>
+                <div ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">
+                <h2 id="{{step.id}}">Step {{step.step_number}}</h2>
                 </div>
+                <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
@@ -100,7 +102,7 @@
 
             --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
                <!-- Button for adding a note -->
-               <button class="input-start icon" ng-click="lineClicked($index, $event)" tooltip="Add a note"></button></div>
+               <button class="input-start icon" ng-if="inputPos === null" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button></div>
           </div>
         </div><!--
 
@@ -117,25 +119,28 @@
           </div><!--
 
         --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="scripts/smooth-scrolling.js"></script>
 
           <div ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
           <div ng-if="!tutorial.baseline">
             <div ng-if="!secondMenu">
                 <div class="window-title" >COMMENTING ON</div>
                 <button class="menu-button" ng-click="menuSwitch()">></button>
-                <button class="close-button-first" ng-click="closeInput()">Close</button>
+                <div ng-repeat="step in currentStep">
+                <a class="close-button-first" ng-click="closeInput()" href="#{{step.id}}">Close</a>
+                <a class="return-button" href="#{{step.id}}">Return</a>
+                </div>
                 <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                 <div class="selected-steps" ng-if="selectedStepsList.length !=0">STEPS: {{list.toString()}}</div>
-                <div >
+                <div>
                       <button class="add-step-button">
                           <a href="#whole">(e)</a>
                       </button>
                       <button class="add-step-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-add-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">+</button>
                       <div class="step-list">WHOLE TUTORIAL</div>
                       <div ng-repeat="step in listOfSteps">
-                        <button class="add-step-button" ng-if="step.step_number <listOfSteps.length-1">
-                            <a href="#{{step.step_number}}">(e)</a>
-                        </button>
+                        <a class="add-step-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}">(e)</a>
                         <button class="add-step-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-add-button':selectedStepsList.indexOf(step)!=-1}">+</button>
                         <div class="step-list" ng-if="step.step_number==0">INTRO</div>
                         <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
@@ -143,11 +148,15 @@
                       </div>
                  </div>
              </div>
-             <div class="window-title" ng-if="inputType ==='general'">SUBMIT A NOTE<br></div>
-            <div ng-if="secondMenu">
+             <div ng-if="secondMenu">
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                 <script src="scripts/smooth-scrolling.js"></script>
                 <div class="window-title" ng-if="secondMenu">CATEGORIES</div>
                 <button class="menu-button" ng-click="menuSwitch()"><</button>
-                <button class="close-button-second" ng-click="closeInput()">Close</button>
+                <div ng-repeat="step in currentStep">
+                    <a class="close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
+                    <a class="return-button" href="#{{step.id}}">Return</a>
+                </div>
                 <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                 <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
                 <button ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
@@ -176,6 +185,7 @@
         </div>
       </div>
     </div>
+
 
     <script src="scripts/dependencies.js"></script>
 
