@@ -283,19 +283,23 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.noteOrder = function(step){
-                    var listOfStepNotes= [];
-                    if(step.notes.length!= 0) {
-                        var currentRating = 5;
-                        while (currentRating >0) {
-                            for (var j = 0; j < step.notes.length; j++) {
-                                if (step.notes[j].rating == currentRating) {
-                                    listOfStepNotes.push(step.notes[j]);
-                                }
+                    var tempNote1;
+                    var tempNote2;
+                    var index;
+                    for(var j = 0; j < step.notes.length; j++){
+                        tempNote1 = step.notes[j];
+                        for(var k=j; k<step.notes.length; k++){
+                            if(step.notes[k].rating>tempNote1.rating){
+                                tempNote1 = step.notes[k];
+                                index = k;
                             }
-                            currentRating--;
+                        }
+                        if(tempNote1 != step.notes[j]){
+                            tempNote2 = step.notes[j];
+                            step.notes[j] = tempNote1;
+                            step.notes[index]=tempNote2;
                         }
                     }
-                    step.notes=listOfStepNotes;
                 }
 
             });
