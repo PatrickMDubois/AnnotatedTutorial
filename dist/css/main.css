@@ -1544,7 +1544,7 @@ img {
 }
 
 .selected-step {
-  background-color: #e6ffef;
+  background-color: #f6ffa4;
 }
 
 .icon-details {
@@ -1829,6 +1829,7 @@ h2 {
   color: darkgrey;
   margin-left: 15px;
   float: left;
+  outline: none;
 }
 
 .suggestion-title {
@@ -1881,23 +1882,21 @@ h2 {
   z-index: 1;
 }
 
-.close-button-first {
+.close-button {
   font-size: 0.8em;
+}
+
+.close-button-first {
   margin-left: 25px;
   margin-right: 10px;
 }
 
 .close-button-second {
-  font-size: 0.8em;
   margin-left: 71px;
   margin-right: 10px;
 }
 
-.close-button-first:hover {
-  text-decoration: underline black;
-}
-
-.close-button-second:hover {
+.close-button:hover {
   text-decoration: underline black;
 }
 
@@ -1922,7 +1921,7 @@ h2 {
   font-size: 0.8em;
   border: 1px solid #9b9b9b;
   padding: 0 5px;
-  margin-left: 195px;
+  margin-left: 110px;
 }
 
 .step-list {
@@ -1934,18 +1933,18 @@ h2 {
   color: grey;
 }
 
-.add-step-button {
+.menu-action-button {
   float: right;
   border-left: 2px solid #e6e6e6;
   padding: 2px 10px;
   outline: none;
 }
 
-.add-step-button:hover {
+.menu-action-button:hover {
   background: lightblue;
 }
 
-.selected-add-button {
+.selected-menu-button {
   background: lightblue;
 }
 
@@ -1954,10 +1953,10 @@ h2 {
   float: left;
 }
 
-.date {
-  font-size: 0.6em;
-}
-
 .menu-button:hover {
   text-decoration: underline black;
+}
+
+.date {
+  font-size: 0.6em;
 }
