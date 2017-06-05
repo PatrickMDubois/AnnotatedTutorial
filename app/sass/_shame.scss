@@ -446,8 +446,15 @@ h2{
 .menu-action-button{
   float:right;
   border-left:2px solid #e6e6e6;
-  padding:2px 10px;
   outline:none;
+}
+
+.plus-action-button{
+  padding:2px 10px;
+}
+
+.minus-action-button{
+  padding:2px 12px;
 }
 
 .menu-action-button:hover{

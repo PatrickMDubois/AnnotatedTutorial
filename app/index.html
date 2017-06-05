@@ -96,11 +96,11 @@
               <div class="main-content" ng-bind-html="step.html"></div>
 
               <!-- Step's notes, if toggled on -->
-              <note ng-repeat="note in listOfStepNotes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in listOfStepNotes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in listOfStepNotes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in listOfStepNotes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-              <note ng-repeat="note in listOfStepNotes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
             </div><!--
 
             --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
@@ -140,11 +140,17 @@
                       <button class="menu-action-button">
                           <a href="#whole">(e)</a>
                       </button>
-                      <button class="menu-action-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-add-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">+</button>
+                      <button class="menu-action-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
+                          <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
+                          <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
+                      </button>
                       <div class="step-list">WHOLE TUTORIAL</div>
                       <div ng-repeat="step in listOfSteps">
                         <a class="menu-action-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}">(e)</a>
-                        <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">+</button>
+                        <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
+                            <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
+                            <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
+                        </button>
                         <div class="step-list" ng-if="step.step_number==0">INTRO</div>
                         <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
                         <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2">STEP {{step.step_number}}</div>

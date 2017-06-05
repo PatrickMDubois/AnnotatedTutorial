@@ -15,7 +15,6 @@ angular.module('AnnotatedTutorial')
                 $scope.replyToContributor = "";
                 $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
-                $scope.listOfStepNotes = [];
 
                 $scope.currentStep=[];
 
@@ -284,18 +283,19 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.noteOrder = function(step){
-                    $scope.listOfStepNotes.splice(0,$scope.listOfStepNotes.length);
+                    var listOfStepNotes= [];
                     if(step.notes.length!= 0) {
                         var currentRating = 5;
                         while (currentRating >0) {
                             for (var j = 0; j < step.notes.length; j++) {
                                 if (step.notes[j].rating == currentRating) {
-                                    $scope.listOfStepNotes.push(step.notes[j]);
+                                    listOfStepNotes.push(step.notes[j]);
                                 }
                             }
                             currentRating--;
                         }
                     }
+                    step.notes=listOfStepNotes;
                 }
 
             });
