@@ -10,6 +10,8 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
     "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
     "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
+    "    <div class=\"note-contributor\">Submitted by {{note.contributor}} -</div>\n" +
+    "    <div class=\"date\">{{note.dateSubmitted}}<br></div>\n" +
     "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
     "    <div>{{note.content}}</div>\n" +
@@ -25,10 +27,8 @@ module.run(["$templateCache", function($templateCache) {
     "                Reply\n" +
     "        </button>\n" +
     "        <button ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">Delete</button>\n" +
-    "        <div class=\"note-contributor\">Submitted by {{note.contributor}}</div>\n" +
     "        <div class=\"note-rating\">{{note.rating}} people found this note helpful.</div>\n" +
     "        <button ng-click=\"rateIt(note.id)\" class=\"rating-button\">^</button>\n" +
-    "        <!--<div class=\"date\">Submitted {{note.dateSubmitted}}</div>-->\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +
     "    </div>\n" +
     "</div>");

@@ -113,7 +113,7 @@ img{
   border: 1px solid #9b9b9b;
   display: inline-block;
   font-size: 75%;
-  top: -15px;
+  top: -5px;
   padding: 0 10px 0 24px;
   position: relative;
 }
@@ -121,18 +121,17 @@ img{
 .note{
   border: 1px solid #9b9b9b;
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .note-contributor{
-  font-size: 75%;
-  font-style: italic;
+  font-size: 0.7em;
   text-align: right;
-  margin-left:20px;
-  float:right;
+  margin-right:5px;
+  float:left;
 }
 
-.note-details:before{
+/*.note-details:before{
   background-image: url(../images/PNG/pin.png);
   background-position: 5px 4px;
   content: "Tell me more!";
@@ -142,6 +141,7 @@ img{
   background-image: url(../images/PNG/healing.png);
   background-position: 5px 4px;
   content: "Corrections";
+  font-size:0.7em;
 }
 
 .note-methods:before{
@@ -162,7 +162,7 @@ img{
   background-image: url(../images/PNG/other.png);
   background-position: 5px 5px;
   content: "Other notes";
-}
+}*/
 
 .input-start{
   background-color: #fff;
@@ -476,5 +476,5 @@ h2{
 }
 
 .date{
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
