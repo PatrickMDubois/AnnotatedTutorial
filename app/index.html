@@ -129,24 +129,25 @@
           <div ng-if="!tutorial.baseline && replyTo==null">
             <div ng-if="!secondMenu">
                 <div class="window-title" >COMMENTING ON</div>
-                <button class="menu-button" ng-click="menuSwitch()">></button>
                 <div ng-repeat="step in currentStep">
-                <a class="close-button close-button-first" ng-click="closeInput()" href="#{{step.id}}">Close</a>
-                <a class="return-button" href="#{{step.id}}">Return</a>
+                    <a class="return-button-first return-button" href="#{{step.id}}">Return</a>
+                <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                 </div>
                 <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
-                <div class="selected-steps" ng-if="selectedStepsList.length !=0">STEPS: {{list.toString()}}</div>
                 <div>
-                      <button class="menu-action-button">
-                          <a href="#whole">(e)</a>
-                      </button>
+                    <div class="selected-steps" ng-if="selectedStepsList.length !=0">STEPS: {{list.toString()}}</div>
+                    <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true"></button>
+                </div>
+                <br>
+                <div>
+                      <a class="menu-action-button preview-button" href="#whole"></a>
                       <button class="menu-action-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
                           <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
                           <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
                       </button>
                       <div class="step-list">WHOLE TUTORIAL</div>
                       <div ng-repeat="step in listOfSteps">
-                        <a class="menu-action-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}">(e)</a>
+                        <a class="menu-action-button preview-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}"></a>
                         <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                             <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                             <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
@@ -160,18 +161,18 @@
              <div ng-if="secondMenu">
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                  <script src="scripts/smooth-scrolling.js"></script>
-                <div class="window-title" ng-if="secondMenu">CATEGORIES</div>
-                <button class="menu-button" ng-click="menuSwitch()"><</button>
+                <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
                 <div ng-repeat="step in currentStep">
-                    <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
-                    <a class="return-button" href="#{{step.id}}">Return</a>
+                    <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
+                    <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                 </div>
                 <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                 <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
                 <button ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
                 <button ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
                 <button ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
-                <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
+                 <button class="menu-two menu-button" ng-click="menuSwitch()"></button>
+                 <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
             </div>
           </div>
 

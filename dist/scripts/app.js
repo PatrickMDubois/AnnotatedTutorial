@@ -181,6 +181,8 @@ angular.module('AnnotatedTutorial')
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
 
+                console.log($scope.tutorial.steps[0].notes[$scope.tutorial.steps[0].notes.length-1]);
+
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
                     if($scope.listOfContributors.indexOf($scope.tutorial.notes[i].contributor) == -1) {
                         if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].contributor === $scope.contributor.name) {
@@ -316,12 +318,15 @@ angular.module('AnnotatedTutorial')
                         note.step_id = $scope.selectedStepsList;
 
                         if($scope.replyTo){
-                            //note.step_id = $scope.replyStep;
+                            $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
+                            console.log($scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies);
                         }
 
-                        /*if($scope.selectedLine){
-                            $scope.tutorial.steps[note.step_id].notes.push(note);
-                        }*/
+                        if(!$scope.replyTo){
+                            for(var index=0; index<note.step_id.length; index++){
+                                $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
+                            }
+                        }
 
                         $scope.closeInput();
 
@@ -333,6 +338,24 @@ angular.module('AnnotatedTutorial')
                          + " | Note - " + $scope.newNote);
                     }
                 };
+
+                $scope.findStepIndex=function(id){
+                    for(var g=0; g<$scope.tutorial.steps.length; g++){
+                        if($scope.tutorial.steps[g].id===id){
+                            return parseInt(g);
+                        }
+                    }
+                    return -1;
+                }
+
+                $scope.findNoteIndex=function(reply){
+                    for(var g=0; g<$scope.tutorial.notes.length; g++){
+                        if($scope.tutorial.notes[g].id===reply){
+                            return parseInt(g);
+                        }
+                    }
+                    return -1;
+                }
 
                 $scope.findStepId=function(list){
                     var idList = [];

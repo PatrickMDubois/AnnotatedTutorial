@@ -343,34 +343,20 @@ h2{
   outline:none;
 }
 
-.suggestion-title{
-  margin-left:8%;
-  margin-right:28.4%;
-}
-
-.new-title{
-  margin-left:8%;
-  margin-right:10%;
+.categories-title{
+  margin-left:30px;
 }
 
 .selected-steps{
   font-weight:bold;
   color: #4c4c4c;
-  padding: 0 15px;
-  position:relative;
+  padding-left: 15px;
+  position:absolute;
   outline:none;
+  float:left;
+  clear:right;
   margin-bottom:2px;
   font-size: 0.8em
-}
-
-.selected-button{
-  border-bottom:3px solid grey;
-}
-
-.dropdown{
-  padding:0 5px;
-  margin-left:30px;
-  margin-right:60px;
 }
 
 .delete-button{
@@ -379,30 +365,18 @@ h2{
   font-size: 0.8em;
   float:right;
 }
-.top-bar{
-  position:fixed;
-  width:62.6%;
-  top:0px;
-  background-color:antiquewhite;
-  height:6%;
-  z-index: 2;
-}
-
-.bar-icons {
- z-index:1;
-}
 
 .close-button{
   font-size: 0.8em;
 }
 
-.close-button-first{
-  margin-left:25px;
+.return-button-first{
+  margin-left:95px;
   margin-right:10px;
 }
 
-.close-button-second{
-  margin-left:71px;
+.return-button-second{
+  margin-left:126.5px;
   margin-right:10px;
 }
 
@@ -458,20 +432,47 @@ h2{
 }
 
 .menu-action-button:hover{
-  background: lightblue;
+  background-color: #e6d4e2;
 }
 
 .selected-menu-button{
-  background: lightblue;
+  background-color: #e6d4e2;
 }
 
 .menu-button{
-  margin-left:60px;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  height: 20px;
+  line-height: 9px;
+  width: 10px;
+}
+
+.preview-button{
+  background-image: url(../images/PNG/eye.png);
+  background-position: 6px 3px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  height: 28px;
+  line-height: 9px;
+  width: 35px;
+}
+
+.menu-one{
+  background-image: url(../images/PNG/arrow.png);
+  background-position: 0px 0px;
+  margin-right:10px;
+  float:right;
+}
+
+.menu-two{
+  background-image: url(../images/PNG/arrow2.png);
+  background-position: 0px 2px;
+  margin-right:20px;
   float:left;
 }
 
 .menu-button:hover{
-  text-decoration:underline black;
+  background-color: #a2fcff;
 }
 
 .date{
