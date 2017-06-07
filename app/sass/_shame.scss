@@ -125,7 +125,7 @@ img{
 }
 
 .note-contributor{
-  font-size: 0.7em;
+  font-size: 0.6em;
   text-align: right;
   margin-right:5px;
   float:left;
@@ -216,8 +216,8 @@ img{
 .reply-button{
   background: #fff;
   clear: both;
-  float: left;
-  font-size: 0.8em;
+  float: right;
+  font-size: 0.6em;
 }
 
 .baseline-container{
@@ -362,7 +362,7 @@ h2{
 .delete-button{
   background: #fff;
   margin:0 10px;
-  font-size: 0.8em;
+  font-size: 0.6em;
   float:right;
 }
 
@@ -393,10 +393,7 @@ h2{
 }
 
 .note-rating{
-  text-align: right;
-  font-size: 75%;
-  margin:0px 10px;
-  float:right;
+  font-size: 0.6em;
 }
 
 .rating-button{
@@ -405,7 +402,8 @@ h2{
   font-size: 0.8em;
   border: 1px solid #9b9b9b;
   padding: 0 5px;
-  margin-left:110px;
+  margin-left:5px;
+  float:right;
 }
 
 .step-list{
@@ -476,5 +474,5 @@ h2{
 }
 
 .date{
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
