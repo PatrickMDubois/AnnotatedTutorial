@@ -29,7 +29,7 @@ module.run(["$templateCache", function($templateCache) {
     "                Reply\n" +
     "        </button>\n" +
     "        <div class=\"note-rating\" ng-if=\"note.rating!=0\">\n" +
-    "            <div ng-if=\"note.rating!=1\">{{note.rating}} peoplee found this note helpful.</div>\n" +
+    "            <div ng-if=\"note.rating!=1\">{{note.rating}} people found this note helpful.</div>\n" +
     "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this note helpful.</div>\n" +
     "        </div>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +
