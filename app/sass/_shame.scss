@@ -191,11 +191,15 @@ img{
   overflow-y: auto;
   padding: 10px;
   background: rgba(255, 255, 186, 0.85);
-  position:fixed;
+  position:absolute;
   z-index: 2;
   margin:10px 0;
   right:0;
-  top:34px;
+  height:250px;
+}
+
+.note-format{
+  z-index:1;
 }
 
 .description{

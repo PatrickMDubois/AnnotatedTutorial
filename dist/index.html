@@ -93,9 +93,9 @@
               <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-              --><div class="note-container grid__item three-tenths" ng-style="{height: 710 + 'px'}" ng-if="listOfSteps.indexOf(step)===0">
+              --><div class=" grid__item three-tenths" ng-class="{'note-container':listOfSteps.indexOf(step)>-1}" ng-if="showMethods||showCorrections||showDetails||showQuestions||showOther">
                   <!-- Step's notes, if toggled on-->
-                  <div ng-repeat="step in listOfSteps">
+                  <!--<div ng-repeat="step in listOfSteps">-->
                   <h2 ng-if="(step.step_number==0)">INTRO</h2>
                   <h2 ng-if="step.step_number==(tutorial.steps.length-1)">WHOLE</h2>
                   <h2 ng-if="(step.step_number==tutorial.steps.length-2)">END</h2>
