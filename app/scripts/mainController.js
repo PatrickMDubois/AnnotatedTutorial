@@ -76,38 +76,18 @@ angular.module('AnnotatedTutorial')
                     $scope.lineClicked($index,$event,step);
                 };
 
-                $scope.newFilter = function(){
-                    console.log(chosenFilter);
-                  if(chosenFilter==="new"){
+                $scope.newSort = function(){
+                    console.log(chosenSort);
+                  if(chosenSort==="new"){
                       $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
-                  }else if(chosenFilter==="old"){
+                  }else if(chosenSort==="old"){
                       $scope.listOfNotes = $scope.tutorial.notes;
-                  }else if(chosenFilter=="high" || chosenFilter=="low"){
+                  }else if(chosenSort=="high" || chosenSort=="low"){
                       $scope.orderRating($scope.listOfNotes);
-                        if(chosenFilter=="low") {
+                        if(chosenSort=="low") {
                             $scope.listOfNotes.reverse();
                         }
                   }
-                };
-
-                $scope.sortByDate = function(){
-                    $scope.highRating=null;
-                    if($scope.newFirst === null){
-                        $scope.listOfNotes = $scope.tutorial.notes;
-                    }else{
-                        $scope.tutorial.notes.reverse();
-                        $scope.newFirst = !$scope.newFirst;
-                    }
-                };
-
-                $scope.sortByRating = function(){
-                    $scope.newFirst = null;
-                    if($scope.highRating===null) {
-                        $scope.orderRating($scope.tutorial);
-                    }else{
-                        $scope.tutorial.notes.reverse();
-                        $scope.highRating=!$scope.highRating;
-                    }
                 };
 
                 $scope.categorySelected = function(category){
