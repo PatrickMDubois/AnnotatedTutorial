@@ -95,42 +95,35 @@
               <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-              --><div class=" grid__item three-tenths" ng-class="{'note-container':listOfSteps.indexOf(step)>-1}" ng-if="showMethods||showCorrections||showDetails||showQuestions||showOther">
-                  <!-- Step's notes, if toggled on-->
-                  <!--<div ng-repeat="step in listOfSteps">-->
-                  <h2 ng-if="(step.step_number==0)">INTRO</h2>
-                  <h2 ng-if="step.step_number==(tutorial.steps.length-1)">WHOLE</h2>
-                  <h2 ng-if="(step.step_number==tutorial.steps.length-2)">END</h2>
-                  <h2 ng-if="step.step_number>0 && step.step_number<listOfSteps.length-2">STEP {{step.step_number}}</h2>
-                  <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-                  <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-                  <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-                  <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-                  <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
-                  </div>
-               </div><!--
-
             --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
                <!-- Button for adding a note -->
                <button class="input-start icon" ng-if="inputPos === null" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button></div>
           </div><!--
 
-         <div class="note-container grid__item three-tenths" ng-style="{height: windowHeight + 'px'}">
+
+         --><div class="note-container grid__item three-tenths">
 
               <div ng-if="tutorial.notes">
-              <!--<h2>Comments</h2>
-              <div ng-repeat="step in listOfSteps">
-                  <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+              <h2 class="filter-title">Notes</h2>
+              <select class="dropdown" id="filter" onchange="filterSelected()">
+              <option value="new" selected>DATE:NEWEST</option>
+              <option value="old">DATE:OLDEST</option>
+              <option value="high">RATE:HIGHEST</option>
+              <option value="low">RATE:LOWEST</option>
+              </select>
+              <button ng-click="newFilter()">Filter</button>
+              <note ng-repeat="note in listOfNotes" ng-if="!tutorial.baseline && canShowNote(note)" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
               </div>
-            </div>
-            <!--<div class="submit-comment-container">
-              <h2>Submit a comment</h2>
-              <textarea class="input-text" ng-model="$parent.newNote" rows="4" placeholder="Please enter your comment here."></textarea>
-              <button ng-click="submitNote()" class="plain-button">Submit</button>
-            </div>
-          </div><!--
 
-        --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
+              <script>
+                  var chosenFilter = null;
+                  function filterSelected(){
+                      chosenFilter = document.getElementById("filter").value.toString();
+                      console.log(chosenFilter);
+                  }
+              </script>
+
+          <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
           <script src="scripts/smooth-scrolling.js"></script>
 
@@ -196,7 +189,7 @@
             <div class="software-container" ng-if="(inputCategory == 'methods' || inputCategory == 'other') && !tutorial.baseline">
               <div ng-if="inputCategory == 'methods'">Your note is relevant for which software?</div>
               <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-              <input type="text" ng-model="$parent.$parent.extraInput" />
+              <input type="text" ng-model="$parent.$parent.extraInput"/>
             </div>
             <div ng-if="replyTo!=null">
                   <div class="close-button close-button-second" ng-click="closeInput()">Close</div>
@@ -204,7 +197,6 @@
             <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
             <button ng-click="submitNote()" class="plain-button">Submit</button>
           </div>
-
           </div>
         </div>
       </div>

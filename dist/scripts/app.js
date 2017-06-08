@@ -173,13 +173,16 @@ angular.module('AnnotatedTutorial')
                 $scope.replyToContributor = "";
                 $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
-
+                $scope.newFirst = true;
                 $scope.currentStep=[];
-
+                $scope.highRating = null;
                 $scope.selectedStepsList = [];
                 $scope.secondMenu = false;
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
+
+                $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+
 
                 console.log($scope.tutorial.steps[0].notes[$scope.tutorial.steps[0].notes.length-1]);
 
@@ -229,6 +232,40 @@ angular.module('AnnotatedTutorial')
                     }
                     $scope.selectedStepsList = step.concat($scope.selectedStepsList);
                     $scope.lineClicked($index,$event,step);
+                };
+
+                $scope.newFilter = function(){
+                    console.log(chosenFilter);
+                  if(chosenFilter==="new"){
+                      $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+                  }else if(chosenFilter==="old"){
+                      $scope.listOfNotes = $scope.tutorial.notes;
+                  }else if(chosenFilter=="high" || chosenFilter=="low"){
+                      $scope.orderRating($scope.listOfNotes);
+                        if(chosenFilter=="low") {
+                            $scope.listOfNotes.reverse();
+                        }
+                  }
+                };
+
+                $scope.sortByDate = function(){
+                    $scope.highRating=null;
+                    if($scope.newFirst === null){
+                        $scope.listOfNotes = $scope.tutorial.notes;
+                    }else{
+                        $scope.tutorial.notes.reverse();
+                        $scope.newFirst = !$scope.newFirst;
+                    }
+                };
+
+                $scope.sortByRating = function(){
+                    $scope.newFirst = null;
+                    if($scope.highRating===null) {
+                        $scope.orderRating($scope.tutorial);
+                    }else{
+                        $scope.tutorial.notes.reverse();
+                        $scope.highRating=!$scope.highRating;
+                    }
                 };
 
                 $scope.categorySelected = function(category){
@@ -426,7 +463,7 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
                     $scope.ratingChange = false;
-                }
+                };
 
                 $scope.numberOfNotes = function(step,category)
                 {
@@ -463,22 +500,22 @@ angular.module('AnnotatedTutorial')
                     $scope.secondMenu = !$scope.secondMenu;
                 };
 
-                $scope.noteOrder = function(step){
+                $scope.orderRating = function(list){
                     var tempNote1;
                     var tempNote2;
                     var index;
-                    for(var j = 0; j < step.notes.length; j++){
-                        tempNote1 = step.notes[j];
-                        for(var k=j; k<step.notes.length; k++){
-                            if(step.notes[k].rating>tempNote1.rating){
-                                tempNote1 = step.notes[k];
+                    for(var j = 0; j < list.length; j++){
+                        tempNote1 = list[j];
+                        for(var k=j; k<list.length; k++){
+                            if(list[k].rating>tempNote1.rating){
+                                tempNote1 = list[k];
                                 index = k;
                             }
                         }
-                        if(tempNote1 != step.notes[j]){
-                            tempNote2 = step.notes[j];
-                            step.notes[j] = tempNote1;
-                            step.notes[index]=tempNote2;
+                        if(tempNote1 != list[j]){
+                            tempNote2 = list[j];
+                            list[j] = tempNote1;
+                            list[index]=tempNote2;
                         }
                     }
                 }
@@ -487,7 +524,7 @@ angular.module('AnnotatedTutorial')
     });
 angular.module('AnnotatedTutorial')
     .directive('note', function(RecursionHelper) {
-        'use strict'
+        'use strict';
 
         return {
             restrict: 'E',

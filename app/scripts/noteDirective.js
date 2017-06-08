@@ -1,6 +1,6 @@
 angular.module('AnnotatedTutorial')
     .directive('note', function(RecursionHelper) {
-        'use strict'
+        'use strict';
 
         return {
             restrict: 'E',
