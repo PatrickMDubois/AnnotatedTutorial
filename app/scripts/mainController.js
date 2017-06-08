@@ -90,6 +90,24 @@ angular.module('AnnotatedTutorial')
                   }
                 };
 
+                $scope.clear = function(){
+                  $scope.listOfNotes = ($scope.tutorial.notes.splice(0)).reverse();
+                };
+
+                $scope.newFilter = function(value){
+                    if(value!=undefined){
+
+                    }else{
+                       $scope.listOfNotes=($scope.tutorial.steps[chosenFilter].notes).splice(0);
+                       $scope.newSort();
+                    }
+
+                };
+
+                $scope.filterByCategory = function(){
+
+                };
+
                 $scope.categorySelected = function(category){
                     $scope.showTextarea = true;
                     $scope.inputCategory = category;
