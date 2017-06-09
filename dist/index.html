@@ -43,43 +43,43 @@
                ng-mouseenter="hover = true"
                ng-mouseleave="hover = false"
                ng-if="step.step_number<listOfSteps.length-1"
-               ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1}">
+               ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1 || noteStepList.indexOf(step.id)!=-1}">
 
             <!-- Buttons to toggle on/off notes -->
               <div class="grid__item one-eighth is-right-aligned">
 
               <button class="icon icon-corrections"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
-                      ng-click="noteOrder(step);$parent.showCorrections = showCategory($parent.showCorrections, 'corrections', step)"
+                      ng-click="stepIcon(step.step_number);newFilter('corrections')"
                       tooltip="Corrections">
                       <div class = "icon__number">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-methods"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'methods')"
-                      ng-click="noteOrder(step);$parent.showMethods = showCategory($parent.showMethods, 'methods', step)"
+                      ng-click="stepIcon(step.step_number);newFilter('methods')"
                       tooltip="What is this?">
                       <div class="icon__number">{{numberOfNotes(step,"methods")}}</div>
               </button>
 
               <button class="icon icon-details"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'details')"
-                      ng-click="noteOrder(step);$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
+                      ng-click="stepIcon(step.step_number);newFilter('details')"
                       tooltip="Tell me more!">
                       <div class="icon__number">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'questions')"
-                      ng-click="noteOrder(step);$parent.showQuestions = showCategory($parent.showQuestions, 'questions', step)"
+                      ng-click="stepIcon(step.step_number);newFilter('questions')"
                       tooltip="Questions">
                       <div class="icon__number">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'other')"
-                      ng-click="noteOrder(step);$parent.showOther = showCategory($parent.showOther, 'other', step)"
-                      tooltip="Other notes">
+                      ng-click="stepIcon(step.step_number);newFilter('other')"
+                      tooltip="Other">
                       <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
               </button>
 
@@ -131,7 +131,7 @@
                       <button class="filter-icon icon icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                       <button class="filter-icon icon icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                       <button class="filter-icon icon icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
-                      <note ng-repeat="note in listOfNotes" ng-if="!tutorial.baseline && canShowNote(note)" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false"></note>
+                      <note ng-repeat="note in listOfNotes" ng-if="!tutorial.baseline && canShowNote(note)" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" show-list="showStepList"></note>
                   </div>
           </div>
           <script>

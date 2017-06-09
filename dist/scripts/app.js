@@ -181,6 +181,8 @@ angular.module('AnnotatedTutorial')
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
 
+                $scope.noteStepList=[];
+                $scope.currentNote=null;
                 $scope.stepFilter = null;
                 $scope.categoryFilter = null;
 
@@ -256,24 +258,35 @@ angular.module('AnnotatedTutorial')
                   $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
                   $scope.categoryFilter = null;
                   $scope.stepFilter = null;
+                  $scope.currentNote = null;
+                  $scope.noteStepList.splice(0,$scope.noteStepList.length);
                 };
 
                 $scope.newFilter = function(value){
                     if(value === undefined){
                         $scope.stepFilter = chosenFilter;
-                    }else{
+                    }else if(typeof value === 'string') {
+                        console.log(value);
                         $scope.categoryFilter = value;
+                    }else{
+                        console.log(value);
+                        $scope.stepFilter = value;
                     }
                     if($scope.categoryFilter!== null && $scope.stepFilter !== null){
-                        $scope.listOfNotes=(($scope.tutorial.steps[chosenFilter].notes).slice(0));
+                        $scope.listOfNotes=(($scope.tutorial.steps[$scope.stepFilter].notes).slice(0));
                         $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
                     }else if($scope.stepFilter !== null){
-                       $scope.listOfNotes=(($scope.tutorial.steps[chosenFilter].notes).slice(0));
+                       $scope.listOfNotes=(($scope.tutorial.steps[$scope.stepFilter].notes).slice(0));
                     }else if($scope.categoryFilter!== null){;
                         $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
                     }
                     $scope.newSort();
                 };
+
+                $scope.stepIcon = function(step){
+                    $scope.newFilter(parseInt(step));
+                };
+
 
                 $scope.filterByCategory = function(category,list){
                     var tempList=[];
@@ -506,6 +519,17 @@ angular.module('AnnotatedTutorial')
                     return !show;
                 };
 
+                $scope.showStepList = function(note){
+
+                    if($scope.currentNote==null || note !== $scope.currentNote){
+                        $scope.noteStepList = note.step_id;
+                        $scope.currentNote=note;
+                    }else{
+                        $scope.noteStepList.splice(0,$scope.noteStepList.length);
+                        $scope.currentNote=null;
+                    }
+                };
+
                 $scope.showContributors = function(show) {
                     LoggerService.log("Toggled contributor list: "
                         + " Tutorial - " + $scope.tutorial.title
@@ -567,7 +591,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

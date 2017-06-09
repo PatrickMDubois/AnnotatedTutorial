@@ -22,11 +22,15 @@
             ng-if="baseline">
                 Reply
         </button>
+        <button class="plain-button show-step-button"
+                ng-click="showList(note)">
+            show steps
+        </button>
         <div class="note-rating">
             <div ng-if="note.rating>1">{{note.rating}} people found this note helpful.</div>
             <div ng-if="note.rating==1">{{note.rating}} person found this note helpful.</div>
             <div ng-if="note.rating<1">No Rating.</div>
         </div>
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" show-list="showList"></note>
     </div>
 </div>

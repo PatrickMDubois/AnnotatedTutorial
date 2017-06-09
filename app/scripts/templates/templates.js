@@ -28,13 +28,18 @@ module.run(["$templateCache", function($templateCache) {
     "            ng-if=\"baseline\">\n" +
     "                Reply\n" +
     "        </button>\n" +
+    "        <button class=\"plain-button show-step-button\"\n" +
+    "                ng-click=\"showList(note)\">\n" +
+    "            show steps\n" +
+    "        </button>\n" +
     "        <div class=\"note-rating\">\n" +
     "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this note helpful.</div>\n" +
     "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this note helpful.</div>\n" +
     "            <div ng-if=\"note.rating<1\">No Rating.</div>\n" +
     "        </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\"></note>\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 })();

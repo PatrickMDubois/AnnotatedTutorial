@@ -1615,6 +1615,7 @@ img {
   margin: 10px;
   padding: 5px;
   clear: both;
+  border-radius: 2px;
 }
 
 .dropdown {
@@ -1735,6 +1736,7 @@ img {
   float: right;
   font-size: 0.6em;
   border-radius: 3px;
+  margin-left: 5px;
 }
 
 .baseline-container {
@@ -2040,4 +2042,16 @@ h2 {
 
 .filter-button:hover {
   background-color: rgba(227, 179, 255, 0.28);
+}
+
+.show-step-button {
+  float: right;
+  font-size: 0.6em;
+  border-radius: 3px;
+  background-color: white;
+  outline: none;
+}
+
+.show-step-button:hover {
+  background-color: #e7e7e7;
 }
