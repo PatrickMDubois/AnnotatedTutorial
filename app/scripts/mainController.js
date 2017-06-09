@@ -23,6 +23,9 @@ angular.module('AnnotatedTutorial')
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
 
+                $scope.stepFilter = null;
+                $scope.categoryFilter = null;
+
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
 
@@ -77,10 +80,12 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.newSort = function(){
-                  if(chosenSort==="new"){
-                      $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
-                  }else if(chosenSort==="old"){
-                      $scope.listOfNotes = $scope.tutorial.notes;
+                  if(chosenSort==="new" || chosenSort === undefined || chosenSort==="old"){
+                      $scope.orderDate($scope.listOfNotes);
+                      if(chosenSort==="old") {
+                        console.log("hello");
+                        $scope.listOfNotes.reverse();
+                      }
                   }else if(chosenSort=="high" || chosenSort=="low"){
                       $scope.orderRating($scope.listOfNotes);
                         if(chosenSort=="low") {
@@ -90,22 +95,36 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.clear = function(){
-                  $scope.listOfNotes = ($scope.tutorial.notes.splice(0)).reverse();
+                  $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+                  $scope.categoryFilter = null;
+                  $scope.stepFilter = null;
                 };
 
                 $scope.newFilter = function(value){
-                    console.log(chosenFilter);
-                    if(value!=undefined){
-
+                    if(value === undefined){
+                        $scope.stepFilter = chosenFilter;
                     }else{
-                       $scope.listOfNotes=(($scope.tutorial.steps[chosenFilter].notes).slice(0));
-                        console.log($scope.listOfNotes);
-                       $scope.newSort();
+                        $scope.categoryFilter = value;
                     }
-
+                    if($scope.categoryFilter!== null && $scope.stepFilter !== null){
+                        $scope.listOfNotes=(($scope.tutorial.steps[chosenFilter].notes).slice(0));
+                        $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
+                    }else if($scope.stepFilter !== null){
+                       $scope.listOfNotes=(($scope.tutorial.steps[chosenFilter].notes).slice(0));
+                    }else if($scope.categoryFilter!== null){;
+                        $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
+                    }
+                    $scope.newSort();
                 };
 
-                $scope.filterByCategory = function(){
+                $scope.filterByCategory = function(category,list){
+                    var tempList=[];
+                    for(var i = 0; i < list.length; i++){
+                        if(list[i].category == category){
+                            tempList.push(list[i]);
+                        }
+                    }
+                    $scope.listOfNotes = (tempList.slice(0));
 
                 };
 
@@ -224,7 +243,7 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                     return -1;
-                }
+                };
 
                 $scope.findNoteIndex=function(reply){
                     for(var g=0; g<$scope.tutorial.notes.length; g++){
@@ -233,7 +252,7 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                     return -1;
-                }
+                };
 
                 $scope.findStepId=function(list){
                     var idList = [];
@@ -339,6 +358,26 @@ angular.module('AnnotatedTutorial')
 
                 $scope.menuSwitch=function(){
                     $scope.secondMenu = !$scope.secondMenu;
+                };
+
+                $scope.orderDate = function(list){
+                    var tempNote1;
+                    var tempNote2;
+                    var index;
+                    for(var j = 0; j < list.length; j++){
+                        tempNote1 = list[j];
+                        for(var k=j; k<list.length; k++){
+                            if(list[k].dateSubmitted > tempNote1.dateSubmitted){
+                                tempNote1 = list[k];
+                                index = k;
+                            }
+                        }
+                        if(tempNote1 != list[j]){
+                            tempNote2 = list[j];
+                            list[j] = tempNote1;
+                            list[index]=tempNote2;
+                        }
+                    }
                 };
 
                 $scope.orderRating = function(list){

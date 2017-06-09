@@ -1513,6 +1513,7 @@ img {
   line-height: 9px;
   width: 24px;
   position: relative;
+  z-index: 1;
 }
 
 .selected, .icon:hover {
@@ -1678,7 +1679,7 @@ img {
   background-color: #fff;
   border: 1px solid #949494;
   font-size: 0.9em;
-  margin: 0 0 0 -80px;
+  margin: 0 0 0 500px;
   padding: 5px;
   position: fixed;
   overflow-y: auto;
@@ -1688,9 +1689,9 @@ img {
   border: 1px solid #9b9b9b;
   overflow-y: auto;
   padding: 10px;
-  background: rgba(255, 255, 186, 0.85);
+  background: #ffffba;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   margin: 0px 0;
   right: 20px;
   top: 42px;
@@ -1698,7 +1699,7 @@ img {
 }
 
 .note-format {
-  z-index: 1;
+  z-index: 2;
 }
 
 .description {
@@ -2015,14 +2016,22 @@ h2 {
   margin-left: 10px;
   margin-right: 80px;
   height: 20px;
+  outline: none;
 }
 
-.note-display:hover {
+.clear-button {
+  float: left;
+  margin-left: 50px;
+  height: 20px;
+  outline: none;
+}
+
+.clear-button:hover {
   border-bottom: 2px solid grey;
 }
 
-.selected-display {
-  border-bottom: 2px solid grey;
+.filter-icon {
+  border: none;
 }
 
 .note-display:hover {
