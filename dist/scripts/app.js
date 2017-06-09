@@ -235,7 +235,6 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.newSort = function(){
-                    console.log(chosenSort);
                   if(chosenSort==="new"){
                       $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
                   }else if(chosenSort==="old"){
@@ -253,10 +252,12 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.newFilter = function(value){
+                    console.log(chosenFilter);
                     if(value!=undefined){
 
                     }else{
-                       $scope.listOfNotes=($scope.tutorial.steps[chosenFilter].notes).splice(0);
+                       $scope.listOfNotes=(($scope.tutorial.steps[chosenFilter].notes).slice(0));
+                        console.log($scope.listOfNotes);
                        $scope.newSort();
                     }
 
