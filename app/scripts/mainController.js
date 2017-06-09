@@ -362,13 +362,16 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.showStepList = function(note){
-
                     if($scope.currentNote==null || note !== $scope.currentNote){
-                        $scope.noteStepList = note.step_id;
+                        $scope.noteStepList = (note.step_id.slice(0));
                         $scope.currentNote=note;
+                        console.log("add");
+                        console.log($scope.noteStepList);
                     }else{
                         $scope.noteStepList.splice(0,$scope.noteStepList.length);
                         $scope.currentNote=null;
+                        console.log("hide");
+                        console.log($scope.noteStepList);
                     }
                 };
 
