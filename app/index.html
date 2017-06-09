@@ -103,10 +103,7 @@
            --><div class="note-container grid__item three-tenths">
                   <div ng-if="tutorial.notes">
                       <h2 class="filter-title">Notes</h2>
-                      <button class="note-display" ng-click="newSort()">SORT</button>
-                      <button class="note-display" ng-click="newFilter(chosenFilter)">FILTER</button>
-                      <button class="clear-button" ng-click="clear()">CLEAR</button>
-                      <br>
+                      <div class="note-display">SORT</div>
                       <label>
                       <select class="dropdown" id="sort" onchange="sortSelected()">
                       <option value="new" selected>RECENT</option>
@@ -115,7 +112,9 @@
                       <option value="low">RATE:LOW</option>
                       <option value="category">CATEGORY</option>
                       </select>
+                      <br>
                       </label>
+                      <div class="note-display">FILTER</div>
                       <label>
                       <select class="dropdown" id="filter" onchange="filterSelected()">
                               <option style="display:none">STEP</option>
@@ -133,7 +132,9 @@
                       <button class="filter-icon icon icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
                       <button class="filter-icon icon icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                       <button class="filter-icon icon icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
-                      <button class="filter-icon icon icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
+                      <button class="filter-icon icon icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
+                      <button class="plain-button clear-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
+                      <button class="plain-button clear-button" ng-click="clear()">CLEAR</button>
                       <note ng-repeat="note in listOfNotes" ng-if="!tutorial.baseline && canShowNote(note)" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" show-list="showStepList"></note>
                   </div>
           </div>

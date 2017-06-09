@@ -525,29 +525,25 @@ h2{
 }
 
 .note-display{
-  float:left;
   margin-left:10px;
-  margin-right:80px;
+  margin-right:10px;
   height:20px;
   outline:none;
 }
 
 .clear-button{
+  margin:5px 10px;
+  border-radius:2px;
+  font-size:0.6em;
   float:left;
-  margin-left:50px;
-  height:20px;
-  outline:none;
+  background-color:white;
 }
 .clear-button:hover{
-  border-bottom:2px solid grey;
+  background-color: #c1c1c1;
 }
 
 .filter-icon{
   border:none;
-}
-
-.note-display:hover{
-  border-bottom:2px solid grey;
 }
 
 .filter-button:hover{
