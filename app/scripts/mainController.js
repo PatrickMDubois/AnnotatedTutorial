@@ -93,6 +93,13 @@ angular.module('AnnotatedTutorial')
                         if(chosenSort=="low") {
                             $scope.listOfNotes.reverse();
                         }
+                  }else{
+                      var newList = ($scope.filterByCategory('corrections',$scope.listOfNotes.slice(0)));
+                      newList = newList.concat($scope.filterByCategory('methods',$scope.listOfNotes.slice(0)));
+                      newList = newList.concat($scope.filterByCategory('details',$scope.listOfNotes.slice(0)));
+                      newList = newList.concat($scope.filterByCategory('questions',$scope.listOfNotes.slice(0)));
+                      newList = newList.concat($scope.filterByCategory('other',$scope.listOfNotes.slice(0)));
+                      $scope.listOfNotes = newList;
                   }
                 };
 
@@ -116,11 +123,11 @@ angular.module('AnnotatedTutorial')
                     }
                     if($scope.categoryFilter!== null && $scope.stepFilter !== null){
                         $scope.listOfNotes=(($scope.tutorial.steps[$scope.stepFilter].notes).slice(0));
-                        $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
+                        $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
                     }else if($scope.stepFilter !== null){
                        $scope.listOfNotes=(($scope.tutorial.steps[$scope.stepFilter].notes).slice(0));
-                    }else if($scope.categoryFilter!== null){;
-                        $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
+                    }else if($scope.categoryFilter!== null){
+                        $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
                     }
                     $scope.newSort();
                 };
@@ -137,7 +144,7 @@ angular.module('AnnotatedTutorial')
                             tempList.push(list[i]);
                         }
                     }
-                    $scope.listOfNotes = (tempList.slice(0));
+                    return (tempList.slice(0));
 
                 };
 
@@ -406,6 +413,7 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                 };
+
 
                 $scope.orderRating = function(list){
                     var tempNote1;

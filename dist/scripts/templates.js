@@ -35,7 +35,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"note-rating\">\n" +
     "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this note helpful.</div>\n" +
     "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this note helpful.</div>\n" +
-    "            <div ng-if=\"note.rating<1\">No Rating.</div>\n" +
+    "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\"></note>\n" +
     "    </div>\n" +
