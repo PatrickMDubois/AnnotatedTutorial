@@ -1931,6 +1931,12 @@ h2 {
 
 .note-rating {
   font-size: 0.6em;
+  float: left;
+  margin-right: 10px;
+}
+
+.note-steps {
+  font-size: 0.6em;
 }
 
 .rating-button {
