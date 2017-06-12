@@ -98,7 +98,7 @@
                <button class="input-start icon" ng-if="inputPos === null" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button></div>
               </div><!--
 
-           --><div class="note-container grid__item three-tenths">
+           --><div class="filter-container grid__item three-tenths">
                   <div ng-if="tutorial.notes">
                       <h2 class="filter-title">Notes</h2>
                       <div class="note-display">SORT</div>
@@ -133,7 +133,19 @@
                       <button class="filter-icon icon icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
                       <button class="plain-button clear-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
                       <button class="plain-button clear-button" ng-click="clear()">CLEAR</button>
-                      <note ng-repeat="note in listOfNotes" ng-if="!tutorial.baseline && canShowNote(note)" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" show-list="showStepList"></note>
+                      <div class="grid__item three-tenths note-container">
+                      <note ng-repeat="note in listOfNotes"
+                            ng-if="!tutorial.baseline && canShowNote(note)"
+                            note="note"
+                            delete-it="deleteNote"
+                            rate-it="newRating"
+                            add-reply="addingReply"
+                            can-show-note="canShowNote"
+                            baseline="false"
+                            show-list="showStepList"
+                            user="contributor"
+                            whole-tutorial=""></note>
+                      </div>
                   </div>
           </div>
           <script>

@@ -10,9 +10,9 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
     "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
     "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
-    "    <button ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
+    "    <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
     "    <button class=\"rating-button\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
-    "    <div class=\"note-contributor\">Submitted by {{note.contributor}} -</div>\n" +
+    "    <div class=\"note-contributor\">Submitted by {{note.contributor}}</div>\n" +
     "    <div class=\"date\">{{note.dateSubmitted}}<br></div>\n" +
     "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
@@ -29,7 +29,8 @@ module.run(["$templateCache", function($templateCache) {
     "                Reply\n" +
     "        </button>\n" +
     "        <button class=\"plain-button show-step-button\"\n" +
-    "                ng-click=\"showList(note)\">\n" +
+    "                ng-click=\"showList(note)\"\n" +
+    "                ng-if=\"!wholeTutorial\">\n" +
     "            show steps\n" +
     "        </button>\n" +
     "        <div class=\"note-rating\">\n" +
@@ -37,7 +38,7 @@ module.run(["$templateCache", function($templateCache) {
     "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this note helpful.</div>\n" +
     "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" whole-tutorial=\"wholeTutorial\"></note>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
