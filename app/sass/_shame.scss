@@ -196,7 +196,8 @@ img{
 
 .note-container{
   border: 1px solid #9b9b9b;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x:hidden;
   padding: 10px;
   background: rgb(255, 255, 186);
   position:fixed;
