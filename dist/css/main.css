@@ -1536,11 +1536,11 @@ img {
   padding: 5px;
   pointer-events: none;
   transition: all 0.1s ease;
+  white-space: nowrap;
 }
 
 [tooltip]:hover:before {
   opacity: 1;
-  /*transition-delay: 0.5s;*/
   white-space: nowrap;
 }
 
@@ -1693,8 +1693,6 @@ img {
   padding: 10px;
   background: #ffffba;
   position: fixed;
-  z-index: 3;
-  margin: 0px 0;
   right: 20px;
   top: 217px;
   height: 496px;
@@ -1706,8 +1704,6 @@ img {
   padding: 10px;
   background: #ffffba;
   position: fixed;
-  z-index: 3;
-  margin: 0px 0;
   right: 20px;
   top: 42px;
   height: 175px;
@@ -1870,7 +1866,6 @@ h2 {
   color: darkgrey;
   margin-left: 15px;
   float: left;
-  outline: none;
 }
 
 .categories-title {
@@ -1905,6 +1900,11 @@ h2 {
 
 .close-button {
   font-size: 0.8em;
+}
+
+.reply-close {
+  float: right;
+  margin-bottom: 20px;
 }
 
 .return-button-first {

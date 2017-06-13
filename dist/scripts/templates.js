@@ -41,6 +41,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"note-steps\">\n" +
     "            <div ng-if=\"note.step_id.length>1\">{{note.step_id.length}} Associated Steps</div>\n" +
     "            <div ng-if=\"note.step_id.length==1\">{{note.step_id.length}} Associated Step</div>\n" +
+    "            <div ng-if=\"note.step_id.length<1\"> No Step</div>\n" +
     "        </div>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" whole-tutorial=\"wholeTutorial\"></note>\n" +
     "    </div>\n" +
