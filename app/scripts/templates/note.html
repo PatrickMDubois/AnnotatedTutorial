@@ -7,7 +7,7 @@
     <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
     <button class="rating-button" ng-click="rateIt(note.id)" tooltip="recommend"></button>
     <div class="note-contributor">Submitted by {{note.contributor}}</div>
-    <div class="date">{{note.dateSubmitted}}<br></div>
+    <div class="date">{{date}}<br></div>
     <div ng-if="note.category === 'methods'">Note relevant for: {{note.extra_info}}</div>
     <div ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
     <div>{{note.content}}</div>
@@ -37,6 +37,6 @@
             <div ng-if="note.step_id.length==1">{{note.step_id.length}} Associated Step</div>
             <div ng-if="note.step_id.length<1"> No Step</div>
         </div>
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" show-list="showList" user="user" whole-tutorial="wholeTutorial"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" show-list="showList" user="user" whole-tutorial="wholeTutorial" date="date"></note>
     </div>
 </div>

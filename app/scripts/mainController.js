@@ -30,8 +30,6 @@ angular.module('AnnotatedTutorial')
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
-                console.log($scope.tutorial.notes[$scope.tutorial.notes.length-1].dateSubmitted);
-
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
                     if($scope.listOfContributors.indexOf($scope.tutorial.notes[i].contributor) == -1) {
                         if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].contributor === $scope.contributor.name) {
@@ -385,6 +383,11 @@ angular.module('AnnotatedTutorial')
                     $scope.secondMenu = !$scope.secondMenu;
                 };
 
+                $scope.dateFormat = function(note){
+                    console.log(moment(note.dateSubmitted));
+                    return moment(note.dateSubmitted).format("YYYY-MM-DD");
+                };
+
                 $scope.orderDate = function(list){
                     var tempNote1;
                     var tempNote2;
@@ -392,7 +395,7 @@ angular.module('AnnotatedTutorial')
                     for(var j = 0; j < list.length; j++){
                         tempNote1 = list[j];
                         for(var k=j; k<list.length; k++){
-                            if(list[k].dateSubmitted > tempNote1.dateSubmitted){
+                            if(moment(list[k].dateSubmitted).isAfter(moment(tempNote1.dateSubmitted))){
                                 tempNote1 = list[k];
                                 index = k;
                             }
