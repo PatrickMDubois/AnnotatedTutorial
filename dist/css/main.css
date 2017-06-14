@@ -1708,10 +1708,6 @@ img {
   height: 175px;
 }
 
-.note-format {
-  z-index: 2;
-}
-
 .description {
   border: 1px #ccc dotted;
   margin: 5px 0;
@@ -1987,6 +1983,10 @@ h2 {
   height: 20px;
   line-height: 9px;
   width: 10px;
+}
+
+.icon-bar {
+  margin: 3px 10px;
 }
 
 .preview-button {

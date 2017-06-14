@@ -61,37 +61,37 @@
                 <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-                --><div class="grid__item one-tenth">
+                --><div class="grid__item one-twelfth">
 
-              <button class="icon icon-corrections"
+              <button class="icon icon-corrections icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
                       ng-click="stepIcon(step.step_number);newFilter('corrections')"
                       tooltip="Corrections">
                       <div class = "icon__number">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
-              <button class="icon icon-methods"
+              <button class="icon icon-methods icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'methods')"
                       ng-click="stepIcon(step.step_number);newFilter('methods')"
                       tooltip="What is this?">
                       <div class="icon__number">{{numberOfNotes(step,"methods")}}</div>
               </button>
 
-              <button class="icon icon-details"
+              <button class="icon icon-details icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'details')"
                       ng-click="stepIcon(step.step_number);newFilter('details')"
                       tooltip="Tell me more!">
                       <div class="icon__number">{{numberOfNotes(step,"details")}}</div>
               </button>
 
-              <button class="icon icon-questions"
+              <button class="icon icon-questions icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'questions')"
                       ng-click="stepIcon(step.step_number);newFilter('questions')"
                       tooltip="Questions">
                       <div class="icon__number">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
-              <button class="icon icon-other"
+              <button class="icon icon-other icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'other')"
                       ng-click="stepIcon(step.step_number);newFilter('other')"
                       tooltip="Other">
@@ -117,7 +117,7 @@
                       <div class="note-display">FILTER</div>
                       <label>
                       <select class="dropdown" id="filter" onchange="filterSelected()">
-                              <option style="display:none">STEP</option>
+                              <option value="none" style="display:none">STEP</option>
                               <option value="{{tutorial.steps.length-1}}">WHOLE</option>
                               <option value="0">INTRO</option>
                               <option ng-repeat="number in listOfSteps"
