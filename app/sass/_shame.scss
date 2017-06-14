@@ -200,19 +200,18 @@ img{
   background: rgb(255, 253, 230);
   position:fixed;
   right:20px;
-  top:217px;
-  height:496px;
+  top:182px;
+  height:529px;
 }
 
 .filter-container{
   border: 1px solid #9b9b9b;
-  overflow-y: auto;
   padding: 10px;
   background: rgb(255, 253, 230);
   position:fixed;
   right:20px;
   top:42px;
-  height:175px;
+  height:140px;
 }
 
 .description{
@@ -546,10 +545,11 @@ h2{
   margin-right:10px;
   height:20px;
   outline:none;
+  float:left;
 }
 
 .clear-button{
-  margin:5px 10px;
+  margin:10px 10px;
   border-radius:2px;
   font-size:0.6em;
   float:left;

@@ -104,6 +104,7 @@
                   <div ng-if="tutorial.notes">
                       <h2 class="filter-title">Notes</h2>
                       <div class="note-display">SORT</div>
+                      <div class="note-display">FILTER</div><br>
                       <label>
                       <select class="dropdown" id="sort" onchange="sortSelected()">
                       <option value="new" selected>RECENT</option>
@@ -112,9 +113,7 @@
                       <option value="low">RATE:LOW</option>
                       <option value="category">CATEGORY</option>
                       </select>
-                      <br>
                       </label>
-                      <div class="note-display">FILTER</div>
                       <label>
                       <select class="dropdown" id="filter" onchange="filterSelected()">
                               <option value="none" style="display:none">STEP</option>
