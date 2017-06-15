@@ -34,14 +34,15 @@ module.run(["$templateCache", function($templateCache) {
     "            show steps\n" +
     "        </button>\n" +
     "        <div class=\"note-rating\">\n" +
-    "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this note helpful.</div>\n" +
-    "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this note helpful.</div>\n" +
+    "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this helpful.</div>\n" +
+    "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this helpful.</div>\n" +
     "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
     "        <div class=\"note-steps\">\n" +
     "            <div ng-if=\"note.step_id.length>1\">{{note.step_id.length}} Associated Steps</div>\n" +
-    "            <div ng-if=\"note.step_id.length==1\">{{note.step_id.length}} Associated Step</div>\n" +
+    "            <div ng-if=\"note.step_id.length==1 && !wholeTutorial\">{{note.step_id.length}} Associated Step</div>\n" +
     "            <div ng-if=\"note.step_id.length<1\"> No Associated Step</div>\n" +
+    "            <div ng-if=\"wholeTutorial\">Whole Tutorial</div>\n" +
     "        </div>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" whole-tutorial=\"wholeTutorial\" date=\"date\"></note>\n" +
     "    </div>\n" +

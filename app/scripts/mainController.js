@@ -27,6 +27,7 @@ angular.module('AnnotatedTutorial')
                 $scope.currentNote=null;
                 $scope.stepFilter = null;
                 $scope.categoryFilter = null;
+                $scope.wholeTutorial = false;
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -59,6 +60,16 @@ angular.module('AnnotatedTutorial')
                     $scope.currentStep.push(step);
 
                     LoggerService.log("Opened input dialog");
+                };
+
+                $scope.chosenWholeTutorial =function(){
+                    $scope.wholeTutorial = !$scope.wholeTutorial;
+                    for(var i = 0; i <$scope.listOfSteps.length-1; i++){
+                        var stepID = "step " + i;
+                        //var prevID= "prev " + i;
+                        document.getElementById(stepID).disabled = $scope.wholeTutorial;
+                        //document.getElementById(prevID).disabled = $scope.wholeTutorial;
+                    }
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -385,7 +396,6 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.dateFormat = function(note){
-                    console.log(moment(note.dateSubmitted));
                     return moment(note.dateSubmitted).format("YYYY-MM-DD");
                 };
 

@@ -61,7 +61,7 @@
                 <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-                --><div class="grid__item one-twelfth">
+                --><div class="grid__item one-twelfth is-left-aligned" >
 
               <button class="icon icon-corrections icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
@@ -127,7 +127,7 @@
                               <option value="{{tutorial.steps.length-2}}">END</option>
                       </select>
                       </label>
-                      <button class="icon icon-corrections filter-icon" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
+                      <button class="filter-icon icon icon-corrections " ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
                       <button class="filter-icon icon icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
                       <button class="filter-icon icon icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                       <button class="filter-icon icon icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
@@ -145,8 +145,8 @@
                             baseline="false"
                             show-list="showStepList"
                             user="contributor"
-                            whole-tutorial=""
-                            date="dateFormat(note)"  ></note>
+                            whole-tutorial="note.step_id[0] === listOfSteps[listOfSteps.length-1].id;"
+                            date="dateFormat(note)"></note>
                       </div>
                   </div>
           </div>
@@ -181,23 +181,24 @@
                     <br>
                     <div>
                           <a class="menu-action-button preview-button" href="#whole"></a>
-                          <button class="menu-action-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
+                          <button class="menu-action-button" ng-click="chosenWholeTutorial();stepSelected(listOfSteps[listOfSteps.length-1]);numberList();" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
                               <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
                               <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
                           </button>
                           <div class="step-list">WHOLE TUTORIAL</div>
-                          <div ng-repeat="step in listOfSteps">
-                              <a class="menu-action-button preview-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}"></a>
-                              <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
+                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1" ng-style="{'disabledSteps':wholeTutorial}">
+                              <a class="menu-action-button preview-button" href="#{{step.id}}"></a>
+                              <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                                   <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
-                            </button>
+                               </button>
                             <div class="step-list" ng-if="step.step_number==0">INTRO</div>
                             <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
                             <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2">STEP {{step.step_number}}</div>
                           </div>
                     </div>
                 </div>
+
                 <div ng-if="secondMenu">
                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                    <script src="scripts/smooth-scrolling.js"></script>

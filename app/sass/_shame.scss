@@ -17,7 +17,7 @@ html,body{
 img{
   max-width: 500px;
   max-height: 200px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #e072bc;
   display: block;
 
 }
@@ -37,7 +37,7 @@ img{
 .icon{
   background-repeat: no-repeat;
   background-size: 16px;
-  border: 1px solid #fff;
+  //border: 1px solid #fff;
   border-radius: 20px;
   height: 24px;
   line-height: 9px;
@@ -45,7 +45,7 @@ img{
   position: relative;
 }
 
-.selected, .icon:hover{border: 1px solid #e0e0e0;}
+.selected, .icon:hover{border:none;}
 .icon:focus {outline:0;}
 
 [tooltip]:before {
@@ -61,6 +61,7 @@ img{
   pointer-events: none;
   transition: all 0.1s ease;
   white-space: nowrap;
+  z-index:1;
 }
 
 [tooltip]:hover:before {
@@ -100,10 +101,10 @@ img{
 }
 
 .selected-details, .note-details, .icon-details:hover{background-color: #DEE9FF;}
-.selected-corrections, .note-corrections, .icon-corrections:hover{background-color: #FDCFDA;z-index:1;}
-.selected-methods, .note-methods, .icon-methods:hover{background-color: #FFF2DA;}
-.selected-questions, .note-questions, .icon-questions:hover{background-color: #F9DDF5;}
-.selected-other, .note-other, .icon-other:hover{background-color: #EAFFDE;}
+.selected-corrections, .note-corrections, .icon-corrections:hover{background-color: #fdafd9;z-index:1;}
+.selected-methods, .note-methods, .icon-methods:hover{background-color: #ffdfa5;}
+.selected-questions, .note-questions, .icon-questions:hover{background-color: #edbcf9;}
+.selected-other, .note-other, .icon-other:hover{background-color: #d4ffd1;}
 
 .note:before{
   background-color: #fff;
@@ -113,14 +114,15 @@ img{
   display: inline-block;
   font-size: 75%;
   top: -5px;
-  padding: 0 10px 0 24px;
+  padding: 0 10px 0 10px;
   position: relative;
 }
 
 .note{
   border: 1px solid #9b9b9b;
-  margin: 10px;
-  padding: 5px;
+  margin: 5px 0;
+  padding-left: 3px;
+  padding-right: 3px;
   clear:both;
   border-radius:2px;
 }
@@ -248,6 +250,7 @@ img{
   font-size: 0.6em;
   border-radius:3px;
   margin-left:5px;
+  line-height:15px;
 }
 
 .baseline-container{
@@ -389,12 +392,14 @@ h2{
 
 .delete-button{
   background: rgba(255, 0, 21, 0.57);
-  margin:0 10px;
+  margin:0px 10px;
+  margin-top:6px;
   font-size: 0.6em;
   float:right;
   color:white;
   border-radius:3px;
   border-color:red;
+  line-height:15px;
 }
 
 .delete-button:hover{
@@ -461,6 +466,10 @@ h2{
   text-align:left;
   font-weight:bold;
   color:grey;
+}
+
+.disabledSteps{
+  color: lightgrey;
 }
 
 .menu-action-button{
@@ -548,6 +557,7 @@ h2{
   float:left;
 }
 
+
 .clear-button{
   margin:10px 10px;
   border-radius:2px;
@@ -573,6 +583,7 @@ h2{
   border-radius:3px;
   background-color:white;
   outline:none;
+  line-height:15px;
 }
 
 .show-step-button:hover{
