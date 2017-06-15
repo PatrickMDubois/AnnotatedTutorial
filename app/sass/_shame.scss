@@ -130,6 +130,7 @@ img{
 .dropdown{
   padding:0px 3px;
   margin:0px 10px;
+  line-height:24px;
 }
 
 .note-contributor{
@@ -208,12 +209,33 @@ img{
 
 .filter-container{
   border: 1px solid #9b9b9b;
-  padding: 10px;
+  padding: 5px;
   background: rgb(255, 253, 230);
   position:fixed;
-  right:20px;
   top:42px;
-  height:135px;
+  height:90px;
+}
+
+.button-container{
+  border: 1px solid #9b9b9b;
+  border-top:none;
+  padding: 5px;
+  background: rgb(255, 253, 230);
+  position:fixed;
+  top:132px;
+  height:45px;
+  right:20px;
+  width:388px;
+}
+
+.sort{
+  width:145px;
+  right:263px;
+}
+
+.filter{
+  width:255px;
+  right:20px;
 }
 
 .description{
@@ -552,14 +574,12 @@ h2{
 .note-display{
   margin-left:10px;
   margin-right:72px;
-  height:20px;
-  outline:none;
-  float:left;
+  margin-bottom:10px;
 }
 
 
 .clear-button{
-  margin:10px 10px;
+  margin:3px 15px;
   border-radius:2px;
   font-size:0.6em;
   float:left;
