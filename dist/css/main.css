@@ -1846,10 +1846,10 @@ h2 {
 
 .contributors-plus {
   background-image: url(../images/PNG/plus.png);
-  background-position: 4px 3px;
+  background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
-  background-size: 19px;
+  background-size: 15.3px;
   border: 1px solid #fff;
   border-radius: 20px;
   height: 24px;
@@ -1860,7 +1860,7 @@ h2 {
 
 .contributors-minus {
   background-image: url(../images/PNG/minus.png);
-  background-position: 5.9px 5.1px;
+  background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
   background-size: 15.3px;
@@ -1876,14 +1876,14 @@ h2 {
   float: left;
   margin-right: 2px;
   font-size: small;
-  color: limegreen;
+  color: #333666;
 }
 
 .contributor-first {
   float: left;
   margin: 0 2px;
   font-size: small;
-  color: limegreen;
+  color: #333666;
 }
 
 .tutorial-title {
