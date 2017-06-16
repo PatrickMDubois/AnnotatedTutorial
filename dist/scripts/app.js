@@ -298,6 +298,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepIcon = function(step){
                     $scope.newFilter(parseInt(step));
+                    document.getElementById("filter").value = parseInt(step);
                 };
 
 
