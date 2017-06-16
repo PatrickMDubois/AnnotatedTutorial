@@ -1559,7 +1559,7 @@ img {
 }
 
 .selected-step {
-  background-color: #f6ffa4;
+  background-color: #c4fff4;
 }
 
 .icon-details {
@@ -1967,12 +1967,12 @@ h2 {
 }
 
 .return-button-first {
-  margin-left: 95px;
+  margin-left: 65px;
   margin-right: 10px;
 }
 
 .return-button-second {
-  margin-left: 111.5px;
+  margin-left: 81.4px;
   margin-right: 10px;
 }
 
