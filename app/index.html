@@ -15,7 +15,7 @@
       <div class="grid grid--full is-extended">
           <div class="grid__item three-quarters is-extended content">
             <div class="l-block grid grid--full">
-                <div class="grid__item one-eighth is-right-aligned"></div>
+                <div class="grid__item one-tenth is-right-aligned"></div>
 
                 <!--
               --> <div class="grid__item six-eighths">
@@ -131,11 +131,11 @@
                                   <option value="{{tutorial.steps.length-2}}">END</option>
                           </select>
                           </label>
-                          <button class="filter-icon icon icon-corrections " ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
-                          <button class="filter-icon icon icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
-                          <button class="filter-icon icon icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
-                          <button class="filter-icon icon icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
-                          <button class="filter-icon icon icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': inputCategory == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
+                          <button class="filter-icon filter-icon-corrections " ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
+                          <button class="filter-icon filter-icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
+                          <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
+                          <button class="filter-icon filter-icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
+                          <button class="filter-icon filter-icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
                       </div>
                       <div class="button-container">
                           <button class="plain-button clear-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>

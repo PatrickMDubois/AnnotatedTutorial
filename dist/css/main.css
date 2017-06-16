@@ -1514,6 +1514,21 @@ img {
   position: relative;
 }
 
+.filter-icon {
+  background-repeat: no-repeat;
+  background-size: 14px;
+  outline: none;
+  border-radius: 20px;
+  height: 15px;
+  line-height: 9px;
+  width: 15px;
+  position: relative;
+}
+
+.filter-icon:hover {
+  border: none;
+}
+
 .selected, .icon:hover {
   border: none;
 }
@@ -1576,24 +1591,48 @@ img {
   background-position: 0px 2px;
 }
 
-.selected-details, .note-details, .icon-details:hover {
+.filter-icon-details {
+  background-image: url(../images/PNG/pin.png);
+  background-size: 14px;
+}
+
+.filter-icon-corrections {
+  background-image: url(../images/PNG/healing.png);
+}
+
+.filter-icon-methods {
+  background-image: url(../images/PNG/method.png);
+  background-size: 13px;
+}
+
+.filter-icon-questions {
+  background-image: url(../images/PNG/question.png);
+  background-size: 13px;
+}
+
+.filter-icon-other {
+  background-image: url(../images/PNG/other.png);
+  background-size: 17px;
+}
+
+.selected-details, .note-details, .filter-icon-details:hover, .icon-details:hover {
   background-color: #DEE9FF;
 }
 
-.selected-corrections, .note-corrections, .icon-corrections:hover {
+.selected-corrections, .note-corrections, .filter-icon-corrections:hover, .icon-corrections:hover {
   background-color: #fdafd9;
   z-index: 1;
 }
 
-.selected-methods, .note-methods, .icon-methods:hover {
+.selected-methods, .note-methods, .filter-icon-methods:hover, .icon-methods:hover {
   background-color: #ffdfa5;
 }
 
-.selected-questions, .note-questions, .icon-questions:hover {
+.selected-questions, .note-questions, .filter-icon-questions:hover, .icon-questions:hover {
   background-color: #edbcf9;
 }
 
-.selected-other, .note-other, .icon-other:hover {
+.selected-other, .note-other, .filter-icon-other:hover, .icon-other:hover {
   background-color: #d4ffd1;
 }
 
@@ -2077,10 +2116,6 @@ h2 {
 
 .clear-button:hover {
   background-color: #e3e3e3;
-}
-
-.filter-icon {
-  border: none;
 }
 
 .filter-button:hover {
