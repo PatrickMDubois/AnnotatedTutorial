@@ -1488,7 +1488,7 @@ html, body {
 img {
   max-width: 500px;
   max-height: 200px;
-  border: 1px solid #e072bc;
+  border: 1px solid #000000;
   display: block;
 }
 
