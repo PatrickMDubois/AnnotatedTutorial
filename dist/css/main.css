@@ -1559,7 +1559,7 @@ img {
 }
 
 .selected-step {
-  background-color: #c4fff4;
+  background-color: rgba(131, 41, 255, 0.33);
 }
 
 .icon-details {
@@ -1735,7 +1735,7 @@ img {
   position: fixed;
   right: 20px;
   top: 176px;
-  height: 536px;
+  height: 465px;
 }
 
 .filter-container {
@@ -2019,8 +2019,8 @@ h2 {
   color: grey;
 }
 
-.disabledSteps {
-  color: lightgrey;
+.disabled-steps {
+  background-color: #cccccc;
 }
 
 .menu-action-button {
@@ -2039,6 +2039,10 @@ h2 {
 
 .menu-action-button:hover {
   background-color: #e6d4e2;
+}
+
+.menu-action-button:disabled {
+  background-color: #cccccc;
 }
 
 .selected-menu-button {

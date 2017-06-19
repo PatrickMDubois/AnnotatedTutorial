@@ -191,15 +191,15 @@
                               <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
                           </button>
                           <div class="step-list">WHOLE TUTORIAL</div>
-                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1" ng-style="{'disabledSteps':wholeTutorial}">
+                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1">
                               <a class="menu-action-button preview-button" href="#{{step.id}}"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                                   <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
                                </button>
-                            <div class="step-list" ng-if="step.step_number==0">INTRO</div>
-                            <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
-                            <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2">STEP {{step.step_number}}</div>
+                            <div class="step-list" ng-if="step.step_number==0" ng-class="{'disabled-steps':wholeTutorial}">INTRO</div>
+                            <div class="step-list" ng-if="step.step_number==listOfSteps.length-2" ng-class="{'disabled-steps':wholeTutorial}">END</div>
+                            <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2" ng-class="{'disabled-steps':wholeTutorial}">STEP {{step.step_number}}</div>
                           </div>
                     </div>
                 </div>
