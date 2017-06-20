@@ -219,21 +219,15 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Opened input dialog");
                 };
-
-<<<<<<< HEAD
-                $scope.test = function(){
-                  console.log("raquel");
-=======
-                $scope.chosenWholeTutorial = function(){
-                    if(!$scope.wholeTutorial) {
+                $scope.chosenGeneral = function(){
+                    if(!$scope.general) {
                         $scope.selectedStepsList.splice(0, $scope.selectedStepsList.length);
                     }
-                    $scope.wholeTutorial = !$scope.wholeTutorial;
+                    $scope.general = !$scope.general;
                     for(var i = 0; i <$scope.listOfSteps.length-1; i++){
                         var stepID = "step " + i;
-                        document.getElementById(stepID).disabled = $scope.wholeTutorial;
+                        document.getElementById(stepID).disabled = $scope.general;
                     }
->>>>>>> 9abccc42c198cc3301eac0b430b8f5e82892ec4e
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -353,7 +347,7 @@ angular.module('AnnotatedTutorial')
                         }else if($scope.selectedStepsList[i].step_number==$scope.listOfSteps.length-2){
                             $scope.list.push("END");
                         }else if($scope.selectedStepsList[i].step_number==$scope.listOfSteps.length-1){
-                            $scope.list.push("WHOLE TUTORIAL");
+                            $scope.list.push("GENERAL");
                         }else{
                             $scope.list.push("INTRO");
                         }

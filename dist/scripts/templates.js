@@ -39,9 +39,11 @@ module.run(["$templateCache", function($templateCache) {
     "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
     "        <div class=\"note-steps\">\n" +
-    "            <div ng-if=\"note.step_id.length>1\">{{note.step_id.length}} Associated Steps</div>\n" +
-    "            <div ng-if=\"note.step_id.length==1 && !general\">{{note.step_id.length}} Associated Step</div>\n" +
-    "            <div ng-if=\"note.step_id.length<1\"> No Associated Step</div>\n" +
+    "            <div ng-if=\"note.step_id.length>=1 && !general\">Steps:{{note.step_id[0]}} </div>\n" +
+    "            <div ng-if=\"note.step_id.length>=2\">, {{note.step_id[1]}}</div>\n" +
+    "            <div ng-if=\"note.step_id.length>=3\">, {{note.step_id[2]}}</div>\n" +
+    "            <div ng-if=\"note.step_id.length>3\">+</div>\n" +
+    "            <div ng-if=\"note.step_id.length<1 && !general\"> No Associated Step</div>\n" +
     "            <div ng-if=\"general\">General</div>\n" +
     "        </div>\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\"></note>\n" +
