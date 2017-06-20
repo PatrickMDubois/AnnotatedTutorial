@@ -122,7 +122,7 @@
                           <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                           <button class="filter-icon filter-icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                           <button class="filter-icon filter-icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
-                          <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
+                          <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
                           <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
                       </div>
                       <div class="grid__item one-tenth filter-container sort">
@@ -160,13 +160,13 @@
               var chosenSort = null;
               function sortSelected(){
                   chosenSort = document.getElementById("sort").value.toString();
-                  $parent.test();
-                  console.log()
+                  document.getElementById("apply").click();
               }
 
               var chosenFilter = null;
               function filterSelected(){
                   chosenFilter = parseInt(document.getElementById("filter").value);
+                  document.getElementById("apply").click();
               }
           </script>
           <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
