@@ -1760,13 +1760,12 @@ img {
 }
 
 .sort {
-  width: 145px;
-  right: 263px;
+  right: calc(20% + 20px);
 }
 
 .filter {
-  width: 255px;
   right: 20px;
+  float: right;
 }
 
 .description {

@@ -100,9 +100,32 @@
 
               </div></div><!--
 
-           --><div class="">
-                  <div ng-if="tutorial.notes">
-                      <div class="filter-container sort">
+           --><div>
+                  <div ng-if="tutorial.notes" class="three-tenths">
+                      <div class="grid__item two-tenths filter-container filter">
+                          <div class="note-display">FILTER</div>
+                          <label>
+                              <select class="dropdown" id="filter" onchange="filterSelected()">
+                                  <option value="none" style="display:none">STEP</option>
+                                  <option value="{{tutorial.steps.length-1}}">GENERAL</option>
+                                  <option value="0">INTRO</option>
+                                  <option ng-repeat="number in listOfSteps"
+                                          value="{{number.step_number}}"
+                                          ng-if="number.step_number>0 && number.step_number<listOfSteps.length-2">
+                                      STEP {{number.step_number}}
+                                  </option>
+                                  <option value="{{tutorial.steps.length-2}}">END</option>
+                              </select>
+                          </label>
+                          <button class="filter-icon filter-icon-corrections " ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
+                          <button class="filter-icon filter-icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
+                          <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
+                          <button class="filter-icon filter-icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
+                          <button class="filter-icon filter-icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
+                          <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
+                          <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
+                      </div>
+                      <div class="grid__item one-tenth filter-container sort">
                           <div class="note-display">SORT</div>
                           <label>
                           <select class="dropdown" id="sort" onchange="sortSelected()">
@@ -114,29 +137,7 @@
                           </select>
                           </label>
                       </div>
-                      <div class="filter-container filter">
-                          <div class="note-display">FILTER</div>
-                          <label>
-                          <select class="dropdown" id="filter" onchange="filterSelected()">
-                                  <option value="none" style="display:none">STEP</option>
-                                  <option value="{{tutorial.steps.length-1}}">GENERAL</option>
-                                  <option value="0">INTRO</option>
-                                  <option ng-repeat="number in listOfSteps"
-                                          value="{{number.step_number}}"
-                                          ng-if="number.step_number>0 && number.step_number<listOfSteps.length-2">
-                                          STEP {{number.step_number}}
-                                  </option>
-                                  <option value="{{tutorial.steps.length-2}}">END</option>
-                          </select>
-                          </label>
-                          <button class="filter-icon filter-icon-corrections " ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
-                          <button class="filter-icon filter-icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
-                          <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
-                          <button class="filter-icon filter-icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
-                          <button class="filter-icon filter-icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
-                          <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
-                          <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
-                      </div>
+
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
                             ng-if="!tutorial.baseline && canShowNote(note)"
