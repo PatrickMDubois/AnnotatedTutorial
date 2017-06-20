@@ -1559,7 +1559,7 @@ img {
 }
 
 .selected-step {
-  background-color: #c4fff4;
+  background-color: rgba(131, 41, 255, 0.33);
 }
 
 .icon-details {
@@ -1734,8 +1734,13 @@ img {
   background: #fffde6;
   position: fixed;
   right: 20px;
+<<<<<<< HEAD
   top: 146px;
   height: 500px;
+=======
+  top: 176px;
+  height: 465px;
+>>>>>>> 9abccc42c198cc3301eac0b430b8f5e82892ec4e
 }
 
 .filter-container {
@@ -2019,8 +2024,8 @@ h2 {
   color: grey;
 }
 
-.disabledSteps {
-  color: lightgrey;
+.disabled-steps {
+  background-color: #cccccc;
 }
 
 .menu-action-button {
@@ -2039,6 +2044,10 @@ h2 {
 
 .menu-action-button:hover {
   background-color: #e6d4e2;
+}
+
+.menu-action-button:disabled {
+  background-color: #cccccc;
 }
 
 .selected-menu-button {

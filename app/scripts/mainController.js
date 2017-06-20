@@ -62,8 +62,20 @@ angular.module('AnnotatedTutorial')
                     LoggerService.log("Opened input dialog");
                 };
 
+<<<<<<< HEAD
                 $scope.test = function(){
                   console.log("raquel");
+=======
+                $scope.chosenWholeTutorial = function(){
+                    if(!$scope.wholeTutorial) {
+                        $scope.selectedStepsList.splice(0, $scope.selectedStepsList.length);
+                    }
+                    $scope.wholeTutorial = !$scope.wholeTutorial;
+                    for(var i = 0; i <$scope.listOfSteps.length-1; i++){
+                        var stepID = "step " + i;
+                        document.getElementById(stepID).disabled = $scope.wholeTutorial;
+                    }
+>>>>>>> 9abccc42c198cc3301eac0b430b8f5e82892ec4e
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
