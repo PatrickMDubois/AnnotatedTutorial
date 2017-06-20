@@ -121,12 +121,12 @@
                           <label>
                           <select class="dropdown" id="filter" onchange="filterSelected()">
                                   <option value="none" style="display:none">STEP</option>
-                                  <option value="{{tutorial.steps.length-1}}">WHOLE</option>
+                                  <option value="{{tutorial.steps.length-1}}">GENERAL</option>
                                   <option value="0">INTRO</option>
                                   <option ng-repeat="number in listOfSteps"
                                           value="{{number.step_number}}"
                                           ng-if="number.step_number>0 && number.step_number<listOfSteps.length-2">
-                                          {{number.step_number}}
+                                          STEP {{number.step_number}}
                                   </option>
                                   <option value="{{tutorial.steps.length-2}}">END</option>
                           </select>
@@ -136,11 +136,13 @@
                           <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                           <button class="filter-icon filter-icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                           <button class="filter-icon filter-icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
+                          <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
+                          <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
                       </div>
-                      <div class="button-container">
-                          <button class="plain-button clear-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
-                          <button class="plain-button clear-button" ng-click="clear()">CLEAR</button>
-                      </div>
+                      <!--<div class="button-container">
+                          <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
+                          <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
+                      </div>-->
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
                             ng-if="!tutorial.baseline && canShowNote(note)"
@@ -152,7 +154,7 @@
                             baseline="false"
                             show-list="showStepList"
                             user="contributor"
-                            whole-tutorial="note.step_id[0] === listOfSteps[listOfSteps.length-1].id;"
+                            general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id;"
                             date="dateFormat(note)"></note>
                       </div>
                   </div>
@@ -161,6 +163,8 @@
               var chosenSort = null;
               function sortSelected(){
                   chosenSort = document.getElementById("sort").value.toString();
+                  $parent.test();
+                  console.log()
               }
 
               var chosenFilter = null;
@@ -192,8 +196,8 @@
                               <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
                               <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
                           </button>
-                          <div class="step-list">WHOLE TUTORIAL</div>
-                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1" ng-style="{'disabledSteps':wholeTutorial}">
+                          <div class="step-list">GENERAL</div>
+                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1" ng-style="{'disabledSteps':general}">
                               <a class="menu-action-button preview-button" href="#{{step.id}}"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                                   <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>

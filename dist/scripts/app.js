@@ -185,7 +185,7 @@ angular.module('AnnotatedTutorial')
                 $scope.currentNote=null;
                 $scope.stepFilter = null;
                 $scope.categoryFilter = null;
-                $scope.wholeTutorial = false;
+                $scope.general = false;
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -220,14 +220,8 @@ angular.module('AnnotatedTutorial')
                     LoggerService.log("Opened input dialog");
                 };
 
-                $scope.chosenWholeTutorial =function(){
-                    $scope.wholeTutorial = !$scope.wholeTutorial;
-                    for(var i = 0; i <$scope.listOfSteps.length-1; i++){
-                        var stepID = "step " + i;
-                        //var prevID= "prev " + i;
-                        document.getElementById(stepID).disabled = $scope.wholeTutorial;
-                        //document.getElementById(prevID).disabled = $scope.wholeTutorial;
-                    }
+                $scope.test = function(){
+                  console.log("raquel");
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -270,6 +264,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.clear = function(){
                   $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+                  $scope.newSort();
                   $scope.categoryFilter = null;
                   $scope.stepFilter = null;
                   $scope.currentNote = null;
@@ -608,7 +603,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', wholeTutorial:'=', date: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', general:'=', date: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

@@ -30,7 +30,7 @@ module.run(["$templateCache", function($templateCache) {
     "        </button>\n" +
     "        <button class=\"plain-button show-step-button\"\n" +
     "                ng-click=\"showList(note)\"\n" +
-    "                ng-if=\"!wholeTutorial\">\n" +
+    "                ng-if=\"!general\">\n" +
     "            show steps\n" +
     "        </button>\n" +
     "        <div class=\"note-rating\">\n" +
@@ -40,11 +40,11 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "        <div class=\"note-steps\">\n" +
     "            <div ng-if=\"note.step_id.length>1\">{{note.step_id.length}} Associated Steps</div>\n" +
-    "            <div ng-if=\"note.step_id.length==1 && !wholeTutorial\">{{note.step_id.length}} Associated Step</div>\n" +
+    "            <div ng-if=\"note.step_id.length==1 && !general\">{{note.step_id.length}} Associated Step</div>\n" +
     "            <div ng-if=\"note.step_id.length<1\"> No Associated Step</div>\n" +
-    "            <div ng-if=\"wholeTutorial\">Whole Tutorial</div>\n" +
+    "            <div ng-if=\"general\">General</div>\n" +
     "        </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" whole-tutorial=\"wholeTutorial\" date=\"date\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\"></note>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");

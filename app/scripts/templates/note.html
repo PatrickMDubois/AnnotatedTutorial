@@ -24,7 +24,7 @@
         </button>
         <button class="plain-button show-step-button"
                 ng-click="showList(note)"
-                ng-if="!wholeTutorial">
+                ng-if="!general">
             show steps
         </button>
         <div class="note-rating">
@@ -34,10 +34,10 @@
         </div>
         <div class="note-steps">
             <div ng-if="note.step_id.length>1">{{note.step_id.length}} Associated Steps</div>
-            <div ng-if="note.step_id.length==1 && !wholeTutorial">{{note.step_id.length}} Associated Step</div>
+            <div ng-if="note.step_id.length==1 && !general">{{note.step_id.length}} Associated Step</div>
             <div ng-if="note.step_id.length<1"> No Associated Step</div>
-            <div ng-if="wholeTutorial">Whole Tutorial</div>
+            <div ng-if="general">General</div>
         </div>
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" show-list="showList" user="user" whole-tutorial="wholeTutorial" date="date"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" show-list="showList" user="user" general="general" date="date"></note>
     </div>
 </div>

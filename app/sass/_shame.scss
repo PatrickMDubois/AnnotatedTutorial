@@ -247,8 +247,8 @@ img{
   background: rgb(255, 253, 230);
   position:fixed;
   right:20px;
-  top:176px;
-  height:536px;
+  top:146px;
+  height:500px;
 }
 
 .filter-container{
@@ -257,7 +257,7 @@ img{
   background: rgb(255, 253, 230);
   position:fixed;
   top:42px;
-  height:90px;
+  height:105px;
 }
 
 .button-container{
@@ -608,13 +608,6 @@ h2{
   margin-left:10px;
 }
 
-.filter-button{
-  float:left;
-  margin:5px;
-  font-size:0.6em;
-  background-color: white;
-}
-
 .note-display{
   margin-left:10px;
   margin-right:72px;
@@ -622,20 +615,19 @@ h2{
 }
 
 
-.clear-button{
-  margin:3px 15px;
+.filter-button{
+  margin:0px 15px;
+  margin-top:15px;
   border-radius:2px;
   font-size:0.6em;
   float:left;
   background-color:white;
+  line-height:15px;
 }
-.clear-button:hover{
+.filter-button:hover{
   background-color: #e3e3e3;
 }
 
-.filter-button:hover{
-  background-color: rgba(227, 179, 255, 0.28);
-}
 
 .show-step-button{
   float:right;
