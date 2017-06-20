@@ -187,6 +187,8 @@ angular.module('AnnotatedTutorial')
                 $scope.categoryFilter = null;
                 $scope.general = false;
 
+                console.log($scope.tutorial.notes.length);
+
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
@@ -228,6 +230,7 @@ angular.module('AnnotatedTutorial')
                         var stepID = "step " + i;
                         document.getElementById(stepID).disabled = $scope.general;
                     }
+                    document.getElementById("general").disabled = true;
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -404,13 +407,15 @@ angular.module('AnnotatedTutorial')
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
                         }
 
-                        if(!$scope.replyTo){
+                        /*if(!$scope.replyTo){
                             for(var index=0; index<note.step_id.length; index++){
                                 $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
                             }
-                        }
+                        }*/
 
                         $scope.closeInput();
+                        $scope.contributor = TutorialService.get();
+                        $scope.tutorial = $scope.contributor.current_tutorial;
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
@@ -418,6 +423,7 @@ angular.module('AnnotatedTutorial')
                          + " | Category - " + $scope.inputCategory
                          + " | Extra Input - " + $scope.extraInput
                          + " | Note - " + $scope.newNote);
+
                     }
                 };
 
@@ -609,7 +615,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', general:'=', date: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', general:'=', date: '=',currentNote:'='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

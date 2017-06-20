@@ -1998,6 +1998,10 @@ h2 {
   font-size: 0.6em;
 }
 
+.first-note-step {
+  float: left;
+}
+
 .rating-button {
   background-image: url(../images/PNG/thumbs-up.png);
   background-position: 6px 3px;

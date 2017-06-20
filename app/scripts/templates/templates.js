@@ -28,25 +28,22 @@ module.run(["$templateCache", function($templateCache) {
     "            ng-if=\"baseline\">\n" +
     "                Reply\n" +
     "        </button>\n" +
-    "        <button class=\"plain-button show-step-button\"\n" +
-    "                ng-click=\"showList(note)\"\n" +
-    "                ng-if=\"!general\">\n" +
-    "            show steps\n" +
-    "        </button>\n" +
+    "        <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote\">show steps</button>\n" +
+    "        <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote\">hide steps</button>\n" +
     "        <div class=\"note-rating\">\n" +
     "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this helpful.</div>\n" +
     "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this helpful.</div>\n" +
     "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
     "        <div class=\"note-steps\">\n" +
-    "            <div ng-if=\"note.step_id.length>=1 && !general\">Steps:{{note.step_id[0]}} </div>\n" +
-    "            <div ng-if=\"note.step_id.length>=2\">, {{note.step_id[1]}}</div>\n" +
-    "            <div ng-if=\"note.step_id.length>=3\">, {{note.step_id[2]}}</div>\n" +
+    "            <div ng-if=\"note.step_id.length>=1 && !general\" ng-class=\"{'first-note-step':note.step_id.length>=2}\">Steps:{{note.step_id[0]}} </div>\n" +
+    "            <div ng-if=\"note.step_id.length>=2\" ng-class=\"{'first-note-step':note.step_id.length>=3}\">, {{note.step_id[1]}}</div>\n" +
+    "            <div ng-if=\"note.step_id.length>=3\" ng-class=\"{'first-note-step':note.step_id.length>3}\">, {{note.step_id[2]}}</div>\n" +
     "            <div ng-if=\"note.step_id.length>3\">+</div>\n" +
     "            <div ng-if=\"note.step_id.length<1 && !general\"> No Associated Step</div>\n" +
     "            <div ng-if=\"general\">General</div>\n" +
     "        </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\"></note>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");

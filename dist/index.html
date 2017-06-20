@@ -137,10 +137,6 @@
                           <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
                           <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
                       </div>
-                      <!--<div class="button-container">
-                          <button class="plain-button filter-button" ng-click="newSort();newFilter(chosenFilter)">APPLY</button>
-                          <button class="plain-button filter-button" ng-click="clear()">CLEAR</button>
-                      </div>-->
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
                             ng-if="!tutorial.baseline && canShowNote(note)"
@@ -152,8 +148,10 @@
                             baseline="false"
                             show-list="showStepList"
                             user="contributor"
-                            general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id;"
-                            date="dateFormat(note)"></note>
+                            general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id"
+                            date="dateFormat(note)"
+                            current-note="note === currentNote">
+                      </note>
                       </div>
                   </div>
           </div>
