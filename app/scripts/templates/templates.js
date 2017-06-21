@@ -14,8 +14,8 @@ module.run(["$templateCache", function($templateCache) {
     "    <button class=\"rating-button\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
     "    <div class=\"note-contributor\">Submitted by {{note.contributor}}</div>\n" +
     "    <div class=\"date\">{{date}}<br></div>\n" +
-    "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
-    "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
+    "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
+    "    <div class=\"note-content\" ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
     "    <div class=\"note-content\">{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
