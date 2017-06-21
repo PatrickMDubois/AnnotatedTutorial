@@ -1910,7 +1910,7 @@ h2 {
 .delete-button {
   background: rgba(255, 0, 21, 0.57);
   margin: 0px 10px;
-  margin-top: 6px;
+  margin-bottom: 0px;
   font-size: 0.6em;
   float: right;
   color: white;
@@ -1959,28 +1959,25 @@ h2 {
 
 .note-rating {
   font-size: 0.6em;
-  float: left;
+  text-align: left;
   margin-right: 15px;
 }
 
 .note-steps {
   font-size: 0.6em;
-}
-
-.first-note-step {
-  float: left;
+  float: right;
+  margin-right: 10px;
 }
 
 .rating-button {
   background-image: url(../images/PNG/thumbs-up.png);
-  background-position: 6px 3px;
+  background-position: 6px 0px;
   background-repeat: no-repeat;
-  background-size: 25px;
+  background-size: 20px;
   height: 28px;
   line-height: 9px;
   width: 35px;
-  margin-left: 5px;
-  float: right;
+  float: left;
 }
 
 .step-list {
@@ -2093,6 +2090,7 @@ h2 {
 
 .show-step-button {
   float: right;
+  margin-top: 3px;
   font-size: 0.6em;
   border-radius: 3px;
   background-color: white;

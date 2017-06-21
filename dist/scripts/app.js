@@ -321,6 +321,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.getNoteList = function(note){
                     $scope.stepList.splice(0,$scope.stepList.length);
+                    var stringList = "";
                     for(var i =0; i < note.step_id.length; i++){
                         var num = $scope.findStepNumber(note.step_id[i]);
                         if(num < 1){
@@ -330,7 +331,13 @@ angular.module('AnnotatedTutorial')
                         }
                         $scope.stepList.push(num);
                     }
-                    return $scope.stepList;
+                    if($scope.stepList.length<=3){
+                        stringList = $scope.stepList.toString();
+                    }else{
+                        stringList = $scope.stepList.slice(0,3).toString() + "+";
+                    }
+
+                    return stringList;
                 };
 
                 $scope.findStepNumber = function(stepID){
