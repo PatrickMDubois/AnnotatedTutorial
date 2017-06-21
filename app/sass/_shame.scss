@@ -34,6 +34,10 @@ img{
   padding: 0 0 0 5px;
 }
 
+.note-content{
+  padding:0 15px;
+}
+
 .icon{
   background-repeat: no-repeat;
   background-size: 16px;
@@ -46,7 +50,7 @@ img{
 }
 
 .filter-icon{
-  background-repeat: no-repeat;
+  backgnote-contentround-repeat: no-repeat;
   background-size: 14px;
   outline:none;
   border-radius: 20px;
@@ -61,7 +65,7 @@ img{
 }
 
 .selected, .icon:hover{border:none;}
-.icon:focus {outline:0;}
+.icon:fnote-contentocus {outline:0;}
 
 [tooltip]:before {
   content : attr(tooltip);
@@ -120,7 +124,7 @@ img{
   background-size: 14px;
   //background-position: 0px 0px;
 }
-
+note-content
 .filter-icon-corrections{
   background-image: url(../images/PNG/healing.png);
   //background-position: 0px;
@@ -184,39 +188,6 @@ img{
   float:left;
 }
 
-/*.note-details:before{
-  background-image: url(../images/PNG/pin.png);
-  background-position: 5px 4px;
-  content: "Tell me more!";
-}
-
-.note-corrections:before{
-  background-image: url(../images/PNG/healing.png);
-  background-position: 5px 4px;
-  content: "Corrections";
-  font-size:0.7em;
-}
-
-.note-methods:before{
-  background-image: url(../images/PNG/method.png);
-  background-position: 7px 5px;
-  background-size: 12px;
-  content: "What is this?";
-}
-
-.note-questions:before{
-  background-image: url(../images/PNG/question.png);
-  background-position: 7px 5px;
-  background-size: 12px;
-  content: "Questions";
-}
-
-.note-other:before{
-  background-image: url(../images/PNG/other.png);
-  background-position: 5px 5px;
-  content: "Other notes";
-}*/
-
 .input-start{
   background-color: #fff;
   background-image: url(../images/PNG/tag-add-white.png);
@@ -240,7 +211,8 @@ img{
 }
 
 .note-container{
-  border: 1px solid #9b9b9b;
+  border: 1px solid rgb(219, 217, 199);
+  border-top:none;
   overflow-y: scroll;
   overflow-x:hidden;
   padding: 10px;
@@ -252,7 +224,8 @@ img{
 }
 
 .filter-container{
-  border: 1px solid #9b9b9b;
+  border: 1px solid rgb(219, 217, 199);
+  border-bottom:none;
   padding: 5px;
   background: rgb(255, 253, 230);
   position:fixed;
@@ -262,6 +235,10 @@ img{
 
 .sort{
   right:calc(20% + 20px);
+}
+
+.sort-drop{
+  margin-top:20px;
 }
 
 .filter{
@@ -601,24 +578,25 @@ h2{
 }
 
 .filter-title{
-  margin-left:10px;
+  float:left;
+}
+
+.filter-section-title{
+  margin-right:10px;
 }
 
 .note-display{
   margin-left:10px;
-  margin-right:72px;
-  margin-bottom:10px;
 }
 
 
 .filter-button{
-  margin:0px 15px;
-  margin-top:15px;
   border-radius:2px;
   font-size:0.6em;
-  float:left;
   background-color:white;
   line-height:15px;
+  margin-right:20px;
+  margin-top:5px;
 }
 .filter-button:hover{
   background-color: #e3e3e3;

@@ -10,7 +10,7 @@
     <div class="date">{{date}}<br></div>
     <div ng-if="note.category === 'methods'">Note relevant for: {{note.extra_info}}</div>
     <div ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
-    <div>{{note.content}}</div>
+    <div class="note-content">{{note.content}}</div>
     <div class="comment-footer">
         <button class="plain-button reply-button"
              ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"

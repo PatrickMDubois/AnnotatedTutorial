@@ -16,7 +16,7 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"date\">{{date}}<br></div>\n" +
     "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
-    "    <div>{{note.content}}</div>\n" +
+    "    <div class=\"note-content\">{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
