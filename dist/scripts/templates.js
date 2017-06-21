@@ -36,14 +36,14 @@ module.run(["$templateCache", function($templateCache) {
     "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
     "        <div class=\"note-steps\">\n" +
-    "            <div ng-if=\"note.step_id.length>=1 && !general\" ng-class=\"{'first-note-step':note.step_id.length>=2}\">Steps:{{note.step_id[0]}} </div>\n" +
-    "            <div ng-if=\"note.step_id.length>=2\" ng-class=\"{'first-note-step':note.step_id.length>=3}\">, {{note.step_id[1]}}</div>\n" +
-    "            <div ng-if=\"note.step_id.length>=3\" ng-class=\"{'first-note-step':note.step_id.length>3}\">, {{note.step_id[2]}}</div>\n" +
-    "            <div ng-if=\"note.step_id.length>3\">+</div>\n" +
-    "            <div ng-if=\"note.step_id.length<1 && !general\"> No Associated Step</div>\n" +
+    "            <div ng-if=\"notelist.length>=1 && !general\" ng-class=\"{'first-note-step':notelist.length>=2}\">Steps:{{notelist[0]}} </div>\n" +
+    "            <div ng-if=\"notelist.length>=2\" ng-class=\"{'first-note-step':notelist.length>=3}\">, {{notelist[1]}}</div>\n" +
+    "            <div ng-if=\"notelist.length>=3\" ng-class=\"{'first-note-step':notelist.length>3}\">, {{notelist[2]}}</div>\n" +
+    "            <div ng-if=\"notelist.length>3\">+</div>\n" +
+    "            <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +
     "            <div ng-if=\"general\">General</div>\n" +
     "        </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\"></note>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");

@@ -187,6 +187,8 @@ angular.module('AnnotatedTutorial')
                 $scope.categoryFilter = null;
                 $scope.general = false;
 
+                $scope.stepList = [];
+
                 console.log($scope.tutorial.notes.length);
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
@@ -317,6 +319,29 @@ angular.module('AnnotatedTutorial')
 
                 };
 
+                $scope.getNoteList = function(note){
+                    $scope.stepList.splice(0,$scope.stepList.length);
+                    for(var i =0; i < note.step_id.length; i++){
+                        var num = $scope.findStepNumber(note.step_id[i]);
+                        if(num < 1){
+                            num = "INTRO";
+                        }else if(num == $scope.listOfSteps.length-2){
+                            num = "END";
+                        }
+                        $scope.stepList.push(num);
+                    }
+                    return $scope.stepList;
+                };
+
+                $scope.findStepNumber = function(stepID){
+                  for(var j =0; j < $scope.listOfSteps.length; j++){
+                      if($scope.listOfSteps[j].id === stepID){
+                          return $scope.listOfSteps[j].step_number;
+                      }
+                  }
+                    return null;
+                };
+
                 $scope.categorySelected = function(category){
                     $scope.showTextarea = true;
                     $scope.inputCategory = category;
@@ -389,7 +414,7 @@ angular.module('AnnotatedTutorial')
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
                             "contributor": $scope.contributor.name,
-                            "reply_to": $scope.replyTo,
+                            "reply_to": $scope.replyTo
                         };
 
                         if(!$scope.replyTo && !$scope.tutorial.baseline){
@@ -615,7 +640,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', general:'=', date: '=',currentNote:'='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

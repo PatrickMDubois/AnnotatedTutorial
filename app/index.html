@@ -8,6 +8,8 @@
     <!-- build:[src] scripts/ -->
     <script src="modernizr/modernizr.js"></script>
     <!-- /build -->
+      <!--<link href="/select2/select2.min.css" rel="stylesheet" />
+      <script src="select2/select2.min.js"></script>-->
 
   </head>
   <body ng-controller="mainController">
@@ -50,10 +52,6 @@
               <div class="grid__item one-tenth input-start-container">
                   <button class="input-start icon" ng-if="!tutorial.baseline && inputPos === null" ng-show="hover && selectedLine != $index" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button>
               </div>
-              <!--<div class="grid__item one-eighth input-start-container" ng-show="hover && selectedLine != $index">
-              <!-- Button for adding a note
-              <button class="input-start icon" ng-if="!tutorial.baseline && inputPos === null" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button></div>
-          </div>-->
             <!-- Buttons to toggle on/off notes -->
                 <div class="grid__item six-eighths">
                 <div id="{{step.id}}">
@@ -106,6 +104,9 @@
                   <div ng-if="tutorial.notes" class="three-tenths">
                       <div class="grid__item two-tenths filter-container filter">
                           <div class="note-display">FILTER</div>
+                          <!--script type="text/javascript">
+                              $(".js-example-basic-multiple").select2();
+                          </script-->
                           <label>
                               <select class="dropdown" id="filter" onchange="filterSelected()">
                                   <option value="none" style="display:none">STEP</option>
@@ -119,6 +120,7 @@
                                   <option value="{{tutorial.steps.length-2}}">END</option>
                               </select>
                           </label>
+
                           <button class="filter-icon filter-icon-corrections " ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
                           <button class="filter-icon filter-icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
                           <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
@@ -153,7 +155,8 @@
                             user="contributor"
                             general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id"
                             date="dateFormat(note)"
-                            current-note="note === currentNote">
+                            current-note="note === currentNote"
+                            notelist="getNoteList(note)">
                       </note>
                       </div>
                   </div>
@@ -173,7 +176,6 @@
           </script>
           <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-              <script src="scripts/smooth-scrolling.js"></script>
 
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="!tutorial.baseline && replyTo==null">
@@ -277,6 +279,7 @@
     <script src="/scripts/mainController.js"></script>
     <script src="/scripts/recursionHelper.js"></script>
     <script src="/scripts/noteDirective.js"></script>
+    <script src="/scripts/smooth-scrolling.js"></script>
     <!-- /build -->
   </body>
 </html>
