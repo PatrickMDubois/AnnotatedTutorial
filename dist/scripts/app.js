@@ -189,8 +189,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepList = [];
 
-                console.log($scope.tutorial.notes.length);
-
+                console.log($scope.tutorial.notes[70]);
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
@@ -281,6 +280,7 @@ angular.module('AnnotatedTutorial')
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
                   document.getElementById("filter").value = "none";
+                  console.log($scope.listOfNotes[0]);
                 };
 
                 $scope.newFilter = function(value){
@@ -423,24 +423,23 @@ angular.module('AnnotatedTutorial')
 
                         TutorialService.post(note);
 
-                        $scope.tutorial.notes.push(note);
+
 
                         note.step_id = $scope.selectedStepsList.slice(0);
-                        note.dateSubmitted=moment().format("MMM Do YY");
+                        note.dateSubmitted=moment();
+                        $scope.tutorial.notes.push(note);
 
                         if($scope.replyTo){
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
                         }
 
-                        /*if(!$scope.replyTo){
+                        if(!$scope.replyTo){
                             for(var index=0; index<note.step_id.length; index++){
                                 $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
                             }
-                        }*/
+                        }
 
                         $scope.closeInput();
-                        $scope.contributor = TutorialService.get();
-                        $scope.tutorial = $scope.contributor.current_tutorial;
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
@@ -587,6 +586,9 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.dateFormat = function(note){
+                    if($scope.listOfNotes.indexOf(note)==0){
+                        console.log(note.dateSubmitted);
+                    }
                     return moment(note.dateSubmitted).format("YYYY-MM-DD");
                 };
 

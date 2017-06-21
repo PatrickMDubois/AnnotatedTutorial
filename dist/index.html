@@ -180,8 +180,9 @@
                 <div ng-if="!secondMenu">
                     <div class="window-title" >COMMENTING ON</div>
                     <div ng-repeat="step in currentStep">
-                        <a class="return-button-first return-button" href="#{{step.id}}">Return</a>
                         <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
+                        <a class="return-button-first return-button" href="#{{step.id}}">Return</a>
+
                     </div>
                     <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                     <div>
@@ -215,7 +216,7 @@
                    <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
                    <div ng-repeat="step in currentStep">
                       <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
-                      <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
+                      <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                    </div>
                      <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                      <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>

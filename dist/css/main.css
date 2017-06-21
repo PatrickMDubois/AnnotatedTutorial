@@ -1734,8 +1734,8 @@ img {
   background: #fffde6;
   position: fixed;
   right: 20px;
-  top: 146px;
-  height: 500px;
+  top: 14.7%;
+  height: 81%;
 }
 
 .filter-container {
@@ -1743,20 +1743,8 @@ img {
   padding: 5px;
   background: #fffde6;
   position: fixed;
-  top: 42px;
-  height: 105px;
-}
-
-.button-container {
-  border: 1px solid #9b9b9b;
-  border-top: none;
-  padding: 5px;
-  background: #fffde6;
-  position: fixed;
-  top: 132px;
-  height: 45px;
-  right: 20px;
-  width: 388px;
+  top: 4.2%;
+  height: 10.6%;
 }
 
 .sort {
@@ -1958,6 +1946,7 @@ h2 {
 
 .close-button {
   font-size: 0.8em;
+  float: right;
 }
 
 .reply-close {
@@ -1966,17 +1955,19 @@ h2 {
 }
 
 .return-button-first {
-  margin-left: 65px;
-  margin-right: 10px;
+  margin-left: 50%;
 }
 
 .return-button-second {
-  margin-left: 81.4px;
-  margin-right: 10px;
+  margin-left: 52%;
 }
 
 .close-button:hover {
   text-decoration: underline black;
+}
+
+.close-button-second {
+  margin-right: 3.4%;
 }
 
 .return-button {
