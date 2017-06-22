@@ -17,7 +17,27 @@ module.run(["$templateCache", function($templateCache) {
     "        <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +
     "        <div ng-if=\"general\">General</div>\n" +
     "    </div>\n" +
-    "    <div class=\"note-contributor\">{{note.category}}•</div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='corrections'\">\n" +
+    "        <div class=\"filter-icon filter-icon-corrections note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Corrections•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='methods'\">\n" +
+    "        <div class=\"filter-icon filter-icon-methods note-icon\"></div>\n" +
+    "         <div class=\"note-contributor\">What is this?•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline  && note.category=='details'\">\n" +
+    "        <div class=\"filter-icon filter-icon-details note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Tell Me More!•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='questions'\">\n" +
+    "        <div class=\"filter-icon filter-icon-questions note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Questions•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='other'\">\n" +
+    "        <div class=\"filter-icon filter-icon-other note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Other•</div>\n" +
+    "    </div>\n" +
+    "\n" +
     "    <div class=\"note-contributor\">Submitted by {{note.contributor}}•</div>\n" +
     "    <div class=\"date\">{{date}}<br></div>\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +

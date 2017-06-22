@@ -1519,7 +1519,7 @@ img {
 }
 
 .filter-icon {
-  backgnote-contentround-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: 14px;
   outline: none;
   border-radius: 20px;
@@ -1535,10 +1535,6 @@ img {
 
 .selected, .icon:hover {
   border: none;
-}
-
-.icon:fnote-contentocus {
-  outline: 0;
 }
 
 [tooltip]:before {
@@ -1563,7 +1559,11 @@ img {
 }
 
 .selected-step {
-  background-color: rgba(131, 41, 255, 0.33);
+  background-color: #802eff;
+}
+
+.note-icon {
+  float: left;
 }
 
 .icon-details {
@@ -1600,7 +1600,6 @@ img {
   background-size: 14px;
 }
 
-note-content
 .filter-icon-corrections {
   background-image: url(../images/PNG/healing.png);
 }
@@ -2019,6 +2018,10 @@ h2 {
   background-color: #e6d4e2;
 }
 
+.show-step-button:hover {
+  background-color: #e7e7e7;
+}
+
 .menu-button {
   background-repeat: no-repeat;
   background-size: 10px;
@@ -2048,6 +2051,10 @@ h2 {
   float: right;
 }
 
+.show-step-button:hover {
+  background-color: #e7e7e7;
+}
+
 .menu-two {
   background-image: url(../images/PNG/arrow2.png);
   background-position: 0px 2px;
@@ -2057,6 +2064,10 @@ h2 {
 
 .menu-button:hover {
   background-color: rgba(255, 192, 203, 0.76);
+}
+
+.show-step-button:hover {
+  background-color: #e7e7e7;
 }
 
 .date {
@@ -2082,6 +2093,9 @@ h2 {
   line-height: 15px;
   margin-right: 20px;
   margin-top: 5px;
+}
+.filter-button .show-step-button:hover {
+  background-color: #e7e7e7;
 }
 
 .filter-button:hover {
