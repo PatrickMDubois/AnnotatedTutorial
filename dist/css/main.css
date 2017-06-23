@@ -1762,10 +1762,10 @@ h2 {
 
 .contributors-plus {
   background-image: url(../images/PNG/plus.png);
-  background-position: 4px 3px;
+  background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
-  background-size: 19px;
+  background-size: 15.3px;
   border: 1px solid #fff;
   border-radius: 20px;
   height: 24px;
@@ -1776,7 +1776,7 @@ h2 {
 
 .contributors-minus {
   background-image: url(../images/PNG/minus.png);
-  background-position: 5.9px 5.1px;
+  background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
   background-size: 15.3px;
@@ -1792,14 +1792,14 @@ h2 {
   float: left;
   margin-right: 2px;
   font-size: small;
-  color: limegreen;
+  color: #333666;
 }
 
 .contributor-first {
   float: left;
   margin: 0 2px;
   font-size: small;
-  color: limegreen;
+  color: #333666;
 }
 
 .note-content {
@@ -1877,10 +1877,18 @@ h2 {
 }
 
 .delete-button {
-  background: #fff;
+  background: rgba(255, 0, 21, 0.57);
   margin: 0 10px;
   font-size: 0.6em;
   float: right;
+  color: white;
+  border-radius: 3px;
+  border-color: red;
+  line-height: 15px;
+}
+
+.delete-button:hover {
+  background: #ff0700;
 }
 
 .close-button {
@@ -1914,13 +1922,13 @@ h2 {
 }
 
 .rating-button {
-  background: #fff;
-  font-weight: bold;
-  font-size: 0.8em;
-  border: 1px solid #9b9b9b;
-  padding: 0 5px;
-  margin-left: 5px;
-  float: right;
+  background-position: 6px 0px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  height: 28px;
+  line-height: 9px;
+  width: 35px;
+  float: left;
 }
 
 .step-list {
