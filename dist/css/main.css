@@ -1902,20 +1902,23 @@ h2 {
 
 .close-button {
   font-size: 0.8em;
+  float: right;
 }
 
 .return-button-first {
-  margin-left: 95px;
-  margin-right: 10px;
+  margin-left: 50%;
 }
 
 .return-button-second {
-  margin-left: 111.5px;
-  margin-right: 10px;
+  margin-left: 52%;
 }
 
 .close-button:hover {
   text-decoration: underline black;
+}
+
+.close-button-second {
+  margin-right: 3.4%;
 }
 
 .return-button {

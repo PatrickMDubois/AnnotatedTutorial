@@ -164,7 +164,7 @@
                 <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
                 <div ng-repeat="step in currentStep">
                     <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
-                    <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
+                    <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                 </div>
                 <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                 <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
@@ -173,28 +173,27 @@
                 <button ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
                  <button class="menu-two menu-button" ng-click="menuSwitch()"></button>
                  <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
+
+                 <div ng-show="showTextarea || replyTo!==null">
+                 <div class="description"  ng-if="!tutorial.baseline">
+                     <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
+                     <div ng-if="inputCategory == 'methods'">Information specific to software. Point out useful tools or other ways of doing the tutorial.</div>
+                     <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
+                     <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
+                     <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
+                 </div>
+                 <div class="software-container" ng-if="(inputCategory == 'methods' || inputCategory == 'other') && !tutorial.baseline">
+                     <div ng-if="inputCategory == 'methods'">Your note is relevant for which software?</div>
+                     <div ng-if="inputCategory == 'other'">How would you label your note?</div>
+                     <input type="text" ng-model="$parent.$parent.extraInput" />
+                 </div>
+                 <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
+                 <button ng-click="submitNote()" class="plain-button">Submit</button>
+             </div>
             </div>
           </div>
 
-          <div ng-show="showTextarea || replyTo!==null">
-            <div class="description"  ng-if="!tutorial.baseline">
-              <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
-              <div ng-if="inputCategory == 'methods'">Information specific to software. Point out useful tools or other ways of doing the tutorial.</div>
-              <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
-              <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
-              <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
-            </div>
-            <div class="software-container" ng-if="(inputCategory == 'methods' || inputCategory == 'other') && !tutorial.baseline">
-              <div ng-if="inputCategory == 'methods'">Your note is relevant for which software?</div>
-              <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-              <input type="text" ng-model="$parent.$parent.extraInput" />
-            </div>
-            <div ng-if="replyTo!=null">
-                  <div class="close-button close-button-second" ng-click="closeInput()">Close</div>
-            </div>
-            <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
-            <button ng-click="submitNote()" class="plain-button">Submit</button>
-          </div>
+
 
           </div>
         </div>
