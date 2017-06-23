@@ -1621,38 +1621,6 @@ img {
   float: left;
 }
 
-/*.note-details:before{
-  background-image: url(../images/PNG/pin.png);
-  background-position: 5px 4px;
-  content: "Tell me more!";
-}
-
-.note-corrections:before{
-  background-image: url(../images/PNG/healing.png);
-  background-position: 5px 4px;
-  content: "Corrections";
-  font-size:0.7em;
-}
-
-.note-methods:before{
-  background-image: url(../images/PNG/method.png);
-  background-position: 7px 5px;
-  background-size: 12px;
-  content: "What is this?";
-}
-
-.note-questions:before{
-  background-image: url(../images/PNG/question.png);
-  background-position: 7px 5px;
-  background-size: 12px;
-  content: "Questions";
-}
-
-.note-other:before{
-  background-image: url(../images/PNG/other.png);
-  background-position: 5px 5px;
-  content: "Other notes";
-}*/
 .input-start {
   background-color: #fff;
   background-image: url(../images/PNG/tag-add-white.png);
@@ -1689,6 +1657,49 @@ img {
 
 .input-text {
   width: 100%;
+}
+
+.filter-icon {
+  background-repeat: no-repeat;
+  background-size: 14px;
+  outline: none;
+  border-radius: 20px;
+  height: 15px;
+  line-height: 9px;
+  width: 15px;
+  position: relative;
+}
+
+.filter-icon:hover {
+  border: none;
+}
+
+.filter-icon-details {
+  background-image: url(../images/PNG/pin.png);
+  background-size: 14px;
+}
+
+.filter-icon-corrections {
+  background-image: url(../images/PNG/healing.png);
+}
+
+.filter-icon-methods {
+  background-image: url(../images/PNG/method.png);
+  background-size: 13px;
+}
+
+.filter-icon-questions {
+  background-image: url(../images/PNG/question.png);
+  background-size: 13px;
+}
+
+.filter-icon-other {
+  background-image: url(../images/PNG/other.png);
+  background-size: 17px;
+}
+
+.note-icon {
+  float: left;
 }
 
 .plain-button {
@@ -1789,6 +1800,24 @@ h2 {
   margin: 0 2px;
   font-size: small;
   color: limegreen;
+}
+
+.note-content {
+  padding: 0 15px;
+}
+
+.show-step-button {
+  float: right;
+  margin-top: 3px;
+  font-size: 0.6em;
+  border-radius: 3px;
+  background-color: white;
+  outline: none;
+  line-height: 15px;
+}
+
+.show-step-button:hover {
+  background-colour: #e7e7e7;
 }
 
 .tutorial-title {
