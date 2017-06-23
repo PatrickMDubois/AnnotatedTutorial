@@ -49,7 +49,7 @@
                ng-if="step.step_number<listOfSteps.length-1"
                ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1 || noteStepList.indexOf(step.id)!=-1}">
               
-              <div class="grid__item one-tenth input-start-container">
+              <div class="grid__item one-tenth input-start-container is-center-aligned">
                   <button class="input-start icon" ng-if="!tutorial.baseline && inputPos === null" ng-show="hover && selectedLine != $index" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button>
               </div>
               <!-- Buttons to toggle on/off notes -->
