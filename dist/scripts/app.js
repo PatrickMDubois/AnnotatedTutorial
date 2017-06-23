@@ -175,6 +175,7 @@ angular.module('AnnotatedTutorial')
                 $scope.listOfSteps = [];
 
                 $scope.currentStep=[];
+                $scope.stepList =[];
 
                 $scope.selectedStepsList = [];
                 $scope.secondMenu = false;
@@ -346,7 +347,41 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                     return -1;
-                }
+                };
+
+                $scope.dateFormat = function(note){
+                    return moment(note.dateSubmitted).format("YYYY-MM-DD");
+                };
+
+                $scope.getNoteList = function(note){
+                    $scope.stepList.splice(0,$scope.stepList.length);
+                    var stringList = "";
+                    for(var i =0; i < note.step_id.length; i++){
+                        var num = $scope.findStepNumber(note.step_id[i]);
+                        if(num < 1){
+                            num = "INTRO";
+                        }else if(num == $scope.listOfSteps.length-2){
+                            num = "END";
+                        }
+                        $scope.stepList.push(num);
+                    }
+                    if($scope.stepList.length<=3){
+                        stringList = $scope.stepList.toString();
+                    }else{
+                        stringList = $scope.stepList.slice(0,3).toString() + "+";
+                    }
+
+                    return stringList;
+                };
+
+                $scope.findStepNumber = function(stepID){
+                    for(var j =0; j < $scope.listOfSteps.length; j++){
+                        if($scope.listOfSteps[j].id === stepID){
+                            return $scope.listOfSteps[j].step_number;
+                        }
+                    }
+                    return null;
+                };
 
                 $scope.findNoteIndex=function(reply){
                     for(var g=0; g<$scope.tutorial.notes.length; g++){
@@ -355,7 +390,7 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                     return -1;
-                }
+                };
 
                 $scope.findStepId=function(list){
                     var idList = [];
@@ -426,7 +461,7 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
                     $scope.ratingChange = false;
-                }
+                };
 
                 $scope.numberOfNotes = function(step,category)
                 {

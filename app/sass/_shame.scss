@@ -65,7 +65,6 @@ img{
 
 [tooltip]:hover:before {
   opacity : 1;
-  /*transition-delay: 0.5s;*/
   white-space: nowrap;
 }
 
@@ -100,11 +99,22 @@ img{
   background-position: 0px 2px;
 }
 
-.selected-details, .note-details, .icon-details:hover{background-color: #DEE9FF;}
-.selected-corrections, .note-corrections, .icon-corrections:hover{background-color: #FDCFDA;}
-.selected-methods, .note-methods, .icon-methods:hover{background-color: #FFF2DA;}
-.selected-questions, .note-questions, .icon-questions:hover{background-color: #F9DDF5;}
-.selected-other, .note-other, .icon-other:hover{background-color: #EAFFDE;}
+.selected-details, .note-details,.icon-details:hover {
+  background-color: #DEE9FF;
+}
+.selected-corrections, .note-corrections, .icon-corrections:hover {
+  background-color: #fdafd9;
+  z-index: 1;
+}
+.selected-methods, .note-methods, .icon-methods:hover {
+  background-color: #ffdfa5;
+}
+.selected-questions, .note-questions, .icon-questions:hover {
+  background-color: #edbcf9;
+}
+.selected-other, .note-other, .icon-other:hover {
+  background-color: #d4ffd1;
+}
 
 .note:before{
   background-color: #fff;
@@ -121,7 +131,9 @@ img{
 .note{
   border: 1px solid #9b9b9b;
   margin: 10px;
-  padding: 5px;
+  padding:0 3px;
+  clear: both;
+  border-radius: 2px;
 }
 
 .note-contributor{
@@ -222,11 +234,18 @@ img{
   background: #ddd;
 }
 
-.reply-button{
-  background: #fff;
+.reply-button:hover {
+  background: rgba(149, 157, 255, 0.68);
+}
+
+.reply-button {
+  background: rgba(226, 241, 255, 0.64);
   clear: both;
   float: right;
   font-size: 0.6em;
+  border-radius: 3px;
+  margin-left: 5px;
+  line-height: 15px;
 }
 
 .baseline-container{
@@ -428,6 +447,12 @@ h2{
 
 .note-rating{
   font-size: 0.6em;
+}
+
+.note-steps {
+  font-size: 0.6em;
+  float: right;
+  margin-right: 10px;
 }
 
 .rating-button {
