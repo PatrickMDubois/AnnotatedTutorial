@@ -10,27 +10,61 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
     "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
     "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
+    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote\">show steps</button>\n" +
+    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote\">hide steps</button>\n" +
+    "    <div class=\"note-steps\">\n" +
+    "        <div ng-if=\"notelist.length>=1 && !general\" >Steps: {{notelist}}</div>\n" +
+    "        <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +
+    "        <div ng-if=\"general\">General</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='corrections'\">\n" +
+    "        <div class=\"filter-icon filter-icon-corrections note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Corrections•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='methods'\">\n" +
+    "        <div class=\"filter-icon filter-icon-methods note-icon\"></div>\n" +
+    "         <div class=\"note-contributor\">What is this?•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline  && note.category=='details'\">\n" +
+    "        <div class=\"filter-icon filter-icon-details note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Tell Me More!•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='questions'\">\n" +
+    "        <div class=\"filter-icon filter-icon-questions note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Questions•</div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!baseline && note.category=='other'\">\n" +
+    "        <div class=\"filter-icon filter-icon-other note-icon\"></div>\n" +
+    "        <div class=\"note-contributor\">Other•</div>\n" +
+    "    </div>\n" +
     "\n" +
-    "    <div ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
-    "    <div ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
-    "    <div>{{note.content}}</div>\n" +
+    "    <div class=\"note-contributor\">Submitted by {{note.contributor}}•</div>\n" +
+    "    <div class=\"date\">{{date}}<br></div>\n" +
+    "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
+    "    <div class=\"note-content\" ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
+    "    <div class=\"note-content\">{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
     "             ng-if=\"note.category === 'questions' && !baseline\">\n" +
-    "                Post Answer\n" +
+    "                Add Answer\n" +
     "        </button>\n" +
     "        <button class=\"plain-button reply-button\"\n" +
     "            ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
     "            ng-if=\"baseline\">\n" +
     "                Reply\n" +
     "        </button>\n" +
-    "        <button ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">Delete</button>\n" +
-    "        <div class=\"note-contributor\">Submitted by {{note.contributor}}</div>\n" +
-    "        <div class=\"note-rating\">{{note.rating}} people found this note helpful.</div>\n" +
-    "        <button ng-click=\"rateIt(note.id)\" class=\"rating-button\">^</button>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\"></note>\n" +
+    "        <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
+    "        <button class=\"rating-button\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
+    "        <div class=\"note-rating\">\n" +
+    "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this helpful.</div>\n" +
+    "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this helpful.</div>\n" +
+    "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\"></note>\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 })();

@@ -7,8 +7,8 @@ function Note(data) {
     this.contributor = data.contributor;
     this.user_submitted = data.user_submitted;
     this.reply_to = data.reply_to;
-    this.type = data.type;
     this.deleted= data.deleted;
+    this.dateSubmitted=moment();
 }
 
 angular.module('AnnotatedTutorial')
@@ -38,9 +38,8 @@ angular.module('AnnotatedTutorial')
                     contributor: note.contributor,
                     user_submitted: true,
                     reply_to: note.reply_to,
-                    type:note.type,
                     deleted:false,
-                    rating:0
+                    rating:0,
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
