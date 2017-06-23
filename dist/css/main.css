@@ -1513,6 +1513,7 @@ img {
   line-height: 9px;
   width: 24px;
   position: relative;
+  margin-right: 16%;
 }
 
 .selected, .icon:hover {

@@ -48,8 +48,25 @@
                ng-if="step.step_number!== listOfSteps.length"
                ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1}">
 
-            <!-- Buttons to toggle on/off notes -->
-              <div class="grid__item one-eighth is-right-aligned">
+              <div class="grid__item one-tenth input-start-container">
+              <!-- Button for adding a note -->
+              <button class="input-start icon" ng-if="inputPos === null && !tutorial.baseline" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" ng-show="hover && selectedLine != $index" tooltip="Add a note"></button></div><!--
+              --><div class="grid__item six-eighths">
+              <div id="{{step.id}}">
+                  <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
+              </div>
+              <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
+              <div class="main-content" ng-bind-html="step.html"></div>
+              <!-- Step's notes, if toggled on--->
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
+              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
+          </div><!--
+
+            <!-- Buttons to toggle on/off notes
+              --><div class="grid__item one-twelfth ">
 
               <button class="icon icon-corrections"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
@@ -86,26 +103,7 @@
                       <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
               </button>
 
-            </div><!--
-
-            --><div class="grid__item six-eighths">
-                <div id="{{step.id}}">
-                    <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
-                </div>
-                <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
-              <div class="main-content" ng-bind-html="step.html"></div>
-
-              <!-- Step's notes, if toggled on -->
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'methods'" ng-show="showMethods" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
-              <note ng-repeat="note in step.notes" ng-if="!tutorial.baseline && canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" baseline="false" user="contributor" general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id" date="dateFormat(note)" notelist="getNoteList(note)"></note>
-            </div><!--
-
-            --><div class="grid__item one-eighth input-start-container" ng-if="!tutorial.baseline" ng-show="hover && selectedLine != $index">
-               <!-- Button for adding a note -->
-               <button class="input-start icon" ng-if="inputPos === null" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button></div>
+            </div>
           </div>
         </div><!--
 
