@@ -1533,9 +1533,11 @@ img {
   color: #fff;
   margin-left: -10px;
   margin-top: -40px;
-  padding: 10px;
+  padding: 5px;
   pointer-events: none;
   transition: all 0.1s ease;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 [tooltip]:hover:before {
@@ -1620,7 +1622,6 @@ img {
 .note-contributor {
   font-size: 0.6em;
   text-align: right;
-  margin-right: 5px;
   float: left;
 }
 
