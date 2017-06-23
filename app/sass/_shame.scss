@@ -236,7 +236,7 @@ img{
     background: rgb(255, 253, 230);
     position: fixed;
     right: 20px;
-    top: 14.7%;
+    top: 10%;
     height: 81%;
   }
 
@@ -247,15 +247,12 @@ img{
     background: rgb(255, 253, 230);
     position: fixed;
     top: 4.2%;
-    height: 10.6%;
+    height: 6%;
   }
 
   .sort {
-    right: calc(20% + 20px);
-  }
-
-  .sort-drop {
-    margin-top: 20px;
+    //right: calc(20% + 20px);
+    right: 20px;
   }
 
   .filter {

@@ -10,13 +10,13 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
     "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
     "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
-    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote\">show steps</button>\n" +
+    "    <!--<button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote\">show steps</button>\n" +
     "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote\">hide steps</button>\n" +
     "    <div class=\"note-steps\">\n" +
     "        <div ng-if=\"notelist.length>=1 && !general\" >Steps: {{notelist}}</div>\n" +
     "        <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +
     "        <div ng-if=\"general\">General</div>\n" +
-    "    </div>\n" +
+    "    </div>-->\n" +
     "    <div ng-if=\"!baseline && note.category=='corrections'\">\n" +
     "        <div class=\"filter-icon filter-icon-corrections note-icon\"></div>\n" +
     "        <div class=\"note-contributor\">Corrections•</div>\n" +

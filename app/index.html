@@ -101,13 +101,13 @@
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item two-tenths filter-container filter">
-                          <div class="note-display filter-title">FILTER</div>
+                      <!--<div class="grid__item two-tenths filter-container">-->
+                          <!--<div class="note-display filter-title">FILTER</div>
                           <button class="plain-button filter-button" ng-click="clear()">CLEAR</button><br>
                           <!--script type="text/javascript">
                               $(".js-example-basic-multiple").select2();
                           </script-->
-                          <div class="note-display filter-title filter-section-title">CATEGORY:</div>
+                          <!--<div class="note-display filter-title filter-section-title">CATEGORY:</div>
                           <button class="filter-icon filter-icon-corrections" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
                           <button class="filter-icon filter-icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
                           <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
@@ -130,19 +130,20 @@
                           </label>
 
 
-                      </div>
-                      <div class="grid__item one-tenth filter-container sort">
+                      </div>-->
+                      <div class="grid__item three-tenths filter-container sort">
                           <div class="note-display">SORT</div>
                           <label>
-                          <select class="dropdown sort-drop" id="sort" onchange="sortSelected()">
+                          <select class="dropdown" id="sort" onchange="sortSelected()">
                           <option value="new" selected>RECENT</option>
                           <option value="old">OLDEST</option>
                           <option value="high">RATE:HIGH</option>
                           <option value="low">RATE:LOW</option>
-                          <option value="category">CATEGORY</option>
+                          <!--<option value="category">CATEGORY</option>--->
                           </select>
                           </label>
                       </div>
+                          <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
