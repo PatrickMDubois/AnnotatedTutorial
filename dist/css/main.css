@@ -2018,10 +2018,6 @@ h2 {
   background-color: #e6d4e2;
 }
 
-.show-step-button:hover {
-  background-color: #e7e7e7;
-}
-
 .menu-button {
   background-repeat: no-repeat;
   background-size: 10px;
@@ -2049,10 +2045,6 @@ h2 {
   background-position: 0px 0px;
   margin-right: 10px;
   float: right;
-}
-
-.show-step-button:hover {
-  background-color: #e7e7e7;
 }
 
 .menu-two {
@@ -2094,9 +2086,6 @@ h2 {
   margin-right: 20px;
   margin-top: 5px;
 }
-.filter-button .show-step-button:hover {
-  background-color: #e7e7e7;
-}
 
 .filter-button:hover {
   background-color: #e3e3e3;
@@ -2110,8 +2099,4 @@ h2 {
   background-color: white;
   outline: none;
   line-height: 15px;
-}
-
-.show-step-button:hover {
-  background-color: #e7e7e7;
 }
