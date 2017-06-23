@@ -20,7 +20,7 @@
 
                 <!--
               --> <div class="grid__item six-eighths">
-                    <div id="whole"></div>
+                    <!--div-- id="whole"></div-->
                     <h1 class="tutorial-title">{{tutorial.title}}</h1>
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
@@ -140,12 +140,12 @@
                 </div>
                 <br>
                 <div>
-                      <a class="menu-action-button preview-button" href="#whole"></a>
+                      <!--a class="menu-action-button preview-button" href="#whole"></a>
                       <button class="menu-action-button" ng-click="stepSelected(listOfSteps[listOfSteps.length-1]);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
                           <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
                           <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
                       </button>
-                      <div class="step-list">WHOLE TUTORIAL</div>
+                      <div class="step-list">WHOLE TUTORIAL</div>-->
                       <div ng-repeat="step in listOfSteps">
                         <a class="menu-action-button preview-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}"></a>
                         <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
