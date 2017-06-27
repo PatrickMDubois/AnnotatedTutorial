@@ -60,7 +60,7 @@
                   <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-                --><div class="grid__item one-twelfth is-left-aligned" >
+                <div class="grid__item one-twelfth is-left-aligned" >
 
               <button class="icon icon-corrections icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
@@ -95,7 +95,7 @@
                       ng-click="stepIcon(step.step_number);newFilter('other')"
                       tooltip="Other">
                   <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
-              </button>
+              </button>-->
 
           </div></div><!--
 
@@ -179,8 +179,10 @@
           </script>
           <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-              <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
+              <div class ="window-title">Write your note below.</div>
+              <div class="close-button reply-close" ng-click="closeInput()">Close</div>
+              <br>
+              <!--<div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="!tutorial.baseline && replyTo==null">
                 <div ng-if="!secondMenu">
                     <div class="window-title" >COMMENTING ON</div>
@@ -222,7 +224,8 @@
                       <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
                       <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                    </div>
-                     <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
+                     <button ng-click="categorySelected('correctio <div class="close-button reply-close" ng-click="closeInput()">Close</div>
+                      <br>ns')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                      <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
                      <button ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
                      <button ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
@@ -248,7 +251,7 @@
                 <div ng-if="replyTo!=null">
                       <div class="close-button reply-close" ng-click="closeInput()">Close</div>
                       <br>
-                </div>
+                </div>-->
                 <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
                 <button ng-click="submitNote()" class="plain-button">Submit</button>
               </div>

@@ -16,7 +16,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div ng-if=\"notelist.length>=1 && !general\" >Steps: {{notelist}}</div>\n" +
     "        <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +
     "        <div ng-if=\"general\">General</div>\n" +
-    "    </div>-->\n" +
+    "    </div>\n" +
     "    <div ng-if=\"!baseline && note.category=='corrections'\">\n" +
     "        <div class=\"filter-icon filter-icon-corrections note-icon\"></div>\n" +
     "        <div class=\"note-contributor\">Corrections•</div>\n" +
@@ -36,13 +36,14 @@ module.run(["$templateCache", function($templateCache) {
     "    <div ng-if=\"!baseline && note.category=='other'\">\n" +
     "        <div class=\"filter-icon filter-icon-other note-icon\"></div>\n" +
     "        <div class=\"note-contributor\">Other•</div>\n" +
-    "    </div>\n" +
+    "    </div>-->\n" +
     "\n" +
     "    <div class=\"note-contributor\">Submitted by {{note.contributor}}•</div>\n" +
     "    <div class=\"date\">{{date}}<br></div>\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
     "    <div class=\"note-content\">{{note.content}}</div>\n" +
+    "    <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
@@ -54,7 +55,7 @@ module.run(["$templateCache", function($templateCache) {
     "            ng-if=\"baseline\">\n" +
     "                Reply\n" +
     "        </button>\n" +
-    "        <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
+    "\n" +
     "        <button class=\"rating-button\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
     "        <div class=\"note-rating\">\n" +
     "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this helpful.</div>\n" +

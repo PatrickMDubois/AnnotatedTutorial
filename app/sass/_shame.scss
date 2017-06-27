@@ -71,6 +71,7 @@ img{
   opacity : 0;
   position : absolute;
   background-color: #000;
+
   border-radius: 10px;
   color: #fff;
   margin-left: -10px;
@@ -90,6 +91,7 @@ img{
 .selected-step {
   background-color: rgb(128, 46, 255);
 }
+
 
 .note-icon{
   float:left;
@@ -153,20 +155,20 @@ img{
   }
 
   .selected-details, .note-details, .filter-icon-details:hover, .icon-details:hover {
-    background-color: #DEE9FF;
+    background-color: #f2e1ff;
   }
   .selected-corrections, .note-corrections, .filter-icon-corrections:hover, .icon-corrections:hover {
-    background-color: #fdafd9;
+    background-color:#f2e1ff;
     z-index: 1;
   }
   .selected-methods, .note-methods, .filter-icon-methods:hover, .icon-methods:hover {
-    background-color: #ffdfa5;
+    background-color: #f2e1ff;
   }
   .selected-questions, .note-questions, .filter-icon-questions:hover, .icon-questions:hover {
-    background-color: #edbcf9;
+    background-color: #f2e1ff;
   }
   .selected-other, .note-other, .filter-icon-other:hover, .icon-other:hover {
-    background-color: #d4ffd1;
+    background-color: #f2e1ff
   }
 
   .note:before {
@@ -209,6 +211,7 @@ img{
     background-size: 22px;
     background-position: 4px 3px;
     height: 30px;
+
     position: absolute;
     width: 30px;
   }
@@ -288,7 +291,6 @@ img{
 
   .reply-button {
     background: rgba(226, 241, 255, 0.64);
-    clear: both;
     float: right;
     font-size: 0.6em;
     border-radius: 3px;
@@ -435,8 +437,7 @@ img{
 
   .delete-button {
     background: rgba(255, 0, 21, 0.57);
-    margin: 0px 10px;
-    margin-bottom: 0px;
+    margin: 3px 10px;
     font-size: 0.6em;
     float: right;
     color: white;
