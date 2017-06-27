@@ -16,7 +16,6 @@
           <div class="grid__item three-quarters is-extended content">
             <div class="l-block grid grid--full">
                 <div class="grid__item one-tenth is-right-aligned"></div>
-
                 <!--
               --> <div class="grid__item six-eighths">
                     <div id="general"></div>
@@ -53,13 +52,13 @@
               <!-- Buttons to toggle on/off notes -->
               <div class="grid__item six-eighths">
                   <div id="{{step.id}}">
-                      <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.lengtcontenth-2))">Step {{step.step_number}}</h2>
+                      <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
                   </div>
                   <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
                   <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-                --><div class="grid__item one-twelfth is-left-aligned" >
+                <div class="grid__item one-twelfth is-left-aligned" >
 
               <button class="icon icon-corrections icon-bar"
                       ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
@@ -94,19 +93,19 @@
                       ng-click="stepIcon(step.step_number);newFilter('other')"
                       tooltip="Other">
                   <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
-              </button>
+              </button>-->
 
           </div></div><!--
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item two-tenths filter-container filter">
-                          <div class="note-display filter-title">FILTER</div>
+                      <!--<div class="grid__item two-tenths filter-container">-->
+                          <!--<div class="note-display filter-title">FILTER</div>
                           <button class="plain-button filter-button" ng-click="clear()">CLEAR</button><br>
                           <!--script type="text/javascript">
                               $(".js-example-basic-multiple").select2();
                           </script-->
-                          <div class="note-display filter-title filter-section-title">CATEGORY:</div>
+                          <!--<div class="note-display filter-title filter-section-title">CATEGORY:</div>
                           <button class="filter-icon filter-icon-corrections" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
                           <button class="filter-icon filter-icon-methods" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'methods'}" ng-click="newFilter('methods')" tooltip="What is this?"></button>
                           <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
@@ -129,19 +128,20 @@
                           </label>
 
 
-                      </div>
-                      <div class="grid__item one-tenth filter-container sort">
+                      </div>-->
+                      <div class="grid__item three-tenths filter-container sort">
                           <div class="note-display">SORT</div>
                           <label>
-                          <select class="dropdown sort-drop" id="sort" onchange="sortSelected()">
+                          <select class="dropdown" id="sort" onchange="sortSelected()">
                           <option value="new" selected>RECENT</option>
                           <option value="old">OLDEST</option>
                           <option value="high">RATE:HIGH</option>
                           <option value="low">RATE:LOW</option>
-                          <option value="category">CATEGORY</option>
+                          <!--<option value="category">CATEGORY</option>--->
                           </select>
                           </label>
                       </div>
+                          <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
@@ -177,8 +177,10 @@
           </script>
           <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-              <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
+              <div class ="window-title">Write your note below.</div>
+              <div class="close-button reply-close" ng-click="closeInput()">Close</div>
+              <br>
+              <!--<div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="!tutorial.baseline && replyTo==null">
                 <div ng-if="!secondMenu">
                     <div class="window-title" >COMMENTING ON</div>
@@ -220,7 +222,8 @@
                       <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
                       <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                    </div>
-                     <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
+                     <button ng-click="categorySelected('correctio <div class="close-button reply-close" ng-click="closeInput()">Close</div>
+                      <br>ns')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                      <button ng-click="categorySelected('methods')" class="icon icon-methods" ng-class="{'selected selected-methods': inputCategory == 'methods'}" tooltip="What is this?"></button>
                      <button ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
                      <button ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
@@ -246,7 +249,7 @@
                 <div ng-if="replyTo!=null">
                       <div class="close-button reply-close" ng-click="closeInput()">Close</div>
                       <br>
-                </div>
+                </div>-->
                 <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
                 <button ng-click="submitNote()" class="plain-button">Submit</button>
               </div>

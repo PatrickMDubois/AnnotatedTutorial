@@ -4,7 +4,7 @@
     (note.category === 'details' && !baseline ? 'note-details' :
     (note.category === 'questions' && !baseline ? 'note-questions' :
     (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))">
-    <button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && !currentNote">show steps</button>
+    <!--<button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && !currentNote">show steps</button>
     <button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && currentNote">hide steps</button>
     <div class="note-steps">
         <div ng-if="notelist.length>=1 && !general" >Steps: {{notelist}}</div>
@@ -30,13 +30,14 @@
     <div ng-if="!baseline && note.category=='other'">
         <div class="filter-icon filter-icon-other note-icon"></div>
         <div class="note-contributor">Other•</div>
-    </div>
+    </div>-->
 
     <div class="note-contributor">Submitted by {{note.contributor}}•</div>
     <div class="date">{{date}}<br></div>
     <div class="note-content" ng-if="note.category === 'methods'">Note relevant for: {{note.extra_info}}</div>
     <div class="note-content" ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
     <div class="note-content">{{note.content}}</div>
+    <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
     <div class="comment-footer">
         <button class="plain-button reply-button"
              ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
@@ -48,7 +49,7 @@
             ng-if="baseline">
                 Reply
         </button>
-        <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
+
         <button class="rating-button" ng-click="rateIt(note.id)" tooltip="recommend"></button>
         <div class="note-rating">
             <div ng-if="note.rating>1">{{note.rating}} people found this helpful.</div>
