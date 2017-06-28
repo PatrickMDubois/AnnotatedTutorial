@@ -56,7 +56,8 @@
                   </div>
                   <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
                   <div class="main-content" ng-bind-html="step.html"></div>
-              </div><!--
+              </div>
+          </div><!--
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
@@ -71,7 +72,7 @@
                           </select>
                           </label>
                       </div>
-                          <button id="apply" ng-click="newSort()"></button>
+                      <button id="apply" ng-click="newSort()"></button>
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
@@ -98,6 +99,7 @@
               var chosenSort = null;
               function sortSelected(){
                   chosenSort = document.getElementById("sort").value.toString();
+                  console.log(chosenSort);
                   document.getElementById("apply").click();
               }
           </script>

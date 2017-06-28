@@ -1,29 +1,16 @@
-<div class="note" >
+<div class="note">
     <div class="note-contributor">Submitted by {{note.contributor}}•</div>
     <div class="date">{{date}}<br></div>
-    <div class="note-content" ng-if="note.category === 'methods'">Note relevant for: {{note.extra_info}}</div>
-    <div class="note-content" ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
     <div class="note-content">{{note.content}}</div>
     <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
     <div class="comment-footer">
-        <button class="plain-button reply-button"
-             ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
-             ng-if="note.category === 'questions' && !baseline">
-                Add Answer
-        </button>
-        <button class="plain-button reply-button"
-            ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
-            ng-if="baseline">
-                Reply
-        </button>
-
+        <button class="plain-button reply-button" ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)">Reply</button>
         <button class="rating-button" ng-click="rateIt(note.id)" tooltip="recommend"></button>
         <div class="note-rating">
             <div ng-if="note.rating>1">{{note.rating}} people found this helpful.</div>
             <div ng-if="note.rating==1">{{note.rating}} person found this helpful.</div>
             <div ng-if="note.rating<1">Not rated yet.</div>
         </div>
-
         <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date"></note>
     </div>
 </div>
