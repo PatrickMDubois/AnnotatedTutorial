@@ -1809,8 +1809,8 @@ h2 {
   font-weight: bold;
 }
 
-.contributors-plus {
-  background-image: url(../images/PNG/plus.png);
+.contributors-show {
+  background-image: url(../images/PNG/arrow-down.png);
   background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
@@ -1823,8 +1823,8 @@ h2 {
   margin-right: 4px;
 }
 
-.contributors-minus {
-  background-image: url(../images/PNG/minus.png);
+.contributors-hide {
+  background-image: url(../images/PNG/arrow-up.png);
   background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
@@ -2042,14 +2042,14 @@ h2 {
 }
 
 .menu-one {
-  background-image: url(../images/PNG/arrow.png);
+  background-image: url(../images/PNG/arrow-right.png);
   background-position: 0px 0px;
   margin-right: 10px;
   float: right;
 }
 
 .menu-two {
-  background-image: url(../images/PNG/arrow2.png);
+  background-image: url(../images/PNG/arrow-left.png);
   background-position: 0px 2px;
   margin-right: 20px;
   float: left;

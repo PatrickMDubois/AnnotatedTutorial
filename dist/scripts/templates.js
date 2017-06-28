@@ -6,10 +6,9 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("note.html",
     "<div class=\"note\" ng-class=\"\n" +
     "    (note.category === 'corrections' && !baseline ? 'note-corrections' :\n" +
-    "    (note.category === 'methods' && !baseline ? 'note-methods' :\n" +
     "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
     "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
-    "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
+    "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content'))))\">\n" +
     "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote\">show steps</button>\n" +
     "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote\">hide steps</button>\n" +
     "    <div class=\"note-steps\">\n" +
@@ -20,10 +19,6 @@ module.run(["$templateCache", function($templateCache) {
     "    <div ng-if=\"!baseline && note.category=='corrections'\">\n" +
     "        <div class=\"filter-icon filter-icon-corrections note-icon\" style=\"margin-top:5px\"></div>\n" +
     "        <div class=\"note-contributor\">Corrections•</div>\n" +
-    "    </div>\n" +
-    "    <div ng-if=\"!baseline && note.category=='methods'\">\n" +
-    "        <div class=\"filter-icon filter-icon-methods note-icon\"style=\"margin-top:5px\"></div>\n" +
-    "         <div class=\"note-contributor\">What is this?•</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!baseline  && note.category=='details'\">\n" +
     "        <div class=\"filter-icon filter-icon-details note-icon\" style=\"margin-top:5px\"></div>\n" +
@@ -40,7 +35,6 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <div class=\"note-contributor\">Submitted by {{note.contributor}}•</div>\n" +
     "    <div class=\"date\">{{date}}<br></div>\n" +
-    "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
     "    <div class=\"note-content\">{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +

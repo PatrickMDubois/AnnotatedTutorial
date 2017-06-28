@@ -339,8 +339,8 @@ img{
     font-weight: bold;
   }
 
-  .contributors-plus {
-    background-image: url(../images/PNG/plus.png);
+  .contributors-show{
+    background-image: url(../images/PNG/arrow-down.png);
     background-position: 5px 5px;
     float: left;//border: 1px solid #fff; 0.33);}
     background-repeat: no-repeat;
@@ -353,8 +353,8 @@ img{
     margin-right: 4px;
   }//border: 1px solid #fff; 0.33);}
 
-  .contributors-minus {
-    background-image: url(../images/PNG/minus.png);
+  .contributors-hide{
+    background-image: url(../images/PNG/arrow-up.png);
     background-position: 5px 5px;
     float: left;
     background-repeat: no-repeat;
@@ -432,7 +432,7 @@ img{
     outline: none;
     float: left;
     clear: right;
-    margin-bottom: 2px;//border: 1px solid #fff; 0.33);}
+    margin-bottom: 2px;
     font-size: 0.8em
   }
 
@@ -571,14 +571,14 @@ img{
   }
 
   .menu-one {
-    background-image: url(../images/PNG/arrow.png);
+    background-image: url(../images/PNG/arrow-right.png);
     background-position: 0px 0px;
     margin-right: 10px;
     float: right;
   }
 
   .menu-two {
-    background-image: url(../images/PNG/arrow2.png);
+    background-image: url(../images/PNG/arrow-left.png);
     background-position: 0px 2px;
     margin-right: 20px;
     float: left;

@@ -106,7 +106,6 @@ angular.module('AnnotatedTutorial')
                         }
                   }else if(chosenSort=="category"){
                       var newList = ($scope.filterByCategory('corrections',$scope.listOfNotes.slice(0)));
-                      newList = newList.concat($scope.filterByCategory('methods',$scope.listOfNotes.slice(0)));
                       newList = newList.concat($scope.filterByCategory('details',$scope.listOfNotes.slice(0)));
                       newList = newList.concat($scope.filterByCategory('questions',$scope.listOfNotes.slice(0)));
                       newList = newList.concat($scope.filterByCategory('other',$scope.listOfNotes.slice(0)));
@@ -200,6 +199,7 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.stepAdded = function(step){
+                    console.log($scope.selectedStepsList);
                     $scope.selectedStepsList.push(step);
                 };
 
@@ -209,11 +209,12 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepSelected=function(step){
                     var index = $scope.selectedStepsList.indexOf(step);
-                    if(index== -1){
+                    if(index == -1){
                         $scope.stepAdded(step)
                     }else{
                         $scope.stepRemoved(step,index);
                     }
+                    console.log($scope.selectedStepsList);
                 };
 
                 $scope.numberList=function(){
@@ -255,6 +256,7 @@ angular.module('AnnotatedTutorial')
                         $scope.inputCategory = "comment";
                         $scope.extraInput = "";
                     }
+                    console.log($scope.selectedStepsList);
                     if(($scope.tutorial.baseline || $scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedStepsList,
