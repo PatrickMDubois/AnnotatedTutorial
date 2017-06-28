@@ -1527,11 +1527,12 @@ img {
   opacity: 0;
   position: absolute;
   background-color: #000;
+  font-size: 0.7em;
   border-radius: 10px;
   color: #fff;
-  margin-left: -10px;
-  margin-top: -40px;
-  padding: 5px;
+  margin-left: -30px;
+  margin-top: 10px;
+  padding: 2px;
   pointer-events: none;
   transition: all 0.1s ease;
   white-space: nowrap;
@@ -1562,7 +1563,7 @@ img {
   padding-right: 3px;
   clear: both;
   border-radius: 2px;
-  background-color: #f2e1ff;
+  background-color: #fff8f8;
 }
 
 .note-contributor {
@@ -1576,13 +1577,12 @@ img {
   border: 1px solid #dbd9c7;
   border-top: none;
   font-size: 0.9em;
-  margin: 0 0 0 500px;
   padding: 5px;
   position: fixed;
   overflow-y: auto;
-  top: 71%;
+  top: 74%;
   right: 20px;
-  height: 25%;
+  height: 22%;
 }
 
 .note-container {
@@ -1595,7 +1595,7 @@ img {
   position: fixed;
   right: 20px;
   top: 10%;
-  height: 61%;
+  height: 64%;
 }
 
 .sort-container {
@@ -1649,6 +1649,15 @@ img {
   line-height: 15px;
 }
 
+.submit-button {
+  background-color: #f4f2f9;
+  border-radius: 3px;
+}
+
+.submit-button:hover {
+  background-color: lightgrey;
+}
+
 .baseline-content {
   background-color: #fff;
 }
@@ -1675,8 +1684,8 @@ h2 {
   font-weight: bold;
 }
 
-.contributors-plus {
-  background-image: url(../images/PNG/plus.png);
+.contributors-show {
+  background-image: url(../images/PNG/arrow2.png);
   background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
@@ -1689,8 +1698,8 @@ h2 {
   margin-right: 4px;
 }
 
-.contributors-minus {
-  background-image: url(../images/PNG/minus.png);
+.contributors-hide {
+  background-image: url(../images/PNG/arrow.png);
   background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
