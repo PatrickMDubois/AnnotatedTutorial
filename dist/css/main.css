@@ -1545,7 +1545,7 @@ img {
 }
 
 .selected-step {
-  background-color: #f6ffa4;
+  background-color: #ffe3fd;
 }
 
 .icon-details {
@@ -1572,20 +1572,20 @@ img {
 }
 
 .selected-details, .note-details, .icon-details:hover {
-  background-color: #DEE9FF;
+  background-color: #d0e7ff;
 }
 
 .selected-corrections, .note-corrections, .icon-corrections:hover {
-  background-color: #fdafd9;
+  background-color: #f5dcfd;
   z-index: 1;
 }
 
 .selected-questions, .note-questions, .icon-questions:hover {
-  background-color: #edbcf9;
+  background-color: lightyellow;
 }
 
 .selected-other, .note-other, .icon-other:hover {
-  background-color: #d4ffd1;
+  background-color: #dcffe5;
 }
 
 .note:before {
