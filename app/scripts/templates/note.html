@@ -1,9 +1,9 @@
 <div class="note" ng-class="
-    (note.category === 'corrections' && !baseline ? 'note-corrections' :
-    (note.category === 'methods' && !baseline ? 'note-methods' :
-    (note.category === 'details' && !baseline ? 'note-details' :
-    (note.category === 'questions' && !baseline ? 'note-questions' :
-    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))">
+    (note.category === 'corrections' ? 'note-corrections' :
+    (note.category === 'methods'? 'note-methods' :
+    (note.category === 'details' ? 'note-details' :
+    (note.category === 'questions' ? 'note-questions' :
+    (note.category === 'other' ? 'note-other' : 'baseline-content')))))">
 
     <div class="note-steps">
         <div ng-if="notelist.length>=1 && !general" >Steps: {{notelist}}</div>
@@ -57,6 +57,6 @@
             <div ng-if="note.rating==1">{{note.rating}} person found this helpful.</div>
             <div ng-if="note.rating<1">Not rated yet.</div>
         </div>
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" user="user" general="general" date="date" current-note="currentNote" notelist="noteList"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" general="general" date="date" current-note="currentNote" notelist="noteList"></note>
     </div>
 </div>

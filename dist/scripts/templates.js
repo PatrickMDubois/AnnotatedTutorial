@@ -5,11 +5,11 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("note.html",
     "<div class=\"note\" ng-class=\"\n" +
-    "    (note.category === 'corrections' && !baseline ? 'note-corrections' :\n" +
-    "    (note.category === 'methods' && !baseline ? 'note-methods' :\n" +
-    "    (note.category === 'details' && !baseline ? 'note-details' :\n" +
-    "    (note.category === 'questions' && !baseline ? 'note-questions' :\n" +
-    "    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content')))))\">\n" +
+    "    (note.category === 'corrections' ? 'note-corrections' :\n" +
+    "    (note.category === 'methods'? 'note-methods' :\n" +
+    "    (note.category === 'details' ? 'note-details' :\n" +
+    "    (note.category === 'questions' ? 'note-questions' :\n" +
+    "    (note.category === 'other' ? 'note-other' : 'baseline-content')))))\">\n" +
     "\n" +
     "    <div class=\"note-steps\">\n" +
     "        <div ng-if=\"notelist.length>=1 && !general\" >Steps: {{notelist}}</div>\n" +
@@ -63,7 +63,7 @@ module.run(["$templateCache", function($templateCache) {
     "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this helpful.</div>\n" +
     "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" baseline=\"baseline\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\"></note>\n" +
     "    </div>\n" +
     "</div>");
 }]);

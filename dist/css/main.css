@@ -1513,7 +1513,6 @@ img {
   line-height: 9px;
   width: 24px;
   position: relative;
-  margin-right: 16%;
 }
 
 .selected, .icon:hover {
@@ -1560,12 +1559,6 @@ img {
   background-position: 3px;
 }
 
-.icon-methods {
-  background-image: url(../images/PNG/method.png);
-  background-size: 14px;
-  background-position: 4px 3px;
-}
-
 .icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 14px;
@@ -1585,10 +1578,6 @@ img {
 .selected-corrections, .note-corrections, .icon-corrections:hover {
   background-color: #fdafd9;
   z-index: 1;
-}
-
-.selected-methods, .note-methods, .icon-methods:hover {
-  background-color: #ffdfa5;
 }
 
 .selected-questions, .note-questions, .icon-questions:hover {
@@ -1647,6 +1636,7 @@ img {
   padding: 5px;
   position: fixed;
   overflow-y: auto;
+  right: 5%;
 }
 
 .description {
@@ -1685,11 +1675,6 @@ img {
 
 .filter-icon-corrections {
   background-image: url(../images/PNG/healing.png);
-}
-
-.filter-icon-methods {
-  background-image: url(../images/PNG/method.png);
-  background-size: 13px;
 }
 
 .filter-icon-questions {
@@ -1731,18 +1716,6 @@ img {
   border-radius: 3px;
   margin-left: 5px;
   line-height: 15px;
-}
-
-.baseline-container {
-  background-color: #fff;
-  border: 1px solid #9b9b9b;
-  margin: 44px 0 0 -80px;
-  overflow-y: auto;
-  padding: 10px;
-  position: fixed;
-}
-.baseline-container h2 {
-  margin: 0 10px;
 }
 
 .baseline-content {
@@ -1815,20 +1788,6 @@ h2 {
 
 .note-content {
   padding: 0 15px;
-}
-
-.show-step-button {
-  float: right;
-  margin-top: 3px;
-  font-size: 0.6em;
-  border-radius: 3px;
-  background-color: white;
-  outline: none;
-  line-height: 15px;
-}
-
-.show-step-button:hover {
-  background-colour: #e7e7e7;
 }
 
 .tutorial-title {
@@ -2021,4 +1980,8 @@ h2 {
 
 .date {
   font-size: 0.6em;
+}
+
+.side-bar {
+  margin-right: 16%;
 }
