@@ -76,7 +76,7 @@
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
-                            ng-if="!tutorial.baseline && canShowNote(note)"
+                            ng-if="canShowNote(note)"
                             note="note"
                             delete-it="deleteNote"
                             rate-it="newRating"

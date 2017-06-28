@@ -164,27 +164,16 @@ angular.module('AnnotatedTutorial')
         .then(function() {
                 $scope.contributor = TutorialService.get();
                 $scope.tutorial = $scope.contributor.current_tutorial;
-                $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
-                $scope.inputPos = null;
                 $scope.inputCategory = "";
                 $scope.replyTo = null;
                 $scope.replyToContributor = "";
                 $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
-                $scope.newFirst = true;
-                $scope.currentStep=[];
-                $scope.highRating = null;
-                $scope.selectedStepsList = [];
 
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
-
-                $scope.noteStepList=[];
-                $scope.currentNote=null;
-
-                $scope.stepList = [];
 
                 //the list of notes that are going to be shown
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
@@ -209,22 +198,11 @@ angular.module('AnnotatedTutorial')
 
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
 
-                $scope.lineClicked = function(index, $event,step){
-
-                    $scope.selectedLine = index;
-                    $scope.inputPos = $event.pageY;
-                    $scope.currentStep.push(step);
-
-                    LoggerService.log("Opened input dialog");
-                };
-
                 $scope.addingReply = function($index, $event, id, contributor, step){
 
                     $scope.replyTo =id;
                     $scope.replyToContributor = contributor;
                     $scope.replyStep = step;
-                    $scope.selectedStepsList = step.concat($scope.selectedStepsList);
-                    $scope.lineClicked($index,$event,step);
                 };
 
                 $scope.newSort = function(){
@@ -251,27 +229,22 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.closeInput = function(){
-                    $scope.showTextarea = false;
                     $scope.inputCategory = "";
                     $scope.newNote = "";
                     $scope.extraInput = "";
-                    $scope.selectedLine = null;
-                    $scope.inputPos = null;
                     $scope.replyTo = null;
                     $scope.replyToContributor = "";
-                    $scope.stepAdd = false;
 
                     LoggerService.log("Closed input dialog");
                 };
 
                 $scope.submitNote = function(){
-                    $scope.selectedStepsList = [];
                     $scope.inputCategory = "comment";
                     $scope.extraInput = "";
 
                     if(($scope.replyTo!==null) || $scope.newNote){
                         var note = {
-                            "step_id":$scope.selectedStepsList,
+                            "step_id":[],
                             "tutorial_id": $scope.tutorial.id,
                             "category": $scope.inputCategory,
                             "extra_info": $scope.extraInput,
@@ -288,7 +261,7 @@ angular.module('AnnotatedTutorial')
                         TutorialService.post(note);
 
 
-                        /*note.step_id = $scope.selectedStepsList.slice(0);
+                        /*
                         note.dateSubmitted=moment();
                         $scope.tutorial.notes.push(note);
 
@@ -306,8 +279,7 @@ angular.module('AnnotatedTutorial')
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
-                         + " | Step - " + $scope.selectedLine
-                         + " | Category - " + $scope.inputCategory
+                         + " | Category - comment"
                          + " | Extra Input - " + $scope.extraInput
                          + " | Note - " + $scope.newNote);
 
@@ -332,19 +304,6 @@ angular.module('AnnotatedTutorial')
                     return -1;
                 };
 
-                $scope.findStepId=function(list){
-                    var idList = [];
-                    for(var i =0; i < $scope.selectedStepsList.length; i++){
-                        for(var j =0; j < $scope.listOfSteps.length; j++){
-                            if($scope.listOfSteps[j].step_number === $scope.selectedStepsList[i].step_number){
-                                idList.push($scope.listOfSteps[j].id);
-                                break;
-                            }
-                        }
-                    }
-                    return idList;
-                };
-
                 $scope.deleteNote = function(note_id){
                     $scope.deleteChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
@@ -352,9 +311,7 @@ angular.module('AnnotatedTutorial')
                     $scope.deleteChange = false;
 
                     LoggerService.log("Deleted a note:"
-                        + " Tutorial - " + $scope.tutorial.titlenp
-                        + " | Step - " + $scope.selectedLine
-                        + " | Category - " + $scope.inputCategory
+                        + " Tutorial - " + $scope.tutorial.title
                         + " | Extra Input - " + $scope.extraInput
                         + " | Note - " + $scope.newNote);
 
@@ -362,11 +319,9 @@ angular.module('AnnotatedTutorial')
 
                 $scope.findNote = function(note_id)
                 {
-                    if(!$scope.tutorial.baseline) {
-                        for(var i =0; i < $scope.tutorial.notes.length; i++) {
-                            if($scope.tutorial.notes[i].id === note_id) {
-                                return $scope.tutorial.notes[i];
-                            }
+                    for(var i =0; i < $scope.tutorial.notes.length; i++) {
+                        if($scope.tutorial.notes[i].id === note_id) {
+                            return $scope.tutorial.notes[i];
                         }
                     }
                     return null;
