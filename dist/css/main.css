@@ -1559,7 +1559,7 @@ img {
 }
 
 .selected-step {
-  background-color: #802eff;
+  background-color: #ffe3fd;
 }
 
 .note-icon {
@@ -1575,12 +1575,6 @@ img {
 .icon-corrections {
   background-image: url(../images/PNG/healing.png);
   background-position: 3px;
-}
-
-.icon-methods {
-  background-image: url(../images/PNG/method.png);
-  background-size: 14px;
-  background-position: 4px 3px;
 }
 
 .icon-questions {
@@ -1604,11 +1598,6 @@ img {
   background-image: url(../images/PNG/healing.png);
 }
 
-.filter-icon-methods {
-  background-image: url(../images/PNG/method.png);
-  background-size: 13px;
-}
-
 .filter-icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 13px;
@@ -1620,24 +1609,20 @@ img {
 }
 
 .selected-details, .note-details, .filter-icon-details:hover, .icon-details:hover {
-  background-color: #DEE9FF;
+  background-color: #d0e7ff;
 }
 
 .selected-corrections, .note-corrections, .filter-icon-corrections:hover, .icon-corrections:hover {
-  background-color: #fdafd9;
+  background-color: #f5dcfd;
   z-index: 1;
 }
 
-.selected-methods, .note-methods, .filter-icon-methods:hover, .icon-methods:hover {
-  background-color: #ffdfa5;
-}
-
 .selected-questions, .note-questions, .filter-icon-questions:hover, .icon-questions:hover {
-  background-color: #edbcf9;
+  background-color: lightyellow;
 }
 
 .selected-other, .note-other, .filter-icon-other:hover, .icon-other:hover {
-  background-color: #d4ffd1;
+  background-color: #dcffe5;
 }
 
 .note:before {
