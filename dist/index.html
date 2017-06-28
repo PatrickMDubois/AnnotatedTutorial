@@ -14,7 +14,7 @@
       <div class="grid grid--full is-extended">
           <div class="grid__item three-quarters is-extended content">
             <div class="l-block grid grid--full">
-                <div class="grid__item one-eighth is-right-aligned"></div>
+                <div class="grid__item one-tenth is-right-aligned"></div>
 
                 <!--
               --> <div class="grid__item six-eighths">
@@ -23,8 +23,8 @@
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
                 <div ng-click="contributorFlag = showContributors(contributorFlag)">
-                        <div class="contributors-plus" ng-show="!contributorFlag"></div>
-                        <div class="contributors-minus" ng-show="contributorFlag"></div>
+                        <div class="contributors-show" ng-show="!contributorFlag"></div>
+                        <div class="contributors-hide" ng-show="contributorFlag"></div>
                 </div>
                 <div class="contributor-button"
                      ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfContributors.length.toString()}} Other contributors
