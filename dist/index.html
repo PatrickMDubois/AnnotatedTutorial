@@ -69,7 +69,7 @@
                           </select>
                           </label>
                       </div>
-                          <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
+                          <button id="apply" ng-click="newSort()"></button>
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
@@ -79,13 +79,8 @@
                             rate-it="newRating"
                             add-reply="addingReply"
                             can-show-note="canShowNote"
-                            baseline="false"
-                            show-list="showStepList"
                             user="contributor"
-                            general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id"
-                            date="dateFormat(note)"
-                            current-note="note === currentNote"
-                            notelist="getNoteList(note)">
+                            date="dateFormat(note)">
                       </note>
                       </div>
                       <div class="input-container grid__item three-tenths">
