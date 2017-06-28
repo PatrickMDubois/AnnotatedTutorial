@@ -143,7 +143,8 @@
                 <button ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
                  <button class="menu-two menu-button" ng-click="menuSwitch()"></button>
                  <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
-
+                </div>
+                </div>
                  <div ng-show="showTextarea || replyTo!==null">
                  <div class="description"  ng-if="!tutorial.baseline">
                      <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
@@ -160,9 +161,6 @@
              </div>
             </div>
           </div>
-
-
-
           </div>
         </div>
       </div>

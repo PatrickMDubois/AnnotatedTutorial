@@ -125,15 +125,14 @@ angular.module('AnnotatedTutorial')
 
                 $scope.submitNote = function(){
 
-                    if(($scope.replyTo!==null) && $scope.newNote){
+                    if($scope.replyTo!==null && $scope.newNote){
 
                         $scope.selectedLine = null;
                         $scope.inputCategory = "comment";
                         $scope.extraInput = "";
                     }
                     console.log($scope.newNote);
-                    console.log($scope.selectedStepsList);
-                    if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
+                    if(($scope.selectedStepsList!==null||$scope.replyTo!==null)){
                         var note = {
                             "step_id":$scope.selectedStepsList,
                             "tutorial_id": $scope.tutorial.id,
