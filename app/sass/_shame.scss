@@ -41,7 +41,8 @@ img{
 .icon{
   background-repeat: no-repeat;
   background-size: 16px;
-  border-radius: 20px;
+  border-radius: 6px;
+  background-color: #d9d9d9;
   height: 24px;
   line-height: 9px;
   width: 24px;
@@ -52,7 +53,7 @@ img{
   background-repeat: no-repeat;
   background-size: 14px;
   outline:none;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 15px;
   line-height: 9px;
   width: 15px;
@@ -60,11 +61,10 @@ img{
 }
 
 .filter-icon:hover{
-  border:none;//border: 1px solid #fff;
+  border:none;
 }
 
 .selected, .icon:hover{border:none;}
-//.icon:fnote-contentocus {outline:0;}
 
 [tooltip]:before {
   content : attr(tooltip);
