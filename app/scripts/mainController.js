@@ -31,7 +31,6 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepList = [];
 
-                console.log($scope.tutorial.notes[70]);
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
@@ -106,14 +105,16 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.clear = function(){
+                    $scope.contributor = TutorialService.get();
+                    $scope.tutorial = $scope.contributor.current_tutorial;
                   $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+                    console.log($scope.tutorial.notes.length);
                   $scope.newSort();
                   $scope.categoryFilter = null;
                   $scope.stepFilter = null;
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
                   document.getElementById("filter").value = "none";
-                  console.log($scope.listOfNotes[0]);
                 };
 
                 $scope.newFilter = function(value){
@@ -157,7 +158,7 @@ angular.module('AnnotatedTutorial')
                     var stringList = "";
                     for(var i =0; i < note.step_id.length; i++){
                         var num = $scope.findStepNumber(note.step_id[i]);
-                        if(num < 1){
+                        if(num === 0){
                             num = "INTRO";
                         }else if(num == $scope.listOfSteps.length-2){
                             num = "END";
@@ -191,7 +192,6 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.stepAdded = function(step){
-                    console.log($scope.selectedStepsList);
                     $scope.selectedStepsList.push(step);
                 };
 
@@ -206,7 +206,6 @@ angular.module('AnnotatedTutorial')
                     }else{
                         $scope.stepRemoved(step,index);
                     }
-                    console.log($scope.selectedStepsList);
                 };
 
                 $scope.numberList=function(){
@@ -248,7 +247,6 @@ angular.module('AnnotatedTutorial')
                         $scope.inputCategory = "comment";
                         $scope.extraInput = "";
                     }
-                    console.log($scope.selectedStepsList);
                     if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedStepsList,
@@ -263,20 +261,18 @@ angular.module('AnnotatedTutorial')
                         if(!$scope.replyTo){
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
-
+                        console.log($scope.tutorial.notes.length);
                         TutorialService.post(note);
-
+                        //note.step_id = $scope.findStepId($scope.selectedStepsList);
+                        console.log(note.step_id);
+                        /*$scope.tutorial.notes.push(note);
                         note.step_id = $scope.selectedStepsList.slice(0);
                         note.dateSubmitted=moment();
-                        note.rating = 0;
+                        note.rating = 0;*/
 
-                        $scope.contributor = TutorialService.get();
-                        $scope.tutorial = $scope.contributor.current_tutorial;
+                        //console.log($scope.selected);
 
-                        $scope.tutorial.notes.push(note);
-                        document.getElementById("apply").click();
-
-                        if($scope.replyTo){
+                        /*if($scope.replyTo){
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
                         }
 
@@ -284,7 +280,7 @@ angular.module('AnnotatedTutorial')
                             for(var index=0; index<note.step_id.length; index++){
                                 $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
                             }
-                        }
+                        }*/
 
                         $scope.closeInput();
 
@@ -431,9 +427,6 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.dateFormat = function(note){
-                    if($scope.listOfNotes.indexOf(note)==0){
-                        console.log(note.dateSubmitted);
-                    }
                     return moment(note.dateSubmitted).format("YYYY-MM-DD");
                 };
 
