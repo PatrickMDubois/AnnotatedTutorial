@@ -1,8 +1,8 @@
 <div class="note" ng-class="
-    (note.category === 'corrections' && !baseline ? 'note-corrections' :
-    (note.category === 'details' && !baseline ? 'note-details' :
-    (note.category === 'questions' && !baseline ? 'note-questions' :
-    (note.category === 'other' && !baseline ? 'note-other' : 'baseline-content'))))">
+    (note.category === 'corrections' ? 'note-corrections' :
+    (note.category === 'details' ? 'note-details' :
+    (note.category === 'questions'? 'note-questions' :
+    (note.category === 'other' ? 'note-other' : 'baseline-content'))))">
     <button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && !currentNote">show steps</button>
     <button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && currentNote">hide steps</button>
     <div class="note-steps">
@@ -10,19 +10,19 @@
         <div ng-if="notelist.length<1 && !general"> No Associated Step</div>
         <div ng-if="general">General</div>
     </div>
-    <div ng-if="!baseline && note.category=='corrections'">
+    <div ng-if="note.category=='corrections'">
         <div class="filter-icon filter-icon-corrections note-icon" style="margin-top:5px"></div>
         <div class="note-contributor">Corrections•</div>
     </div>
-    <div ng-if="!baseline  && note.category=='details'">
+    <div ng-if="note.category=='details'">
         <div class="filter-icon filter-icon-details note-icon" style="margin-top:5px"></div>
         <div class="note-contributor">Tell Me More!•</div>
     </div>
-    <div ng-if="!baseline && note.category=='questions'">
+    <div ng-if="note.category=='questions'">
         <div class="filter-icon filter-icon-questions note-icon" style="margin-top:5px"></div>
         <div class="note-contributor">Questions•</div>
     </div>
-    <div ng-if="!baseline && note.category=='other'">
+    <div ng-if="note.category=='other'">
         <div class="filter-icon filter-icon-other note-icon" style="margin-top:5px"></div>
         <div class="note-contributor">Other•</div>
     </div>
@@ -32,17 +32,13 @@
     <div class="note-content" ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
     <div class="note-content">{{note.content}}</div>
     <div class="comment-footer">
+        <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
         <button class="plain-button reply-button"
              ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
-             ng-if="note.category === 'questions' && !baseline">
+             ng-if="note.category === 'questions'">
                 Add Answer
         </button>
-        <button class="plain-button reply-button"
-            ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
-            ng-if="baseline">
-                Reply
-        </button>
-        <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
+
         <button class="rating-button" ng-click="rateIt(note.id)" tooltip="recommend"></button>
         <div class="note-rating">
             <div ng-if="note.rating>1">{{note.rating}} people found this helpful.</div>
@@ -50,6 +46,6 @@
             <div ng-if="note.rating<1">Not rated yet.</div>
         </div>
 
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" baseline="baseline" show-list="showList" user="user" general="general" date="date" current-note="currentNote" notelist="noteList"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" show-list="showList" user="user" general="general" date="date" current-note="currentNote" notelist="noteList"></note>
     </div>
 </div>

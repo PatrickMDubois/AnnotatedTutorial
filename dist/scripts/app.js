@@ -238,15 +238,7 @@ angular.module('AnnotatedTutorial')
 
                     $scope.replyTo =id;
                     $scope.replyToContributor = contributor;
-
-                    if($scope.tutorial.baseline){
-
-                        $scope.categorySelected("other");
-                    }
-                    else{
-
-                        $scope.replyStep = step;
-                    }
+                    $scope.replyStep = step;
                     $scope.selectedStepsList = step.concat($scope.selectedStepsList);
                     $scope.lineClicked($index,$event,step);
                 };
@@ -408,14 +400,14 @@ angular.module('AnnotatedTutorial')
 
                 $scope.submitNote = function(){
 
-                    if(($scope.tutorial.baseline || $scope.replyTo!==null) && $scope.newNote){
+                    if( $scope.replyTo!==null && $scope.newNote){
 
                         $scope.selectedLine = null;
                         $scope.inputCategory = "comment";
                         $scope.extraInput = "";
                     }
                     console.log($scope.selectedStepsList);
-                    if(($scope.tutorial.baseline || $scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
+                    if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedStepsList,
                             "tutorial_id": $scope.tutorial.id,
@@ -426,17 +418,21 @@ angular.module('AnnotatedTutorial')
                             "reply_to": $scope.replyTo
                         };
 
-                        if(!$scope.replyTo && !$scope.tutorial.baseline){
+                        if(!$scope.replyTo){
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
 
                         TutorialService.post(note);
 
-
-
                         note.step_id = $scope.selectedStepsList.slice(0);
                         note.dateSubmitted=moment();
+                        note.rating = 0;
+
+                        $scope.contributor = TutorialService.get();
+                        $scope.tutorial = $scope.contributor.current_tutorial;
+
                         $scope.tutorial.notes.push(note);
+                        document.getElementById("apply").click();
 
                         if($scope.replyTo){
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
@@ -508,11 +504,9 @@ angular.module('AnnotatedTutorial')
 
                 $scope.findNote = function(note_id)
                 {
-                    if(!$scope.tutorial.baseline) {
-                        for(var i =0; i < $scope.tutorial.notes.length; i++) {
-                            if($scope.tutorial.notes[i].id === note_id) {
-                                return $scope.tutorial.notes[i];
-                            }
+                    for(var i =0; i < $scope.tutorial.notes.length; i++) {
+                        if($scope.tutorial.notes[i].id === note_id) {
+                            return $scope.tutorial.notes[i];
                         }
                     }
                     return null;
@@ -651,7 +645,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', baseline: '=', showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=',showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

@@ -48,7 +48,7 @@
                ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1 || noteStepList.indexOf(step.id)!=-1}">
               
               <div class="grid__item one-tenth input-start-container is-center-aligned">
-                  <button class="input-start icon" ng-if="!tutorial.baseline && inputPos === null" ng-show="hover && selectedLine != $index" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button>
+                  <button class="input-start icon" ng-if="inputPos === null" ng-show="hover && selectedLine != $index" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button>
               </div>
               <!-- Buttons to toggle on/off notes -->
               <div class="grid__item six-eighths">
@@ -62,28 +62,28 @@
                 --><div class="grid__item one-twelfth is-left-aligned" >
 
               <button class="icon icon-corrections icon-bar"
-                      ng-if="!tutorial.baseline && checkForCategory(step, 'corrections')"
+                      ng-if="checkForCategory(step, 'corrections')"
                       ng-click="stepIcon(step.step_number);newFilter('corrections')"
                       tooltip="Corrections">
                   <div class = "icon__number">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-details icon-bar"
-                      ng-if="!tutorial.baseline && checkForCategory(step, 'details')"
+                      ng-if="checkForCategory(step, 'details')"
                       ng-click="stepIcon(step.step_number);newFilter('details')"
                       tooltip="Tell me more!">
                   <div class="icon__number">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions icon-bar"
-                      ng-if="!tutorial.baseline && checkForCategory(step, 'questions')"
+                      ng-if="checkForCategory(step, 'questions')"
                       ng-click="stepIcon(step.step_number);newFilter('questions')"
                       tooltip="Questions">
                   <div class="icon__number">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other icon-bar"
-                      ng-if="!tutorial.baseline && checkForCategory(step, 'other')"
+                      ng-if="checkForCategory(step, 'other')"
                       ng-click="stepIcon(step.step_number);newFilter('other')"
                       tooltip="Other">
                   <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
@@ -100,10 +100,10 @@
                               $(".js-example-basic-multiple").select2();
                           </script-->
                           <div class="note-display filter-title filter-section-title">CATEGORY:</div>
-                          <button class="filter-icon filter-icon-corrections" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
-                          <button class="filter-icon filter-icon-details" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
-                          <button class="filter-icon filter-icon-questions" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
-                          <button class="filter-icon filter-icon-other" ng-if="!tutorial.baseline" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
+                          <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
+                          <button class="filter-icon filter-icon-details" ng-class="{'selected selected-corrections': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
+                          <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-corrections': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
+                          <button class="filter-icon filter-icon-other" ng-class="{'selected selected-corrections': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
                           <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
                           <div class="note-display filter-title filter-section-title">STEPS:</div>
                           <label>
@@ -137,13 +137,12 @@
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
-                            ng-if="!tutorial.baseline && canShowNote(note)"
+                            ng-if="canShowNote(note)"
                             note="note"
                             delete-it="deleteNote"
                             rate-it="newRating"
                             add-reply="addingReply"
                             can-show-note="canShowNote"
-                            baseline="false"
                             show-list="showStepList"
                             user="contributor"
                             general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id"
@@ -171,7 +170,7 @@
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
-              <div ng-if="!tutorial.baseline && replyTo==null">
+              <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
                     <div class="window-title" >COMMENTING ON</div>
                     <div ng-repeat="step in currentStep">
@@ -222,13 +221,13 @@
               </div>
 
               <div ng-show="showTextarea || replyTo!==null">
-                <div class="description"  ng-if="!tutorial.baseline && replyTo==null">
+                <div class="description"  ng-if="replyTo==null">
                   <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
                   <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
                   <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
                   <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
                 </div>
-                <div class="software-container" ng-if="(inputCategory == 'other') && !tutorial.baseline">
+                <div class="software-container" ng-if="(inputCategory == 'other')">
                   <div ng-if="inputCategory == 'other'">How would you label your note?</div>
                   <input type="text" ng-model="$parent.$parent.extraInput"/>
                 </div>
