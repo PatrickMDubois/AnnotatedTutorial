@@ -44,11 +44,6 @@
              ng-if="note.category === 'questions' && !baseline">
                 Add Answer
         </button>
-        <button class="plain-button reply-button"
-            ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)"
-            ng-if="baseline">
-                Reply
-        </button>
 
         <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
         <button class="rating-button" ng-click="rateIt(note.id)" tooltip="recommend"></button>
