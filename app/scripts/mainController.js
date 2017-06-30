@@ -458,7 +458,7 @@ angular.module('AnnotatedTutorial')
                     for(var j = 0; j < list.length; j++){
                         tempNote1 = list[j];
                         for(var k=j; k<list.length; k++){
-                            if(list[k].rating>tempNote1.rating){
+                            if(parseInt(list[k].rating)>parseInt(tempNote1.rating)){
                                 tempNote1 = list[k];
                                 index = k;
                             }
