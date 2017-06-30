@@ -42,9 +42,15 @@ angular.module('AnnotatedTutorial')
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
 
-                    $scope.replyTo =id;
-                    $scope.replyToContributor = contributor;
-                    $scope.replyStep = step;
+                    if($scope.replyTo != id){
+                        $scope.replyTo =id;
+                        $scope.replyToContributor = contributor;
+                        $scope.replyStep = step;
+                    }else{
+                        $scope.replyTo=null;
+                        $scope.replyToContributor=null;
+                        $scope.replyStep=null;
+                    }
                 };
 
                 $scope.newSort = function(){

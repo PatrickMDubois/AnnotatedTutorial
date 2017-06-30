@@ -200,9 +200,15 @@ angular.module('AnnotatedTutorial')
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
 
-                    $scope.replyTo =id;
-                    $scope.replyToContributor = contributor;
-                    $scope.replyStep = step;
+                    if($scope.replyTo != id){
+                        $scope.replyTo =id;
+                        $scope.replyToContributor = contributor;
+                        $scope.replyStep = step;
+                    }else{
+                        $scope.replyTo=null;
+                        $scope.replyToContributor=null;
+                        $scope.replyStep=null;
+                    }
                 };
 
                 $scope.newSort = function(){
@@ -426,7 +432,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=', currentReply: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

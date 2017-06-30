@@ -1641,11 +1641,11 @@ img {
 }
 
 .reply-button:hover {
-  background: rgba(149, 157, 255, 0.68);
+  background-color: #d4e1ec;
 }
 
 .reply-button {
-  background: rgba(226, 241, 255, 0.64);
+  background-color: rgba(226, 241, 255, 0.64);
   float: right;
   font-size: 0.6em;
   border-radius: 3px;
