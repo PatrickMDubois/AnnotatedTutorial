@@ -1523,10 +1523,10 @@ img {
   background-repeat: no-repeat;
   background-size: 14px;
   outline: none;
-  border-radius: 10px;
-  height: 15px;
+  border-radius: 5px;
+  height: 20px;
   line-height: 9px;
-  width: 15px;
+  width: 20px;
   position: relative;
 }
 
@@ -1593,20 +1593,24 @@ img {
 .filter-icon-details {
   background-image: url(../images/PNG/pin.png);
   background-size: 14px;
+  background-position: 2px 2px;
 }
 
 .filter-icon-corrections {
   background-image: url(../images/PNG/healing.png);
+  background-position: 2px 2px;
 }
 
 .filter-icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 13px;
+  background-position: 2px 2px;
 }
 
 .filter-icon-other {
   background-image: url(../images/PNG/other.png);
   background-size: 17px;
+  background-position: 2px 2px;
 }
 
 .selected-details, .note-details, .filter-icon-details:hover, .icon-details:hover {
@@ -1656,7 +1660,6 @@ img {
 .note-contributor {
   font-size: 0.6em;
   text-align: right;
-  margin-right: 5px;
   float: left;
 }
 
@@ -1674,6 +1677,10 @@ img {
   background-color: #f5f5f5;
 }
 
+.reply-content {
+  background-color: white;
+}
+
 .input-container {
   background-color: #fff;
   border: 1px solid #949494;
@@ -1685,12 +1692,12 @@ img {
 }
 
 .note-container {
-  border: 1px solid #dbd9c7;
+  border: 1px solid #d8d3de;
   border-top: none;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 10px;
-  background: #fff4f7;
+  background: #c0bbc5;
   position: fixed;
   right: 20px;
   top: 14.7%;
@@ -1698,10 +1705,10 @@ img {
 }
 
 .filter-container {
-  border: 1px solid #dbd9c7;
+  border: 1px solid #d8d3de;
   border-bottom: none;
   padding: 5px;
-  background: #fff4f7;
+  background: #c0bbc5;
   position: fixed;
   top: 4.2%;
   height: 10.6%;

@@ -2,7 +2,7 @@
     (note.category === 'corrections' ? 'note-corrections' :
     (note.category === 'details' ? 'note-details' :
     (note.category === 'questions'? 'note-questions' :
-    (note.category === 'other' ? 'note-other' : 'baseline-content'))))">
+    (note.category === 'other' ? 'note-other' : 'reply-content'))))">
     <button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && !currentNote && note.reply_to ==null">show steps</button>
     <button class="plain-button show-step-button" ng-click="showList(note)" ng-if="!general && currentNote && note.reply_to ==null">hide steps</button>
     <div class="note-steps">

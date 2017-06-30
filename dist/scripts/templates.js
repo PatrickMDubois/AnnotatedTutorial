@@ -8,7 +8,7 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'corrections' ? 'note-corrections' :\n" +
     "    (note.category === 'details' ? 'note-details' :\n" +
     "    (note.category === 'questions'? 'note-questions' :\n" +
-    "    (note.category === 'other' ? 'note-other' : 'baseline-content'))))\">\n" +
+    "    (note.category === 'other' ? 'note-other' : 'reply-content'))))\">\n" +
     "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote && note.reply_to ==null\">show steps</button>\n" +
     "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote && note.reply_to ==null\">hide steps</button>\n" +
     "    <div class=\"note-steps\">\n" +
