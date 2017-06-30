@@ -9,8 +9,8 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'details' ? 'note-details' :\n" +
     "    (note.category === 'questions'? 'note-questions' :\n" +
     "    (note.category === 'other' ? 'note-other' : 'baseline-content'))))\">\n" +
-    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote\">show steps</button>\n" +
-    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote\">hide steps</button>\n" +
+    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote && note.reply_to ==null\">show steps</button>\n" +
+    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote && note.reply_to ==null\">hide steps</button>\n" +
     "    <div class=\"note-steps\">\n" +
     "        <div ng-if=\"notelist.length>=1 && !general\" >Steps: {{notelist}}</div>\n" +
     "        <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +

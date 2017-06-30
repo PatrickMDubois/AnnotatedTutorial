@@ -158,7 +158,7 @@ angular.module('AnnotatedTutorial')
                     var stringList = "";
                     for(var i =0; i < note.step_id.length; i++){
                         var num = $scope.findStepNumber(note.step_id[i]);
-                        if(num === 0){
+                        if(num == 0){
                             num = "INTRO";
                         }else if(num == $scope.listOfSteps.length-2){
                             num = "END";
