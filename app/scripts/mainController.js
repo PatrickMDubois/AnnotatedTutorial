@@ -95,12 +95,10 @@ angular.module('AnnotatedTutorial')
                 $scope.numberList=function(){
                     $scope.list=[];
                     for(var i =0; i < $scope.selectedStepsList.length; i++){
-                        if($scope.selectedStepsList[i].step_number >0 && $scope.selectedStepsList[i].step_number < ($scope.listOfSteps.length-2)) {
+                        if($scope.selectedStepsList[i].step_number >0 && $scope.selectedStepsList[i].step_number < ($scope.listOfSteps.length-1)) {
                             $scope.list.push($scope.selectedStepsList[i].step_number);
-                        }else if($scope.selectedStepsList[i].step_number==$scope.listOfSteps.length-2){
-                            $scope.list.push("END");
                         }else if($scope.selectedStepsList[i].step_number==$scope.listOfSteps.length-1){
-                            $scope.list.push("WHOLE TUTORIAL");
+                            $scope.list.push("END");
                         }else{
                             $scope.list.push("INTRO");
                         }

@@ -54,7 +54,7 @@
               </div><!--
               --><div class="grid__item six-eighths">
               <div id="{{step.id}}">
-                  <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
+                  <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-1))">Step {{step.step_number}}</h2>
               </div>
               <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
               <div class="main-content" ng-bind-html="step.html"></div>
@@ -109,7 +109,7 @@
             <div ng-if="!secondMenu">
                 <div class="window-title" >COMMENTING ON</div>
                 <div ng-repeat="step in currentStep">
-                    <a class="return-button-first return-button" href="#date{{step.id}}">Return</a>
+                    <a class="return-button-first return-button" href="#{{step.id}}">Return</a>
                 <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                 </div>
                 <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
@@ -120,14 +120,14 @@
                 <br>
                 <div>
                       <div ng-repeat="step in listOfSteps">
-                        <a class="menu-action-button preview-button" ng-if="step.step_number <listOfSteps.length-1" href="#{{step.id}}"></a>
-                        <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length-1" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
+                        <a class="menu-action-button preview-button" ng-if="step.step_number <listOfSteps.length" href="#{{step.id}}"></a>
+                        <button class="menu-action-button" ng-click="stepSelected(step);numberList()" ng-if="step.step_number <listOfSteps.length" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                             <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                             <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
                         </button>
                         <div class="step-list" ng-if="step.step_number==0">INTRO</div>
-                        <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
-                        <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2">STEP {{step.step_number}}</div>
+                        <div class="step-list" ng-if="step.step_number==listOfSteps.length-1">END</div>
+                        <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-1">STEP {{step.step_number}}</div>
                       </div>
                  </div>
              </div>

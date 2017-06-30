@@ -8,7 +8,7 @@ function Note(data) {
     this.user_submitted = data.user_submitted;
     this.reply_to = data.reply_to;
     this.deleted= data.deleted;
-    this.dateSubmitted=moment().format("MMM Do YY");
+    this.dateSubmitted=moment();
 }
 
 angular.module('AnnotatedTutorial')
