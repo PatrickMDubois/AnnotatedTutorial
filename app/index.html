@@ -55,7 +55,7 @@
                       <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
                   </div>
                   <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
-                  <dFFE6E5iv class="main-content" ng-bind-html="step.html"></dFFE6E5iv>
+                  <div class="main-content" ng-bind-html="step.html"></div>
               </div>
           </div><!--
 
@@ -76,7 +76,7 @@
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
-                            ng-if="canShowNote(note)"
+                            ng-if="canShowNote(note) && note.reply_to==null"
                             note="note"
                             delete-it="deleteNote"
                             rate-it="newRating"
@@ -88,7 +88,10 @@
                       </div>
                       <div class="input-container grid__item three-tenths">
                           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                          <br>
+                          <div>
+                              <div ng-if="replyTo!=null">Replying to {{replyTo}}</div>
+                              <div ng-if="replyTo==null"><br></div>
+                          </div>
                           <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your comment here."></textarea>
                           <button ng-click="submitNote()" class="plain-button submit-button">Submit</button>
                       </div>
