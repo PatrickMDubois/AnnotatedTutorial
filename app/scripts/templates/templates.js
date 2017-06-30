@@ -9,7 +9,7 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'methods'? 'note-methods' :\n" +
     "    (note.category === 'details' ? 'note-details' :\n" +
     "    (note.category === 'questions' ? 'note-questions' :\n" +
-    "    (note.category === 'other' ? 'note-other' : 'baseline-content')))))\">\n" +
+    "    (note.category === 'other' ? 'note-other' : 'reply-content')))))\">\n" +
     "\n" +
     "    <div class=\"note-steps\">\n" +
     "        <div ng-if=\"notelist.length>=1\" >Steps: {{notelist}}</div>\n" +

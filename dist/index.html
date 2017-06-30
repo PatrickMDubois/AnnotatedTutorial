@@ -52,7 +52,7 @@
               </div><!--
               --><div class="grid__item six-eighths">
               <div id="{{step.id}}">
-                  <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-1))">Step {{step.step_number}}</h2>
+                  <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
               </div>
               <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
               <div class="main-content" ng-bind-html="step.html"></div>
@@ -150,7 +150,7 @@
                  <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
                 </div>
                 </div>
-                 <div ng-show="showTextarea || replyTo!==null">
+                 <div ng-show="(showTextarea || replyTo!==null) && secondMenu">
                  <div class="description"  ng-if="!tutorial.baseline">
                      <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
                      <div ng-if="inputCategory == 'details'">Information that may help others understand or do the tutorial in an alternate way.</div>

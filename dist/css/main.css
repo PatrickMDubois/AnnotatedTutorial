@@ -1654,6 +1654,10 @@ img {
   width: 100%;
 }
 
+.reply-content {
+  background-color: white;
+}
+
 .filter-icon {
   background-repeat: no-repeat;
   background-size: 14px;
