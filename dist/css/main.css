@@ -1562,7 +1562,7 @@ img {
   padding-left: 3px;
   padding-right: 3px;
   clear: both;
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: #fff8f8;
 }
 
@@ -1573,8 +1573,8 @@ img {
 }
 
 .input-container {
-  background-color: #fffde6;
-  border: 1px solid #dbd9c7;
+  background: #c0bbc5;
+  border: 1px solid #d8d3de;
   border-top: none;
   font-size: 0.9em;
   padding: 5px;
@@ -1586,12 +1586,12 @@ img {
 }
 
 .note-container {
-  border: 1px solid #dbd9c7;
+  border: 1px solid #d8d3de;
   border-top: none;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 10px;
-  background: #fffde6;
+  background: #c0bbc5;
   position: fixed;
   right: 20px;
   top: 10%;
@@ -1599,10 +1599,10 @@ img {
 }
 
 .sort-container {
-  border: 1px solid #dbd9c7;
+  border: 1px solid #d8d3de;
   border-bottom: none;
   padding: 5px;
-  background: #fffde6;
+  background: #c0bbc5;
   position: fixed;
   top: 4.2%;
   height: 6%;
@@ -1610,6 +1610,10 @@ img {
 
 .sort {
   right: 20px;
+}
+
+.dropdown {
+  margin-left: 10px;
 }
 
 .description {

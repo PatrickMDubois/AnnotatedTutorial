@@ -90,7 +90,7 @@ img{
     padding-left: 3px;
     padding-right: 3px;
     clear: both;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: #fff8f8;
   }
 
@@ -101,8 +101,8 @@ img{
   }
 
   .input-container {
-    background-color: rgb(255, 253, 230);
-    border: 1px solid rgb(219, 217, 199);
+    background: rgb(192, 187, 197);
+    border: 1px solid rgb(216, 211, 222);
     border-top:none;
     font-size: 0.9em;
     padding: 5px;
@@ -114,12 +114,12 @@ img{
   }
 
   .note-container {
-    border: 1px solid rgb(219, 217, 199);
+    border: 1px solid rgb(216, 211, 222);
     border-top: none;
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 10px;
-    background: rgb(255, 253, 230);
+    background: rgb(192, 187, 197);
     position: fixed;
     right: 20px;
     top: 10%;
@@ -127,10 +127,10 @@ img{
   }
 
   .sort-container {
-    border: 1px solid rgb(219, 217, 199);
+    border: 1px solid rgb(216, 211, 222);
     border-bottom: none;
     padding: 5px;
-    background: rgb(255, 253, 230);
+    background: rgb(192, 187, 197);
     position: fixed;
     top: 4.2%;
     height: 6%;
@@ -139,6 +139,10 @@ img{
   .sort {
     //right: calc(20% + 20px);
     right: 20px;
+  }
+
+  .dropdown{
+    margin-left:10px;
   }
 
   .description {

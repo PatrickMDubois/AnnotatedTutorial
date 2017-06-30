@@ -253,27 +253,23 @@ angular.module('AnnotatedTutorial')
                             "reply_to": $scope.replyTo
                         };
 
-                        /*if(!$scope.replyTo ){
+                        if(!$scope.replyTo ){
                             note.step_id = null;
-                        }*/
-
-                        console.log("hello");
+                        }
                         TutorialService.post(note);
 
-
-                        /*
-                        note.dateSubmitted=moment();
+                        note.rating = 0;
                         $scope.tutorial.notes.push(note);
+
+                        note.step_id = $scope.selectedStepsList;
 
                         if($scope.replyTo){
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
-                        }*/
+                        }
 
-                        /*(if(!$scope.replyTo){
-                            for(var index=0; index<note.step_id.length; index++){
-                                $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
-                            }
-                        }*/
+                        $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
+                        $scope.newSort();
+
 
                         $scope.closeInput();
 
@@ -408,7 +404,7 @@ angular.module('AnnotatedTutorial')
                     for(var j = 0; j < list.length; j++){
                         tempNote1 = list[j];
                         for(var k=j; k<list.length; k++){
-                            if(list[k].rating>tempNote1.rating){
+                            if(parseInt(list[k].rating)>parseInt(tempNote1.rating)){
                                 tempNote1 = list[k];
                                 index = k;
                             }
