@@ -90,7 +90,7 @@
                       <div class="input-container grid__item three-tenths">
                           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                           <div>
-                              <div ng-if="replyTo!=null">Replying to {{replyToContributor}}: {{tutorial.notes[findNoteIndex(replyTo)].content}}</div>
+                              <div ng-if="replyTo!=null">Replying to {{replyToContributor}}: {{(tutorial.notes[findNoteIndex(replyTo)].content)}}</div>
                               <div ng-if="replyTo==null"><br></div>
                           </div>
                           <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your comment here."></textarea>
