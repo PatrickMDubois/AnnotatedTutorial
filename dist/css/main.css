@@ -1719,10 +1719,6 @@ img {
   line-height: 15px;
 }
 
-.baseline-content {
-  background-color: #fff;
-}
-
 .comment-footer {
   padding-top: 5px;
 }
@@ -1903,7 +1899,7 @@ h2 {
 
 .rating-button {
   background-image: url(../images/PNG/thumbs-up.png);
-  background-position: 6px 0px;
+  background-position: 6px 0;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 28px;
@@ -1914,7 +1910,7 @@ h2 {
 
 .step-list {
   border-top: 1px solid #e6e6e6;
-  padding: 2px 0px;
+  padding: 2px 0;
   padding-left: 15px;
   text-align: left;
   font-weight: bold;
