@@ -1779,10 +1779,15 @@ h2 {
   background-position: 6px 0px;
   background-repeat: no-repeat;
   background-size: 20px;
-  height: 28px;
+  height: 23px;
   line-height: 9px;
-  width: 35px;
+  width: 28px;
   float: left;
+  outline: none;
+}
+
+.rated {
+  background-image: url(../images/PNG/thumbs-up-pressed.png);
 }
 
 .date {

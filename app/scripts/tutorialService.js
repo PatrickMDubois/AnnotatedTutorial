@@ -40,7 +40,6 @@ angular.module('AnnotatedTutorial')
                     user_submitted: true,
                     reply_to: note.reply_to,
                     deleted:false,
-                    rating:0
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);

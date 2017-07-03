@@ -138,7 +138,6 @@ angular.module('AnnotatedTutorial')
                     user_submitted: true,
                     reply_to: note.reply_to,
                     deleted:false,
-                    rating:0
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
@@ -271,7 +270,7 @@ angular.module('AnnotatedTutorial')
                         }
                         TutorialService.post(note);
 
-                        note.rating = 0;
+                        note.contributor_list = [];
                         $scope.tutorial.notes.push(note);
 
                         note.step_id = $scope.selectedStepsList;
@@ -417,7 +416,7 @@ angular.module('AnnotatedTutorial')
                     for(var j = 0; j < list.length; j++){
                         tempNote1 = list[j];
                         for(var k=j; k<list.length; k++){
-                            if(parseInt(list[k].rating)>parseInt(tempNote1.rating)){
+                            if(parseInt(list[k].contributor_list.length)>parseInt(tempNote1.contributor_list.length)){
                                 tempNote1 = list[k];
                                 index = k;
                             }
