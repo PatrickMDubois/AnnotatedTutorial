@@ -1910,6 +1910,11 @@ h2 {
   line-height: 9px;
   width: 35px;
   float: left;
+  outline: none;
+}
+
+.rated {
+  background-image: url(../images/PNG/thumbs-up-pressed.png);
 }
 
 .step-list {

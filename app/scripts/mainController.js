@@ -294,6 +294,7 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
                     $scope.ratingChange = false;
+                    console.log("working?");
                 };
 
                 $scope.numberOfNotes = function(step,category)

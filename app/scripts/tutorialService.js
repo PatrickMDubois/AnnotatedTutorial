@@ -9,6 +9,7 @@ function Note(data) {
     this.reply_to = data.reply_to;
     this.deleted= data.deleted;
     this.dateSubmitted=moment();
+    this.contributor_list = [];
 }
 
 angular.module('AnnotatedTutorial')
@@ -38,8 +39,7 @@ angular.module('AnnotatedTutorial')
                     contributor: note.contributor,
                     user_submitted: true,
                     reply_to: note.reply_to,
-                    deleted:false,
-                    rating:0,
+                    deleted:false
                 });
 
                 $http.post(annotatedTutorialServer + '/tutorials/notes', note);
@@ -49,8 +49,15 @@ angular.module('AnnotatedTutorial')
                 if(deleteChange == true) {
                     note.deleted = true;
                 }else if(ratingChange == true){
-                    note.rating = parseInt(note.rating)+1;
-                    console.log(ratingChange);
+                    var index = -1;
+                    if(note.contributor_list !== undefined){
+                        var index = note.contributor_list.indexOf(contributor.id);
+                    }
+                    if(index == -1){
+                        note.contributor_list.push(contributor.id);
+                    }else{
+                        note.contributor_list.splice(index,1);
+                    }
 
                 }
                 $http.put(annotatedTutorialServer + '/tutorials/note/update/' + note.id,note);
