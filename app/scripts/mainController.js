@@ -17,7 +17,6 @@ angular.module('AnnotatedTutorial')
                 $scope.listOfSteps = [];
                 $scope.newFirst = true;
                 $scope.currentStep=[];
-                $scope.highRating = null;
                 $scope.selectedStepsList = [];
                 $scope.secondMenu = false;
                 $scope.ratingChange = false;
@@ -458,7 +457,7 @@ angular.module('AnnotatedTutorial')
                     for(var j = 0; j < list.length; j++){
                         tempNote1 = list[j];
                         for(var k=j; k<list.length; k++){
-                            if(parseInt(list[k].rating)>parseInt(tempNote1.rating)){
+                            if(parseInt(list[k].contributor_list.length)>parseInt(tempNote1.contributor_list.length)){
                                 tempNote1 = list[k];
                                 index = k;
                             }

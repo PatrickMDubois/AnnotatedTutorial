@@ -45,11 +45,11 @@ module.run(["$templateCache", function($templateCache) {
     "                Add Answer\n" +
     "        </button>\n" +
     "\n" +
-    "        <button class=\"rating-button\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
+    "        <button class=\"rating-button\" ng-class=\"{'rated':note.contributor_list.indexOf(user.id)!=-1}\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
     "        <div class=\"note-rating\">\n" +
-    "            <div ng-if=\"note.rating>1\">{{note.rating}} people found this helpful.</div>\n" +
-    "            <div ng-if=\"note.rating==1\">{{note.rating}} person found this helpful.</div>\n" +
-    "            <div ng-if=\"note.rating<1\">Not rated yet.</div>\n" +
+    "            <div ng-if=\"note.contributor_list.length>1\">{{note.contributor_list.length}} people found this helpful.</div>\n" +
+    "            <div ng-if=\"note.contributor_list.length==1\">{{note.contributor_list.length}} person found this helpful.</div>\n" +
+    "            <div ng-if=\"note.contributor_list.length<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
     "\n" +
     "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" show-list=\"showList\" user=\"user\" general=\"general\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\"></note>\n" +

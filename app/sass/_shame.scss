@@ -478,7 +478,12 @@ img{
     line-height: 9px;
     width: 35px;
     float: left;
+    outline:none;
   }
+
+.rated{
+  background-image: url(../images/PNG/thumbs-up-pressed.png);;
+}
 
   .step-list {
     border-top: 1px solid #e6e6e6;
