@@ -1517,6 +1517,7 @@ img {
   line-height: 9px;
   width: 24px;
   position: relative;
+  outline: none;
 }
 
 .filter-icon {

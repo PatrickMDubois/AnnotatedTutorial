@@ -47,6 +47,7 @@ img{
   line-height: 9px;
   width: 24px;
   position: relative;
+  outline:none;
 }
 
 .filter-icon{
@@ -313,7 +314,7 @@ img{
   .contributors-show{
     background-image: url(../images/PNG/arrow-down.png);
     background-position: 5px 5px;
-    float: left;//border: 1px solid #fff; 0.33);}
+    float: left;
     background-repeat: no-repeat;
     background-size: 15.3px;
     border: 1px solid #fff;
@@ -322,7 +323,7 @@ img{
     line-height: 9px;
     width: 24px;
     margin-right: 4px;
-  }//border: 1px solid #fff; 0.33);}
+  }
 
   .contributors-hide{
     background-image: url(../images/PNG/arrow-up.png);
@@ -481,9 +482,9 @@ img{
     outline:none;
   }
 
-.rated{
-  background-image: url(../images/PNG/thumbs-up-pressed.png);;
-}
+  .rated{
+    background-image: url(../images/PNG/thumbs-up-pressed.png);;
+  }
 
   .step-list {
     border-top: 1px solid #e6e6e6;
