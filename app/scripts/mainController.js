@@ -260,18 +260,15 @@ angular.module('AnnotatedTutorial')
                         if(!$scope.replyTo){
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
-                        console.log($scope.tutorial.notes.length);
+
                         TutorialService.post(note);
-                        //note.step_id = $scope.findStepId($scope.selectedStepsList);
-                        console.log(note.step_id);
-                        /*$scope.tutorial.notes.push(note);
+                        
                         note.step_id = $scope.selectedStepsList.slice(0);
                         note.dateSubmitted=moment();
-                        note.rating = 0;*/
+                        note.contributor_list = [];
+                        $scope.tutorial.notes.push(note);
 
-                        //console.log($scope.selected);
-
-                        /*if($scope.replyTo){
+                        if($scope.replyTo){
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
                         }
 
@@ -279,7 +276,7 @@ angular.module('AnnotatedTutorial')
                             for(var index=0; index<note.step_id.length; index++){
                                 $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
                             }
-                        }*/
+                        }
 
                         $scope.closeInput();
 
