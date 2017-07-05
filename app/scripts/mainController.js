@@ -56,7 +56,7 @@ angular.module('AnnotatedTutorial')
                     $scope.currentStep.push(step);
 
                     LoggerService.log("Opened input dialog");
-                };
+                }
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
 
@@ -144,14 +144,12 @@ angular.module('AnnotatedTutorial')
                         if(!$scope.replyTo){
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
-                        console.log(note.step_id);
+
                         TutorialService.post(note);
-                        note.rating = 0;
+                        note.contributor_list = [];
                         note.dateSubmitted = moment();
-
-                        $scope.tutorial.notes.push(note);
                         note.step_id = $scope.selectedStepsList;
-
+                        $scope.tutorial.notes.push(note);
 
                         if($scope.replyTo){
                             $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
@@ -247,7 +245,7 @@ angular.module('AnnotatedTutorial')
                     $scope.deleteChange = false;
 
                     LoggerService.log("Deleted a note:"
-                        + " Tutorial - " + $scope.tutorial.titlenp
+                        + " Tutorial - " + $scope.tutorial.title
                         + " | Step - " + $scope.selectedLine
                         + " | Category - " + $scope.inputCategory
                         + " | Extra Input - " + $scope.extraInput
@@ -293,8 +291,10 @@ angular.module('AnnotatedTutorial')
                 $scope.newRating = function(note_id){
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+                    $scope.contributor = TutorialService.get();
+                    console.log($scope.findNote(note_id));
+                    $scope.tutorial = $scope.contributor.current_tutorial;
                     $scope.ratingChange = false;
-                    console.log("working?");
                 };
 
                 $scope.numberOfNotes = function(step,category)
