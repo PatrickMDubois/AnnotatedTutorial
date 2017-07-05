@@ -102,7 +102,7 @@ angular.module('AnnotatedTutorial')
                         };
 
                         if(!$scope.replyTo ){
-                            note.step_id = null;
+                            //note.step_id = null;
                         }
                         TutorialService.post(note);
 
