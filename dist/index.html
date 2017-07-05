@@ -47,7 +47,6 @@
               <div class="grid__item one-tenth">
                   <button class=""></button>
               </div>
-              <!-- Buttons to toggle on/off notes -->
               <div class="grid__item six-eighths">
                   <div id="{{step.id}}">
                       <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
@@ -82,7 +81,8 @@
                             can-show-note="canShowNote"
                             user="contributor"
                             date="dateFormat(note)"
-                            current-reply="replyTo">
+                            current-reply="replyTo"
+                            top-note="listOfNotes.indexOf(note)==0">
                       </note>
                       </div>
                       <div class="input-container grid__item three-tenths">
@@ -100,7 +100,6 @@
               var chosenSort = null;
               function sortSelected(){
                   chosenSort = document.getElementById("sort").value.toString();
-                  console.log(chosenSort);
                   document.getElementById("apply").click();
               }
           </script>

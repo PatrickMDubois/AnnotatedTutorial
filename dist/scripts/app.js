@@ -265,8 +265,8 @@ angular.module('AnnotatedTutorial')
                             "reply_to": $scope.replyTo
                         };
 
-                        if(!$scope.replyTo ){
-                            //note.step_id = null;
+                        if($scope.replyTo!==null){
+                            note.category = "reply";
                         }
                         TutorialService.post(note);
 
@@ -438,7 +438,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=', currentReply: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=', currentReply: '=', topNote: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

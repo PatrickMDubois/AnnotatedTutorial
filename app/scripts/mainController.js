@@ -101,8 +101,8 @@ angular.module('AnnotatedTutorial')
                             "reply_to": $scope.replyTo
                         };
 
-                        if(!$scope.replyTo ){
-                            //note.step_id = null;
+                        if($scope.replyTo!==null){
+                            note.category = "reply";
                         }
                         TutorialService.post(note);
 
