@@ -45,7 +45,8 @@ gulp.task('app', function() {
             './app/scripts/app.js',
             './app/scripts/*Service.js',
             './app/scripts/*Controller.js',
-            './app/scripts/*Directive.js'
+            './app/scripts/*Directive.js',
+            './app/scripts/smooth-scrolling.js'
         ])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./dist/scripts'))

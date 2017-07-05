@@ -302,6 +302,7 @@ angular.module('AnnotatedTutorial')
                 $scope.stepIcon = function(step){
                     $scope.newFilter(parseInt(step));
                     document.getElementById("filter").value = parseInt(step);
+                    console.log(document.getElementById("filter").value);
                 };
 
 
@@ -426,7 +427,7 @@ angular.module('AnnotatedTutorial')
                         }
 
                         TutorialService.post(note);
-                        
+
                         note.step_id = $scope.selectedStepsList.slice(0);
                         note.dateSubmitted=moment();
                         note.contributor_list = [];

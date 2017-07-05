@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
 
     <link rel="stylesheet" href="/select2/dist/css/select2.min.css" src="css/">
-
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scripts/modernizr.js"></script>
   </head>
   <body ng-controller="mainController">
@@ -101,9 +101,7 @@
                       <div class="grid__item two-tenths filter-container filter">
                           <div class="note-display filter-title">FILTER</div>
                           <button class="plain-button filter-button" ng-click="clear()">CLEAR</button><br>
-                          <!--script type="text/javascript">
-                              $(".js-example-basic-multiple").select2();
-                          </script-->
+
                           <div class="note-display filter-title filter-section-title">CATEGORY:</div>
                           <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
                           <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
@@ -112,8 +110,8 @@
                           <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
                           <div class="note-display filter-title filter-section-title">STEPS:</div>
                           <label>
-                              <select class="dropdown" id="filter" onchange="filterSelected()">
-                                  <option value="none" style="display:none">STEP</option>
+                              <select class="js-example-basic-multiple" id="filter" style="width: 30%" multiple="multiple" onchange="filterSelected()">
+
                                   <option value="{{tutorial.steps.length-1}}">GENERAL</option>
                                   <option value="0">INTRO</option>
                                   <option ng-repeat="number in listOfSteps"
@@ -124,6 +122,10 @@
                                   <option value="{{tutorial.steps.length-2}}">END</option>
                               </select>
                           </label>
+                          <script>
+
+                              $(".js-example-basic-multiple").select2({placeholder: "STEP"});
+                          </script>
 
 
                       </div>
@@ -163,17 +165,17 @@
               function sortSelected(){
                   chosenSort = document.getElementById("sort").value.toString();
                   document.getElementById("apply").click();
+                  console.log(chosenSort);
               }
 
               var chosenFilter = null;
               function filterSelected(){
-                  chosenFilter = parseInt(document.getElementById("filter").value);
+                  chosenFilter = parseInt(document.getElementById("filter").value[0]);
                   document.getElementById("apply").click();
+                  console.log(chosenFilter);
               }
           </script>
           <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
