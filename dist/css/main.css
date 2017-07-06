@@ -1481,8 +1481,8 @@ html, body {
 
 .content {
   background-color: #fff;
-  margin: 44px 0px;
-  padding: 10px 0px;
+  margin: 44px 0;
+  padding: 10px 0;
 }
 
 img {
@@ -1557,7 +1557,7 @@ img {
 }
 
 .note {
-  margin: 5px 0;
+  margin: 10px 0;
   padding: 5px 10px;
   clear: both;
   border-radius: 3px;
@@ -1600,7 +1600,7 @@ img {
 
 .sort-container {
   border-bottom: none;
-  padding: 0px;
+  padding: 0;
   background: #efefef;
   position: fixed;
   top: 4.2%;
@@ -1656,7 +1656,6 @@ img {
   float: left;
   padding: 8px 27px;
   position: relative;
-  margin: 3px 0;
   font-weight: bold;
   color: #62e2d9;
   line-height: 15px;
@@ -1725,8 +1724,8 @@ h2 {
 }
 
 .contributors-show {
-  background-image: url(../images/SVG/ContributorsShowLess.svg);
-  background-position: 0px 3px;
+  background-image: url(../images/SVG/ContributorsShowMore.svg);
+  background-position: 0 3px;
   float: left;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -1737,9 +1736,18 @@ h2 {
   margin-right: 4px;
 }
 
+.contributors-show:hover {
+  background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
+  background-position: 0 2px;
+}
+
+.contributors-hide:hover {
+  background-image: url(../images/PNG/ContributorsShowLessHover.png);
+}
+
 .contributors-hide {
-  background-image: url(../images/SVG/ContributorsShowMore.svg);
-  background-position: 0px 3px;
+  background-image: url(../images/SVG/ContributorsShowLess.svg);
+  background-position: 0 3px;
   float: left;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -1798,7 +1806,7 @@ h2 {
 }
 
 .delete-button {
-  margin: 0px 10px;
+  margin: 0 10px;
   font-size: 0.6em;
   float: right;
   border-radius: 4px;
@@ -1812,7 +1820,7 @@ h2 {
 
 .rating-button {
   background-image: url(../images/PNG/thumbs-UP.png);
-  background-position: 6px 0px;
+  background-position: 6px 0;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 23px;
