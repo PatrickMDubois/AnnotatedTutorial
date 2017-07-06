@@ -36,6 +36,7 @@ img{
 
 .note-content{
   padding:0 15px;
+  font-size:13px;
 }
 
 .icon{
@@ -79,41 +80,43 @@ img{
     display: inline-block;
     font-size: 75%;
     top: -5px;
-    padding: 0 10px 0 10px;
+    padding: 20px;
     position: relative;
   }
 
   .note {
    // border: 1px solid #9b9b9b;
     margin: 5px 0;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding:5px 10px;
     clear: both;
     border-radius: 3px;
     background-color: #dddddd;
   }
 
   .note-contributor {
-    font-size: 0.6em;
+    font-size: 11px;
     text-align: right;
     float: left;
+    margin-right:10px;
+    color:#a6a6a6;
+    font-weight:bold;
   }
 
   .input-container {
-    background: rgb(192, 187, 197);
-    border: 1px solid rgb(216, 211, 222);
+    background: #efefef;
+    //border: 1px solid rgb(216, 211, 222);
     border-top:none;
     font-size: 0.9em;
     padding: 5px;
     position: fixed;
     overflow-y: auto;
+    overflow-x: hidden;
     top:74%;
     right:20px;
     height:22%;
   }
 
   .note-container {
-    //border: 1px solid #e2e2e2;
     border-top: none;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -155,8 +158,12 @@ img{
   }
 
   .input-text {
-    width: 100%;
+    width: 93%;
     background-color: white;
+    margin:0 20px;
+    padding:0 5px;
+    font-size: 25px;
+    border: solid 1px #e2e2e2
   }
 
   .plain-button {
@@ -169,6 +176,11 @@ img{
     font-weight:bold;
     color: #62e2d9;
     line-height: 15px;
+  }
+
+  .plain-button:hover{
+    background-color: #62e2d9;
+    coloR:white;
   }
 
 .sort-button {
@@ -193,15 +205,6 @@ img{
   border-bottom: 4px solid #62e2d9;
 }
 
-.reply-button:hover {
-  background-color: rgb(212, 225, 236);
-}
-
-  .reply-button:hover {
-    background-color: rgb(212, 225, 236);
-  }
-
-
   .reply-button {
     float: right;
     font-size: 0.6em;
@@ -210,12 +213,17 @@ img{
   }
 
   .submit-button{
-    background-color: #f4f2f9;
     border-radius:3px;
+    background-color:#62e2d9;
+    padding: 5px 215.5px;
+    margin:0 20px;
+    font-weight:bold;
+    color: white;
+    line-height: 15px;
   }
 
   .submit-button:hover{
-    background-color: lightgrey;
+    background-color: #51bbb4;
   }
 
   .baseline-content {
@@ -280,29 +288,39 @@ img{
     float: left;
     margin-right: 2px;
     font-size: small;
-    color: #333666;
+    color: #a6a6a6;
   }
 
   .contributor-first {
     float: left;
-    margin: 0 2px;
+    margin-right:2px;
     font-size: small;
-    color: #333666;
+    color: #a6a6a6;
   }
 
   .tutorial-title {
     font-size: 30px;
+    color: #3f3f3f;
+    margin:15px 0;
   }
 
   .tutorial-author {
     font-size: large;
-    color: grey;
+    color: #3f3f3f;
+    margin-bottom:3px;
+  }
+
+  .step-title{
+    font-size:20px;
+    color:#3f3f3f;
+    margin-bottom:20px;
+    font-weight:300;
   }
 
   .contributor-button {
     margin-left: 2px;
     font-size: medium;
-    color: darkgrey;
+    color: #a6a6a6;
   }
 
   .window-title {
@@ -318,11 +336,6 @@ img{
     float: right;
     border-radius: 4px;
   }
-
-  .delete-button:hover {
-    background: #ff0700;
-  }
-
 
   .note-rating {
     font-size: 0.6em;
@@ -345,9 +358,17 @@ img{
   .rated{
     background-image: url(../images/PNG/thumbs-up-pressed.png);;
   }
+
+  .text{
+    font-size: 11px;
+    color:#a6a6a6;
+    font-weight:400;
+  }
   
   .date {
-    font-size: 0.6em;
+    font-size: 11px;
+    color:#a6a6a6;
+    font-weight:bold;
   }
 
 

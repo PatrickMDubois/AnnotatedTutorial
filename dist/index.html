@@ -25,7 +25,7 @@
                         <div class="contributors-hide" ng-show="contributorFlag"></div>
                 </div>
                 <div class="contributor-button"
-                     ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfContributors.length.toString()}} Other contributors
+                     ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfContributors.length.toString()}} contributors
                  </div>
                  <div ng-show="contributorFlag">
                     <div ng-repeat="contributor in listOfContributors">
@@ -49,7 +49,7 @@
               </div>
               <div class="grid__item six-eighths">
                   <div id="{{step.id}}">
-                      <h2 ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</h2>
+                      <div class="step-title" ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</div>
                   </div>
                   <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
                   <div class="main-content" ng-bind-html="step.html"></div>
@@ -64,14 +64,6 @@
                           <button class="sort-button" ng-click="sortSelected('old');newSort()" ng-class="{'sort-button-selected':chosenSort =='old'}">OLDEST</button>
                           <button class="sort-button" ng-click="sortSelected('high');newSort()" ng-class="{'sort-button-selected':chosenSort =='high'}">RATING HIGH</button>
                           <button class="sort-button" ng-click="sortSelected('low');newSort()" ng-class="{'sort-button-selected':chosenSort =='low'}">RATING LOW</button>
-                          <!--<label>
-                          <select class="dropdown" id="sort" onchange="sortSelected()">
-                          <option value="new" selected>RECENT</option>
-                          <option value="old">OLDEST</option>
-                          <option value="high">RATE:HIGH</option>
-                          <option value="low">RATE:LOW</option>
-                          </select>
-                          </label>-->
                       </div>
 
                       <div class="grid__item three-tenths note-container">
@@ -94,8 +86,8 @@
                               <div ng-if="replyTo!=null">Replying to {{replyToContributor}}: {{(tutorial.notes[findNoteIndex(replyTo)].content)}}</div>
                               <div ng-if="replyTo==null"><br></div>
                           </div>
-                          <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your comment here."></textarea>
-                          <button ng-click="submitNote()" class="plain-button submit-button">Submit</button>
+                          <textarea class="input-text text" ng-model="$parent.newNote" rows="6" placeholder="Type in your comment here..."></textarea>
+                          <button ng-click="submitNote()" class="submit-button">COMMENT</button>
                       </div>
                   </div>
           </div>
