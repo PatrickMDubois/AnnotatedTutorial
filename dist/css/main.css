@@ -1573,20 +1573,19 @@ img {
 }
 
 .selected-details, .note-details, .icon-details:hover {
-  background-color: #d0e7ff;
+  background-color: #a682ff;
 }
 
 .selected-corrections, .note-corrections, .icon-corrections:hover {
-  background-color: #f5dcfd;
-  z-index: 1;
+  background-color: #ff5760;
 }
 
 .selected-questions, .note-questions, .icon-questions:hover {
-  background-color: lightyellow;
+  background-color: #ffed66;
 }
 
 .selected-other, .note-other, .icon-other:hover {
-  background-color: #dcffe5;
+  background-color: #ffae42;
 }
 
 .note:before {
@@ -1597,22 +1596,25 @@ img {
   display: inline-block;
   font-size: 75%;
   top: -5px;
-  padding: 0 10px 0 24px;
+  padding: 20px;
   position: relative;
 }
 
 .note {
   border: 1px solid #9b9b9b;
   margin: 5px;
-  padding: 0 3px;
+  padding: 5px 10px;
   clear: both;
   border-radius: 2px;
 }
 
 .note-contributor {
-  font-size: 0.6em;
+  font-size: 11px;
   text-align: right;
   float: left;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .input-start {
@@ -1651,7 +1653,10 @@ img {
 }
 
 .input-text {
-  width: 100%;
+  width: 93%;
+  background-color: white;
+  font-size: 11px;
+  border: solid 1px #e2e2e2;
 }
 
 .reply-content {
@@ -1697,30 +1702,22 @@ img {
 }
 
 .plain-button {
-  border: 1px solid #9b9b9b;
+  background-color: white;
   float: right;
-  padding: 0 5px;
+  padding: 3px 8px;
   position: relative;
   right: 0;
   top: 0;
+  font-weight: bold;
+  color: #62e2d9;
+  line-height: 15px;
+  border-radius: 4px;
+  font-size: 0.6em;
 }
 
 .plain-button:hover {
-  background: #ddd;
-}
-
-.reply-button:hover {
-  background: rgba(149, 157, 255, 0.68);
-}
-
-.reply-button {
-  background: rgba(226, 241, 255, 0.64);
-  clear: both;
-  float: right;
-  font-size: 0.6em;
-  border-radius: 3px;
-  margin-left: 5px;
-  line-height: 15px;
+  background-color: #62e2d9;
+  color: white;
 }
 
 .comment-footer {
@@ -1746,30 +1743,29 @@ h2 {
 }
 
 .contributors-show {
-  background-image: url(../images/PNG/arrow-down.png);
-  background-position: 5px 5px;
+  background-image: url(../images/SVG/ContributorsShowMore.svg);
+  background-position: 0 3px;
   float: left;
   background-repeat: no-repeat;
-  background-size: 15.3px;
+  background-size: 20px;
   border: 1px solid #fff;
-  border-radius: 20px;
-  height: 24px;
+  height: 26px;
   line-height: 9px;
-  width: 24px;
+  width: 26px;
   margin-right: 4px;
 }
 
 .contributors-hide {
-  background-image: url(../images/PNG/arrow-up.png);
-  background-position: 5px 5px;
+  background-image: url(../images/SVG/ContributorsShowLess.svg);
+  background-position: 0 3px;
   float: left;
   background-repeat: no-repeat;
-  background-size: 15.3px;
+  background-size: 20px;
   border: 1px solid #fff;
   border-radius: 20px;
-  height: 24px;
+  height: 26px;
   line-height: 9px;
-  width: 24px;
+  width: 26px;
   margin-right: 4px;
 }
 
@@ -1777,33 +1773,44 @@ h2 {
   float: left;
   margin-right: 2px;
   font-size: small;
-  color: #333666;
+  color: #a6a6a6;
 }
 
 .contributor-first {
   float: left;
-  margin: 0 2px;
+  margin-right: 2px;
   font-size: small;
-  color: #333666;
+  color: #a6a6a6;
 }
 
 .note-content {
   padding: 0 15px;
+  font-size: 13px;
 }
 
 .tutorial-title {
   font-size: 30px;
+  color: #3f3f3f;
+  margin: 15px 0;
 }
 
 .tutorial-author {
   font-size: large;
-  color: grey;
+  color: #3f3f3f;
+  margin-bottom: 3px;
+}
+
+.step-title {
+  font-size: 20px;
+  color: #3f3f3f;
+  margin-bottom: 20px;
+  font-weight: 300;
 }
 
 .contributor-button {
   margin-left: 2px;
   font-size: medium;
-  color: darkgrey;
+  color: #a6a6a6;
 }
 
 .note-number {
@@ -1848,18 +1855,7 @@ h2 {
 }
 
 .delete-button {
-  background: rgba(255, 0, 21, 0.57);
   margin: 0 10px;
-  font-size: 0.6em;
-  float: right;
-  color: white;
-  border-radius: 3px;
-  border-color: red;
-  line-height: 15px;
-}
-
-.delete-button:hover {
-  background: #ff0700;
 }
 
 .close-button {
@@ -1902,7 +1898,7 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/PNG/thumbs-up.png);
+  background-image: url(../images/PNG/thumbs-UP.png);
   background-position: 6px 0;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -1984,8 +1980,16 @@ h2 {
   background-color: #a2fcff;
 }
 
+.text {
+  font-size: 11px;
+  color: #a6a6a6;
+  font-weight: 400;
+}
+
 .date {
-  font-size: 0.6em;
+  font-size: 11px;
+  color: #a6a6a6;
+  font-weight: bold;
 }
 
 .side-bar {

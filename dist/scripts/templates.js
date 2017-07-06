@@ -36,7 +36,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"note-contributor\">Other•</div>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"note-contributor\">Submitted by {{note.contributor}}•</div>\n" +
+    "    <div class=\"note-contributor\">{{note.contributor}}•</div>\n" +
     "    <div class=\"date\">{{date}}</div>\n" +
     "\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
@@ -44,10 +44,10 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <div class=\"note-content\">{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
-    "        <button class=\"plain-button reply-button\"\n" +
+    "        <button class=\"plain-button\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\"\n" +
     "             ng-if=\"note.category === 'questions' && !baseline\">\n" +
-    "                Add Answer\n" +
+    "                ADD ANSWER\n" +
     "        </button>\n" +
     "\n" +
     "        <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
