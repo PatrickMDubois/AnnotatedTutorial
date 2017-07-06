@@ -77,28 +77,28 @@
                       ng-if="checkForCategory(step, 'corrections')"
                       ng-click="noteOrder(step);$parent.showCorrections = showCategory($parent.showCorrections, 'corrections', step)"
                       tooltip="Corrections">
-                      <div class = "icon__number">{{numberOfNotes(step,"corrections")}}</div>
+                      <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-details side-bar"
                       ng-if="checkForCategory(step, 'details')"
                       ng-click="noteOrder(step);$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
                       tooltip="Tell me more!">
-                      <div class="icon__number">{{numberOfNotes(step,"details")}}</div>
+                      <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions side-bar"
                       ng-if="checkForCategory(step, 'questions')"
                       ng-click="noteOrder(step);$parent.showQuestions = showCategory($parent.showQuestions, 'questions', step)"
                       tooltip="Questions">
-                      <div class="icon__number">{{numberOfNotes(step,"questions")}}</div>
+                      <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other side-bar"
                       ng-if="checkForCategory(step, 'other')"
                       ng-click="noteOrder(step);$parent.showOther = showCategory($parent.showOther, 'other', step)"
                       tooltip="Other notes">
-                      <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
+                      <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
               </button>
 
             </div>

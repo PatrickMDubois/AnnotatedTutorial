@@ -1572,19 +1572,19 @@ img {
   background-position: 0px 2px;
 }
 
-.selected-details, .note-details, .icon-details:hover {
+.selected-details, .note-details, .icon-details:hover, .number-details {
   background-color: #a682ff;
 }
 
-.selected-corrections, .note-corrections, .icon-corrections:hover {
+.selected-corrections, .note-corrections, .icon-corrections:hover, .number-corrections {
   background-color: #ff5760;
 }
 
-.selected-questions, .note-questions, .icon-questions:hover {
+.selected-questions, .note-questions, .icon-questions:hover, .number-questions {
   background-color: #ffed66;
 }
 
-.selected-other, .note-other, .icon-other:hover {
+.selected-other, .note-other, .icon-other:hover, .number-other {
   background-color: #ffae42;
 }
 
@@ -1613,7 +1613,7 @@ img {
   text-align: right;
   float: left;
   margin-right: 10px;
-  color: white;
+  color: #000000;
   font-weight: bold;
 }
 
@@ -1819,7 +1819,6 @@ h2 {
 }
 
 .icon__number {
-  background-color: lightsteelblue;
   border-radius: 50%;
   color: black;
   padding: 2px;

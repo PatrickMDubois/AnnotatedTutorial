@@ -146,7 +146,6 @@ angular.module('AnnotatedTutorial')
                     newNote = response.data;
                     return response.data;
                 });
-                console.log(newNote);
             },
             put: function(note,deleteChange, ratingChange){
 
