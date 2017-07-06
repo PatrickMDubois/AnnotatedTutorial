@@ -118,6 +118,7 @@ img{
     top:74%;
     right:20px;
     height:22%;
+    box-shadow:0 -3px 5px 0 rgba(0, 0, 0, 0.1);
   }
 
   .note-container {
@@ -258,6 +259,7 @@ img{
 
   .reply-content{
     background-color: #e8e8e8;
+    border:1px solid #4e4e4e;
   }
 
   .contributors-show {
