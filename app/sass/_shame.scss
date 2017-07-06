@@ -98,12 +98,14 @@ img{
     text-align: right;
     float: left;
     margin-right:10px;
-    color:#a6a6a6;
+    color: #575757;
     font-weight:bold;
   }
 
   .reply-text{
     margin:0 20px;
+    color: #575757;
+    font-size:11px;
   }
 
   .input-container {
@@ -115,9 +117,9 @@ img{
     position: fixed;
     overflow-y: hidden;
     overflow-x: hidden;
-    top:74%;
+    top:75.3%;
     right:20px;
-    height:22%;
+    height:21.3%;
     box-shadow:0 -3px 5px 0 rgba(0, 0, 0, 0.1);
   }
 
@@ -125,7 +127,7 @@ img{
     border-top: none;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 10px;
+    padding: 3px 10px;
     background: #efefef;
     position: fixed;
     right: 20px;
@@ -165,7 +167,7 @@ img{
   .input-text {
     width: 93%;
     background-color: white;
-    margin:0 20px;
+    margin:0 15px;
     padding:0 5px;
     font-size: 25px;
     border: solid 1px #e2e2e2
@@ -191,22 +193,20 @@ img{
 .sort-button {
   background-color: white;
   float: left;
-  padding: 8px 27px;
+  padding: 10px 27px;
   position: relative;
   font-weight:bold;
   color: #62e2d9;
   line-height: 15px;
-  border-top: 1px solid #e2e2e2;
-  border-bottom: 1px solid #e2e2e2;
   outline:none;
 }
 
 .sort-button:hover {
-  border-bottom: 4px solid #62e2d9;
+  box-shadow:inset 0 -4px 0 0 #62e2d9;
 }
 
 .sort-button-selected{
-  border-bottom: 4px solid #62e2d9;
+  box-shadow:inset 0 -4px 0 0 #62e2d9;
 }
 
   .reply-button {
@@ -219,7 +219,7 @@ img{
   .submit-button{
     border-radius:3px;
     background-color:#62e2d9;
-    padding: 5px 215.5px;
+    padding: 2px 215.5px;
     margin:0 20px;
     font-weight:bold;
     color: white;
@@ -375,18 +375,19 @@ img{
 
   .text{
     font-size: 11px;
-    color:#a6a6a6;
+    color: #575757;
     font-weight:400;
   }
 
   .date {
     font-size: 11px;
-    color:#a6a6a6;
+    color: #575757;
     font-weight:bold;
   }
 
 
   .note-display {
     margin-left: 10px;
-    margin-top:18px;
+    margin-top:15px;
+    margin-bottom:5px;
   }
