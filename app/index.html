@@ -61,17 +61,20 @@
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
                       <div class="grid__item three-tenths sort-container sort">
-                          <div class="note-display">SORT</div>
-                          <label>
+                          <div class="note-display">Sort Comments by</div>
+                          <button class="sort-button" ng-click="sortSelected('new'); newSort()" ng-class="{'sort-button-selected':chosenSort =='new'}">RECENT</button>
+                          <button class="sort-button" ng-click="sortSelected('old');newSort()" ng-class="{'sort-button-selected':chosenSort =='old'}">OLDEST</button>
+                          <button class="sort-button" ng-click="sortSelected('high');newSort()" ng-class="{'sort-button-selected':chosenSort =='high'}">RATING HIGH</button>
+                          <button class="sort-button" ng-click="sortSelected('low');newSort()" ng-class="{'sort-button-selected':chosenSort =='low'}">RATING LOW</button>
+                          <!--<label>
                           <select class="dropdown" id="sort" onchange="sortSelected()">
                           <option value="new" selected>RECENT</option>
                           <option value="old">OLDEST</option>
                           <option value="high">RATE:HIGH</option>
                           <option value="low">RATE:LOW</option>
                           </select>
-                          </label>
+                          </label>-->
                       </div>
-                      <button id="apply" ng-click="newSort()"></button>
 
                       <div class="grid__item three-tenths note-container">
                       <note ng-repeat="note in listOfNotes"
@@ -98,13 +101,6 @@
                       </div>
                   </div>
           </div>
-          <script>
-              var chosenSort = null;
-              function sortSelected(){
-                  chosenSort = document.getElementById("sort").value.toString();
-                  document.getElementById("apply").click();
-              }
-          </script>
           </div>
           </div>
       </div>

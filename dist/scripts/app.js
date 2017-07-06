@@ -218,14 +218,14 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.newSort = function(){
-                  if(chosenSort==="new" || chosenSort === undefined || chosenSort === null|| chosenSort==="old"){
+                  if($scope.chosenSort==="new" || $scope.chosenSort === undefined || $scope.chosenSort === null|| $scope.chosenSort==="old"){
                       $scope.orderDate($scope.listOfNotes);
-                      if(chosenSort==="old") {
+                      if($scope.chosenSort==="old") {
                         $scope.listOfNotes.reverse();
                       }
-                  }else if(chosenSort=="high" || chosenSort=="low"){
+                  }else if($scope.chosenSort=="high" || $scope.chosenSort=="low"){
                       $scope.orderRating($scope.listOfNotes);
-                        if(chosenSort=="low") {
+                        if($scope.chosenSort=="low") {
                             $scope.listOfNotes.reverse();
                         }
                   }
@@ -301,6 +301,10 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                     return -1;
+                };
+
+                $scope.sortSelected = function(sort){
+                    $scope.chosenSort = sort;
                 };
 
                 $scope.findNoteIndex=function(reply){

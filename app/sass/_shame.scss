@@ -73,7 +73,6 @@ img{
 }
 
   .note:before {
-    background-color: #fff;
     background-repeat: no-repeat;
     background-size: 16px;
     border: 1px solid #9b9b9b;
@@ -85,13 +84,13 @@ img{
   }
 
   .note {
-    border: 1px solid #9b9b9b;
+   // border: 1px solid #9b9b9b;
     margin: 5px 0;
     padding-left: 3px;
     padding-right: 3px;
     clear: both;
     border-radius: 3px;
-    background-color: #fff8f8;
+    background-color: #dddddd;
   }
 
   .note-contributor {
@@ -114,12 +113,12 @@ img{
   }
 
   .note-container {
-    border: 1px solid rgb(216, 211, 222);
+    //border: 1px solid #e2e2e2;
     border-top: none;
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 10px;
-    background: rgb(192, 187, 197);
+    background: #efefef;
     position: fixed;
     right: 20px;
     top: 12.5%;
@@ -127,10 +126,10 @@ img{
   }
 
   .sort-container {
-    border: 1px solid rgb(216, 211, 222);
+    //border: 1px solid rgb(216, 211, 222);
     border-bottom: none;
-    padding: 5px;
-    background: rgb(192, 187, 197);
+    padding: 0px;
+    background: #efefef;
     position: fixed;
     top: 4.2%;
     height: 9%;
@@ -161,13 +160,42 @@ img{
   }
 
   .plain-button {
-    border: 1px solid #9b9b9b;
+    background-color: white;
     float: right;
-    padding: 0 3px;
+    padding: 3px 8px;
     position: relative;
     right: 0;
     top: 0;
+    font-weight:bold;
+    color: #62e2d9;
+    line-height: 15px;
   }
+
+.sort-button {
+  background-color: white;
+  float: left;
+  padding: 8px 27px;
+  position: relative;
+  margin:3px 0;
+  font-weight:bold;
+  color: #62e2d9;
+  line-height: 15px;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  outline:none;
+}
+
+.sort-button:hover {
+  border-bottom: 4px solid #62e2d9;
+}
+
+.sort-button-selected{
+  border-bottom: 4px solid #62e2d9;
+}
+
+.reply-button:hover {
+  background-color: rgb(212, 225, 236);
+}
 
   .reply-button:hover {
     background-color: rgb(212, 225, 236);
@@ -175,12 +203,10 @@ img{
 
 
   .reply-button {
-    background-color: rgba(226, 241, 255, 0.64);
     float: right;
     font-size: 0.6em;
-    border-radius: 3px;
+    border-radius: 4px;
     margin-left: 5px;
-    line-height: 15px;
   }
 
   .submit-button{
@@ -224,30 +250,29 @@ img{
   }
 
   .contributors-show {
-    background-image: url(../images/PNG/arrow-down.png);
-    background-position: 5px 5px;
+    background-image: url(../images/SVG/ContributorsShowLess.svg);
+    background-position: 0px 3px;
     float: left;
     background-repeat: no-repeat;
-    background-size: 15.3px;
+    background-size: 20px;
     border: 1px solid #fff;
-    border-radius: 20px;
-    height: 24px;
+    height: 26px;
     line-height: 9px;
-    width: 24px;
+    width: 26px;
     margin-right: 4px;
   }
 
   .contributors-hide {
-    background-image: url(../images/PNG/arrow-up.png);
-    background-position: 5px 5px;
+    background-image: url(../images/SVG/ContributorsShowMore.svg);
+    background-position: 0px 3px;
     float: left;
     background-repeat: no-repeat;
-    background-size: 15.3px;
+    background-size: 20px;
     border: 1px solid #fff;
     border-radius: 20px;
-    height: 24px;
+    height: 26px;
     line-height: 9px;
-    width: 24px;
+    width: 26px;
     margin-right: 4px;
   }
 
@@ -288,15 +313,10 @@ img{
   }
 
   .delete-button {
-    background: rgba(255, 0, 21, 0.57);
     margin: 0px 10px;
-    margin-bottom:4.5px;
     font-size: 0.6em;
     float: right;
-    color: white;
-    border-radius: 3px;
-    border-color: red;
-    line-height: 15px;
+    border-radius: 4px;
   }
 
   .delete-button:hover {
@@ -311,7 +331,7 @@ img{
   }
 
   .rating-button {
-    background-image: url(../images/PNG/thumbs-up.png);
+    background-image: url(../images/PNG/thumbs-UP.png);
     background-position: 6px 0px;
     background-repeat: no-repeat;
     background-size: 20px;
@@ -333,4 +353,5 @@ img{
 
   .note-display {
     margin-left: 10px;
+    margin-top:18px;
   }
