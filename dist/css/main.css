@@ -1573,13 +1573,17 @@ img {
   font-weight: bold;
 }
 
+.reply-text {
+  margin: 0 20px;
+}
+
 .input-container {
   background: #efefef;
   border-top: none;
   font-size: 0.9em;
   padding: 5px;
   position: fixed;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   top: 74%;
   right: 20px;

@@ -102,6 +102,10 @@ img{
     font-weight:bold;
   }
 
+  .reply-text{
+    margin:0 20px;
+  }
+
   .input-container {
     background: #efefef;
     //border: 1px solid rgb(216, 211, 222);
@@ -109,7 +113,7 @@ img{
     font-size: 0.9em;
     padding: 5px;
     position: fixed;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     top:74%;
     right:20px;
