@@ -41,8 +41,14 @@ angular.module('AnnotatedTutorial')
                     reply_to: note.reply_to,
                     deleted:false
                 });
+                var newNote = null;
+                var returnedNote = $http.post(annotatedTutorialServer + '/tutorials/notes', note)
+                .then(function(response) {
 
-                $http.post(annotatedTutorialServer + '/tutorials/notes', note);
+                    newNote = response.data;
+                    return response.data;
+                });
+                console.log(newNote);
             },
             put: function(note,deleteChange, ratingChange){
 
@@ -51,7 +57,7 @@ angular.module('AnnotatedTutorial')
                 }else if(ratingChange == true){
                     var index = -1;
                     if(note.contributor_list !== undefined){
-                        var index = note.contributor_list.indexOf(contributor.id);
+                        index = note.contributor_list.indexOf(contributor.id);
                     }
                     if(index == -1){
                         note.contributor_list.push(contributor.id);

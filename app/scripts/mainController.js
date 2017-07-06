@@ -145,8 +145,8 @@ angular.module('AnnotatedTutorial')
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
 
-                        TutorialService.post(note);
-                        note.contributor_list = [];
+                        console.log(TutorialService.post(note));
+                       /* note.contributor_list = [];
                         note.dateSubmitted = moment();
                         note.step_id = $scope.selectedStepsList;
                         $scope.tutorial.notes.push(note);
@@ -159,7 +159,7 @@ angular.module('AnnotatedTutorial')
                             for(var index=0; index<note.step_id.length; index++){
                                 $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
                             }
-                        }
+                        }*/
 
                         $scope.closeInput();
 
@@ -253,6 +253,12 @@ angular.module('AnnotatedTutorial')
 
                 };
 
+                $scope.clear = function(){
+                  $scope.contributor = TutorialService.get();
+                  $scope.tutorial = $scope.contributor.current_tutorial;
+                  console.log(TutorialService.get());
+                };
+
                 $scope.findNote = function(note_id)
                 {
                     for(var i =0; i < $scope.tutorial.notes.length; i++) {
@@ -291,9 +297,6 @@ angular.module('AnnotatedTutorial')
                 $scope.newRating = function(note_id){
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
-                    $scope.contributor = TutorialService.get();
-                    console.log($scope.findNote(note_id));
-                    $scope.tutorial = $scope.contributor.current_tutorial;
                     $scope.ratingChange = false;
                 };
 

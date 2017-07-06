@@ -27,7 +27,7 @@
                         <div class="contributors-hide" ng-show="contributorFlag"></div>
                 </div>
                 <div class="contributor-button"
-                     ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfContributors.length.toString()}} Other contributors
+                     ng-click="contributorFlag=showContributors(contributorFlag);clear()">{{listOfContributors.length.toString()}} Other contributors
                  </div>
                  <div ng-show="contributorFlag">
                     <div ng-repeat="contributor in listOfContributors">
@@ -64,7 +64,7 @@
           </div><!--
 
             <!-- Buttons to toggle on/off notes
-              --><div class="grid__item one-twelfth ">
+              --><div class="grid__item one-twelfth" id="notes">
 
               <div class="grid__item one-tenth input-start-container">
                   <!-- Button for adding a note -->
@@ -121,21 +121,15 @@
                       </div>
                       <br>
                       <div>
-                          <a class="menu-action-button preview-button" href="#general"></a>
-                          <button class="menu-action-button" ng-click="chosenGeneral();stepSelected(listOfSteps[listOfSteps.length-1]);numberList();" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
-                              <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
-                              <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
-                          </button>
-                          <div class="step-list">GENERAL</div>
-                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1" ng-style="{'disabledSteps':general}">
+                          <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1">
                               <a class="menu-action-button preview-button" href="#{{step.id}}"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                                   <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
                               </button>
-                              <div class="step-list" ng-if="step.step_number==0" ng-class="{'disabled-steps':general}">INTRO</div>
-                              <div class="step-list" ng-if="step.step_number==listOfSteps.length-2" ng-class="{'disabled-steps':general}">END</div>
-                              <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2" ng-class="{'disabled-steps':general}">STEP {{step.step_number}}</div>
+                              <div class="step-list" ng-if="step.step_number==0">INTRO</div>
+                              <div class="step-list" ng-if="step.step_number==listOfSteps.length-2">END</div>
+                              <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2">STEP {{step.step_number}}</div>
                           </div>
                       </div>
                   </div>
