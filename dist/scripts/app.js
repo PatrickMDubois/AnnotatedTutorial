@@ -321,6 +321,8 @@ angular.module('AnnotatedTutorial')
                                 $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push($scope.newNote);
                             }
 
+                            $scope.tutorial.notes.push($scope.newNote);
+
                             if(!$scope.replyTo){
                                 for(var index=0; index<$scope.newNote.step_id.length; index++){
                                     console.log($scope.newNote.step_id[index]);
