@@ -115,6 +115,7 @@ angular.module('AnnotatedTutorial')
         'use strict';
 
         var contributor = null;
+        var newNote = null;
 
         var promise = $http.get(annotatedTutorialServer + '/tutorials/contributor/' + currentParticipant)
             .then(function(response) {
@@ -128,7 +129,7 @@ angular.module('AnnotatedTutorial')
                 return contributor;
             },
             post: function(note) {
-                var note = new Note({
+                var theNote = new Note({
                     step_id: note.step_id,
                     tutorial_id: note.tutorial_id,
                     category: note.category,
@@ -139,11 +140,9 @@ angular.module('AnnotatedTutorial')
                     reply_to: note.reply_to,
                     deleted:false
                 });
-                var newNote = null;
-                var returnedNote = $http.post(annotatedTutorialServer + '/tutorials/notes', note)
+                $http.post(annotatedTutorialServer + '/tutorials/notes', theNote)
                 .then(function(response) {
-
-                    newNote = response.data;
+                    console.log("hello");
                     return response.data;
                 });
             },
