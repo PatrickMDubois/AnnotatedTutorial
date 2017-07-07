@@ -153,7 +153,7 @@
                   </div>
               </div>
 
-              <div ng-show="showTextarea || replyTo!==null">
+              <div ng-show="(showTextarea || replyTo!==null) && secondMenu">
                   <div class="description"  ng-if="replyTo==null">
                       <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
                       <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>

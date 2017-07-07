@@ -41,7 +41,7 @@ angular.module('AnnotatedTutorial')
                     deleted:false
                 });
                 var newNote;
-                var promise2= $http.post(annotatedTutorialServer + '/tutorials/notes', theNote)
+                var promise2 = $http.post(annotatedTutorialServer + '/tutorials/notes', theNote)
                 .then(function(response) {
                         newNote = response.data;
                         return newNote;
