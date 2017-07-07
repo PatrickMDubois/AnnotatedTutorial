@@ -110,7 +110,7 @@ angular.module('AnnotatedTutorial')
                   $scope.stepFilter = null;
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
-                  document.getElementById("filter").value = "none";
+                  console.log(document.getElementById("filter").value.toString());
                 };
 
                 $scope.newFilter = function(value){

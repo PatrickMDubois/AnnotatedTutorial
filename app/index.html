@@ -115,7 +115,7 @@
                           <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
                           <div class="note-display filter-title filter-section-title">STEPS:</div>
                           <label>
-                              <select class="js-example-basic-multiple" id="filter" style="width: 30%" multiple="multiple" onchange="filterSelected()">
+                              <select class="js-search" id="filter" style="width:35%" multiple="multiple" onchange="filterSelected(value)">
 
                                   <option value="{{tutorial.steps.length-1}}">GENERAL</option>
                                   <option value="0">INTRO</option>
@@ -128,8 +128,7 @@
                               </select>
                           </label>
                           <script>
-
-                              $(".js-example-basic-multiple").select2({placeholder: "STEP"});
+                              $(".js-search").select2({placeholder: "STEP"});
                           </script>
 
 
@@ -174,10 +173,10 @@
               }
 
               var chosenFilter = null;
-              function filterSelected(){
-                  chosenFilter = parseInt(document.getElementById("filter").value[0]);
+              function filterSelected(value){
+                  chosenFilter = parseInt(document.getElementById("filter").value);
                   document.getElementById("apply").click();
-                  console.log(chosenFilter);
+                  console.log($('#filter').select2('data'));
               }
           </script>
           <div class="input-container three-tenths" ng-if="inputPos != null" ng-style="{'top':4.2 + '%', 'right':1 + '%'}" style="height:300px;padding: 5px;">
