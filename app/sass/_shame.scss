@@ -5,7 +5,7 @@
  *
  */
 html,body{
-  background-color: #e0e0e0;
+  background-color: #ffffff;
 }
 
 .content{
@@ -19,7 +19,7 @@ img{
   max-height: 200px;
   border: 1px solid #000000;
   display: block;
-
+  margin-bottom:20px;
 }
 
 .header{
@@ -32,11 +32,12 @@ img{
 
 .main-content{
   padding: 0 0 0 5px;
-}#dddddd
+}
 
 .note-content{
   padding:0 15px;
   font-size:13px;
+
 }
 
 .icon{
@@ -73,127 +74,124 @@ img{
   white-space: nowrap;
 }
 
-  .note:before {
-    background-repeat: no-repeat;
-    background-size: 16px;
-    border: 1px solid #9b9b9b;
-    display: inline-block;
-    font-size: 75%;
-    top: -5px;
-    padding: 20px;
-    position: relative;
-  }
+.note:before {
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border: 1px solid #9b9b9b;
+  display: inline-block;
+  font-size: 75%;
+  top: -5px;
+  padding: 20px;
+  position: relative;
+}
 
-  .note {
-   // border: 1px solid #9b9b9b;
-    margin: 10px 0;
-    padding:5px 10px;
-    clear: both;
-    border-radius: 3px;
-    background-color: #dddddd;
-  }
+.note {
+  margin: 10px 0;
+  padding:5px 10px;
+  clear: both;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
 
-  .note-contributor {
-    font-size: 11px;
-    text-align: right;
-    float: left;
-    margin-right:10px;
-    color: #575757;
-    font-weight:bold;
-  }
+.note-contributor {
+  font-size: 11px;
+  text-align: right;
+  float: left;
+  margin-right:10px;
+  color: #a6a6a6;
+  font-weight:600;
+}
 
-  .reply-text{
-    margin:0 20px;
-    color: #575757;
-    font-size:11px;
-  }
+.reply-text{
+  margin:0 20px;
+  color: black;
+  font-size:11px;
+}
 
-  .input-container {
-    background: #efefef;
-    //border: 1px solid rgb(216, 211, 222);
-    border-top:none;
-    font-size: 0.9em;
-    padding: 5px;
-    position: fixed;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    top:75.3%;
-    right:20px;
-    height:21.3%;
-    box-shadow:0 -3px 5px 0 rgba(0, 0, 0, 0.1);
-  }
+.input-container {
+  border:2px solid #e2e2e2;
+  background: #d6d6d6;
+  border-top:none;
+  font-size: 0.9em;
+  padding: 5px;
+  position: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  top:75.3%;
+  right:20px;
+  height:23%;
+  box-shadow:0 -3px 5px 0 rgba(0, 0, 0, 0.1);
+}
 
-  .note-container {
-    border-top: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 3px 10px;
-    background: #efefef;
-    position: fixed;
-    right: 20px;
-    top: 12.5%;
-    height: 64%;
-  }
+.note-container {
+  border:2px solid #e2e2e2;
+  border-top:none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 3px 10px;
+  background: #d6d6d6;
+  position: fixed;
+  right: 20px;
+  top: 12.1%;
+  height: 64%;
+}
 
-  .sort-container {
-    //border: 1px solid rgb(216, 211, 222);
-    border-bottom: none;
-    padding: 0;
-    background: #efefef;
-    position: fixed;
-    top: 4.2%;
-    height: 9%;
-  }
+.sort-container {
+  border:2px solid #e2e2e2;
+  padding: 0;
+  background: #d6d6d6;
+  position: fixed;
+  top: 4%;
+  height: 9%;
+}
 
-  .sort {
-    //right: calc(20% + 20px);
-    right: 20px;
-  }
+.sort {
+  right: 20px;
+}
 
-  .dropdown{
-    margin-left:10px;
-  }
+.dropdown{
+  margin-left:10px;
+}
 
-  .description {
-    border: 1px #ccc dotted;
-    margin: 5px 0;
-    padding: 2px;
-  }
+.description {
+  border: 1px #ccc dotted;
+  margin: 5px 0;
+  padding: 2px;
+}
 
-  .software-container {
-    padding-bottom: 5px;
-  }
+.software-container {
+  padding-bottom: 5px;
+}
 
-  .input-text {
-    width: 93%;
-    background-color: white;
-    margin:0 15px;
-    padding:0 5px;
-    font-size: 25px;
-    border: solid 1px #e2e2e2
-  }
+.input-text {
+  width: 93%;
+  background-color: white;
+  margin:0 15px;
+  padding:0 5px;
+  font-size: 25px;
+  border: solid 1px #e2e2e2;
+}
 
-  .plain-button {
-    background-color: white;
-    float: right;
-    padding: 3px 8px;
-    position: relative;
-    right: 0;
-    top: 0;
-    font-weight:bold;
-    color: #62e2d9;
-    line-height: 15px;
-  }
+.plain-button {
+  background-color: #62e2d9;
+  float: right;
+  padding: 3px 8px;
+  position: relative;
+  right: 0;
+  top: 0;
+  font-weight:bold;
+  color: white;
+  line-height: 15px;
+}
 
-  .plain-button:hover{
-    background-color: #62e2d9;
-    coloR:white;
-  }
+.plain-button:hover{
+  background-color: #4db2ab;
+}
 
 .sort-button {
   background-color: white;
   float: left;
-  padding: 10px 27px;
+  padding: 10px 4.84%;
   position: relative;
   font-weight:bold;
   color: #62e2d9;
@@ -209,185 +207,193 @@ img{
   box-shadow:inset 0 -4px 0 0 #62e2d9;
 }
 
-  .reply-button {
-    float: right;
-    font-size: 0.6em;
-    border-radius: 4px;
-    margin-left: 5px;
-  }
+.reply-button {
+  float: right;
+  font-size: 0.6em;
+  border-radius: 4px;
+  margin-left: 5px;
+}
 
-  .submit-button{
-    border-radius:3px;
-    background-color:#62e2d9;
-    padding: 2px 215.5px;
-    margin:0 20px;
-    font-weight:bold;
-    color: white;
-    line-height: 15px;
-  }
+.submit-button{
+  border-radius:3px;
+  background-color:#62e2d9;
+  padding: 6px 215.5px;
+  margin:4px 20px;
+  font-weight:bold;
+  color: white;
+  line-height: 15px;
+}
 
-  .submit-button:hover{
-    background-color: #51bbb4;
-  }
+.submit-button:hover{
+  background-color: #51bbb4;
+}
 
-  .baseline-content {
-    background-color: #fff;
-  }
+.baseline-content {
+  background-color: #fff;
+}
 
-  .comment-footer {
-    padding-top: 5px;
-  }
+.comment-footer {
+  padding-top: 5px;
+}
 
-  .submit-comment-container {
-    border-top: solid 1px #aaa;
-    margin: 10px;
-
-    h2 {
-      margin: 10px 0;
-    }
-  }
-
-  h1 {
-    font-size: 130%;
-    font-weight: bold;
-  }
+.submit-comment-container {
+  border-top: solid 1px #aaa;
+  margin: 10px;
 
   h2 {
-    font-size: 110%;
-    font-weight: bold;
+    margin: 10px 0;
   }
+}
 
-  .reply-content{
-    background-color: #e8e8e8;
-    border:1px solid #4e4e4e;
-  }
+h1 {
+  font-size: 130%;
+  font-weight: bold;
+}
 
-  .contributors-show {
-    background-image: url(../images/SVG/ContributorsShowMore.svg);
-    background-position: 0 3px;
-    float: left;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    border: 1px solid #fff;
-    height: 26px;
-    line-height: 9px;
-    width: 26px;
-    margin-right: 4px;
-  }
+h2 {
+  font-size: 110%;
+  font-weight: bold;
+}
 
-  .contributors-show:hover{
-    background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
-    background-position: 0 2px;
-  }
+.reply-content{
+  background-color: #ececec;
+  //border:1px solid #4e4e4e;
+}
 
-  .contributors-hide:hover{
-    background-image: url(../images/PNG/ContributorsShowLessHover.png);
-  }
+.contributors-show {
+  background-image: url(../images/SVG/ContributorsShowMore.svg);
+  background-position: 0 3px;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  border: 1px solid #fff;
+  height: 26px;
+  line-height: 9px;
+  width: 26px;
+  margin-right: 4px;
+}
 
-  .contributors-hide {
-    background-image: url(../images/SVG/ContributorsShowLess.svg);
-    background-position: 0 3px;
-    float: left;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    height: 26px;
-    line-height: 9px;
-    width: 26px;
-    margin-right: 4px;
-  }
+.contributors-show:hover{
+  background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
+  background-position: 0 2px;
+}
 
-  .contributor {
-    float: left;
-    margin-right: 2px;
-    font-size: small;
-    color: #a6a6a6;
-  }
+.contributors-hide:hover{
+  background-image: url(../images/PNG/ContributorsShowLessHover.png);
+}
 
-  .contributor-first {
-    float: left;
-    margin-right:2px;
-    font-size: small;
-    color: #a6a6a6;
-  }
+.contributors-hide {
+  background-image: url(../images/SVG/ContributorsShowLess.svg);
+  background-position: 0 3px;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  height: 26px;
+  line-height: 9px;
+  width: 26px;
+  margin-right: 4px;
+}
 
-  .tutorial-title {
-    font-size: 30px;
-    color: #3f3f3f;
-    margin:15px 0;
-  }
+.contributor {
+  float: left;
+  margin-right: 2px;
+  font-size: small;
+  color: #a6a6a6;
+}
 
-  .tutorial-author {
-    font-size: large;
-    color: #3f3f3f;
-    margin-bottom:3px;
-  }
+.contributor-first {
+  float: left;
+  margin-right:2px;
+  font-size: small;
+  color: #a6a6a6;
+}
 
-  .step-title{
-    font-size:20px;
-    color:#3f3f3f;
-    margin-bottom:20px;
-    font-weight:300;
-  }
+.tutorial-title {
+  font-size: 30px;
+  color: #3f3f3f;
+  margin:15px 0;
+}
 
-  .contributor-button {
-    margin-left: 2px;
-    font-size: medium;
-    color: #a6a6a6;
-  }
+.tutorial-author {
+  font-size: large;
+  color: #3f3f3f;
+  margin-bottom:3px;
+}
 
-  .window-title {
-    font-weight: bold;
-    color: darkgrey;
-    margin-left: 15px;
-    float: left;
-  }
+.step-title{
+  font-size:20px;
+  color:#3f3f3f;
+  margin-bottom:10px;
+  font-weight:300;
+}
 
-  .delete-button {
-    margin: 0 10px;
-    font-size: 0.6em;
-    float: right;
-    border-radius: 4px;
-  }
+.contributor-button {
+  margin-left: 2px;
+  font-size: medium;
+  color: #a6a6a6;
+}
 
-  .note-rating {
-    font-size: 0.6em;
-    text-align: left;
-    margin-right: 15px;
-  }
+.window-title {
+  font-weight: bold;
+  color: darkgrey;
+  margin-left: 15px;
+  float: left;
+}
 
-  .rating-button {
-    background-image: url(../images/PNG/thumbs-UP.png);
-    background-position: 6px 0;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    height: 23px;
-    line-height: 9px;
-    width: 28px;
-    float: left;
-    outline: none;
-  }
+.delete-button {
+  margin: 0 10px;
+  font-size: 0.6em;
+  float: right;
+  border-radius: 4px;
+  color:red;
+  background:none;
+}
 
-  .rated{
-    background-image: url(../images/PNG/thumbs-up-pressed.png);;
-  }
+.delete-button:hover{
+  color:white;
+  background-color:red;
+}
 
-  .text{
-    font-size: 11px;
-    color: #575757;
-    font-weight:400;
-  }
+.note-rating {
+  font-size: 0.6em;
+  text-align: left;
+}
 
-  .date {
-    font-size: 11px;
-    color: #575757;
-    font-weight:bold;
-  }
+.rating-button {
+  background-image: url(../images/PNG/thumbs-UP.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  height: 23px;
+  line-height: 9px;
+  width: 20px;
+  float: left;
+  outline: none;
+  margin-right: 5px;
+}
+
+.rated{
+  background-image: url(../images/PNG/thumbs-up-pressed.png);
+}
+
+.text{
+  font-size: 11px;
+  color: #a6a6a6;
+  font-weight:400;
+}
+
+.date {
+  font-size: 11px;
+  color: #a6a6a6;
+  font-weight:600;
+}
 
 
-  .note-display {
-    margin-left: 10px;
-    margin-top:15px;
-    margin-bottom:5px;
-  }
+.note-display {
+  margin-left: 10px;
+  margin-top:15px;
+  margin-bottom:5px;
+  color:white;
+}

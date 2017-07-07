@@ -1476,7 +1476,7 @@ iframe {
  *
  */
 html, body {
-  background-color: #e0e0e0;
+  background-color: #ffffff;
 }
 
 .content {
@@ -1490,6 +1490,7 @@ img {
   max-height: 200px;
   border: 1px solid #000000;
   display: block;
+  margin-bottom: 20px;
 }
 
 .header {
@@ -1504,7 +1505,6 @@ img {
   padding: 0 0 0 5px;
 }
 
-#dddddd
 .note-content {
   padding: 0 15px;
   font-size: 13px;
@@ -1562,7 +1562,7 @@ img {
   padding: 5px 10px;
   clear: both;
   border-radius: 3px;
-  background-color: #dddddd;
+  background-color: #ffffff;
 }
 
 .note-contributor {
@@ -1570,18 +1570,19 @@ img {
   text-align: right;
   float: left;
   margin-right: 10px;
-  color: #575757;
-  font-weight: bold;
+  color: #a6a6a6;
+  font-weight: 600;
 }
 
 .reply-text {
   margin: 0 20px;
-  color: #575757;
+  color: black;
   font-size: 11px;
 }
 
 .input-container {
-  background: #efefef;
+  border: 2px solid #e2e2e2;
+  background: #d6d6d6;
   border-top: none;
   font-size: 0.9em;
   padding: 5px;
@@ -1590,28 +1591,29 @@ img {
   overflow-x: hidden;
   top: 75.3%;
   right: 20px;
-  height: 21.3%;
+  height: 23%;
   box-shadow: 0 -3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .note-container {
+  border: 2px solid #e2e2e2;
   border-top: none;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 3px 10px;
-  background: #efefef;
+  background: #d6d6d6;
   position: fixed;
   right: 20px;
-  top: 12.5%;
+  top: 12.1%;
   height: 64%;
 }
 
 .sort-container {
-  border-bottom: none;
+  border: 2px solid #e2e2e2;
   padding: 0;
-  background: #efefef;
+  background: #d6d6d6;
   position: fixed;
-  top: 4.2%;
+  top: 4%;
   height: 9%;
 }
 
@@ -1643,26 +1645,25 @@ img {
 }
 
 .plain-button {
-  background-color: white;
+  background-color: #62e2d9;
   float: right;
   padding: 3px 8px;
   position: relative;
   right: 0;
   top: 0;
   font-weight: bold;
-  color: #62e2d9;
+  color: white;
   line-height: 15px;
 }
 
 .plain-button:hover {
-  background-color: #62e2d9;
-  coloR: white;
+  background-color: #4db2ab;
 }
 
 .sort-button {
   background-color: white;
   float: left;
-  padding: 10px 27px;
+  padding: 10px 4.84%;
   position: relative;
   font-weight: bold;
   color: #62e2d9;
@@ -1688,8 +1689,8 @@ img {
 .submit-button {
   border-radius: 3px;
   background-color: #62e2d9;
-  padding: 2px 215.5px;
-  margin: 0 20px;
+  padding: 6px 215.5px;
+  margin: 4px 20px;
   font-weight: bold;
   color: white;
   line-height: 15px;
@@ -1726,8 +1727,7 @@ h2 {
 }
 
 .reply-content {
-  background-color: #e8e8e8;
-  border: 1px solid #4e4e4e;
+  background-color: #ececec;
 }
 
 .contributors-show {
@@ -1795,7 +1795,7 @@ h2 {
 .step-title {
   font-size: 20px;
   color: #3f3f3f;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 300;
 }
 
@@ -1817,24 +1817,31 @@ h2 {
   font-size: 0.6em;
   float: right;
   border-radius: 4px;
+  color: red;
+  background: none;
+}
+
+.delete-button:hover {
+  color: white;
+  background-color: red;
 }
 
 .note-rating {
   font-size: 0.6em;
   text-align: left;
-  margin-right: 15px;
 }
 
 .rating-button {
   background-image: url(../images/PNG/thumbs-UP.png);
-  background-position: 6px 0;
+  background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 23px;
   line-height: 9px;
-  width: 28px;
+  width: 20px;
   float: left;
   outline: none;
+  margin-right: 5px;
 }
 
 .rated {
@@ -1843,18 +1850,19 @@ h2 {
 
 .text {
   font-size: 11px;
-  color: #575757;
+  color: #a6a6a6;
   font-weight: 400;
 }
 
 .date {
   font-size: 11px;
-  color: #575757;
-  font-weight: bold;
+  color: #a6a6a6;
+  font-weight: 600;
 }
 
 .note-display {
   margin-left: 10px;
   margin-top: 15px;
   margin-bottom: 5px;
+  color: white;
 }
