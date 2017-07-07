@@ -170,9 +170,9 @@
 
               var chosenFilter = null;
               function filterSelected(value){
-                  chosenFilter = parseInt(document.getElementById("filter").value);
+                  chosenFilter = $('#filter').select2('data').slice(0);
                   document.getElementById("apply").click();
-                  console.log($('#filter').select2('data'));
+                  console.log(chosenFilter);
               }
           </script>
           <div class="input-container three-tenths" ng-if="inputPos != null" ng-style="{'top':4.2 + '%', 'right':1 + '%'}" style="height:300px;padding: 5px;">
