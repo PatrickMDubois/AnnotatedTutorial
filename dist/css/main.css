@@ -1481,8 +1481,8 @@ html, body {
 
 .content {
   background-color: #fff;
-  margin: 44px 0px;
-  padding: 10px 0px;
+  margin: 44px 0;
+  padding: 10px 0;
 }
 
 img {
@@ -1588,7 +1588,7 @@ img {
 .icon-other {
   background-image: url(../images/PNG/other.png);
   background-size: 23px;
-  background-position: 0px 2px;
+  background-position: 0 2px;
 }
 
 .filter-icon-details {
@@ -1614,20 +1614,20 @@ img {
   background-position: 2px 2px;
 }
 
-.selected-details, .note-details, .filter-icon-details:hover, .icon-details:hover {
+.selected-details, .note-details, .filter-icon-details:hover, .number-details, .icon-details:hover {
   background-color: #d0e7ff;
 }
 
-.selected-corrections, .note-corrections, .filter-icon-corrections:hover, .icon-corrections:hover {
+.selected-corrections, .note-corrections, .filter-icon-corrections:hover, .number-corrections, .icon-corrections:hover {
   background-color: #f5dcfd;
   z-index: 1;
 }
 
-.selected-questions, .note-questions, .filter-icon-questions:hover, .icon-questions:hover {
+.selected-questions, .note-questions, .filter-icon-questions:hover, .number-questions, .icon-questions:hover {
   background-color: lightyellow;
 }
 
-.selected-other, .note-other, .filter-icon-other:hover, .icon-other:hover {
+.selected-other, .note-other, .filter-icon-other:hover, .number-other, .icon-other:hover {
   background-color: #dcffe5;
 }
 
@@ -1653,8 +1653,8 @@ img {
 }
 
 .dropdown {
-  padding: 0px 3px;
-  margin: 0px 10px;
+  padding: 0 3px;
+  margin: 0 10px;
   line-height: 24px;
 }
 
@@ -1713,6 +1713,16 @@ img {
   position: fixed;
   top: 4.2%;
   height: 10.6%;
+}
+
+.filter-open-container {
+  top: 34.2%;
+  height: 10.6%;
+}
+
+.note-open-container {
+  top: 44.7%;
+  height: 51%;
 }
 
 .sort {
@@ -1787,7 +1797,7 @@ h2 {
 }
 
 .contributors-show {
-  background-image: url(../images/PNG/arrow-down.png);
+  background-image: url(../images/SVG/ContributorsShowMore.svg);
   background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
@@ -1801,7 +1811,7 @@ h2 {
 }
 
 .contributors-hide {
-  background-image: url(../images/PNG/arrow-up.png);
+  background-image: url(../images/SVG/ContributorsShowLess.svg);
   background-position: 5px 5px;
   float: left;
   background-repeat: no-repeat;
@@ -1849,7 +1859,6 @@ h2 {
 }
 
 .icon__number {
-  background-color: lightsteelblue;
   border-radius: 50%;
   color: black;
   padding: 2px;
@@ -1885,8 +1894,7 @@ h2 {
 
 .delete-button {
   background: rgba(255, 0, 21, 0.57);
-  margin: 0px 10px;
-  margin-bottom: 0px;
+  margin: 0 10px;
   font-size: 0.6em;
   float: right;
   color: white;
@@ -1947,8 +1955,8 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/PNG/thumbs-up.png);
-  background-position: 6px 0px;
+  background-image: url(../images/PNG/thumbs-UP.png);
+  background-position: 6px 0;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 28px;
@@ -1964,7 +1972,7 @@ h2 {
 
 .step-list {
   border-top: 1px solid #e6e6e6;
-  padding: 2px 0px;
+  padding: 2px 0;
   padding-left: 15px;
   text-align: left;
   font-weight: bold;
@@ -2025,14 +2033,14 @@ h2 {
 
 .menu-one {
   background-image: url(../images/PNG/arrow-right.png);
-  background-position: 0px 0px;
+  background-position: 0 0;
   margin-right: 10px;
   float: right;
 }
 
 .menu-two {
   background-image: url(../images/PNG/arrow-left.png);
-  background-position: 0px 2px;
+  background-position: 0 2px;
   margin-right: 20px;
   float: left;
 }

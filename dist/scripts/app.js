@@ -128,7 +128,7 @@ angular.module('AnnotatedTutorial')
                 return contributor;
             },
             post: function(note) {
-                var note = new Note({
+                var theNote = new Note({
                     step_id: note.step_id,
                     tutorial_id: note.tutorial_id,
                     category: note.category,
@@ -140,7 +140,13 @@ angular.module('AnnotatedTutorial')
                     deleted:false
                 });
 
-                $http.post(annotatedTutorialServer + '/tutorials/notes', note);
+                var newNote;
+                var promise2 = $http.post(annotatedTutorialServer + '/tutorials/notes', theNote)
+                    .then(function(response) {
+                        newNote = response.data;
+                        return newNote;
+                    });
+                return promise2;
             },
             put: function(note,deleteChange, ratingChange){
 
@@ -268,10 +274,7 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.clear = function(){
-                    $scope.contributor = TutorialService.get();
-                    $scope.tutorial = $scope.contributor.current_tutorial;
                   $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
-                    console.log($scope.tutorial.notes.length);
                   $scope.newSort();
                   $scope.categoryFilter = null;
                   $scope.stepFilter = null;
@@ -302,7 +305,6 @@ angular.module('AnnotatedTutorial')
                 $scope.stepIcon = function(step){
                     $scope.newFilter(parseInt(step));
                     document.getElementById("filter").value = parseInt(step);
-                    console.log(document.getElementById("filter").value);
                 };
 
 
@@ -426,24 +428,24 @@ angular.module('AnnotatedTutorial')
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
 
-                        TutorialService.post(note);
-
-                        note.step_id = $scope.selectedStepsList.slice(0);
-                        note.dateSubmitted=moment();
-                        note.contributor_list = [];
-                        $scope.tutorial.notes.push(note);
-
-                        if($scope.replyTo){
-                            $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
-                        }
-
-                        if(!$scope.replyTo){
-                            for(var index=0; index<note.step_id.length; index++){
-                                $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
+                        var returnedNote = TutorialService.post(note).then(function(result){
+                            $scope.newNote = result;
+                            if($scope.replyTo){
+                                $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push($scope.newNote);
                             }
-                        }
 
-                        $scope.closeInput();
+                            $scope.tutorial.notes.push($scope.newNote);
+
+                            if(!$scope.replyTo){
+                                for(var index=0; index<$scope.newNote.step_id.length; index++){
+                                    $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[index])].notes.push($scope.newNote);
+                                }
+                            }
+
+                            $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
+                            $scope.newSort();
+                            $scope.closeInput();
+                        });
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
@@ -646,4 +648,43 @@ angular.module('AnnotatedTutorial')
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
         };
+    });
+/**
+ * Created by patrick on 01/06/17.
+ */
+// Select all links with hashes
+$('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+        // On-page links
+        if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+            &&
+            location.hostname == this.hostname
+        ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            // Does a scroll target exist?
+            if (target.length) {
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    }
+                });
+            }
+        }
     });

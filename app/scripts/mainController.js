@@ -104,10 +104,7 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.clear = function(){
-                    $scope.contributor = TutorialService.get();
-                    $scope.tutorial = $scope.contributor.current_tutorial;
                   $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
-                    console.log($scope.tutorial.notes.length);
                   $scope.newSort();
                   $scope.categoryFilter = null;
                   $scope.stepFilter = null;
@@ -138,7 +135,6 @@ angular.module('AnnotatedTutorial')
                 $scope.stepIcon = function(step){
                     $scope.newFilter(parseInt(step));
                     document.getElementById("filter").value = parseInt(step);
-                    console.log(document.getElementById("filter").value);
                 };
 
 
@@ -262,24 +258,24 @@ angular.module('AnnotatedTutorial')
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
 
-                        TutorialService.post(note);
-
-                        note.step_id = $scope.selectedStepsList.slice(0);
-                        note.dateSubmitted=moment();
-                        note.contributor_list = [];
-                        $scope.tutorial.notes.push(note);
-
-                        if($scope.replyTo){
-                            $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
-                        }
-
-                        if(!$scope.replyTo){
-                            for(var index=0; index<note.step_id.length; index++){
-                                $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
+                        var returnedNote = TutorialService.post(note).then(function(result){
+                            $scope.newNote = result;
+                            if($scope.replyTo){
+                                $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push($scope.newNote);
                             }
-                        }
 
-                        $scope.closeInput();
+                            $scope.tutorial.notes.push($scope.newNote);
+
+                            if(!$scope.replyTo){
+                                for(var index=0; index<$scope.newNote.step_id.length; index++){
+                                    $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[index])].notes.push($scope.newNote);
+                                }
+                            }
+
+                            $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
+                            $scope.newSort();
+                            $scope.closeInput();
+                        });
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/select2/dist/css/select2.min.css">
     <!-- /build -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="scripts/smooth-scrolling.js"></script>
     <!-- build:[src] scripts/ -->
     <script src="modernizr/modernizr.js"></script>
     <!-- /build -->
@@ -74,35 +75,35 @@
                       ng-if="checkForCategory(step, 'corrections')"
                       ng-click="stepIcon(step.step_number);newFilter('corrections')"
                       tooltip="Corrections">
-                  <div class = "icon__number">{{numberOfNotes(step,"corrections")}}</div>
+                  <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-details icon-bar"
                       ng-if="checkForCategory(step, 'details')"
                       ng-click="stepIcon(step.step_number);newFilter('details')"
                       tooltip="Tell me more!">
-                  <div class="icon__number">{{numberOfNotes(step,"details")}}</div>
+                  <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions icon-bar"
                       ng-if="checkForCategory(step, 'questions')"
                       ng-click="stepIcon(step.step_number);newFilter('questions')"
                       tooltip="Questions">
-                  <div class="icon__number">{{numberOfNotes(step,"questions")}}</div>
+                  <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other icon-bar"
                       ng-if="checkForCategory(step, 'other')"
                       ng-click="stepIcon(step.step_number);newFilter('other')"
                       tooltip="Other">
-                  <div class="icon__number">{{numberOfNotes(step,"other")}}</div>
+                  <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
               </button>
 
           </div></div><!--
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item two-tenths filter-container filter">
+                      <div class="grid__item two-tenths filter-container filter" ng-class="{'filter-open-container': selectedStepsList.length !== 0}">
                           <div class="note-display filter-title">FILTER</div>
                           <button class="plain-button filter-button" ng-click="clear()">CLEAR</button><br>
 
@@ -133,7 +134,7 @@
 
 
                       </div>
-                      <div class="grid__item one-tenth filter-container sort">
+                      <div class="grid__item one-tenth filter-container sort" ng-class="{'filter-open-container': selectedStepsList.length !== 0}">
                           <div class="note-display">SORT</div>
                           <label>
                           <select class="dropdown sort-drop" id="sort" onchange="sortSelected()">
@@ -146,7 +147,7 @@
                           </label>
                       </div>
 
-                      <div class="grid__item three-tenths note-container">
+                      <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':selectedStepsList.length !== 0}">
                       <note ng-repeat="note in listOfNotes"
                             ng-if="canShowNote(note) && note.reply_to == null"
                             note="note"
@@ -179,7 +180,7 @@
                   console.log(chosenFilter);
               }
           </script>
-          <div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
+          <div class="input-container three-tenths" ng-if="inputPos != null" ng-style="{'top':4.2 + '%', 'right':1 + '%'}" style="height:300px;padding: 5px;">
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
@@ -216,7 +217,7 @@
 
                 <div ng-if="secondMenu">
                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                   <script src="scripts/smooth-scrolling.js"></script>
+
                    <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
                    <div ng-repeat="step in currentStep">
                       <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
@@ -231,7 +232,7 @@
                 </div>
               </div>
 
-              <div ng-show="showTextarea || replyTo!==null">
+              <div ng-show="(showTextarea || replyTo!==null) && secondMenu">
                 <div class="description"  ng-if="replyTo==null">
                   <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
                   <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
