@@ -89,7 +89,7 @@ angular.module('AnnotatedTutorial')
                 $scope.submitNote = function(){
                     $scope.inputCategory = "comment";
                     $scope.extraInput = "";
-
+                    console.log($scope.listOfNotes.length);
                     if(($scope.replyTo!==null) || $scope.newNote){
                         var note = {
                             "step_id":[],
@@ -104,22 +104,22 @@ angular.module('AnnotatedTutorial')
                         if($scope.replyTo!==null){
                             note.category = "reply";
                         }
-                        TutorialService.post(note);
 
-                        note.contributor_list = [];
-                        $scope.tutorial.notes.push(note);
+                        var returnedNote = TutorialService.post(note).then(function(result){
+                            $scope.newNote = result;
+                            console.log($scope.newNote);
+                            if($scope.replyTo){
+                                $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push($scope.newNote);
+                            }
 
-                        note.step_id = $scope.selectedStepsList;
+                            $scope.tutorial.notes.push($scope.newNote);
 
-                        if($scope.replyTo){
-                            $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
-                        }
+                            $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
+                            $scope.newSort();
+                            console.log($scope.listOfNotes.length);
+                            $scope.closeInput();
+                        });
 
-                        $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
-                        $scope.newSort();
-
-
-                        $scope.closeInput();
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
