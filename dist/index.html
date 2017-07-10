@@ -5,6 +5,7 @@
     <title>Annotated Tutorial</title>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="stylesheet" href="css/main.css">
+    <link href="http://http://fonts.googleapis.com/css?family=Open+Sans'rel='stylesheet'type='text/css'">
     <script src="scripts/modernizr.js"></script>
 
   </head>
@@ -59,7 +60,7 @@
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
                       <div class="grid__item three-tenths sort-container sort">
-                          <div class="note-display">Sort Comments by</div>
+                          <div class="note-display"></div>
                           <button class="sort-button" ng-click="sortSelected('new'); newSort()" ng-class="{'sort-button-selected':chosenSort =='new'}">RECENT</button>
                           <button class="sort-button" ng-click="sortSelected('old');newSort()" ng-class="{'sort-button-selected':chosenSort =='old'}">OLDEST</button>
                           <button class="sort-button" ng-click="sortSelected('high');newSort()" ng-class="{'sort-button-selected':chosenSort =='high'}">RATING HIGH</button>
@@ -86,7 +87,7 @@
                               <div class="reply-text" ng-if="replyTo!=null">Replying to {{replyToContributor}}: {{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,75))}}...</div>
                               <div ng-if="replyTo==null"><br></div>
                           </div>
-                          <textarea class="input-text text" ng-model="$parent.newNote" rows="6" placeholder="Type in your comment here..."></textarea>
+                          <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Type in your comment here..."></textarea>
                           <button ng-click="submitNote()" class="submit-button">COMMENT</button>
                       </div>
                   </div>

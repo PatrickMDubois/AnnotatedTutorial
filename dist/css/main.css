@@ -1552,6 +1552,7 @@ img {
   border: 1px solid #9b9b9b;
   display: inline-block;
   font-size: 75%;
+  font-family: 'Open sans', sans-serif;
   top: -5px;
   padding: 20px;
   position: relative;
@@ -1572,12 +1573,14 @@ img {
   margin-right: 10px;
   color: #a6a6a6;
   font-weight: 600;
+  font-family: 'Open sans', sans-serif;
 }
 
 .reply-text {
   margin: 0 20px;
   color: black;
   font-size: 11px;
+  font-family: 'Open sans', sans-serif;
 }
 
 .input-container {
@@ -1585,6 +1588,7 @@ img {
   background: #d6d6d6;
   border-top: none;
   font-size: 0.9em;
+  font-family: 'Open sans', sans-serif;
   padding: 5px;
   position: fixed;
   overflow-y: hidden;
@@ -1640,7 +1644,7 @@ img {
   background-color: white;
   margin: 0 15px;
   padding: 0 5px;
-  font-size: 25px;
+  font-family: 'Open sans', sans-serif;
   border: solid 1px #e2e2e2;
 }
 
@@ -1652,8 +1656,9 @@ img {
   right: 0;
   top: 0;
   font-weight: bold;
+  font-family: 'Open sans', sans-serif;
   color: white;
-  line-height: 15px;
+  line-height: 20px;
 }
 
 .plain-button:hover {
@@ -1666,6 +1671,7 @@ img {
   padding: 10px 4.84%;
   position: relative;
   font-weight: bold;
+  font-family: 'Open sans', sans-serif;
   color: #62e2d9;
   line-height: 15px;
   outline: none;
@@ -1681,7 +1687,8 @@ img {
 
 .reply-button {
   float: right;
-  font-size: 0.6em;
+  font-size: 0.65em;
+  font-family: 'Open sans', sans-serif;
   border-radius: 4px;
   margin-left: 5px;
 }
@@ -1692,6 +1699,7 @@ img {
   padding: 6px 215.5px;
   margin: 4px 20px;
   font-weight: bold;
+  font-family: 'Open sans', sans-serif;
   color: white;
   line-height: 15px;
 }
@@ -1719,11 +1727,13 @@ img {
 h1 {
   font-size: 130%;
   font-weight: bold;
+  font-family: 'Open sans', sans-serif;
 }
 
 h2 {
   font-size: 110%;
   font-weight: bold;
+  font-family: 'Open sans', sans-serif;
 }
 
 .reply-content {
@@ -1770,6 +1780,7 @@ h2 {
   float: left;
   margin-right: 2px;
   font-size: small;
+  font-family: 'Open sans', sans-serif;
   color: #a6a6a6;
 }
 
@@ -1790,6 +1801,7 @@ h2 {
   font-size: large;
   color: #3f3f3f;
   margin-bottom: 3px;
+  font-family: 'Open sans', sans-serif;
 }
 
 .step-title {
@@ -1797,16 +1809,19 @@ h2 {
   color: #3f3f3f;
   margin-bottom: 10px;
   font-weight: 300;
+  font-family: 'Open sans', sans-serif;
 }
 
 .contributor-button {
   margin-left: 2px;
   font-size: medium;
+  font-family: 'Open sans', sans-serif;
   color: #a6a6a6;
 }
 
 .window-title {
   font-weight: bold;
+  font-family: 'Open sans', sans-serif;
   color: darkgrey;
   margin-left: 15px;
   float: left;
@@ -1814,11 +1829,22 @@ h2 {
 
 .delete-button {
   margin: 0 10px;
-  font-size: 0.6em;
   float: right;
   border-radius: 4px;
-  color: red;
-  background: none;
+  background-repeat: no-repeat;
+  padding: 3px 8px;
+  position: relative;
+  right: 0;
+  top: 0;
+  font-weight: bold;
+  font-family: 'Open sans', sans-serif;
+  color: white;
+  line-height: 20px;
+  height: 20px;
+  width: 50px;
+  background-image: url(../images/SVG/DELETE.svg);
+  background-size: 45px;
+  background-position: 0px 0px;
 }
 
 .delete-button:hover {
@@ -1827,8 +1853,11 @@ h2 {
 }
 
 .note-rating {
-  font-size: 0.6em;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Open sans', sans-serif;
   text-align: left;
+  color: #a6a6a6;
 }
 
 .rating-button {
@@ -1852,12 +1881,14 @@ h2 {
   font-size: 11px;
   color: #a6a6a6;
   font-weight: 400;
+  font-family: 'Open sans', sans-serif;
 }
 
 .date {
   font-size: 11px;
   color: #a6a6a6;
   font-weight: 600;
+  font-family: 'Open sans', sans-serif;
 }
 
 .note-display {
