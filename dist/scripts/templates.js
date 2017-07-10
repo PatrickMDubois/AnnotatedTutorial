@@ -9,7 +9,12 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'methods'? 'note-methods' :\n" +
     "    (note.category === 'details' ? 'note-details' :\n" +
     "    (note.category === 'questions' ? 'note-questions' :\n" +
-    "    (note.category === 'other' ? 'note-other' : 'reply-content')))))\">\n" +
+    "    (note.category === 'other' ? 'note-other' :\n" +
+    "    (parentCategory === 'corrections' ? 'reply-corrections' :\n" +
+    "    (parentCategory === 'methods'? 'reply-methods' :\n" +
+    "    (parentCategory === 'details' ? 'reply-details' :\n" +
+    "    (parentCategory === 'questions' ? 'reply-questions' :\n" +
+    "    parentCategory === 'other' ? 'reply-other' : 'reply-content')))))))))\">\n" +
     "\n" +
     "    <div class=\"note-steps text\">\n" +
     "        <div ng-if=\"notelist.length>=1\" >Steps: {{notelist}}</div>\n" +
@@ -36,7 +41,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"note-contributor\">Other</div>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"note-contributor\">{{note.contributor}}</div>\n" +
+    "    <div class=\"note-contributor\">{{note.contributor}} {{parentCategory}}</div>\n" +
     "    <div class=\"date\">{{date}}</div>\n" +
     "\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
@@ -57,7 +62,7 @@ module.run(["$templateCache", function($templateCache) {
     "            <div ng-if=\"note.contributor_list.length==1\">{{note.contributor_list.length}} person found this helpful.</div>\n" +
     "            <div ng-if=\"note.contributor_list.length<1\">Not rated yet.</div>\n" +
     "    </div>\n" +
-    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" user=\"user\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\"></note>\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" user=\"user\" date=\"date\" current-note=\"currentNote\" notelist=\"noteList\" parent-category=\"parentCategory\"></note>\n" +
     "    </div>\n" +
     "</div>");
 }]);

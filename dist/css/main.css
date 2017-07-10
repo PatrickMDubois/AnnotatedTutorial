@@ -1589,6 +1589,22 @@ img {
   background-color: #d4ed96;
 }
 
+.reply-details {
+  background-color: rgba(176, 140, 255, 0.34);
+}
+
+.reply-corrections {
+  background-color: #ffb874;
+}
+
+.reply-questions {
+  background-color: #f0e276;
+}
+
+.reply-other {
+  background-color: #c4dd86;
+}
+
 .note-area {
   margin-bottom: 20px;
 }
@@ -1607,7 +1623,7 @@ img {
 
 .note {
   border: 1px solid rgba(151, 151, 151, 0.18);
-  margin: 5px;
+  margin: 10px 0;
   padding: 5px 10px;
   clear: both;
   border-radius: 2px;
