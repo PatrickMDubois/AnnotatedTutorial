@@ -158,19 +158,18 @@
                           <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
                           <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
                           <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
-                      </div>
-                      <div class="software-container" ng-if="(inputCategory == 'other')">
-                          <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-                          <input type="text" ng-model="$parent.$parent.extraInput"/>
+                          <div class="software-container" ng-if="(inputCategory == 'other')">
+                              <div ng-if="inputCategory == 'other'">How would you label your note?</div>
+                              <input type="text" ng-model="$parent.$parent.extraInput"/>
+                          </div>
                       </div>
                   </div>
-                  <div>
+                  <div ng-if="replyTo!==null">
                       <div class="close-button reply-close" ng-click="closeInput()">Close</div>
                       <br>
                   </div>
                   <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
                   <button ng-click="submitNote()" class="plain-button">Submit</button>
-              </div>
           </div>
       </div>
     </div>

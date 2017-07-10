@@ -160,23 +160,8 @@ angular.module('AnnotatedTutorial')
                                     $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[index])].notes.push($scope.newNote);
                                 }
                             }
+                            $scope.closeInput();
                         });
-                       /* note.contributor_list = [];
-                        note.dateSubmitted = moment();
-                        note.step_id = $scope.selectedStepsList;
-                        $scope.tutorial.notes.push(note);
-
-                        if($scope.replyTo){
-                            $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push(note);
-                        }
-
-                        if(!$scope.replyTo){
-                            for(var index=0; index<note.step_id.length; index++){
-                                $scope.tutorial.steps[$scope.findStepIndex(note.step_id[index].id)].notes.push(note);
-                            }
-                        }*/
-
-                        $scope.closeInput();
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
