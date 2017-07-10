@@ -4,14 +4,14 @@ catch(err) { module = angular.module("app-templates", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("note-filter.html",
-    "<ui-select ng-model=\"selectedItem\">\n" +
+    "<!--<ui-select ng-model=\"selectedItem\">\n" +
     "    <ui-select-match>\n" +
     "        <span ng-bind=\"$select.selected.name\"></span>\n" +
     "    </ui-select-match>\n" +
     "    <ui-select-choices repeat=\"item in (list | filter: $select.search) track by item.id\">\n" +
     "        <span ng-bind=\"item.name\"></span>\n" +
     "    </ui-select-choices>\n" +
-    "</ui-select>");
+    "</ui-select>-->");
 }]);
 })();
 
@@ -34,23 +34,23 @@ module.run(["$templateCache", function($templateCache) {
     "        <div ng-if=\"general\">General</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='corrections'\">\n" +
-    "        <div class=\"filter-icon filter-icon-corrections note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Corrections•</div>\n" +
+    "        <div class=\"filter-icon note-icon-corrections note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-contributor\">Corrections</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='details'\">\n" +
-    "        <div class=\"filter-icon filter-icon-details note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Tell Me More!•</div>\n" +
+    "        <div class=\"filter-icon note-icon-details note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-contributor\">Tell Me More!</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='questions'\">\n" +
-    "        <div class=\"filter-icon filter-icon-questions note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Questions•</div>\n" +
+    "        <div class=\"filter-icon note-icon-questions note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-contributor\">Questions</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='other'\">\n" +
-    "        <div class=\"filter-icon filter-icon-other note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Other•</div>\n" +
+    "        <div class=\"filter-icon note-icon-other note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-contributor\">Other</div>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"note-contributor\">{{note.contributor}}•</div>\n" +
+    "    <div class=\"note-contributor\">{{note.contributor}}</div>\n" +
     "    <div class=\"date\">{{date}}<br></div>\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'other'\">Note category: {{note.extra_info}}</div>\n" +
     "    <div class=\"note-content\">{{note.content}}</div>\n" +

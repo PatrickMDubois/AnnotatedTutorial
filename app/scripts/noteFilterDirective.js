@@ -1,4 +1,4 @@
-angular.module('AnnotatedTutorial',['ngSanitize', 'ui.select'])
+/*angular.module('AnnotatedTutorial',['ngSanitize', 'ui.select'])
     .directive('noteFilter', function (){
         'use strict';
 
@@ -10,11 +10,11 @@ angular.module('AnnotatedTutorial',['ngSanitize', 'ui.select'])
             {id: 5, name: 'fifth'}
         ];
 
-        $scope.selectedItem = $scope.itemArray[0];*/
+        $scope.selectedItem = $scope.itemArray[0];
 
         return {
             restrict: 'E',
             templateUrl: 'note-filter.html',
             scope: {list: '='}
         };
-    });
+    });*/

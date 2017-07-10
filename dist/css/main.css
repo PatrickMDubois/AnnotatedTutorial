@@ -1476,11 +1476,11 @@ iframe {
  *
  */
 html, body {
-  background-color: #e0e0e0;
+  background-color: white;
 }
 
 .content {
-  background-color: #fff;
+  background-color: white;
   margin: 44px 0;
   padding: 10px 0;
 }
@@ -1507,6 +1507,7 @@ img {
 
 .note-content {
   padding: 0 15px;
+  font-size: 13px;
 }
 
 .icon {
@@ -1545,11 +1546,12 @@ img {
   opacity: 0;
   position: absolute;
   background-color: #000;
+  font-size: 0.7em;
   border-radius: 10px;
   color: #fff;
   margin-left: -10px;
-  margin-top: -40px;
-  padding: 5px;
+  margin-top: 20px;
+  padding: 2px;
   pointer-events: none;
   transition: all 0.1s ease;
   white-space: nowrap;
@@ -1615,21 +1617,59 @@ img {
   background-position: 2px 2px;
 }
 
+.note-icon-details {
+  background-image: url(../images/PNG/note-pin.png);
+  background-size: 14px;
+  background-position: 2px 2px;
+}
+
+.note-icon-corrections {
+  background-image: url(../images/PNG/note-healing.png);
+  background-position: 2px 2px;
+}
+
+.note-icon-questions {
+  background-image: url(../images/PNG/note-question.png);
+  background-size: 13px;
+  background-position: 2px 2px;
+}
+
+.note-icon-other {
+  background-image: url(../images/PNG/note-other.png);
+  background-size: 17px;
+  background-position: 2px 2px;
+}
+
 .selected-details, .note-details, .filter-icon-details:hover, .number-details, .icon-details:hover {
-  background-color: #d0e7ff;
+  background-color: rgba(166, 130, 255, 0.34);
 }
 
 .selected-corrections, .note-corrections, .filter-icon-corrections:hover, .number-corrections, .icon-corrections:hover {
-  background-color: #f5dcfd;
-  z-index: 1;
+  background-color: #ffc497;
 }
 
 .selected-questions, .note-questions, .filter-icon-questions:hover, .number-questions, .icon-questions:hover {
-  background-color: lightyellow;
+  background-color: #fff07d;
 }
 
 .selected-other, .note-other, .filter-icon-other:hover, .number-other, .icon-other:hover {
-  background-color: #dcffe5;
+  background-color: #d4ed96;
+}
+
+.reply-details {
+  background-color: rgba(176, 140, 255, 0.34);
+}
+
+.reply-corrections {
+  background-color: #ffb874;
+}
+
+.reply-questions {
+  background-color: #f0e276;
+}
+
+.reply-other {
+  background-color: #c4dd86;
 }
 
 .note:before {
@@ -1645,10 +1685,9 @@ img {
 }
 
 .note {
-  border: 1px solid #9b9b9b;
-  margin: 5px 0;
-  padding-left: 3px;
-  padding-right: 3px;
+  border: 1px solid rgba(151, 151, 151, 0.18);
+  margin: 10px 0;
+  padding: 5px 10px;
   clear: both;
   border-radius: 2px;
 }
@@ -1660,9 +1699,12 @@ img {
 }
 
 .note-contributor {
-  font-size: 0.6em;
+  font-size: 11px;
   text-align: right;
   float: left;
+  margin-right: 10px;
+  color: #7f7f7f;
+  font-weight: bold;
 }
 
 .input-start {
@@ -1699,7 +1741,7 @@ img {
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 10px;
-  background: #c0bbc5;
+  background-color: #d6d6d6;
   position: fixed;
   right: 20px;
   top: 14.7%;
@@ -1710,7 +1752,7 @@ img {
   border: 1px solid #d8d3de;
   border-bottom: none;
   padding: 5px;
-  background: #c0bbc5;
+  background: #d6d6d6;
   position: fixed;
   top: 4.2%;
   height: 10.6%;
@@ -2048,7 +2090,6 @@ h2 {
 
 .menu-button:hover {
   background-color: rgba(255, 192, 203, 0.76);
-  show-step-button: hover;
 }
 
 .show-step-button:hover {
@@ -2056,7 +2097,9 @@ h2 {
 }
 
 .date {
-  font-size: 0.6em;
+  font-size: 11px;
+  color: #7f7f7f;
+  font-weight: bold;
 }
 
 .filter-title {
@@ -2069,6 +2112,12 @@ h2 {
 
 .note-display {
   margin-left: 10px;
+}
+
+.text {
+  font-size: 11px;
+  color: #7f7f7f;
+  font-weight: 400;
 }
 
 .filter-button {
