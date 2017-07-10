@@ -243,6 +243,11 @@ angular.module('AnnotatedTutorial')
 
                     $scope.deleteChange = false;
 
+                    console.log($scope.findNote(note_id).deleted);
+                    console.log($scope.tutorial.notes[$scope.tutorial.steps[1].notes.length-1].deleted);
+                    console.log($scope.tutorial.steps[1].notes[$scope.tutorial.steps[1].notes.length-1].deleted);
+                    console.log($scope.tutorial.steps[1].notes[$scope.tutorial.steps[1].notes.length-1].id);
+
                     LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
                         + " | Step - " + $scope.selectedLine
