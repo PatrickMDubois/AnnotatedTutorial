@@ -1,7 +1,7 @@
 (function(w) {
     'use strict';
 
-    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment', 'RecursionHelper']);
+    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment', 'RecursionHelper','ui.select']);
 
     app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
@@ -17,7 +17,7 @@
 
         if (!pseudonym) {
             while (!pseudonym) {
-                pseudonym = prompt('Please, enter your pseudonym');
+                pseudonym = "panda"//prompt('Please, enter your pseudonym');
             }
 
             localStorage.setItem('pseudonym', pseudonym);

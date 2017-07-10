@@ -83,6 +83,19 @@ angular.module('AnnotatedTutorial')
                     $scope.lineClicked($index,$event,step);
                 };
 
+                $scope.getDropdownList = function(){
+                    var list = [];
+
+                    list.push({id: 0, name: "INTRO"});
+                    for(var i = 1; i < $scope.listOfSteps.length-2; i++){
+                        list.push({id:i, name: $scope.listOfSteps[i].step_number});
+                    }
+                    list.push({id: $scope.listOfSteps.length-2, name: "END"});
+                    list.push({id: $scope.listOfSteps.length-1, name:"GENERAL"});
+                    return list;
+                };
+
+
                 $scope.newSort = function(){
                   if(chosenSort==="new" || chosenSort === undefined || chosenSort === null|| chosenSort==="old"){
                       $scope.orderDate($scope.listOfNotes);

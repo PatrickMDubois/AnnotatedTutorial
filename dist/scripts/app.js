@@ -48,7 +48,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
 (function(w) {
     'use strict';
 
-    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment', 'RecursionHelper']);
+    w.app = angular.module('AnnotatedTutorial', ['app-templates', 'ngSanitize', 'angularMoment', 'RecursionHelper','ui.select']);
 
     app.factory('annotatedTutorialServer', function() {
         if (typeof(DEVELOPMENT) === 'undefined') {
@@ -64,7 +64,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
 
         if (!pseudonym) {
             while (!pseudonym) {
-                pseudonym = prompt('Please, enter your pseudonym');
+                pseudonym = "panda"//prompt('Please, enter your pseudonym');
             }
 
             localStorage.setItem('pseudonym', pseudonym);
@@ -252,6 +252,19 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedStepsList = step.concat($scope.selectedStepsList);
                     $scope.lineClicked($index,$event,step);
                 };
+
+                $scope.getDropdownList = function(){
+                    var list = [];
+
+                    list.push({id: 0, name: "INTRO"});
+                    for(var i = 1; i < $scope.listOfSteps.length-2; i++){
+                        list.push({id:i, name: $scope.listOfSteps[i].step_number});
+                    }
+                    list.push({id: $scope.listOfSteps.length-2, name: "END"});
+                    list.push({id: $scope.listOfSteps.length-1, name:"GENERAL"});
+                    return list;
+                };
+
 
                 $scope.newSort = function(){
                   if(chosenSort==="new" || chosenSort === undefined || chosenSort === null|| chosenSort==="old"){
@@ -668,6 +681,26 @@ angular.module('AnnotatedTutorial')
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
+        };
+    });
+angular.module('AnnotatedTutorial',['ngSanitize', 'ui.select'])
+    .directive('noteFilter', function (){
+        'use strict';
+
+        /*$scope.itemArray = [
+            {id: 1, name: 'first'},
+            {id: 2, name: 'second'},
+            {id: 3, name: 'third'},
+            {id: 4, name: 'fourth'},
+            {id: 5, name: 'fifth'}
+        ];
+
+        $scope.selectedItem = $scope.itemArray[0];*/
+
+        return {
+            restrict: 'E',
+            templateUrl: 'note-filter.html',
+            scope: {list: '='}
         };
     });
 /**

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Annotated Tutorial</title>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <link rel="stylesheet" href="css/main.css">
 
     <!-- build:[src] css/ -->
     <link rel="stylesheet" href="/select2/dist/css/select2.min.css">
     <!-- /build -->
+      <link rel="stylesheet" href="css/main.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="scripts/smooth-scrolling.js"></script>
     <!-- build:[src] scripts/ -->
@@ -114,8 +114,8 @@
                           <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button><br>
                           <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
                           <div class="note-display filter-title filter-section-title">STEPS:</div>
-                          <label>
-                              <select class="js-search" id="filter" style="width:35%" multiple="multiple" onchange="filterSelected(value)">
+                          <!--<label style="width:500px; display: block;">
+                              <select class="js-search" id="filter" multiple="multiple" onchange="filterSelected(value)">
 
                                   <option value="{{tutorial.steps.length-1}}">GENERAL</option>
                                   <option value="0">INTRO</option>
@@ -128,9 +128,12 @@
                               </select>
                           </label>
                           <script>
-                              $(".js-search").select2({placeholder: "STEP"});
-                          </script>
+                              setTimeout(function() {
+                                  $(".js-search").select2({theme:"classic",closeOnSelect:false});
+                              }, 2000);
+                          </script>-->
 
+                          <note-filter list="getDropDownList()"></note-filter>
 
                       </div>
                       <div class="grid__item one-tenth filter-container sort" ng-class="{'filter-open-container': selectedStepsList.length !== 0}">
@@ -267,6 +270,7 @@
     <script src="/moment/moment.js"></script>
     <script src="/angular-moment/angular-moment.js"></script>
     <script src="/select2/dist/js/select2.full.min.js"></script>
+    <script src="/angular-ui-select/dist/select.js"></script>
     <!-- /build -->
 
     <!-- build:js scripts/templates.js -->
@@ -280,6 +284,7 @@
     <script src="/scripts/mainController.js"></script>
     <script src="/scripts/recursionHelper.js"></script>
     <script src="/scripts/noteDirective.js"></script>
+    <script src="/scripts/noteFilterDirective.js"></script>
     <script src="/scripts/smooth-scrolling.js"></script>
     <!-- /build -->
   </body>
