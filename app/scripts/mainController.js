@@ -24,7 +24,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.noteStepList=[];
                 $scope.currentNote=null;
-                $scope.stepFilter = null;
+                $scope.stepFilter = [];
                 $scope.categoryFilter = null;
                 $scope.general = false;
 
@@ -123,13 +123,11 @@ angular.module('AnnotatedTutorial')
                   $scope.stepFilter.splice(0,$scope.stepFilter.length);
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
-                  console.log(document.getElementById("filter").value.toString());
                 };
 
                 $scope.newFilter = function(value){
                     if(chosenFilter != null && chosenFilter != undefined){
                         $scope.getStepNumber();
-                        console.log(chosenFilter);
                     }
 
                     if(value === undefined && chosenFilter != null){
@@ -137,9 +135,9 @@ angular.module('AnnotatedTutorial')
                     }else if(typeof value === 'string') {
                         $scope.categoryFilter = value;
                     }else{
-                        /*if($scope.stepFilter.indexOf(value)<0){
+                        if($scope.stepFilter == null|| $scope.stepFilter.indexOf(value)<0){
                             $scope.stepFilter.push(value);
-                        }*/
+                        }
                     }
                     if($scope.categoryFilter!== null && $scope.stepFilter!= null){
                         $scope.getStepFilterNotes();
@@ -154,7 +152,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepIcon = function(step){
                     $scope.newFilter(parseInt(step));
-                    document.getElementById("filter").value = parseInt(step);
+                    //document.getElementById("filter").value = parseInt(step);
                 };
 
                 $scope.getStepNumber=function(){
@@ -168,7 +166,6 @@ angular.module('AnnotatedTutorial')
                     for(var i =0; i < $scope.stepFilter.length; i++){
                         $scope.listOfNotes= $scope.listOfNotes.concat(($scope.tutorial.steps[$scope.stepFilter[i]].notes).slice(0));
                     }
-                    console.log($scope.listOfNotes);
                 };
 
 
