@@ -55,7 +55,7 @@
                   <div class="step-title" ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</div>
               </div>
               <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
-              <div class="main-content" ng-bind-html="step.html"></div>
+              <div class="main-content note-area" ng-bind-html="step.html"></div>
               <!-- Step's notes, if toggled on--->
               <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)"></note>
               <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)"></note>

@@ -11,32 +11,32 @@ module.run(["$templateCache", function($templateCache) {
     "    (note.category === 'questions' ? 'note-questions' :\n" +
     "    (note.category === 'other' ? 'note-other' : 'reply-content')))))\">\n" +
     "\n" +
-    "    <div class=\"note-steps\">\n" +
+    "    <div class=\"note-steps text\">\n" +
     "        <div ng-if=\"notelist.length>=1\" >Steps: {{notelist}}</div>\n" +
     "        <div ng-if=\"notelist.length<1\"> No Associated Step</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!baseline && note.category=='corrections'\">\n" +
     "        <div class=\"filter-icon filter-icon-corrections note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Corrections•</div>\n" +
+    "        <div class=\"note-contributor\">Corrections</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!baseline && note.category=='methods'\">\n" +
     "        <div class=\"filter-icon filter-icon-methods note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">What is this?•</div>\n" +
+    "        <div class=\"note-contributor\">What is this?</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!baseline  && note.category=='details'\">\n" +
     "        <div class=\"filter-icon filter-icon-details note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Tell Me More!•</div>\n" +
+    "        <div class=\"note-contributor\">Tell Me More!</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!baseline && note.category=='questions'\">\n" +
     "        <div class=\"filter-icon filter-icon-questions note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Questions•</div>\n" +
+    "        <div class=\"note-contributor\">Questions</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!baseline && note.category=='other'\" style=\"margin-top:5px\">\n" +
     "        <div class=\"filter-icon filter-icon-other note-icon\" style=\"margin-top:5px\"></div>\n" +
-    "        <div class=\"note-contributor\">Other•</div>\n" +
+    "        <div class=\"note-contributor\">Other</div>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"note-contributor\">{{note.contributor}}•</div>\n" +
+    "    <div class=\"note-contributor\">{{note.contributor}}</div>\n" +
     "    <div class=\"date\">{{date}}</div>\n" +
     "\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
