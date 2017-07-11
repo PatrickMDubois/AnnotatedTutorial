@@ -351,33 +351,33 @@ h2{
   font-family:'Open sans', sans-serif;
 }
 
-.tutorial-title{
-  font-size:30px;
+.tutorial-title {
+  font-size: 30px;
   font-family:'Open sans', sans-serif;
   color: #3f3f3f;
   margin:15px 0;
 }
 
-.tutorial-author{
+.tutorial-author {
   font-size: large;
   font-family:'Open sans', sans-serif;
   color: #3f3f3f;
   margin-bottom:3px;
 }
 
-.step-title {
-  font-size: 20px;
+.step-title{
+  font-size:20px;
+  color:#3f3f3f;
+  margin-bottom:10px;
+  font-weight:300;
   font-family:'Open sans', sans-serif;
-  color: #3f3f3f;
-  margin-bottom: 20px;
-  font-weight: 300;
 }
 
-.contributor-button{
-  margin-left:2px;
+.contributor-button {
+  margin-left: 2px;
   font-size: medium;
   font-family:'Open sans', sans-serif;
-  color: #8D8D8D;
+  color: #a6a6a6;
 }
 
 .note-number{
@@ -469,18 +469,18 @@ h2{
   text-decoration:underline black;
 }
 
-.note-rating{
-  font-size: 0.6em;
+.note-rating {
+  font-size: 11px;
+  font-weight:600;
   font-family:'Open sans', sans-serif;
-  color: #8d8d8d;;
+  text-align: left;
+  color: #8d8d8d;
 }
-
 .note-steps {
   font-size: 0.6em;
   font-family:'Open sans', sans-serif;
   float: right;
   margin-right: 10px;
-  color:#8d8d8d;
 }
 
 .rating-button {
@@ -569,7 +569,7 @@ h2{
 
 .text{
   font-size: 11px;
-  color: #8d8d8d;;
+  color: #8d8d8d;
   font-weight:400;
   font-family:'Open sans', sans-serif;
 }

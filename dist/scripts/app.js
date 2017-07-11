@@ -234,6 +234,9 @@ angular.module('AnnotatedTutorial')
                     $scope.replyStep = step;
                     $scope.selectedStepsList = step.concat($scope.selectedStepsList);
                     $scope.lineClicked($index,$event,step);
+                    LoggerService.log("Pressed Reply:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " | Note - " + $scope.findNote(id).content);
                 };
 
                 $scope.categorySelected = function(category){
@@ -255,10 +258,33 @@ angular.module('AnnotatedTutorial')
                 $scope.stepSelected=function(step){
                     var index = $scope.selectedStepsList.indexOf(step);
                     if(index== -1){
-                        $scope.stepAdded(step)
+                        $scope.stepAdded(step);
+                        LoggerService.log("Step Added:"
+                            + " Tutorial - " + $scope.tutorial.title
+                            + " | Step - " + $scope.selectedLine);
                     }else{
                         $scope.stepRemoved(step,index);
+                        LoggerService.log("Step Removed"
+                            + " Tutorial - " + $scope.tutorial.title
+                            + " | Step - " + $scope.selectedLine);
                     }
+
+                };
+
+                $scope.preview = function(step){
+                    LoggerService.log("Preview clicked"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " | Step - " + step.step_number);
+
+                    return true;
+                };
+
+                $scope.return = function(step){
+                    LoggerService.log("Return clicked"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " | Step - " + step.step_number);
+
+                    return true;
                 };
 
                 $scope.numberList=function(){
@@ -419,10 +445,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
-                        + " | Step - " + $scope.selectedLine
-                        + " | Category - " + $scope.inputCategory
-                        + " | Extra Input - " + $scope.extraInput
-                        + " | Note - " + $scope.newNote);
+                        + " | Note - " + $scope.findNote(note_id).content);
 
                 };
 
@@ -471,6 +494,10 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
                     $scope.ratingChange = false;
+
+                    LoggerService.log("Rated a note:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " | Note - " + $scope.findNote(note_id).content);
                 };
 
                 $scope.numberOfNotes = function(step,category)
@@ -506,6 +533,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.menuSwitch=function(){
                     $scope.secondMenu = !$scope.secondMenu;
+                    LoggerService.log("Menu switched");
                 };
 
                 $scope.noteOrder = function(step){

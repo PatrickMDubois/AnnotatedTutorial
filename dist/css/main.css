@@ -1861,17 +1861,17 @@ h2 {
 
 .step-title {
   font-size: 20px;
-  font-family: 'Open sans', sans-serif;
   color: #3f3f3f;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 300;
+  font-family: 'Open sans', sans-serif;
 }
 
 .contributor-button {
   margin-left: 2px;
   font-size: medium;
   font-family: 'Open sans', sans-serif;
-  color: #8D8D8D;
+  color: #a6a6a6;
 }
 
 .note-number {
@@ -1964,8 +1964,10 @@ h2 {
 }
 
 .note-rating {
-  font-size: 0.6em;
+  font-size: 11px;
+  font-weight: 600;
   font-family: 'Open sans', sans-serif;
+  text-align: left;
   color: #8d8d8d;
 }
 
@@ -1974,7 +1976,6 @@ h2 {
   font-family: 'Open sans', sans-serif;
   float: right;
   margin-right: 10px;
-  color: #8d8d8d;
 }
 
 .rating-button {

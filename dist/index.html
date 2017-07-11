@@ -112,7 +112,7 @@
                       <div class="window-title" >COMMENTING ON</div>
                       <div ng-repeat="step in currentStep">
                           <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
-                          <a class="return-button-first return-button" href="#{{step.id}}">Return</a>
+                          <a class="return-button-first return-button" ng-click="return(step)" href="#{{step.id}}">Return</a>
                       </div>
                       <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                       <div>
@@ -122,7 +122,7 @@
                       <br>
                       <div>
                           <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1">
-                              <a class="menu-action-button preview-button" href="#{{step.id}}"></a>
+                              <a class="menu-action-button preview-button" ng-click="preview(step);" href="#{{step.id}}"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                                   <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
@@ -139,7 +139,7 @@
                       <script src="scripts/smooth-scrolling.js"></script>
                       <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
                       <div ng-repeat="step in currentStep">
-                          <a class="return-button-second return-button" href="#{{step.id}}">Return</a>
+                          <a class="return-button-second return-button" ng-click="return(step);" href="#{{step.id}}">Return</a>
                           <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
                       </div>
                       <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
