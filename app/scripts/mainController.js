@@ -13,10 +13,9 @@ angular.module('AnnotatedTutorial')
                 $scope.replyToContributor = "";
                 $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
-
+                $scope.chosenSort ="new";
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
-
                 //the list of notes that are going to be shown
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -46,11 +45,20 @@ angular.module('AnnotatedTutorial')
                         $scope.replyTo =id;
                         $scope.replyToContributor = contributor;
                         $scope.replyStep = step;
+
+                        LoggerService.log("Pressed Reply:"
+                            + " Tutorial - " + $scope.tutorial.title
+                            + " | Note - " + $scope.findNote(id).content);
                     }else{
                         $scope.replyTo=null;
                         $scope.replyToContributor=null;
                         $scope.replyStep=null;
+
+                        LoggerService.log("Cancelled Reply:"
+                            + " Tutorial - " + $scope.tutorial.title
+                            + " | Note - " + $scope.findNote(id).content);
                     }
+
                 };
 
                 $scope.newSort = function(){
@@ -141,6 +149,10 @@ angular.module('AnnotatedTutorial')
 
                 $scope.sortSelected = function(sort){
                     $scope.chosenSort = sort;
+
+                    LoggerService.log("Sort selected"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " | Sort - " + sort);
                 };
 
                 $scope.findNoteIndex=function(reply){
@@ -160,8 +172,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
-                        + " | Extra Input - " + $scope.extraInput
-                        + " | Note - " + $scope.newNote);
+                        + " | Note - " + $scope.findNote(note_id).content);
 
                 };
 
@@ -192,6 +203,10 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
                     $scope.ratingChange = false;
+
+                    LoggerService.log("Rated a note:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " | Note - " + $scope.newNote);
                 };
 
                 $scope.numberOfNotes = function(step,category)

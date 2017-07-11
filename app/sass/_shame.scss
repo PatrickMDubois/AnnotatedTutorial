@@ -92,6 +92,7 @@ img{
   clear: both;
   border-radius: 3px;
   background-color: #ffffff;
+  border-left:4px solid #62e2d9;
 }
 
 .note-contributor {
@@ -99,7 +100,7 @@ img{
   text-align: right;
   float: left;
   margin-right:10px;
-  color: #a6a6a6;
+  color: #8d8d8d;
   font-weight:600;
   font-family:'Open sans', sans-serif;
 }
@@ -112,7 +113,7 @@ img{
 }
 
 .input-container {
-  border:2px solid #e2e2e2;
+  border:2px solid #e9e9e9;
   background: #d6d6d6;
   border-top:none;
   font-size: 0.9em;
@@ -128,7 +129,7 @@ img{
 }
 
 .note-container {
-  border:2px solid #e2e2e2;
+  border:2px solid #e9e9e9;
   border-top:none;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -136,17 +137,17 @@ img{
   background: #d6d6d6;
   position: fixed;
   right: 20px;
-  top: 12.1%;
-  height: 64%;
+  top: 9.3%;
+  height: 67%;
 }
 
 .sort-container {
-  border:2px solid #e2e2e2;
+  border:2px solid #e9e9e9;
   padding: 0;
   background: #d6d6d6;
   position: fixed;
   top: 4%;
-  height: 9%;
+  height: 6%;
 }
 
 .sort {
@@ -265,9 +266,20 @@ h2 {
   font-family:'Open sans', sans-serif;
 }
 
+
+.note-replies{
+  margin-bottom:3px !important;
+  border-bottom:none;
+  z-index:1;
+  position:relative;
+  box-shadow:0 3px 5px 0 rgba(0, 0, 0, 0.24) !important;
+}
+
 .reply-content{
-  background-color: #ececec;
-  //border:1px solid #4e4e4e;
+  margin-top:0 !important;
+  margin-bottom:1px !important;
+  border-top:none;
+  position:relative;
 }
 
 .contributors-show {
@@ -311,27 +323,29 @@ h2 {
   margin-right: 2px;
   font-size: small;
   font-family:'Open sans', sans-serif;
-  color: #a6a6a6;
+  color: #8d8d8d;
 }
 
 .contributor-first {
   float: left;
   margin-right:2px;
   font-size: small;
-  color: #a6a6a6;
+  font-family:'Open sans', sans-serif;
+  color: #8d8d8d;
 }
 
 .tutorial-title {
   font-size: 30px;
+  font-family:'Open sans', sans-serif;
   color: #3f3f3f;
   margin:15px 0;
 }
 
 .tutorial-author {
   font-size: large;
+  font-family:'Open sans', sans-serif;
   color: #3f3f3f;
   margin-bottom:3px;
-  font-family:'Open sans', sans-serif;
 }
 
 .step-title{
@@ -352,7 +366,7 @@ h2 {
 .window-title {
   font-weight: bold;
   font-family:'Open sans', sans-serif;
-  color: darkgrey;
+  color: #8d8d8d;
   margin-left: 15px;
   float: left;
 }
@@ -413,14 +427,14 @@ h2 {
 
 .text{
   font-size: 11px;
-  color: #a6a6a6;
+  color: #8d8d8d;
   font-weight:400;
   font-family:'Open sans', sans-serif;
 }
 
 .date {
   font-size: 11px;
-  color: #a6a6a6;
+  color: #8d8d8d;
   font-weight:600;
   font-family:'Open sans', sans-serif;
 }
