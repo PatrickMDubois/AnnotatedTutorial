@@ -55,7 +55,7 @@ angular.module('AnnotatedTutorial')
                     $scope.inputPos = $event.pageY;
                     $scope.currentStep.push(step);
 
-                    LoggerService.log("Opened input dialog");
+                    LoggerService.log("Opened input dialog"+ " Tutorial - " + $scope.tutorial.title);
                 }
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -75,7 +75,7 @@ angular.module('AnnotatedTutorial')
                     $scope.inputCategory = category;
                     $scope.extraInput = "";
 
-                    LoggerService.log("Changed input to category: " + category);
+                    LoggerService.log("Changed input to category: " + category + + " Tutorial - " + $scope.tutorial.title);
                 };
 
                 $scope.stepAdded = function(step){
@@ -144,7 +144,7 @@ angular.module('AnnotatedTutorial')
                     $scope.stepAdd = false;
                     $scope.secondMenu = false;
 
-                    LoggerService.log("Closed input dialog");
+                    LoggerService.log("Closed input dialog: " + " Tutorial - " + $scope.tutorial.title);
                 };
 
                 $scope.submitNote = function(){
@@ -364,7 +364,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.menuSwitch=function(){
                     $scope.secondMenu = !$scope.secondMenu;
-                    LoggerService.log("Menu switched");
+                    LoggerService.log("Menu switched:"+ " Tutorial - " + $scope.tutorial.title);
                 };
 
                 $scope.noteOrder = function(step){
