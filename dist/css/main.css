@@ -1515,7 +1515,6 @@ img {
   background-repeat: no-repeat;
   background-size: 16px;
   border-radius: 6px;
-  background-color: rgba(209, 209, 209, 0.53);
   height: 24px;
   line-height: 9px;
   width: 24px;
@@ -1566,34 +1565,11 @@ img {
 }
 
 .selected-step {
-  background-color: #ffe3fd;
+  background-color: #e7e7e7;
 }
 
 .note-icon {
   float: left;
-}
-
-.icon-details {
-  background-image: url(../images/PNG/pin.png);
-  background-size: 17px;
-  background-position: 3px 3px;
-}
-
-.icon-corrections {
-  background-image: url(../images/PNG/healing.png);
-  background-position: 3px;
-}
-
-.icon-questions {
-  background-image: url(../images/PNG/question.png);
-  background-size: 14px;
-  background-position: 4px 3px;
-}
-
-.icon-other {
-  background-image: url(../images/PNG/other.png);
-  background-size: 23px;
-  background-position: 0 2px;
 }
 
 .filter-icon-details {
@@ -1642,20 +1618,47 @@ img {
   background-position: 2px 2px;
 }
 
-.selected-details, .filter-icon-details:hover, .number-details, .icon-details:hover {
-  background-color: rgba(166, 130, 255, 0.34);
+.icon-details {
+  background-image: url(../images/PNG/pin.png);
+  background-size: 17px;
+  background-position: 3px 3px;
+  background-color: #e0d4ff;
 }
 
-.selected-corrections, .filter-icon-corrections:hover, .number-corrections, .icon-corrections:hover {
+.icon-corrections {
+  background-image: url(../images/SVG/healing.svg);
+  background-position: 3px;
   background-color: #ffc497;
 }
 
-.selected-questions, .filter-icon-questions:hover, .number-questions, .icon-questions:hover {
+.icon-questions {
+  background-image: url(../images/PNG/question.png);
+  background-size: 14px;
+  background-position: 4px 3px;
   background-color: #fff07d;
 }
 
-.selected-other, .filter-icon-other:hover, .number-other, .icon-other:hover {
+.icon-other {
+  background-image: url(../images/PNG/other.png);
+  background-size: 23px;
+  background-position: 0 2px;
   background-color: #d4ed96;
+}
+
+.selected-details, .number-details, .icon-details:hover {
+  background-color: #ccc0eb;
+}
+
+.selected-corrections, .number-corrections, .icon-corrections:hover {
+  background-color: #ebb083;
+}
+
+.selected-questions, .number-questions, .icon-questions:hover {
+  background-color: #ebdc69;
+}
+
+.selected-other, .number-other, .icon-other:hover {
+  background-color: #c0d982;
 }
 
 .note-details {
@@ -2097,7 +2100,7 @@ h2 {
 }
 
 .selected-menu-button {
-  background-color: #e6d4e2;
+  background-color: #f9f9f9;
 }
 
 .menu-button {

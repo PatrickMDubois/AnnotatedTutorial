@@ -100,7 +100,7 @@
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item two-tenths filter-container filter" ng-class="{'filter-open-container': selectedStepsList.length !== 0}">
+                      <div class="grid__item two-tenths filter-container filter" ng-class="{'filter-open-container': selectedStepsList.length !== 0  || replyTo !== null}">
                           <div class="note-display filter-title">FILTER</div>
                           <button class="plain-button" ng-click="clear()">CLEAR</button><br>
 
@@ -133,7 +133,7 @@
                           <note-filter list="getDropDownList()"></note-filter>
 
                       </div>
-                      <div class="grid__item one-tenth filter-container sort" ng-class="{'filter-open-container': selectedStepsList.length !== 0}">
+                      <div class="grid__item one-tenth filter-container sort" ng-class="{'filter-open-container': selectedStepsList.length !== 0 || replyTo !== null}">
                           <div class="note-display">SORT</div>
                           <label>
                           <select class="dropdown sort-drop" id="sort" onchange="sortSelected()">
@@ -146,7 +146,7 @@
                           </label>
                       </div>
 
-                      <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':selectedStepsList.length !== 0}">
+                      <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':selectedStepsList.length !== 0 || replyTo !== null}">
                       <note ng-repeat="note in listOfNotes"
                             ng-if="canShowNote(note) && note.reply_to == null"
                             note="note"

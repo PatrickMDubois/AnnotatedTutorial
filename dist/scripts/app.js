@@ -230,7 +230,9 @@ angular.module('AnnotatedTutorial')
                     $scope.inputPos = $event.pageY;
                     $scope.currentStep.push(step);
 
-                    LoggerService.log("Opened input dialog");
+                    LoggerService.log("Opened input dialog"
+                         + " Tutorial - " + $scope.tutorial.title
+                         + " Interface - Side Display");
                 };
                 $scope.chosenGeneral = function(){
                     if(!$scope.general) {
@@ -251,6 +253,10 @@ angular.module('AnnotatedTutorial')
                     $scope.replyStep = step;
                     $scope.selectedStepsList = step.concat($scope.selectedStepsList);
                     $scope.lineClicked($index,$event,step);
+                    LoggerService.log("Pressed Reply:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Side Display"
+                        + " | Note - " + $scope.findNote(id).content);
                 };
 
                 $scope.getDropdownList = function(){
@@ -293,6 +299,10 @@ angular.module('AnnotatedTutorial')
                   $scope.stepFilter.splice(0,$scope.stepFilter.length);
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
+                  LoggerService.log("Pressed Clear:"
+                      + " Tutorial - " + $scope.tutorial.title
+                      + " Interface - Side Display"
+                      + " | Note - " + $scope.findNote(id).content);
                 };
 
                 $scope.newFilter = function(value){
@@ -385,7 +395,9 @@ angular.module('AnnotatedTutorial')
                     $scope.inputCategory = category;
                     $scope.extraInput = "";
 
-                    LoggerService.log("Changed input to category: " + category);
+                    LoggerService.log("Changed input to category: " + category
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Side Display");
                 };
 
                 $scope.stepAdded = function(step){
@@ -433,7 +445,9 @@ angular.module('AnnotatedTutorial')
                     $scope.stepAdd = false;
                     $scope.secondMenu = false;
 
-                    LoggerService.log("Closed input dialog");
+                    LoggerService.log("Closed input dialog:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Side Display");
                 };
 
                 $scope.submitNote = function(){
@@ -480,6 +494,7 @@ angular.module('AnnotatedTutorial')
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
+                         + " Interface - Side Display"
                          + " | Step - " + $scope.selectedLine
                          + " | Category - " + $scope.inputCategory
                          + " | Extra Input - " + $scope.extraInput
@@ -526,7 +541,8 @@ angular.module('AnnotatedTutorial')
                     $scope.deleteChange = false;
 
                     LoggerService.log("Deleted a note:"
-                        + " Tutorial - " + $scope.tutorial.titlenp
+                        + " Tutorial - " + $scope.tutorial.title
+                        + "Interface - Side Display"
                         + " | Step - " + $scope.selectedLine
                         + " | Category - " + $scope.inputCategory
                         + " | Extra Input - " + $scope.extraInput
@@ -591,6 +607,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Toggled category: "
                         + " Tutorial - " + $scope.tutorial.title
+                        + "Interface - Side Display"
                         + " | Category - " + category
                         + " | Visibility - " + !show
                         + " | Step - " + step.html.substr(0, 50) + "...");
@@ -611,6 +628,7 @@ angular.module('AnnotatedTutorial')
                 $scope.showContributors = function(show) {
                     LoggerService.log("Toggled contributor list: "
                         + " Tutorial - " + $scope.tutorial.title
+                        + "Interface - Side Display"
                         + " | Visibility - " + !show);
 
                     return !show;
