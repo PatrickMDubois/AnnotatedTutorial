@@ -441,7 +441,7 @@ angular.module('AnnotatedTutorial')
                     if( $scope.replyTo!==null && $scope.newNote){
 
                         $scope.selectedLine = null;
-                        $scope.inputCategory = "comment";
+                        $scope.inputCategory = "reply";
                         $scope.extraInput = "";
                     }
                     if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
@@ -674,7 +674,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=',showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=',showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'=',parentCategory: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

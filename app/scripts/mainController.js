@@ -271,7 +271,7 @@ angular.module('AnnotatedTutorial')
                     if( $scope.replyTo!==null && $scope.newNote){
 
                         $scope.selectedLine = null;
-                        $scope.inputCategory = "comment";
+                        $scope.inputCategory = "reply";
                         $scope.extraInput = "";
                     }
                     if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
