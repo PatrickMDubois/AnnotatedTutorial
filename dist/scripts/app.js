@@ -224,8 +224,10 @@ angular.module('AnnotatedTutorial')
                     $scope.inputPos = $event.pageY;
                     $scope.currentStep.push(step);
 
-                    LoggerService.log("Opened input dialog"+ " Tutorial - " + $scope.tutorial.title);
-                }
+                    LoggerService.log("Opened input dialog"
+                        + " Tutorial - " + $scope.tutorial.title  
+                        + " Interface - Embedded");
+                };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
 
@@ -236,6 +238,7 @@ angular.module('AnnotatedTutorial')
                     $scope.lineClicked($index,$event,step);
                     LoggerService.log("Pressed Reply:"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Note - " + $scope.findNote(id).content);
                 };
 
@@ -244,7 +247,9 @@ angular.module('AnnotatedTutorial')
                     $scope.inputCategory = category;
                     $scope.extraInput = "";
 
-                    LoggerService.log("Changed input to category: " + category + + " Tutorial - " + $scope.tutorial.title);
+                    LoggerService.log("Changed input to category: " + category
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded");
                 };
 
                 $scope.stepAdded = function(step){
@@ -261,11 +266,13 @@ angular.module('AnnotatedTutorial')
                         $scope.stepAdded(step);
                         LoggerService.log("Step Added:"
                             + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - Embedded"
                             + " | Step - " + $scope.selectedLine);
                     }else{
                         $scope.stepRemoved(step,index);
                         LoggerService.log("Step Removed"
                             + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - Embedded"
                             + " | Step - " + $scope.selectedLine);
                     }
 
@@ -274,6 +281,7 @@ angular.module('AnnotatedTutorial')
                 $scope.preview = function(step){
                     LoggerService.log("Preview clicked"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Step - " + step.step_number);
 
                     return true;
@@ -282,6 +290,7 @@ angular.module('AnnotatedTutorial')
                 $scope.return = function(step){
                     LoggerService.log("Return clicked"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Step - " + step.step_number);
 
                     return true;
@@ -313,7 +322,9 @@ angular.module('AnnotatedTutorial')
                     $scope.stepAdd = false;
                     $scope.secondMenu = false;
 
-                    LoggerService.log("Closed input dialog: " + " Tutorial - " + $scope.tutorial.title);
+                    LoggerService.log("Closed input dialog: " 
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded");
                 };
 
                 $scope.submitNote = function(){
@@ -360,6 +371,7 @@ angular.module('AnnotatedTutorial')
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - Embedded"
                          + " | Step - " + $scope.selectedLine
                          + " | Category - " + $scope.inputCategory
                          + " | Extra Input - " + $scope.extraInput
@@ -445,6 +457,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Note - " + $scope.findNote(note_id).content);
 
                 };
@@ -497,6 +510,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Rated a note:"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Note - " + $scope.findNote(note_id).content);
                 };
 
@@ -516,6 +530,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Toggled category: "
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Category - " + category
                         + " | Visibility - " + !show
                         + " | Step - " + step.html.substr(0, 50) + "...");
@@ -526,6 +541,7 @@ angular.module('AnnotatedTutorial')
                 $scope.showContributors = function(show) {
                     LoggerService.log("Toggled contributor list: "
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded"
                         + " | Visibility - " + !show);
 
                     return !show;
@@ -533,7 +549,9 @@ angular.module('AnnotatedTutorial')
 
                 $scope.menuSwitch=function(){
                     $scope.secondMenu = !$scope.secondMenu;
-                    LoggerService.log("Menu switched:"+ " Tutorial - " + $scope.tutorial.title);
+                    LoggerService.log("Menu switched:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Embedded");
                 };
 
                 $scope.noteOrder = function(step){
@@ -570,31 +588,4 @@ angular.module('AnnotatedTutorial')
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
         };
-    });
-/**
- * Created by patrick on 01/06/17.
- */
-    $(document).ready(function(){
-        // Add smooth scrolling to all links
-        $("a").on('click', function(event) {
-
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-                // Prevent default anchor click behavior
-                event.preventDefault();
-
-                // Store hash
-                var hash = this.hash;
-
-                // Using jQuery's animate() method to add smooth page scroll
-                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 800, function(){
-
-                    // Add hash (#) to URL when done scrolling (default click behavior)
-                    window.location.hash = hash;
-                });
-            } // End if
-        });
     });
