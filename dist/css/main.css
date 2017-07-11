@@ -1510,7 +1510,6 @@ img {
   background-size: 16px;
   border: 1px solid #fff;
   border-radius: 6px;
-  background-color: #979797;
   height: 24px;
   line-height: 9px;
   width: 24px;
@@ -1555,39 +1554,43 @@ img {
   background-image: url(../images/PNG/pin.png);
   background-size: 17px;
   background-position: 3px 3px;
+  background-color: #e0d4ff;
 }
 
 .icon-corrections {
   background-image: url(../images/SVG/healing.svg);
   background-position: 3px;
+  background-color: #ffc497;
 }
 
 .icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 14px;
   background-position: 4px 3px;
+  background-color: #fff07d;
 }
 
 .icon-other {
   background-image: url(../images/PNG/other.png);
   background-size: 23px;
   background-position: 0 2px;
+  background-color: #d4ed96;
 }
 
 .selected-details, .number-details, .icon-details:hover {
-  background-color: #e0d4ff;
+  background-color: #ccc0eb;
 }
 
 .selected-corrections, .number-corrections, .icon-corrections:hover {
-  background-color: #ffc497;
+  background-color: #ebb083;
 }
 
 .selected-questions, .number-questions, .icon-questions:hover {
-  background-color: #fff07d;
+  background-color: #ebdc69;
 }
 
 .selected-other, .number-other, .icon-other:hover {
-  background-color: #d4ed96;
+  background-color: #c0d982;
 }
 
 .note-details {
