@@ -4,7 +4,7 @@ catch(err) { module = angular.module("app-templates", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("note.html",
-    "<div class=\"note\" ng-class=\"{'reply-content': note.category === 'reply', 'note-replies': note.replies.length>0}\">\n" +
+    "<div class=\"note\" ng-class=\"{'reply-content': note.category === 'reply', 'note-replies': note.replies.length>0, 'note-highlight': currentReply === note.id}\">\n" +
     "    <div class=\"note-contributor\">{{note.contributor}}</div>\n" +
     "    <div class=\"date\">{{date}}<br></div>\n" +
     "    <div class=\"note-content\">{{note.content}}</div>\n" +

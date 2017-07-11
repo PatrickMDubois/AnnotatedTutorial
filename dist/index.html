@@ -84,10 +84,10 @@
                       <div class="input-container grid__item three-tenths">
                           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                           <div>
-                              <div class="reply-text" ng-if="replyTo!=null">Replying to {{replyToContributor}}: {{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,75))}}...</div>
+                              <div class="reply-text" ng-if="replyTo!=null">Replying to {{replyToContributor}}: {{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,63))}}...</div>
                               <div ng-if="replyTo==null"><br></div>
                           </div>
-                          <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Type in your comment here..."></textarea>
+                          <textarea class="input-text" ng-model="$parent.newNote" rows="5" placeholder="Type in your comment here..."></textarea>
                           <button ng-click="submitNote()" class="submit-button">COMMENT</button>
                       </div>
                   </div>

@@ -48,6 +48,7 @@ angular.module('AnnotatedTutorial')
 
                         LoggerService.log("Pressed Reply:"
                             + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - FreeForm"
                             + " | Note - " + $scope.findNote(id).content);
                     }else{
                         $scope.replyTo=null;
@@ -56,6 +57,7 @@ angular.module('AnnotatedTutorial')
 
                         LoggerService.log("Cancelled Reply:"
                             + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - FreeForm"
                             + " | Note - " + $scope.findNote(id).content);
                     }
 
@@ -131,6 +133,7 @@ angular.module('AnnotatedTutorial')
 
                         LoggerService.log("Submitted a note:"
                          + " Tutorial - " + $scope.tutorial.title
+                         + " Interface - FreeForm"
                          + " | Category - comment"
                          + " | Extra Input - " + $scope.extraInput
                          + " | Note - " + $scope.newNote);
@@ -152,6 +155,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Sort selected"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - FreeForm"
                         + " | Sort - " + sort);
                 };
 
@@ -172,6 +176,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - FreeForm"
                         + " | Note - " + $scope.findNote(note_id).content);
 
                 };
@@ -206,6 +211,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Rated a note:"
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - FreeForm"
                         + " | Note - " + $scope.newNote);
                 };
 
@@ -225,6 +231,7 @@ angular.module('AnnotatedTutorial')
 
                     LoggerService.log("Toggled category: "
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - FreeForm"
                         + " | Category - " + category
                         + " | Visibility - " + !show
                         + " | Step - " + step.html.substr(0, 50) + "...");
@@ -235,6 +242,7 @@ angular.module('AnnotatedTutorial')
                 $scope.showContributors = function(show) {
                     LoggerService.log("Toggled contributor list: "
                         + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - FreeForm"
                         + " | Visibility - " + !show);
 
                     return !show;

@@ -1,4 +1,4 @@
-<div class="note" ng-class="{'reply-content': note.category === 'reply', 'note-replies': note.replies.length>0}">
+<div class="note" ng-class="{'reply-content': note.category === 'reply', 'note-replies': note.replies.length>0, 'note-highlight': currentReply === note.id}">
     <div class="note-contributor">{{note.contributor}}</div>
     <div class="date">{{date}}<br></div>
     <div class="note-content">{{note.content}}</div>

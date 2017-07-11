@@ -1510,6 +1510,10 @@ img {
   font-size: 13px;
 }
 
+.note-highlight {
+  background-color: rgba(166, 130, 255, 0.45) !important;
+}
+
 .icon {
   background-repeat: no-repeat;
   background-size: 16px;
@@ -1579,8 +1583,9 @@ img {
 
 .reply-text {
   margin: 0 20px;
-  color: black;
-  font-size: 11px;
+  color: #545454;
+  font-size: 13px;
+  font-weight: 500;
   font-family: 'Open sans', sans-serif;
 }
 
@@ -1596,7 +1601,7 @@ img {
   overflow-x: hidden;
   top: 75.3%;
   right: 20px;
-  height: 23%;
+  height: 21%;
   box-shadow: 0 -3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -1871,7 +1876,7 @@ h2 {
   font-weight: 600;
   font-family: 'Open sans', sans-serif;
   text-align: left;
-  color: #a6a6a6;
+  color: #8d8d8d;
 }
 
 .rating-button {
