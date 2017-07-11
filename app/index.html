@@ -106,7 +106,7 @@
                   <div ng-if="tutorial.notes" class="three-tenths">
                       <div class="grid__item two-tenths filter-container filter" ng-class="{'filter-open-container': selectedStepsList.length !== 0}">
                           <div class="note-display filter-title">FILTER</div>
-                          <button class="plain-button filter-button" ng-click="clear()">CLEAR</button><br>
+                          <button class="plain-button" ng-click="clear()">CLEAR</button><br>
 
                           <div class="note-display filter-title filter-section-title">CATEGORY:</div>
                           <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>

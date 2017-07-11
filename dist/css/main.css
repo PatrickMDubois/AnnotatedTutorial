@@ -1515,7 +1515,7 @@ img {
   background-repeat: no-repeat;
   background-size: 16px;
   border-radius: 6px;
-  background-color: #d9d9d9;
+  background-color: rgba(209, 209, 209, 0.53);
   height: 24px;
   line-height: 9px;
   width: 24px;
@@ -1678,22 +1678,6 @@ img {
   border-left: 6px solid #d4ee96;
 }
 
-.reply-details {
-  background-color: rgba(176, 140, 255, 0.34);
-}
-
-.reply-corrections {
-  background-color: #ffb874;
-}
-
-.reply-questions {
-  background-color: #f0e276;
-}
-
-.reply-other {
-  background-color: #c4dd86;
-}
-
 .note:before {
   background-repeat: no-repeat;
   background-size: 16px;
@@ -1711,14 +1695,6 @@ img {
   clear: both;
   border-radius: 2px;
   background-color: white;
-}
-
-.note-replies {
-  margin-bottom: 0 !important;
-  border-bottom: none;
-  z-index: 1;
-  position: relative;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.11) !important;
 }
 
 .dropdown {
@@ -1751,15 +1727,19 @@ img {
   background-color: #f5f5f5;
 }
 
-.reply-content {
-  margin-top: 0 !important;
-  border-top: none;
+.note-replies {
+  margin-bottom: 3px !important;
+  border-bottom: none;
+  z-index: 1;
   position: relative;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.24) !important;
 }
 
-.reply-chain {
+.reply-content {
   margin-top: 0 !important;
+  margin-bottom: 1px !important;
   border-top: none;
+  position: relative;
 }
 
 .input-container {
@@ -1774,7 +1754,7 @@ img {
 }
 
 .note-container {
-  border: 1px solid #d8d3de;
+  border: 1px solid rgba(186, 186, 186, 0.53);
   border-top: none;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -1787,13 +1767,14 @@ img {
 }
 
 .filter-container {
-  border: 1px solid #d8d3de;
+  border: 1px solid rgba(186, 186, 186, 0.53);
   border-bottom: none;
   padding: 5px;
   background-color: #e9e9e9;
   position: fixed;
   top: 4.2%;
   height: 10.6%;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .filter-open-container {
@@ -1841,17 +1822,21 @@ img {
   right: 0;
   top: 0;
   font-weight: bold;
+  font-size: 11px;
   font-family: 'Open sans', sans-serif;
   color: white;
   line-height: 20px;
   border-radius: 2px;
 }
 
+.plain-button:hover {
+  background-color: #4db2ab;
+}
+
 .reply-button {
   float: right;
   font-size: 0.65em;
   font-family: 'Open sans', sans-serif;
-  border-radius: 4px;
   margin-left: 5px;
 }
 
@@ -1881,29 +1866,28 @@ h2 {
 
 .contributors-show {
   background-image: url(../images/SVG/ContributorsShowMore.svg);
-  background-position: 5px 5px;
+  background-position: 0 3px;
   float: left;
   background-repeat: no-repeat;
-  background-size: 15.3px;
+  background-size: 20px;
   border: 1px solid #fff;
-  border-radius: 20px;
-  height: 24px;
+  height: 26px;
   line-height: 9px;
-  width: 24px;
+  width: 26px;
   margin-right: 4px;
 }
 
 .contributors-hide {
   background-image: url(../images/SVG/ContributorsShowLess.svg);
-  background-position: 5px 5px;
+  background-position: 0 3px;
   float: left;
   background-repeat: no-repeat;
-  background-size: 15.3px;
+  background-size: 20px;
   border: 1px solid #fff;
   border-radius: 20px;
-  height: 24px;
+  height: 26px;
   line-height: 9px;
-  width: 24px;
+  width: 26px;
   margin-right: 4px;
 }
 
@@ -1912,32 +1896,43 @@ h2 {
   margin-right: 2px;
   font-size: small;
   font-family: 'Open sans', sans-serif;
-  color: #333666;
+  color: #8d8d8d;
 }
 
 .contributor-first {
   float: left;
   margin: 0 2px;
   font-size: small;
-  color: #333666;
+  color: #8d8d8d;
 }
 
 .tutorial-title {
   font-size: 30px;
   font-family: 'Open sans', sans-serif;
+  color: #3f3f3f;
+  margin: 15px 0;
 }
 
 .tutorial-author {
   font-size: large;
   font-family: 'Open sans', sans-serif;
-  color: grey;
+  color: #3f3f3f;
+  margin-bottom: 3px;
+}
+
+.step-title {
+  font-size: 20px;
+  color: #3f3f3f;
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-family: 'Open sans', sans-serif;
 }
 
 .contributor-button {
   margin-left: 2px;
   font-size: medium;
   font-family: 'Open sans', sans-serif;
-  color: darkgrey;
+  color: #8d8d8d;
 }
 
 .note-number {
@@ -2035,11 +2030,11 @@ h2 {
 }
 
 .note-rating {
-  font-size: 0.6em;
+  font-size: 11px;
+  font-weight: 600;
   font-family: 'Open sans', sans-serif;
   text-align: left;
-  margin-right: 15px;
-  color: #8d8d8d;
+  color: #a6a6a6;
 }
 
 .note-steps {
@@ -2175,7 +2170,6 @@ h2 {
   border-radius: 2px;
   font-size: 0.6em;
   font-family: 'Open sans', sans-serif;
-  background-color: white;
   line-height: 15px;
   margin-right: 20px;
   margin-top: 5px;
