@@ -1836,7 +1836,7 @@ img {
 .plain-button {
   background-color: #62e2d9;
   float: right;
-  padding: 2px 11px;
+  padding: 3px 8px;
   position: relative;
   right: 0;
   top: 0;
@@ -1844,6 +1844,7 @@ img {
   font-family: 'Open sans', sans-serif;
   color: white;
   line-height: 20px;
+  border-radius: 2px;
 }
 
 .reply-button {
@@ -2144,10 +2145,6 @@ h2 {
   background-color: rgba(255, 192, 203, 0.76);
 }
 
-.show-step-button:hover {
-  background-color: #e7e7e7;
-}
-
 .date {
   font-size: 11px;
   color: #8d8d8d;
@@ -2193,8 +2190,6 @@ h2 {
   margin-top: 3px;
   font-size: 0.6em;
   font-family: 'Open sans', sans-serif;
-  border-radius: 3px;
-  background-color: white;
   outline: none;
   line-height: 15px;
 }
