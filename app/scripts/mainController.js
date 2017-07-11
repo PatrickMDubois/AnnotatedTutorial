@@ -91,7 +91,7 @@ angular.module('AnnotatedTutorial')
                     $scope.replyTo = null;
                     $scope.replyToContributor = "";
 
-                    LoggerService.log("Closed input dialog");
+                    LoggerService.log("Closed input dialog" + " Tutorial - " + $scope.tutorial.title);
                 };
 
                 $scope.submitNote = function(){
