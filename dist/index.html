@@ -13,7 +13,7 @@
       <script src="scripts/smooth-scrolling.js"></script>
     <script src="scripts/modernizr.js"></script>
   </head>
-  <body ng-controller="mainController">
+  <div ng-controller="mainController">
     <div class="l-wrap">
       <div class="grid grid--full is-extended">
           <div class="grid__item three-quarters is-extended content">
@@ -71,28 +71,28 @@
 
               <button class="icon icon-corrections icon-bar"
                       ng-if="checkForCategory(step, 'corrections')"
-                      ng-click="stepIcon(step.step_number);newFilter('corrections')"
+                      ng-click="newFilter(parseInt(step.step_number));newFilter('corrections')"
                       tooltip="Corrections">
                   <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-details icon-bar"
                       ng-if="checkForCategory(step, 'details')"
-                      ng-click="stepIcon(step.step_number);newFilter('details')"
+                      ng-click="newFilter(parseInt(step.step_number));newFilter('details')"
                       tooltip="Tell me more!">
                   <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions icon-bar"
                       ng-if="checkForCategory(step, 'questions')"
-                      ng-click="stepIcon(step.step_number);newFilter('questions')"
+                      ng-click="newFilter(parseInt(step.step_number));newFilter('questions')"
                       tooltip="Questions">
                   <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other icon-bar"
                       ng-if="checkForCategory(step, 'other')"
-                      ng-click="stepIcon(step.step_number);newFilter('other')"
+                      ng-click="newFilter(parseInt(step.step_number));newFilter('other')"
                       tooltip="Other">
                   <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
               </button>
@@ -107,31 +107,32 @@
                           <div class="note-display filter-steps">Steps</div><!--div class="note-display filter-title filter-section-title">STEPS:</div-->
                           <button class="clear-button" ng-click="clear()">CLEAR</button><br>
                           <div style="width:29.3%;height:6%;background:white;position:fixed;margin-top:10px">
-                          <select class="sortDropdown sort-drop" id="sort" onchange="sortSelected()">
-                              <option value="new" selected>RECENT</option>
-                              <option value="old">OLDEST</option>
-                              <option value="high">RATE:HIGH</option>
-                              <option value="low">RATE:LOW</option>
-                              <option value="category">CATEGORY</option>
-                          </select>
+                              <select class="sortDropdown sort-drop" id="sort" onchange="sortSelected()">
+                                  <option value="new" selected>RECENT</option>
+                                  <option value="old">OLDEST</option>
+                                  <option value="high">RATE:HIGH</option>
+                                  <option value="low">RATE:LOW</option>
+                                  <option value="category">CATEGORY</option>
+                              </select>
 
-                          <!--div class="note-display filter-title filter-section-title">CATEGORY:</div-->
-                          <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
-                          <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
-                          <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
-                          <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
+                              <!--div class="note-display filter-title filter-section-title">CATEGORY:</div-->
+                              <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
+                              <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
+                              <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
+                              <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
 
-                          <div>
-                          <ui-select multiple limit="2" close-on-select="false" ng-model="selectedItem" style="width:30%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
-                              <ui-select-match>
-                                  <span style="height:20%;" ng-bind="$select.selected.name"></span>
-                              </ui-select-match>
-                              <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-                                  <div ng-bind="item.name"></div>
-                              </ui-select-choices>
-                          </ui-select>
-                          </div></div>
-                          <button id="apply" ng-click="newSort();newFilter(chosenFilter)"></button>
+                              <div>
+                                  <ui-select on-select="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedItem" style="width:33%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                      <ui-select-match>
+                                          <span style="height:20%;" ng-bind="$item.name"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                                          <div ng-bind="item.name"></div>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                          </div>
+                          <button id="apply" ng-click="newSort();"></button>
                       </div>
 
                       <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':selectedStepsList.length !== 0 || replyTo !== null}">
@@ -159,13 +160,6 @@
                   chosenSort = document.getElementById("sort").value.toString();
                   document.getElementById("apply").click();
                   console.log(chosenSort);
-              }
-
-              var chosenFilter = null;
-              function filterSelected(value){
-                  chosenFilter = $('#filter').select2('data').slice(0);
-                  document.getElementById("apply").click();
-                  console.log(chosenFilter);
               }
           </script>
           <div class="input-container three-tenths" ng-if="inputPos != null" ng-style="{'top':4.2 + '%', 'right':1 + '%'}" style="height:300px;padding: 5px;">
@@ -229,7 +223,7 @@
 
                 <div class="software-container" ng-if="(inputCategory == 'other')">
                   <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-                  <input type="text" ng-model="$parent.$parent.extraInput"/>
+                  <input type="text" ng-model="$parent.extraInput"/>
                 </div>
                 </div>
                 <div ng-if="replyTo!=null">
@@ -242,6 +236,7 @@
           </div>
           </div>
       </div>
+    </div>
     </div>
 
 
