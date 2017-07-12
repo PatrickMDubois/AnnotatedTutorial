@@ -11,7 +11,25 @@ module.run(["$templateCache", function($templateCache) {
     "    <ui-select-choices repeat=\"item in (list | filter: $select.search) track by item.id\">\n" +
     "        <span ng-bind=\"item.name\"></span>\n" +
     "    </ui-select-choices>\n" +
-    "</ui-select>-->");
+    "</ui-select>\n" +
+    "       /*$scope.itemArray = [\n" +
+    "            {id: 1, name: 'first'},\n" +
+    "            {id: 2, name: 'second'},\n" +
+    "            {id: 3, name: 'third'},\n" +
+    "            {id: 4, name: 'fourth'},\n" +
+    "            {id: 5, name: 'fifth'}\n" +
+    "        ];\n" +
+    "\n" +
+    "        $scope.selectedItem = $scope.itemArray[0];\n" +
+    "\n" +
+    "        return {\n" +
+    "            restrict: 'E',\n" +
+    "            templateUrl: 'note-filter.html',\n" +
+    "            scope: {list: '='}\n" +
+    "        };\n" +
+    "    });s\n" +
+    "-->\n" +
+    "");
 }]);
 })();
 

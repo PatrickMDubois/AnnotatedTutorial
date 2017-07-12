@@ -79,13 +79,13 @@ gulp.task('dist:dependencies', function() {
             './bower_components/angular-sanitize/angular-sanitize.js',
             './bower_components/moment/moment.js',
             './bower_components/angular-moment/angular-moment.js',
-            './bower_components/select2/dist/js/select2.full.min.js'
+            './bower_components/angular-select-ui/dist/select.min.js'
         ])
         .pipe(concat('dependencies.js'))
         .pipe(gulp.dest('./dist/scripts'));
 
     gulp.src([
-            './bower_components/select2/dist/css/select2.min.css'
+            './bower_components/anuglar-select-ui/dist/select.css'
         ])
         .pipe(gulp.dest('./dist/css'));
 });

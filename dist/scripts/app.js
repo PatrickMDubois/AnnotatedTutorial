@@ -60,11 +60,11 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = ''//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = '';//'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
-                pseudonym = "panda"//prompt('Please, enter your pseudonym');
+                pseudonym = "panda";//prompt('Please, enter your pseudonym');
             }
 
             localStorage.setItem('pseudonym', pseudonym);
@@ -199,6 +199,16 @@ angular.module('AnnotatedTutorial')
                 $scope.general = false;
 
                 $scope.stepList = [];
+
+                $scope.itemArray = [
+                    {id: 1, name: 'first'},
+                    {id: 2, name: 'second'},
+                    {id: 3, name: 'third'},
+                    {id: 4, name: 'fourth'},
+                    {id: 5, name: 'fifth'},
+                ];
+
+                $scope.selectedItem = $scope.itemArray[0];
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -698,23 +708,54 @@ angular.module('AnnotatedTutorial')
             }
         };
     });
-/*angular.module('AnnotatedTutorial',['ngSanitize', 'ui.select'])
-    .directive('noteFilter', function (){
-        'use strict';
-
-        /*$scope.itemArray = [
+angular.module('AnnotatedTutorial')
+    .controller('ctrl', ['$scope', function ($scope){
+        $scope.itemArray = [
             {id: 1, name: 'first'},
             {id: 2, name: 'second'},
             {id: 3, name: 'third'},
             {id: 4, name: 'fourth'},
-            {id: 5, name: 'fifth'}
+            {id: 5, name: 'fifth'},
         ];
 
         $scope.selectedItem = $scope.itemArray[0];
-
-        return {
-            restrict: 'E',
-            templateUrl: 'note-filter.html',
-            scope: {list: '='}
-        };
-    });*/
+    }]);
+/**
+ * Created by patrick on 01/06/17.
+ */
+// Select all links with hashes
+$('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+        // On-page links
+        if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+            &&
+            location.hostname == this.hostname
+        ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            // Does a scroll target exist?
+            if (target.length) {
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    }
+                });
+            }
+        }
+    });
