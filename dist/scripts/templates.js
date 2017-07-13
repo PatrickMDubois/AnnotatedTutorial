@@ -12,7 +12,7 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"comment-footer\">\n" +
     "        <button class=\"plain-button reply-button\" ng-if=\"currentReply !== note.id\" ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\">REPLY</button>\n" +
     "        <button class=\"plain-button reply-button\" ng-if=\"currentReply === note.id\" ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\">Cancel</button>\n" +
-    "        <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\" delete-button\"></button>\n" +
+    "        <button ng-if=\"note.contributor==user.name\" ng-click=\"deleteIt(note.id)\" class=\"plain-button delete-button\">DELETE</button>\n" +
     "        <button class=\"rating-button\" ng-class=\"{'rated':note.contributor_list.indexOf(user.id)!=-1}\" ng-click=\"rateIt(note.id)\" tooltip=\"recommend\"></button>\n" +
     "        <div class=\"note-rating\">\n" +
     "            <div ng-if=\"note.contributor_list.length>1\">{{note.contributor_list.length}} people found this helpful.</div>\n" +

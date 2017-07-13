@@ -193,6 +193,8 @@ img{
   font-family:'Open sans', sans-serif;
   color: white;
   line-height: 20px;
+  border-radius: 3px;
+  font-size:0.65em;
 }
 
 .plain-button:hover{
@@ -302,7 +304,7 @@ h2 {
 
 .contributors-show:hover{
   background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
-  background-position: 0 2px;
+  //background-position: 0 2.4px;
 }
 
 .contributors-hide:hover{
@@ -377,32 +379,16 @@ h2 {
 }
 
 .delete-button {
+  background: white;
   margin: 0 10px;
-  //font-size: 0.65em;
   float: right;
-  border-radius: 4px;
-  background-repeat: no-repeat;
-  //color:red;
-  //background:none;
-  //float: right;
-  padding: 3px 8px;
-  position: relative;
-  right: 0;
-  top: 0;
-  font-weight:bold;
-  font-family:'Open sans', sans-serif;
-  color: white;
-  line-height: 20px;
-  height:20px;
-  width:50px;
-  background-image: url(../images/SVG/DELETE.svg);
-  background-size: 45px;
-  background-position: 0px 0px;
+  color: red;
+  //border-radius: 3px;
 }
 
-.delete-button:hover{
-  color:white;
-  background-color:red;
+.delete-button:hover {
+  background: rgba(255, 7, 0, 0.79);
+  color: white;
 }
 
 .note-rating {
@@ -414,7 +400,7 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/PNG/thumbs-UP.png);
+  background-image: url(../images/SVG/unSelectedThumb.svg);
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -427,7 +413,7 @@ h2 {
 }
 
 .rated{
-  background-image: url(../images/PNG/thumbs-up-pressed.png);
+  background-image: url(../images/SVG/selectedThumb.svg);
 }
 
 .text{
