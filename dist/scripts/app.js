@@ -197,7 +197,7 @@ angular.module('AnnotatedTutorial')
                 $scope.stepFilter = [];
                 $scope.categoryFilter = null;
                 $scope.general = false;
-
+                $scope.menuOpen = false;
                 $scope.stepList = [];
                 $scope.itemArray = [
                     {id: 0, name: 'intro'}
@@ -248,6 +248,7 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedLine = index;
                     $scope.inputPos = $event.pageY;
                     $scope.currentStep.push(step);
+                    $scope.menuOpen = true;
 
                     LoggerService.log("Opened input dialog"
                          + " Tutorial - " + $scope.tutorial.title
@@ -318,15 +319,14 @@ angular.module('AnnotatedTutorial')
                   $scope.stepFilter.splice(0,$scope.stepFilter.length);
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
+
                   LoggerService.log("Pressed Clear:"
                       + " Tutorial - " + $scope.tutorial.title
-                      + " Interface - Side Display"
-                      + " | Note - " + $scope.findNote(id).content);
+                      + " Interface - Side Display");
                 };
 
                 $scope.newFilter = function(value){
 
-                    console.log(value);
                     if(typeof value === 'string') {
                         $scope.categoryFilter = value;
                     }
@@ -339,14 +339,13 @@ angular.module('AnnotatedTutorial')
                         }
 
                     }
-
-                    if($scope.categoryFilter!== null && $scope.stepFilter!= null){
-                        $scope.getStepFilterNotes();
-                        $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
-                    }else if($scope.stepFilter!== null){
+                    if($scope.stepFilter.length !== 0){
                         $scope.getStepFilterNotes();
                     }else if($scope.categoryFilter!== null){
                         $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
+                    }else if($scope.categoryFilter!== null && $scope.stepFilter.length!==0){
+                        $scope.getStepFilterNotes();
+                        $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
                     }
                     $scope.newSort();
                 };
@@ -465,6 +464,7 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedStepsList.splice(0,$scope.selectedStepsList.length);
                     $scope.stepAdd = false;
                     $scope.secondMenu = false;
+                    $scope.menuOpen = false;
 
                     LoggerService.log("Closed input dialog:"
                         + " Tutorial - " + $scope.tutorial.title

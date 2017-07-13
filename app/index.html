@@ -105,7 +105,7 @@
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item three-tenths filter-container filter" ng-class="{'filter-open-container': selectedStepsList.length !== 0  || replyTo !== null}">
+                      <div class="grid__item three-tenths filter-container filter" ng-class="{'filter-open-container': menuOpen || replyTo !== null}">
                           <div class="note-display" style="margin-left:3%;">Sort</div>
                           <div class="note-display">Filter</div>
                           <div class="note-display filter-steps">Steps</div><!--div class="note-display filter-title filter-section-title">STEPS:</div-->
@@ -227,7 +227,7 @@
 
                 <div class="software-container" ng-if="(inputCategory == 'other')">
                   <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-                  <input type="text" ng-model="$parent.extraInput"/>
+                  <input class ="input-text" type="text" ng-model="$parent.extraInput"/>
                 </div>
                 </div>
                 <div ng-if="replyTo!=null">

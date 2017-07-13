@@ -1657,7 +1657,6 @@ img {
 
 .selected-details, .number-details, .filter-icon-details:hover, .icon-details:hover {
   background-color: #ccc0eb;
-  border-radius: 10px;
 }
 
 .selected-corrections, .number-corrections, .filter-icon-corrections:hover, .icon-corrections:hover {
@@ -1735,7 +1734,7 @@ img {
 
 .input-start {
   background-color: #fff;
-  background-image: url(../images/SVG/addNoteSquare.svg);
+  background-image: url(../images/SVG/unselectedAdd.svg);
   background-size: 22px;
   background-position: 4px 3px;
   height: 30px;
@@ -1744,7 +1743,7 @@ img {
 }
 
 .input-start:hover {
-  background-color: #f5f5f5;
+  background-image: url(../images/SVG/hoverAdd.svg);
 }
 
 .note-replies {
@@ -1763,7 +1762,7 @@ img {
 }
 
 .input-container {
-  background-color: #efefef;
+  background-color: #f0f0f0;
   border: 1px solid #e2e2e2;
   font-size: 0.9em;
   font-family: 'Open sans', sans-serif;
@@ -1829,6 +1828,7 @@ img {
 
 .input-text {
   width: 100%;
+  background: white;
 }
 
 .plain-button {
@@ -1844,6 +1844,7 @@ img {
   color: white;
   line-height: 18px;
   border-radius: 3px;
+  outline: none;
 }
 
 .clear-button {
@@ -1858,6 +1859,7 @@ img {
   font-family: 'Open sans', sans-serif;
   line-height: 20px;
   border-radius: 2px;
+  outline: none;
 }
 
 .clear-button:hover {
@@ -2024,10 +2026,11 @@ h2 {
 }
 
 .close-button {
-  font-size: 0.8em;
+  font-size: 1em;
   font-family: 'Open sans', sans-serif;
-  font-weight: bold;
   float: right;
+  color: #62e2d9;
+  font-weight: bold;
 }
 
 .reply-close {
@@ -2036,28 +2039,32 @@ h2 {
 }
 
 .return-button-first {
-  margin-left: 50%;
+  margin-left: 48%;
 }
 
 .return-button-second {
-  margin-left: 52%;
+  margin-left: 47.2%;
 }
 
 .close-button:hover {
-  text-decoration: underline black;
+  color: #4db2ab;
+  text-decoration: underline #4db2ab;
 }
 
 .close-button-second {
-  margin-right: 3.4%;
+  margin-right: 2.7%;
 }
 
 .return-button {
   font-size: 0.8em;
   font-family: 'Open sans', sans-serif;
+  color: #62e2d9;
+  font-weight: bold;
 }
 
 .return-button:hover {
-  text-decoration: underline black;
+  color: #4db2ab;
+  text-decoration: underline #4db2ab;
 }
 
 .note-rating {
@@ -2076,7 +2083,7 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/PNG/thumbs-UP.png);
+  background-image: url(../images/SVG/unSelectedThumb.svg);
   background-position: 0px 0;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -2088,7 +2095,7 @@ h2 {
 }
 
 .rated {
-  background-image: url(../images/PNG/thumbs-up-pressed.png);
+  background-image: url(../images/SVG/thumbsupSelected.svg);
 }
 
 .step-list {
@@ -2099,6 +2106,7 @@ h2 {
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
   color: #62e2d9;
+  background-color: white;
 }
 
 .disabled-steps {
@@ -2107,7 +2115,6 @@ h2 {
 
 .menu-action-button {
   float: right;
-  border-left: 2px solid #e6e6e6;
   outline: none;
 }
 
@@ -2116,6 +2123,15 @@ h2 {
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
   color: #62e2d9;
+  font-size: 19px;
+}
+
+.plus-action-button:hover {
+  color: #4db2ab;
+}
+
+.minus-action-button:hover {
+  color: #4db2ab;
 }
 
 .minus-action-button {
@@ -2123,10 +2139,7 @@ h2 {
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
   color: #62e2d9;
-}
-
-.menu-action-button:hover {
-  background-color: #e6d4e2;
+  font-size: 19px;
 }
 
 .menu-action-button:disabled {
@@ -2134,7 +2147,7 @@ h2 {
 }
 
 .selected-menu-button {
-  background-color: #4db2ab;
+  color: #4db2ab;
 }
 
 .menu-button {
@@ -2150,13 +2163,18 @@ h2 {
 }
 
 .preview-button {
-  background-image: url(../images/PNG/eye.png);
-  background-position: 6px 3px;
+  background-image: url(../images/SVG/eyeUnselected.svg);
+  background-position: 3px 8px;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 28px;
   line-height: 9px;
   width: 35px;
+  margin: 0 15px;
+}
+
+.preview-button:hover {
+  background-image: url(../images/SVG/eyeSelected.svg);
 }
 
 .menu-one {
