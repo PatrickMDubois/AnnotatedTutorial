@@ -327,32 +327,36 @@ angular.module('AnnotatedTutorial')
 
                 $scope.newFilter = function(value){
 
+                    console.log(value);
                     if(typeof value === 'string') {
                         $scope.categoryFilter = value;
                     }
                     else{
                         var index = $scope.stepFilter.indexOf(value);
-                        if( index > 0){
+                        if( index >= 0){
                             $scope.stepFilter.splice(index,1);
                         }else{
                             $scope.stepFilter.push(value);
                         }
 
                     }
-                    if($scope.stepFilter.length !== 0){
-                        $scope.getStepFilterNotes();
-                    }else if($scope.categoryFilter!== null){
-                        $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
-                    }else if($scope.categoryFilter!== null && $scope.stepFilter.length!==0){
+                    if($scope.categoryFilter!== null && $scope.stepFilter.length!==0){
                         $scope.getStepFilterNotes();
                         $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,$scope.listOfNotes);
+                    }else if($scope.stepFilter.length !== 0){
+                        $scope.getStepFilterNotes();
+                    }else if($scope.categoryFilter!== null){
+                        console.log("dumb");
+                        $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
+                    }else if($scope.stepFilter.length< 1){
+                        $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
                     }
                     $scope.newSort();
                 };
 
                 $scope.stepIcon = function(step){
-                    $scope.newFilter(parseInt(step));
-                    //document.getElementById("filter").value = parseInt(step);
+                    $scope.newFilter(parseInt(step.step_number));
+                    console.log("being called");
                 };
 
                 $scope.getStepNumber=function(){
@@ -497,7 +501,7 @@ angular.module('AnnotatedTutorial')
                         var returnedNote = TutorialService.post(note).then(function(result){
                             $scope.newNote = result;
                             if($scope.replyTo){
-                                $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push($scope.newNote);
+                                $scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies.push($scope.newNote);
                             }
 
                             $scope.tutorial.notes.push($scope.newNote);
@@ -714,7 +718,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=',showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'=',parentCategory: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=',showList: '=', user: '=', general:'=', date: '=',currentNote:'=', notelist:'=',parentCategory: '=', currentReply: '='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

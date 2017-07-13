@@ -1533,7 +1533,7 @@ img {
   width: 20px;
   position: relative;
   float: left;
-  margin: 2.5% 0;
+  margin: 2.5% 1%;
 }
 
 .filter-icon:hover {
@@ -1602,7 +1602,7 @@ img {
   background-image: url(../images/PNG/other.png);
   background-size: 17px;
   background-position: 2px 2px;
-  margin-right: 17% !Important;
+  margin-right: 11% !Important;
 }
 
 .note-icon-details {
@@ -1669,6 +1669,10 @@ img {
 
 .selected-other, .number-other, .filter-icon-other:hover, .icon-other:hover {
   background-color: #c0d982;
+}
+
+.note-highlight {
+  background-color: rgba(204, 192, 235, 0.45) !important;
 }
 
 .note-details {
@@ -1751,7 +1755,7 @@ img {
   border-bottom: none;
   z-index: 1;
   position: relative;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.24) !important;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 .reply-content {
@@ -2014,15 +2018,15 @@ h2 {
 }
 
 .delete-button {
-  background: rgba(255, 0, 21, 0.57);
+  background: white;
   margin: 0 10px;
   float: right;
-  color: white;
-  border-color: red;
+  color: red;
 }
 
 .delete-button:hover {
   background: rgba(255, 7, 0, 0.79);
+  color: white;
 }
 
 .close-button {

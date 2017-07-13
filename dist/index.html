@@ -71,28 +71,28 @@
 
               <button class="icon icon-corrections icon-bar"
                       ng-if="checkForCategory(step, 'corrections')"
-                      ng-click="newFilter(parseInt(step.step_number));newFilter('corrections')"
+                      ng-click="stepIcon(step);newFilter('corrections')"
                       tooltip="Corrections">
                   <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-details icon-bar"
                       ng-if="checkForCategory(step, 'details')"
-                      ng-click="newFilter(parseInt(step.step_number));newFilter('details')"
+                      ng-click="stepIcon(step);newFilter('details')"
                       tooltip="Tell me more!">
                   <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions icon-bar"
                       ng-if="checkForCategory(step, 'questions')"
-                      ng-click="newFilter(parseInt(step.step_number));newFilter('questions')"
+                      ng-click="stepIcon(step);newFilter('questions')"
                       tooltip="Questions">
                   <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other icon-bar"
                       ng-if="checkForCategory(step, 'other')"
-                      ng-click="newFilter(parseInt(step.step_number));newFilter('other')"
+                      ng-click="stepIcon(step);newFilter('other')"
                       tooltip="Other">
                   <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
               </button>
@@ -106,7 +106,7 @@
                           <div class="note-display">Filter</div>
                           <div class="note-display filter-steps">Steps</div><!--div class="note-display filter-title filter-section-title">STEPS:</div-->
                           <button class="clear-button" ng-click="clear()">CLEAR</button><br>
-                          <div style="width:29.3%;height:6%;background:white;position:fixed;margin-top:10px">
+                          <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
                               <select class="sortDropdown sort-drop" id="sort" onchange="sortSelected()">
                                   <option value="new" selected>RECENT</option>
                                   <option value="old">OLDEST</option>
@@ -122,7 +122,7 @@
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
 
                               <div>
-                                  <ui-select on-select="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedItem" style="width:33%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                  <ui-select on-select="newFilter($item.id)" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedItem" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
                                       <ui-select-match>
                                           <span style="height:20%;" ng-bind="$item.name"></span>
                                       </ui-select-match>
@@ -149,7 +149,8 @@
                             date="dateFormat(note)"
                             current-note="note === currentNote"
                             notelist="getNoteList(note)"
-                              parent-category="note.category">
+                            parent-category="note.category"
+                            current-reply="replyTo">
                       </note>
                       </div>
                   </div>
@@ -231,7 +232,7 @@
                       <br>
                 </div>
                 <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
-                <button ng-click="submitNote()" class="plain-button">Submit</button>
+                <button ng-click="submitNote()" class="plain-button">SUBMIT</button>
               </div>
           </div>
           </div>
