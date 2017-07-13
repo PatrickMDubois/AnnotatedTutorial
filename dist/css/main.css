@@ -1568,7 +1568,7 @@ img {
   clear: both;
   border-radius: 3px;
   background-color: #ffffff;
-  border-left: 4px solid #62e2d9;
+  border: 1px solid #bababa;
 }
 
 .note-contributor {
