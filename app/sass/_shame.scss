@@ -71,7 +71,7 @@ img{
   white-space: nowrap;
 }
 
-.selected-step{background-color: #ffe3e1;}
+.selected-step{ background-color: #e7e7e7;}
 
 .icon-details{
   background-image: url(../images/PNG/pin.png);
@@ -179,16 +179,16 @@ img{
 }
 
 .input-start{
-  background-color: white;
-  background-image: url(../images/SVG/addNoteSquare.svg);
+  background-image: url(../images/SVG/unselectedAdd.svg);
   background-size: 28px;
   background-position: 3px 1px;
   height: 32px;
   position: absolute;
   width: 32px;
+  border:none;
 }
 
-.input-start:hover{background-color: #f5f5f5;}
+.input-start:hover{background-image: url(../images/SVG/hoverAdd.svg);border:none;}
 
 .input-container{
   background-color: #fff;
@@ -220,8 +220,19 @@ img{
   font-family:'Open sans', sans-serif;
 }
 
+.note-replies{
+  margin-bottom:3px !important;
+  border-bottom:none;
+  z-index:1;
+  position:relative;
+  box-shadow:0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
 .reply-content{
-  background-color: white;
+  margin-top:0 !important;
+  margin-bottom:1px !important;
+  border-top:none;
+  position:relative;
 }
 
 .filter-icon{
@@ -264,16 +275,17 @@ img{
 .plain-button {
   background-color: #62e2d9;
   float: right;
-  padding: 3px 8px;
+  padding: 1.5px 10px;
   position: relative;
   right: 0;
   top: 0;
   font-weight:bold;
+  font-size: 0.65em;
   font-family:'Open sans', sans-serif;
   color: white;
-  line-height: 20px;
-  font-size:11px;
-  border-radius:2px;
+  line-height: 18px;
+  border-radius:3px;
+  outline:none;
 }
 
 .plain-button:hover{
@@ -402,13 +414,12 @@ h2{
   top:-8px;
 }
 
-.window-title{
-  font-weight:bold;
+.window-title {
+  font-weight: bold;
   font-family:'Open sans', sans-serif;
-  color:darkgrey;
-  margin-left:15px;
-  float:left;
-  outline:none;
+  color: #6f6f6f;
+  margin-left: 15px;
+  float: left;
 }
 
 .categories-title{
@@ -429,47 +440,54 @@ h2{
 }
 
 .delete-button {
+  background: white;
   margin: 0 10px;
-  font-size: 0.6em;
-  font-family:'Open sans', sans-serif;
   float: right;
-  border-radius: 4px;
-  color:red;
+  color: red;
+  //border-radius: 3px;
 }
 
-.delete-button:hover{
-  color:white;
-  background-color:red;
+.delete-button:hover {
+  background: rgba(255, 7, 0, 0.79);
+  color: white;
 }
-.close-button{
-  font-size: 0.8em;
+
+
+.close-button {
+  font-size: 1em;
   font-family:'Open sans', sans-serif;
   float: right;
+  color:#62e2d9;
+  font-weight:bold;
 }
 
 .return-button-first {
-  margin-left: 50%;
+  margin-left: 32%;
 }
 
 .return-button-second {
-  margin-left: 52%;
+  margin-left: 34.6%;
 }
 
-.close-button:hover{
-  text-decoration:underline black;
+.close-button:hover {
+  color:#4db2ab;
+  text-decoration: underline #4db2ab;
 }
 
 .close-button-second {
   margin-right: 3.4%;
 }
 
-.return-button{
+.return-button {
   font-size: 0.8em;
   font-family:'Open sans', sans-serif;
+  color:#62e2d9;
+  font-weight:bold;
 }
 
-.return-button:hover{
-  text-decoration:underline black;
+.return-button:hover {
+  color:#4db2ab;
+  text-decoration: underline #4db2ab;
 }
 
 .note-rating {
@@ -487,8 +505,8 @@ h2{
 }
 
 .rating-button {
-  background-image: url(../images/PNG/thumbs-UP.png);
-  background-position: 6px 0;
+  background-image: url(../images/SVG/unSelectedThumb.svg);
+  background-position: 0px 0;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 28px;
@@ -499,42 +517,55 @@ h2{
 }
 
 .rated{
-  background-image: url(../images/PNG/thumbs-up-pressed.png);;
+  background-image: url(../images/SVG/thumbsupSelected.svg);
 }
 
-.step-list{
-  border-top:1px solid #e6e6e6;
-  padding:2px 0;
-  padding-left:15px;
-  text-align:left;
+.step-list {
+  border-top: 1px solid #e6e6e6;
+  padding: 2px 0;
+  padding-left: 15px;
+  text-align: left;
+  font-weight: bold;
+  font-family:'Open sans', sans-serif;
+  color: #62e2d9;
+  background-color: white;
+}
+
+.menu-action-button {
+  float: right;
+  //border-left: 2px solid #e6e6e6;
+  outline: none;
+}
+
+.plus-action-button {
+  padding: 2px 10px;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
-  color:grey;
+  color:#62e2d9;
+  font-size:19px;
 }
 
-.menu-action-button{
-  float:right;
-  border-left:2px solid #e6e6e6;
-  outline:none;
+.plus-action-button:hover{
+  color:#4db2ab;
 }
 
-.plus-action-button{
-  padding:2px 10px;
+.minus-action-button:hover{
+  color:#4db2ab;
 }
 
-.minus-action-button{
-  padding:2px 12px;
+.minus-action-button {
+  padding: 2px 12px;
+  font-weight:bold;
+  font-family:'Open sans', sans-serif;
+  color:#62e2d9;
+  font-size:19px;
 }
 
-.menu-action-button:hover{
-  background-color: #ffe3e1;
+.selected-menu-button {
+  color:#4db2ab;
 }
 
-.selected-menu-button{
-  background-color: #ffe3e1;
-}
-
-.menu-button{
+.menu-button {
   background-repeat: no-repeat;
   background-size: 10px;
   height: 20px;
@@ -542,16 +573,20 @@ h2{
   width: 10px;
 }
 
-.preview-button{
-  background-image: url(../images/PNG/eye.png);
-  background-position: 6px 3px;
+.preview-button {
+  background-image: url(../images/SVG/eyeUnselected.svg);
+  background-position: 3px 8px;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 28px;
   line-height: 9px;
   width: 35px;
+  margin:0 15px;
 }
 
+.preview-button:hover{
+  background-image: url(../images/SVG/eyeSelected.svg);
+}
 .menu-one{
   background-image: url(../images/PNG/arrow-right.png);
   background-position: 0 0;

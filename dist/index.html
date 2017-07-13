@@ -57,10 +57,10 @@
               <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
               <div class="main-content note-area" ng-bind-html="step.html"></div>
               <!-- Step's notes, if toggled on--->
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="user"></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="user"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
               <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="user"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
           </div><!--
 
             <!-- Buttons to toggle on/off notes
@@ -111,8 +111,8 @@
                   <div ng-if="!secondMenu">
                       <div class="window-title" >COMMENTING ON</div>
                       <div ng-repeat="step in currentStep">
-                          <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">Close</a>
-                          <a class="return-button-first return-button" ng-click="return(step)" href="#{{step.id}}">Return</a>
+                          <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">X</a>
+                          <a class="return-button-first return-button" ng-click="return(step)" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
                       </div>
                       <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                       <div>
@@ -139,8 +139,9 @@
                       <script src="scripts/smooth-scrolling.js"></script>
                       <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
                       <div ng-repeat="step in currentStep">
-                          <a class="return-button-second return-button" ng-click="return(step);" href="#{{step.id}}">Return</a>
-                          <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">Close</a>
+                          <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">X</a>
+                          <a class="return-button-second return-button" ng-click="return(step);" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
+
                       </div>
                       <button ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
                       <button ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
@@ -151,25 +152,23 @@
                   </div>
               </div>
 
-              <div ng-show="(showTextarea || replyTo!==null)">
-                  <div ng-if="secondMenu">
-                      <div class="description"  ng-if="replyTo==null">
-                          <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
-                          <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
-                          <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
-                          <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
-                          <div class="software-container" ng-if="(inputCategory == 'other')">
-                              <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-                              <input type="text" ng-model="$parent.$parent.extraInput"/>
-                          </div>
-                      </div>
+              <div ng-show="((showTextarea && secondMenu) || replyTo!==null)">
+                  <div class="description"  ng-if="replyTo==null">
+                      <div ng-if="inputCategory == 'corrections'">Found a mistake? Help us out by pointing it out!</div>
+                      <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
+                      <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
+                      <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
                   </div>
-                  <div ng-if="replyTo!==null">
-                      <div class="close-button reply-close" ng-click="closeInput()">Close</div>
+                  <div class="software-container" ng-if="(inputCategory == 'other') && replyTo==null">
+                      <div ng-if="inputCategory == 'other'">How would you label your note?</div>
+                      <input class ="input-text" type="text" ng-model="$parent.$parent.extraInput"/>
+                  </div>
+                  <div ng-if="replyTo!=null">
+                      <div class="close-button" ng-click="closeInput()">X</div>
                       <br>
                   </div>
                   <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
-                  <button ng-click="submitNote()" class="plain-button">Submit</button>
+                  <button ng-click="submitNote()" class="plain-button">SUBMIT</button>
           </div>
       </div>
     </div>

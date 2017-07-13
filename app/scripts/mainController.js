@@ -63,6 +63,7 @@ angular.module('AnnotatedTutorial')
                 $scope.addingReply = function($index, $event, id, contributor, step){
 
                     $scope.replyTo =id;
+                    console.log($scope.replyTo);
                     $scope.replyToContributor = contributor;
                     $scope.replyStep = step;
                     $scope.selectedStepsList = step.concat($scope.selectedStepsList);
