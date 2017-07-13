@@ -225,11 +225,10 @@
                   <div ng-if="inputCategory == 'details'">Useful information that may help others understand and learn from the tutorial.</div>
                   <div ng-if="inputCategory == 'questions'">Need help with the tutorial? Ask a question for others to answer.</div>
                   <div ng-if="inputCategory == 'other'">Have a note that doesn't fit in the other categories? Use this one!</div>
-
-                <div class="software-container" ng-if="(inputCategory == 'other')">
-                  <div ng-if="inputCategory == 'other'">How would you label your note?</div>
-                  <input class ="input-text" type="text" ng-model="$parent.extraInput"/>
                 </div>
+                <div class="software-container" ng-if="(inputCategory == 'other') && replyTo==null">
+                  <div ng-if="inputCategory == 'other'">How would you label your note?</div>
+                  <input class ="input-text" type="text" ng-model="$parent.$parent.extraInput"/>
                 </div>
                 <div ng-if="replyTo!=null">
                       <div class="close-button reply-close" ng-click="closeInput()">Close</div>
