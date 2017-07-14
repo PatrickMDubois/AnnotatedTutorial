@@ -60,7 +60,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = ''//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = 'Panda'//'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
@@ -290,6 +290,7 @@ angular.module('AnnotatedTutorial')
                             console.log($scope.newNote);
                             if($scope.replyTo){
                                 $scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies.push($scope.newNote);
+                                console.log($scope,tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies);
                             }
 
                             $scope.tutorial.notes.push($scope.newNote);
@@ -340,7 +341,10 @@ angular.module('AnnotatedTutorial')
 
                 $scope.deleteNote = function(note_id){
                     $scope.deleteChange = true;
-                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+                    var note = $scope.findNote(note_id);
+                    TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
+                    $scope.listOfNotes = $scope.tutorial.notes.slice(0);
+                    $scope.newSort();
 
                     $scope.deleteChange = false;
 
@@ -350,6 +354,7 @@ angular.module('AnnotatedTutorial')
                         + " | Note - " + $scope.findNote(note_id).content);
 
                 };
+
 
                 $scope.findNote = function(note_id)
                 {
@@ -376,8 +381,17 @@ angular.module('AnnotatedTutorial')
 
                 $scope.newRating = function(note_id){
                     $scope.ratingChange = true;
-                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+                    var note = $scope.findNote(note_id);
+                    TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
                     $scope.ratingChange = false;
+
+                    /*if(note.reply_to !== null){
+                        var index = $scope.findNoteIndex(note.reply_to);
+                        $scope
+                    }*/
+
+                    $scope.listOfNotes = $scope.tutorial.notes.slice(0);
+                    $scope.newSort();
 
                     LoggerService.log("Rated a note:"
                         + " Tutorial - " + $scope.tutorial.title
