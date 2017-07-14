@@ -35,12 +35,12 @@
     <div class="note-content" ng-if="note.category === 'other'">Note category: {{note.extra_info}}</div>
     <div class="note-content">{{note.content}}</div>
     <div class="comment-footer">
-        <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
+
         <button class="plain-button reply-button"
              ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)">
                 REPLY
         </button>
-
+        <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
         <button class="rating-button" ng-class="{'rated':note.contributor_list.indexOf(user.id)!=-1}" ng-click="rateIt(note.id)" tooltip="recommend"></button>
         <div class="note-rating">
             <div ng-if="note.contributor_list.length>1">{{note.contributor_list.length}} people found this helpful.</div>
