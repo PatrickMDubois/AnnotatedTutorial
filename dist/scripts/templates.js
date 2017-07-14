@@ -38,7 +38,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"note-contributor\">Other</div>\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"note-contributor\">{{note.contributor}} {{parentCategory}}</div>\n" +
+    "    <div class=\"note-contributor\">{{note.contributor}}</div>\n" +
     "    <div class=\"date\">{{date}}</div>\n" +
     "\n" +
     "    <div class=\"note-content\" ng-if=\"note.category === 'methods'\">Note relevant for: {{note.extra_info}}</div>\n" +
