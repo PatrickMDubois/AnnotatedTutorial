@@ -356,7 +356,10 @@ angular.module('AnnotatedTutorial')
                             $scope.newNote = result;
                             console.log($scope.newNote);
                             if($scope.replyTo){
-                                $scope.tutorial.notes[$scope.findNoteIndex(note.reply_to)].replies.push($scope.newNote);
+                                $scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies.push($scope.newNote);
+                                for(var index=0; index<$scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].step_id.length; index++){
+                                    $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[index])].notes.replies.push($scope.newNote);
+                                }
                             }
 
                             $scope.tutorial.notes.push($scope.newNote);
@@ -432,6 +435,15 @@ angular.module('AnnotatedTutorial')
                     return -1;
                 };
 
+                $scope.findNoteInStep=function(step_number, note_id){
+                    for(var g=0; g<$scope.tutorial.steps[step_number].notes.length; g++){
+                        if($scope.tutorial.steps[step_number].notes[g].id===note_id){
+                            return parseInt(g);
+                        }
+                    }
+                    return -1;
+                };
+
                 $scope.findStepId=function(list){
                     var idList = [];
                     for(var i =0; i < $scope.selectedStepsList.length; i++){
@@ -447,14 +459,15 @@ angular.module('AnnotatedTutorial')
 
                 $scope.deleteNote = function(note_id){
                     $scope.deleteChange = true;
-                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+                    var note = $scope.findNote(note_id);
+                    TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
+                    for(var i = 0; i < note.step_id.length; i++){
+                        var stepNumber = $scope.findStepNumber(note.step_id[i]);
+                        var index = $scope.findNoteInStep(stepNumber, note_id);
+                        $scope.tutorial.steps[stepNumber].notes[index] = note;
+                    }
 
                     $scope.deleteChange = false;
-
-                    console.log($scope.findNote(note_id).deleted);
-                    console.log($scope.tutorial.notes[$scope.tutorial.steps[1].notes.length-1].deleted);
-                    console.log($scope.tutorial.steps[1].notes[$scope.tutorial.steps[1].notes.length-1].deleted);
-                    console.log($scope.tutorial.steps[1].notes[$scope.tutorial.steps[1].notes.length-1].id);
 
                     LoggerService.log("Deleted a note:"
                         + " Tutorial - " + $scope.tutorial.title
@@ -506,8 +519,24 @@ angular.module('AnnotatedTutorial')
 
                 $scope.newRating = function(note_id){
                     $scope.ratingChange = true;
-                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+
+                    var note = $scope.findNote(note_id);
+                    TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
+                    
+                    for(var i = 0; i < note.step_id.length; i++){
+                        var stepNumber = $scope.findStepNumber(note.step_id[i]);
+                        var index = $scope.findNoteInStep(stepNumber, note_id);
+                        console.log(index);
+                        console.log($scope.tutorial.steps[stepNumber].notes.length);
+                        $scope.tutorial.steps[stepNumber].notes[index] = note;
+                        console.log($scope.tutorial.steps[0].notes[index]);
+                    }
+
                     $scope.ratingChange = false;
+                    console.log($scope.findNote(note_id).rating);
+                    console.log($scope.tutorial.notes[$scope.tutorial.notes.length-1].rating);
+                    console.log($scope.tutorial.steps[0].notes[$scope.tutorial.steps[0].notes.length-1].rating);
+                    console.log($scope.tutorial.steps[0].notes[$scope.tutorial.steps[0].notes.length-1].id);
 
                     LoggerService.log("Rated a note:"
                         + " Tutorial - " + $scope.tutorial.title

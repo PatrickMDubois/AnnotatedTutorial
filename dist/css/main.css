@@ -1660,6 +1660,14 @@ img {
   border-radius: 2px;
 }
 
+.note-replies {
+  margin-bottom: 0 !important;
+  border-bottom: none;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
 .note-contributor {
   font-size: 11px;
   font-family: 'Open sans', sans-serif;
@@ -1713,14 +1721,6 @@ img {
   font-size: 11px;
   border: solid 1px #e2e2e2;
   font-family: 'Open sans', sans-serif;
-}
-
-.note-replies {
-  margin-bottom: 3px !important;
-  border-bottom: none;
-  z-index: 1;
-  position: relative;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 .reply-content {
