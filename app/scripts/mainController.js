@@ -292,11 +292,7 @@ angular.module('AnnotatedTutorial')
                     $scope.deleteChange = true;
                     var note = $scope.findNote(note_id);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    for(var i = 0; i < note.step_id.length; i++){
-                        var stepNumber = $scope.findStepNumber(note.step_id[i]);
-                        var index = $scope.findNoteInStep(stepNumber, note_id);
-                        $scope.tutorial.steps[stepNumber].notes[index] = note;
-                    }
+                    $scope.update(note,note_id);
 
                     $scope.deleteChange = false;
 
@@ -353,26 +349,21 @@ angular.module('AnnotatedTutorial')
 
                     var note = $scope.findNote(note_id);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    
-                    for(var i = 0; i < note.step_id.length; i++){
-                        var stepNumber = $scope.findStepNumber(note.step_id[i]);
-                        var index = $scope.findNoteInStep(stepNumber, note_id);
-                        console.log(index);
-                        console.log($scope.tutorial.steps[stepNumber].notes.length);
-                        $scope.tutorial.steps[stepNumber].notes[index] = note;
-                        console.log($scope.tutorial.steps[0].notes[index]);
-                    }
+                    $scope.update(note,note_id);
 
                     $scope.ratingChange = false;
-                    console.log($scope.findNote(note_id).rating);
-                    console.log($scope.tutorial.notes[$scope.tutorial.notes.length-1].rating);
-                    console.log($scope.tutorial.steps[0].notes[$scope.tutorial.steps[0].notes.length-1].rating);
-                    console.log($scope.tutorial.steps[0].notes[$scope.tutorial.steps[0].notes.length-1].id);
-
                     LoggerService.log("Rated a note:"
                         + " Tutorial - " + $scope.tutorial.title
                         + " Interface - Embedded"
                         + " | Note - " + $scope.findNote(note_id).content);
+                };
+
+                $scope.update = function(note,note_id){
+                    for(var i = 0; i < note.step_id.length; i++){
+                        var stepNumber = $scope.findStepNumber(note.step_id[i]);
+                        var index = $scope.findNoteInStep(stepNumber, note_id);
+                        $scope.tutorial.steps[stepNumber].notes[index] = note;
+                    }
                 };
 
                 $scope.numberOfNotes = function(step,category)
