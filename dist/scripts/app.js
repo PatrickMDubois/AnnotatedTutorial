@@ -270,7 +270,7 @@ angular.module('AnnotatedTutorial')
                 $scope.submitNote = function(){
                     $scope.inputCategory = "comment";
                     $scope.extraInput = "";
-                    console.log($scope.listOfNotes.length);
+
                     if(($scope.replyTo!==null) || $scope.newNote){
                         var note = {
                             "step_id":[],

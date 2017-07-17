@@ -19,9 +19,9 @@ module.run(["$templateCache", function($templateCache) {
     "            <div ng-if=\"note.contributor_list.length==1\">{{note.contributor_list.length}} person found this helpful.</div>\n" +
     "            <div ng-if=\"note.contributor_list.length<1\">Not rated yet.</div>\n" +
     "        </div>\n" +
-    "\n" +
+    "        <note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" user=\"user\" date=\"date\" current-reply=\"currentReply\" has-reply=\"hasReply\"></note>\n" +
     "    </div>\n" +
     "</div>\n" +
-    "<note ng-repeat=\"reply in note.replies\" ng-if=\"note.replies.length > 0 && canShowNote(reply)\" note=\"reply\" delete-it = \"deleteIt\" rate-it = \"rateIt\" add-reply=\"addReply\" can-show-note=\"canShowNote\" user=\"user\" date=\"date\" current-reply=\"currentReply\" has-reply=\"hasReply\"></note>");
+    "");
 }]);
 })();

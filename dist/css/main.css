@@ -1511,7 +1511,7 @@ img {
 }
 
 .note-highlight {
-  background-color: rgba(166, 130, 255, 0.45) !important;
+  background-color: #f0efff !important;
 }
 
 .icon {
@@ -1565,6 +1565,7 @@ img {
 .note {
   margin: 10px 0;
   padding: 5px 10px;
+  padding-bottom: 10px;
   clear: both;
   border-radius: 3px;
   background-color: #ffffff;
@@ -1572,7 +1573,7 @@ img {
 }
 
 .note-contributor {
-  font-size: 11px;
+  font-size: 13px;
   text-align: right;
   float: left;
   margin-right: 10px;
@@ -1582,10 +1583,11 @@ img {
 }
 
 .reply-text {
-  margin: 0 20px;
+  margin: 2px 20px;
+  margin-bottom: 5px;
   color: #545454;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Open sans', sans-serif;
 }
 
@@ -1667,6 +1669,7 @@ img {
   line-height: 20px;
   border-radius: 3px;
   font-size: 0.65em;
+  outline: none;
 }
 
 .plain-button:hover {
@@ -1710,6 +1713,7 @@ img {
   font-family: 'Open sans', sans-serif;
   color: white;
   line-height: 15px;
+  outline: none;
 }
 
 .submit-button:hover {
@@ -1744,19 +1748,9 @@ h2 {
   font-family: 'Open sans', sans-serif;
 }
 
-.note-replies {
-  margin-bottom: 3px !important;
-  border-bottom: none;
-  z-index: 1;
-  position: relative;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.24) !important;
-}
-
 .reply-content {
-  margin-top: 0 !important;
-  margin-bottom: 1px !important;
-  border-top: none;
-  position: relative;
+  margin-bottom: 0px !important;
+  background: #ececec;
 }
 
 .contributors-show {
