@@ -185,7 +185,7 @@ angular.module('AnnotatedTutorial')
                         $scope.newNote = null;
                         var returnedNote = TutorialService.post(note).then(function(result){
                             $scope.newNote = result;
-                            console.log($scope.newNote);
+                            $scope.newNote.replies=[];
 
                             $scope.tutorial.notes.push($scope.newNote);
 
