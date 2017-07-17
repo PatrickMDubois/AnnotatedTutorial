@@ -1766,6 +1766,14 @@ h2 {
   margin-right: 4px;
 }
 
+.replyOne {
+  background-color: white !important;
+}
+
+.replyTwo {
+  background-color: #ececec !important;
+}
+
 .contributors-show:hover {
   background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
 }

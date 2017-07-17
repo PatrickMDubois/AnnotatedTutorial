@@ -1,4 +1,9 @@
-<div class="note" ng-class="{'reply-content': note.category === 'reply', 'note-replies': note.replies.length>0 && hasReply, 'note-highlight': currentReply === note.id}">
+<div class="note" ng-class="{
+    'reply-content': note.category === 'reply',
+    'note-replies': note.replies.length>0 && hasReply,
+    'note-highlight': currentReply === note.id,
+    'replyOne': replyOne,
+    'replyTwo': replyOne== false}">
     <div class="note-contributor">{{note.contributor}}</div>
     <div class="date">{{date}}<br></div>
     <div class="note-content">{{note.content}}</div>
@@ -13,6 +18,6 @@
             <div ng-if="note.contributor_list.length==1">{{note.contributor_list.length}} person found this helpful.</div>
             <div ng-if="note.contributor_list.length<1">Not rated yet.</div>
         </div>
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date" current-reply="currentReply" has-reply="hasReply"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date" current-reply="currentReply" has-reply="hasReply" reply-one="!replyOne"></note>
     </div>
 </div>
