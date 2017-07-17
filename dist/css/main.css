@@ -1554,42 +1554,38 @@ img {
   background-image: url(../images/PNG/pin.png);
   background-size: 17px;
   background-position: 3px 3px;
-  background-color: #e0d4ff;
 }
 
 .icon-corrections {
   background-image: url(../images/SVG/healing.svg);
   background-position: 3px;
-  background-color: #ffc497;
 }
 
 .icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 14px;
   background-position: 4px 3px;
-  background-color: #fff07d;
 }
 
 .icon-other {
   background-image: url(../images/PNG/other.png);
   background-size: 23px;
   background-position: 0 2px;
-  background-color: #d4ed96;
 }
 
-.selected-details, .number-details, .icon-details:hover {
+.selected-details, .menu-details:hover, .number-details, .icon-details:hover {
   background-color: #ccc0eb;
 }
 
-.selected-corrections, .number-corrections, .icon-corrections:hover {
+.selected-corrections, .menu-corrections:hover, .number-corrections, .icon-corrections:hover {
   background-color: #ebb083;
 }
 
-.selected-questions, .number-questions, .icon-questions:hover {
+.selected-questions, .number-questions, .menu-questions:hover, .icon-questions:hover {
   background-color: #ebdc69;
 }
 
-.selected-other, .number-other, .icon-other:hover {
+.selected-other, .number-other, .menu-other:hover, .icon-other:hover {
   background-color: #c0d982;
 }
 
@@ -1840,6 +1836,10 @@ h2 {
   margin-right: 4px;
 }
 
+.contributors-show:hover {
+  background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
+}
+
 .contributor {
   float: left;
   margin-right: 2px;
@@ -1934,7 +1934,7 @@ h2 {
 }
 
 .delete-button {
-  background: white;
+  background: rgba(255, 255, 255, 0);
   margin: 0 10px;
   float: right;
   color: red;
@@ -1949,7 +1949,8 @@ h2 {
   font-size: 1em;
   font-family: 'Open sans', sans-serif;
   float: right;
-  color: #62e2d9;
+  margin-right: 10px;
+  color: #bababa;
   font-weight: bold;
 }
 
@@ -1962,8 +1963,8 @@ h2 {
 }
 
 .close-button:hover {
-  color: #4db2ab;
-  text-decoration: underline #4db2ab;
+  color: #535353;
+  text-decoration: underline #535353;
 }
 
 .close-button-second {
@@ -1978,8 +1979,8 @@ h2 {
 }
 
 .return-button:hover {
-  color: #4db2ab;
-  text-decoration: underline #4db2ab;
+  color: #226B64;
+  text-decoration: underline #226B64;
 }
 
 .note-rating {
@@ -2038,11 +2039,11 @@ h2 {
 }
 
 .plus-action-button:hover {
-  color: #4db2ab;
+  color: #226B64;
 }
 
 .minus-action-button:hover {
-  color: #4db2ab;
+  color: #226B64;
 }
 
 .minus-action-button {
@@ -2054,7 +2055,7 @@ h2 {
 }
 
 .selected-menu-button {
-  color: #4db2ab;
+  color: #226B64;
 }
 
 .menu-button {
@@ -2094,8 +2095,12 @@ h2 {
   float: left;
 }
 
-.menu-button:hover {
-  background-color: #a2fcff;
+.menu-one:hover {
+  background-image: url(../images/PNG/arrow-right-hover.png);
+}
+
+.menu-two:hover {
+  background-image: url(../images/PNG/arrow-left-hover.png);
 }
 
 .text {
