@@ -355,7 +355,6 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepIcon = function(step){
                     $scope.newFilter(parseInt(step.step_number));
-                    console.log("being called");
                 };
 
                 $scope.getStepNumber=function(){
@@ -499,6 +498,7 @@ angular.module('AnnotatedTutorial')
 
                         var returnedNote = TutorialService.post(note).then(function(result){
                             $scope.newNote = result;
+                            $scope.newNote.replies=[];
                             if($scope.replyTo){
                                 $scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies.push($scope.newNote);
                             }
