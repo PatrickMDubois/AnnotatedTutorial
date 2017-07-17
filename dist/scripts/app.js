@@ -291,7 +291,7 @@ angular.module('AnnotatedTutorial')
                             if($scope.replyTo){
                                 $scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies.push($scope.newNote);
                             }
-
+                            $scope.newNote.replies=[];
                             $scope.tutorial.notes.push($scope.newNote);
 
                             $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
