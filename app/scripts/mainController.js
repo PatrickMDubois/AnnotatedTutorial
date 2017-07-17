@@ -32,7 +32,6 @@ angular.module('AnnotatedTutorial')
                 $scope.itemArray = [
                     {id: 0, name: 'intro'}
                 ];
-
                 $scope.selectedItem = $scope.itemArray[0];
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
@@ -141,7 +140,6 @@ angular.module('AnnotatedTutorial')
                       $scope.listOfNotes = newList;
                   }
                 };
-
                 $scope.clear = function(){
                   $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
                   $scope.newSort();
@@ -153,6 +151,7 @@ angular.module('AnnotatedTutorial')
                   LoggerService.log("Pressed Clear:"
                       + " Tutorial - " + $scope.tutorial.title
                       + " Interface - Side Display");
+                    return false;
                 };
 
                 $scope.newFilter = function(value){
@@ -367,14 +366,24 @@ angular.module('AnnotatedTutorial')
                     return -1;
                 };
 
-                $scope.findNoteIndex=function(reply){
+                $scope.findNoteIndex=function(note){
                     for(var g=0; g<$scope.tutorial.notes.length; g++){
-                        if($scope.tutorial.notes[g].id===reply){
+                        if($scope.tutorial.notes[g].id===note){
                             return parseInt(g);
                         }
                     }
                     return -1;
                 };
+
+                $scope.findReplyIndex=function(reply, parentIndex){
+                    for(var g=0; g<$scope.tutorial.notes[parentIndex].replies.length; g++){
+                        if($scope.tutorial.notes[parentIndex].replies[g].id===reply){
+                            return parseInt(g);
+                        }
+                    }
+                    return -1;
+                };
+
 
                 $scope.findStepId=function(list){
                     var idList = [];
@@ -391,8 +400,15 @@ angular.module('AnnotatedTutorial')
 
                 $scope.deleteNote = function(note_id){
                     $scope.deleteChange = true;
-                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
-
+                    var note = $scope.findNote(note_id);
+                    var mainNote = $scope.findNote(note.reply_to);
+                    TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
+                    if(note.reply_to !== null){
+                        var index = $scope.findNoteIndex (mainNote.id);
+                        var replyIndex = $scope.findReplyIndex(note.id,index);
+                        mainNote.replies[replyIndex] = note;
+                        $scope.tutorial.notes[index] = mainNote;
+                    }
                     $scope.deleteChange = false;
 
                     LoggerService.log("Deleted a note:"
@@ -442,7 +458,16 @@ angular.module('AnnotatedTutorial')
 
                 $scope.newRating = function(note_id){
                     $scope.ratingChange = true;
-                    TutorialService.put($scope.findNote(note_id),$scope.deleteChange, $scope.ratingChange);
+                    var note = $scope.findNote(note_id);
+                    var mainNote = $scope.findNote(note.reply_to);
+                    TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
+                    if(note.reply_to !== null){
+                        var index = $scope.findNoteIndex (mainNote.id);
+                        var replyIndex = $scope.findReplyIndex(note.id,index);
+                        mainNote.replies[replyIndex] = note;
+                        $scope.tutorial.notes[index] = mainNote;
+                    }
+
                     $scope.ratingChange = false;
                 };
 
@@ -518,6 +543,8 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
+                chosenSort = "new";
+                $scope.newSort();
 
                 $scope.orderRating = function(list){
                     var tempNote1;
