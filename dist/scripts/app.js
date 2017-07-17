@@ -287,17 +287,14 @@ angular.module('AnnotatedTutorial')
 
                         var returnedNote = TutorialService.post(note).then(function(result){
                             $scope.newNote = result;
-                            console.log($scope.newNote);
                             if($scope.replyTo){
                                 $scope.tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies.push($scope.newNote);
-                                console.log($scope,tutorial.notes[$scope.findNoteIndex($scope.newNote.reply_to)].replies);
                             }
 
                             $scope.tutorial.notes.push($scope.newNote);
 
                             $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
                             $scope.newSort();
-                            console.log($scope.listOfNotes.length);
                             $scope.closeInput();
                         });
 
@@ -342,9 +339,15 @@ angular.module('AnnotatedTutorial')
                 $scope.deleteNote = function(note_id){
                     $scope.deleteChange = true;
                     var note = $scope.findNote(note_id);
+                    var mainNote = $scope.findNote(note.reply_to);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.listOfNotes = $scope.tutorial.notes.slice(0);
-                    $scope.newSort();
+                    if(note.reply_to !== null){
+                        var index = $scope.findNoteIndex (mainNote.id);
+                        var replyIndex = $scope.findReplyIndex(note.id,index);
+                        mainNote.replies[replyIndex] = note;
+                        $scope.tutorial.notes[index] = mainNote;
+                    }
+
 
                     $scope.deleteChange = false;
 
@@ -379,10 +382,36 @@ angular.module('AnnotatedTutorial')
                   return canShow;
                 };
 
+                $scope.findReplyIndex=function(reply, parentIndex){
+                    for(var g=0; g<$scope.tutorial.notes[parentIndex].replies.length; g++){
+                        if($scope.tutorial.notes[parentIndex].replies[g].id===reply){
+                            return parseInt(g);
+                        }
+                    }
+                    return -1;
+                };
+
+                $scope.hasReply= function(note){
+                    for(var i = 0; i< note.replies.length; i++){
+                        if(note.replies[i].deleted == false){
+                            return true;
+                        }
+                    }
+                    return false;
+                };
+
                 $scope.newRating = function(note_id){
                     $scope.ratingChange = true;
                     var note = $scope.findNote(note_id);
+                    var mainNote = $scope.findNote(note.reply_to);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
+                    if(note.reply_to !== null){
+                        var index = $scope.findNoteIndex (mainNote.id);
+                        var replyIndex = $scope.findReplyIndex(note.id,index);
+                        mainNote.replies[replyIndex] = note;
+                        $scope.tutorial.notes[index] = mainNote;
+                    }
+
                     $scope.ratingChange = false;
 
                     /*if(note.reply_to !== null){
@@ -455,6 +484,8 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                 };
+                $scope.chosenSort = "new";
+                $scope.newSort();
 
                 $scope.orderRating = function(list){
                     var tempNote1;
@@ -485,7 +516,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=', currentReply: '=', topNote: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=', currentReply: '=', hasReply:'='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
