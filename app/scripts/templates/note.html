@@ -1,9 +1,11 @@
 <div class="note" ng-class="{
-     'note-corrections': note.category === 'corrections' || parentCategory === 'corrections' ,
-     'note-details': note.category === 'details' || parentCategory === 'details' ,
-     'note-questions': note.category === 'questions' || parentCategory === 'questions' ,
-     'note-other': note.category === 'other' || parentCategory === 'other',
+     'note-corrections': note.category === 'corrections',
+     'note-details': note.category === 'details',
+     'note-questions': note.category === 'questions',
+     'note-other': note.category === 'other',
      'reply-content': note.category === 'reply',
+     'replyOne' : replyOne,
+     'replyTwo' : replyOne== false,
      'note-replies': note.replies.length>0,
      'note-highlight': currentReply === note.id}">
 
@@ -52,6 +54,7 @@
             <div ng-if="note.contributor_list.length==1">{{note.contributor_list.length}} person found this helpful.</div>
             <div ng-if="note.contributor_list.length<1">Not rated yet.</div>
         </div>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date" current-note="currentNote" notelist="noteList" reply-one="!replyOne"></note>
+
     </div>
 </div>
-<note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date" current-note="currentNote" notelist="noteList" parent-category="parentCategory"></note>

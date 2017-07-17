@@ -164,16 +164,17 @@ img{
 .note{
   margin: 10px 0;
   padding:5px 10px;
+  padding-bottomn:10px;
   clear: both;
   border-radius: 2px;
 }
 
 .note-replies{
-  margin-bottom:0 !important;
-  border-bottom:none;
-  z-index:1;
-  position:relative;
-  box-shadow:0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
+  //margin-bottom:0 !important;
+  //border-bottom:none;
+  //z-index:1;
+  //position:relative;
+  //box-shadow:0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 .note-contributor{
@@ -232,8 +233,16 @@ img{
 .reply-content{
   margin-top:0 !important;
   margin-bottom:1px !important;
-  border-top:none;
-  position:relative;
+  border:1px solid #c6c6c6;
+  //position:relative;
+}
+
+.replyOne{
+  background-color: white !important;
+}
+
+.replyTwo{
+  background-color: #ececec !important;
 }
 
 .filter-icon{
@@ -296,6 +305,10 @@ img{
 
 .comment-footer{
   padding-top: 5px;
+}
+
+.submit-button{
+
 }
 
 .submit-comment-container{

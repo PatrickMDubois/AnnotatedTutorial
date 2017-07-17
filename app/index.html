@@ -59,10 +59,10 @@
               <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
               <div class="main-content note-area" ng-bind-html="step.html"></div>
               <!-- Step's notes, if toggled on--->
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" parent-category="note.category"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
           </div><!--
 
             <!-- Buttons to toggle on/off notes
@@ -170,7 +170,7 @@
                       <br>
                   </div>
                   <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
-                  <button ng-click="submitNote()" class="plain-button">SUBMIT</button>
+                  <button ng-click="submitNote()" class="plain-button submit-button">SUBMIT</button>
           </div>
       </div>
     </div>
