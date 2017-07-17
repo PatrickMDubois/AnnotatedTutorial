@@ -309,10 +309,14 @@ img{
 
 .submit-button{
   padding: 1% 44%;
-  margin-top:1
+  margin-top:1%;
   float:left;
   font-size:14px;
   font-weight:600;
+}
+
+.submit-button:hover{
+  background-color: #226B64;
 }
 
 .submit-comment-container{
@@ -625,6 +629,7 @@ h2{
   background-image: url(../images/PNG/arrow-left.png);
   background-position: 0 2px;
   margin-right:20px;
+  margin-left:5px;
   float:left;
 }
 
