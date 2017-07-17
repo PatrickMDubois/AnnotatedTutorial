@@ -525,7 +525,12 @@ angular.module('AnnotatedTutorial')
 
                     var note = $scope.findNote(note_id);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.update(note,note_id);
+                    if(note.reply_to== null){
+                        $scope.update(note,note_id);
+                    }else{
+                        $scope.update($scope.findNote(note.reply_to),note.reply_to);
+                    }
+
 
                     $scope.ratingChange = false;
                     LoggerService.log("Rated a note:"
@@ -616,31 +621,4 @@ angular.module('AnnotatedTutorial')
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
         };
-    });
-/**
- * Created by patrick on 01/06/17.
- */
-    $(document).ready(function(){
-        // Add smooth scrolling to all links
-        $("a").on('click', function(event) {
-
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-                // Prevent default anchor click behavior
-                event.preventDefault();
-
-                // Store hash
-                var hash = this.hash;
-
-                // Using jQuery's animate() method to add smooth page scroll
-                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 800, function(){
-
-                    // Add hash (#) to URL when done scrolling (default click behavior)
-                    window.location.hash = hash;
-                });
-            } // End if
-        });
     });

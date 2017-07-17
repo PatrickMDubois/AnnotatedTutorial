@@ -356,7 +356,12 @@ angular.module('AnnotatedTutorial')
 
                     var note = $scope.findNote(note_id);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.update(note,note_id);
+                    if(note.reply_to== null){
+                        $scope.update(note,note_id);
+                    }else{
+                        $scope.update($scope.findNote(note.reply_to),note.reply_to);
+                    }
+
 
                     $scope.ratingChange = false;
                     LoggerService.log("Rated a note:"
