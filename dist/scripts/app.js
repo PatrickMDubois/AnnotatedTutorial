@@ -108,6 +108,7 @@ function Note(data) {
     this.deleted= data.deleted;
     this.dateSubmitted=moment();
     this.contributor_list = [];
+    this.replies = [];
 }
 
 angular.module('AnnotatedTutorial')
@@ -392,6 +393,10 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.hasReply= function(note){
+                    if(note.replies == undefined){
+                        return true;
+                    }
+
                     for(var i = 0; i< note.replies.length; i++){
                         if(note.replies[i].deleted == false){
                             return true;

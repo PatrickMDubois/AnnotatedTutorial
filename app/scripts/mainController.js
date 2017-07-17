@@ -222,6 +222,10 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.hasReply= function(note){
+                    if(note.replies == undefined){
+                        return true;
+                    }
+
                     for(var i = 0; i< note.replies.length; i++){
                         if(note.replies[i].deleted == false){
                             return true;

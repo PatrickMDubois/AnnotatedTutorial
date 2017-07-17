@@ -10,6 +10,7 @@ function Note(data) {
     this.deleted= data.deleted;
     this.dateSubmitted=moment();
     this.contributor_list = [];
+    this.replies = [];
 }
 
 angular.module('AnnotatedTutorial')
