@@ -153,8 +153,8 @@
                             date="dateFormat(note)"
                             current-note="note === currentNote"
                             notelist="getNoteList(note)"
-                            parent-category="note.category"
-                            current-reply="replyTo">
+                            current-reply="replyTo"
+                            reply-one="true">
                       </note>
                       </div>
                   </div>
@@ -171,14 +171,14 @@
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
-                    <div class="window-title" >Commenting On</div>
+                    <div class="window-title" >Select the steps you want to comment on</div>
                     <div ng-repeat="step in currentStep">
                         <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">X</a>
                         <a class="return-button-first return-button" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
                     </div>
                     <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                     <div>
-                        <div class="selected-steps" ng-if="selectedStepsList.length !=0">Selected Steps: {{list.toString()}}</div>
+                        <div class="selected-steps" ng-if="selectedStepsList.length !=0">Step(s): {{list.toString()}}</div>
                         <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true"></button>
                     </div>
                     <br>
@@ -231,7 +231,7 @@
                   <input class ="input-text" type="text" ng-model="$parent.$parent.extraInput"/>
                 </div>
                 <div ng-if="replyTo!=null">
-                      <div class="close-button reply-close" ng-click="closeInput()">Close</div>
+                      <div class="close-button reply-close" ng-click="closeInput()">X</div>
                       <br>
                 </div>
                 <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
