@@ -156,9 +156,12 @@ angular.module('AnnotatedTutorial')
 
                 $scope.newFilter = function(value){
 
-                    console.log(value);
                     if(typeof value === 'string') {
-                        $scope.categoryFilter = value;
+                        if(value=== $scope.categoryFilter){
+                            $scope.categoryFilter = null;
+                        }else{
+                            $scope.categoryFilter = value;
+                        }
                     }
                     else{
                         var index = $scope.stepFilter.indexOf(value);
@@ -175,9 +178,8 @@ angular.module('AnnotatedTutorial')
                     }else if($scope.stepFilter.length !== 0){
                         $scope.getStepFilterNotes();
                     }else if($scope.categoryFilter!== null){
-                        console.log("dumb");
                         $scope.listOfNotes = $scope.filterByCategory($scope.categoryFilter,($scope.tutorial.notes.slice(0)));
-                    }else if($scope.stepFilter.length< 1){
+                    }else if($scope.stepFilter.length< 1 || $scope.categoryFilter == null){
                         $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
                     }
                     $scope.newSort();
