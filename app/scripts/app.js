@@ -13,11 +13,11 @@
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = '';//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = 'Koala'//'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
-                pseudonym = "panda";//prompt('Please, enter your pseudonym');
+                pseudonym = "";//prompt('Please, enter your pseudonym');
             }
 
             localStorage.setItem('pseudonym', pseudonym);
