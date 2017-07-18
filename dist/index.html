@@ -162,7 +162,7 @@
                   console.log(chosenSort);
               }
           </script>
-          <div class="input-container three-tenths" ng-if="inputPos != null" ng-style="{'top':4.2 + '%', 'right':1 + '%'}" style="height:300px;padding: 5px;">
+          <div class="input-container" ng-if="inputPos != null" ng-style="{'top':4.2 + '%', 'right':1.1 + '%'}" style="height:300px;width:29.95%;padding: 5px;">
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
@@ -230,7 +230,7 @@
                       <br>
                 </div>
                 <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
-                <button ng-click="submitNote()" class="plain-button">SUBMIT</button>
+                <button ng-click="submitNote()" class="plain-button submit-button">SUBMIT</button>
               </div>
           </div>
           </div>

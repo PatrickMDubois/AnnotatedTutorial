@@ -485,7 +485,7 @@ angular.module('AnnotatedTutorial')
                     }
 
                     if($scope.selectedStepsList.length == 0){
-                        alert("Must select a step");
+                        alert("Please go back and select a step.");
                     }else if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedStepsList,
