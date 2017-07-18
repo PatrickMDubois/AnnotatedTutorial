@@ -1790,7 +1790,7 @@ img {
 }
 
 .submit-button {
-  padding: 1% 44%;
+  padding: 1% 45%;
   margin-top: 1%;
   float: left;
   font-size: 14px;
@@ -1924,7 +1924,7 @@ h2 {
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
   color: #6f6f6f;
-  margin-left: 15px;
+  margin-left: 10px;
   float: left;
 }
 
@@ -1933,16 +1933,15 @@ h2 {
 }
 
 .selected-steps {
-  font-weight: bold;
-  color: #4c4c4c;
-  padding-left: 15px;
+  font-family: 'Open sans', sans-serif;
+  color: #6f6f6f;
+  padding-left: 10px;
   position: absolute;
   outline: none;
   float: left;
   clear: right;
   margin-bottom: 2px;
-  font-size: 0.8em;
-  font-family: 'Open sans', sans-serif;
+  font-size: 13px;
 }
 
 .delete-button {
@@ -1967,11 +1966,11 @@ h2 {
 }
 
 .return-button-first {
-  margin-left: 32%;
+  margin-left: 15%;
 }
 
 .return-button-second {
-  margin-left: 34.6%;
+  margin-left: 47.2%;
 }
 
 .close-button:hover {
@@ -2035,6 +2034,7 @@ h2 {
   font-family: 'Open sans', sans-serif;
   color: #62e2d9;
   background-color: white;
+  margin: 0 -1%;
 }
 
 .menu-action-button {
@@ -2055,19 +2055,21 @@ h2 {
 }
 
 .minus-action-button:hover {
-  color: #226B64;
+  color: #62e2d9;
 }
 
 .minus-action-button {
   padding: 2px 12px;
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
-  color: #62e2d9;
+  color: #226B64;
   font-size: 22px;
 }
 
 .selected-menu-button {
   color: #226B64;
+  background: #f9f9f9;
+  border-top: 1px solid #e6e6e6;
 }
 
 .menu-button {
@@ -2098,6 +2100,7 @@ h2 {
   background-position: 0 0;
   margin-right: 10px;
   float: right;
+  outline: none;
 }
 
 .menu-two {
@@ -2106,6 +2109,7 @@ h2 {
   margin-right: 20px;
   margin-left: 5px;
   float: left;
+  outline: none;
 }
 
 .menu-one:hover {

@@ -105,20 +105,20 @@
           </div>
         </div><!--
 
-     --><div class="input-container grid__item one-quarter" ng-if="inputPos != null" ng-style="{'top':50 + 'px'}" style="height:300px;padding: 5px;">
+     --><div class="input-container grid__item three-tenths" ng-if="inputPos != null" ng-style="{'top':50 + 'px', 'right':1 + '%'}" style="height:300px;padding: 5px;">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
               <div ng-if="replyTo==null">
                   <div ng-if="!secondMenu">
-                      <div class="window-title" >COMMENTING ON</div>
+                      <div class="window-title" >Select the steps you want to comment on</div>
                       <div ng-repeat="step in currentStep">
                           <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">X</a>
                           <a class="return-button-first return-button" ng-click="return(step)" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
                       </div>
                       <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                       <div>
-                          <div class="selected-steps" ng-if="selectedStepsList.length !=0">STEPS: {{list.toString()}}</div>
+                          <div class="selected-steps" ng-if="selectedStepsList.length !=0">Step(s): {{list.toString()}}</div>
                           <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true"></button>
                       </div>
                       <br>

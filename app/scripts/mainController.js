@@ -412,10 +412,15 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.menuSwitch=function(){
-                    $scope.secondMenu = !$scope.secondMenu;
-                    LoggerService.log("Menu switched:"
-                        + " Tutorial - " + $scope.tutorial.title
-                        + " Interface - Embedded");
+                    if(!$scope.secondMenu && $scope.selectedStepsList.length == 0){
+                        alert("Please select a step.");
+                    }else{
+                        $scope.secondMenu = !$scope.secondMenu;
+                        LoggerService.log("Menu switched:"
+                            + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - Embedded");
+                    }
+
                 };
 
                 $scope.noteOrder = function(step){
