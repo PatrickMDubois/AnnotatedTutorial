@@ -229,7 +229,8 @@
                       <div class="close-button reply-close" ng-click="closeInput()">X</div>
                       <br>
                 </div>
-                <textarea class="input-text" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
+                <textarea class="input-text"  ng-if="(inputCategory == 'other')" ng-model="$parent.newNote" rows="4" placeholder="Please enter your note here."></textarea>
+                <textarea class="input-text"  ng-if="(inputCategory !== 'other')" ng-model="$parent.newNote" rows="6" placeholder="Please enter your note here."></textarea>
                 <button ng-click="submitNote()" class="plain-button submit-button">SUBMIT</button>
               </div>
           </div>
