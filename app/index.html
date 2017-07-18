@@ -183,11 +183,11 @@
                     <br>
                     <div>
                           <a class="menu-action-button preview-button" href="#general"></a>
-                          <button class="menu-action-button" ng-click="chosenGeneral();stepSelected(listOfSteps[listOfSteps.length-1]);numberList();" ng-class="{'selected-menu-button':selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1}">
+                          <button class="menu-action-button" ng-click="chosenGeneral();stepSelected(listOfSteps[listOfSteps.length-1]);numberList();" ng-class="{'selected-menu-button':general}">
                               <div class="plus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])==-1">+</div>
                               <div class="minus-action-button" ng-if="selectedStepsList.indexOf(listOfSteps[listOfSteps.length-1])!=-1">-</div>
                           </button>
-                          <div class="step-list">GENERAL</div>
+                          <div class="step-list" ng-class="{'selected-menu-button':general}">GENERAL</div>
                           <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1" ng-style="{'disabledSteps':general}">
                               <a class="menu-action-button preview-button" href="#{{step.id}}"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
