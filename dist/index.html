@@ -120,7 +120,6 @@
                               <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
-
                               <div>
                                   <ui-select on-select="newFilter($item.id)" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedItem" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
                                       <ui-select-match placeholder="Select a step">
@@ -135,7 +134,7 @@
                           <button id="apply" ng-click="newSort();"></button>
                       </div>
 
-                      <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':selectedStepsList.length !== 0 || replyTo !== null}">
+                      <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':menuOpen || replyTo !== null}">
                       <note ng-repeat="note in listOfNotes"
                             ng-if="canShowNote(note) && note.reply_to == null"
                             note="note"

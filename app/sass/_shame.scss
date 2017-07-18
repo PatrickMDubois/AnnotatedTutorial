@@ -661,12 +661,11 @@ h2 {
 }
 
 .disabled-steps {
-  background-color: #cccccc;
+  background-color: rgba(168, 168, 168, 0.76);
 }
 
 .menu-action-button {
   float: right;
-  //border-left: 2px solid #e6e6e6;
   outline: none;
 }
 
@@ -692,10 +691,6 @@ h2 {
   font-family:'Open sans', sans-serif;
   color:#226B64;
   font-size:22px;
-}
-
-.menu-action-button:disabled {
-  background-color: #cccccc;
 }
 
 .selected-menu-button {
