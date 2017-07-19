@@ -2043,7 +2043,7 @@ h2 {
 }
 
 .return-button-second {
-  margin-left: 47.2%;
+  margin-left: 18.45%;
 }
 
 .close-button:hover {
@@ -2101,8 +2101,8 @@ h2 {
 .step-list {
   border-top: 1px solid #e6e6e6;
   margin: 0 -5px;
-  padding: 2px 0;
-  padding-left: 15px;
+  padding: 2px 15px;
+  padding-left: 3%;
   text-align: left;
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
@@ -2111,7 +2111,7 @@ h2 {
 }
 
 .disabled-steps {
-  background-color: rgba(168, 168, 168, 0.76);
+  background-color: rgba(146, 146, 146, 0.76);
 }
 
 .menu-action-button {
@@ -2194,7 +2194,7 @@ h2 {
 .menu-two {
   background-image: url(../images/PNG/arrow-left.png);
   background-position: 0 2px;
-  margin-right: 20px;
+  margin-right: 2.5%;
   float: left;
 }
 

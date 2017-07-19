@@ -253,16 +253,13 @@ angular.module('AnnotatedTutorial')
                          + " Tutorial - " + $scope.tutorial.title
                          + " Interface - Side Display");
                 };
+
                 $scope.chosenGeneral = function(){
+
                     if(!$scope.general) {
                         $scope.selectedStepsList.splice(0, $scope.selectedStepsList.length);
                     }
                     $scope.general = !$scope.general;
-                    for(var i = 0; i <$scope.listOfSteps.length-1; i++){
-                        var stepID = "step " + i;
-                        document.getElementById(stepID).disabled = $scope.general;
-                    }
-                    document.getElementById("general").disabled = true;
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -426,10 +423,19 @@ angular.module('AnnotatedTutorial')
 
                 $scope.stepAdded = function(step){
                     $scope.selectedStepsList.push(step);
+                    if($scope.general){
+                        $scope.selectedStepsList.splice(0,1);
+                        $scope.chosenGeneral();
+                    }
+
                 };
 
                 $scope.stepRemoved = function(step,index){
                     $scope.selectedStepsList.splice(index,1);
+                    if($scope.selectedStepsList.length == 0){
+                        $scope.chosenGeneral();
+                        $scope.selectedStepsList.push($scope.listOfSteps[$scope.listOfSteps.length-1]);
+                    }
                 };
 
                 $scope.stepSelected=function(step){
@@ -484,13 +490,6 @@ angular.module('AnnotatedTutorial')
                         $scope.extraInput = "";
                     }
 
-                    /*if($scope.selectedStepsList.length == 0){
-                        //alert("Please go back and select a step.");
-
-                    }else*/
-                    console.log($scope.selectedStepsList);
-                    console.log($scope.newNote);
-                    console.log($scope.replyTo);
                     if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedStepsList,
@@ -774,42 +773,3 @@ angular.module('AnnotatedTutorial')
 
         $scope.selectedItem = $scope.itemArray[0];
     }]);
-/**
- * Created by patrick on 01/06/17.
- */
-// Select all links with hashes
-$('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
-        // On-page links
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-            &&
-            location.hostname == this.hostname
-        ) {
-            // Figure out element to scroll to
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000, function() {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    }
-                });
-            }
-        }
-    });
