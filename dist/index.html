@@ -23,8 +23,8 @@
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
                 <div ng-click="contributorFlag = showContributors(contributorFlag)">
-                        <div class="contributors-show" ng-show="!contributorFlag"></div>
-                        <div class="contributors-hide" ng-show="contributorFlag"></div>
+                        <div class="contributors-show" ng-show="!contributorFlag" tooltip="Show"></div>
+                        <div class="contributors-hide" ng-show="contributorFlag" tooltip="Hide"></div>
                 </div>
                 <div class="contributor-button"
                      ng-click="contributorFlag=showContributors(contributorFlag);clear()">{{listOfContributors.length.toString()}} Other contributors
@@ -117,12 +117,12 @@
                       <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                       <div>
                           <div class="selected-steps" ng-if="selectedStepsList.length !=0">Step(s): {{list.toString()}}</div>
-                          <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true"></button>
+                          <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true" tooltip="Next"></button>
                       </div>
                       <br>
                       <div>
                           <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1">
-                              <a class="menu-action-button preview-button" ng-click="preview(step);" href="#{{step.id}}"></a>
+                              <a class="menu-action-button preview-button" ng-click="preview(step);" href="#{{step.id}}" tooltip="Preview"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
                                   <div class="plus-action-button" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
@@ -147,7 +147,7 @@
                       <button ng-click="categorySelected('details')" class="icon icon-details menu-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
                       <button ng-click="categorySelected('questions')" class="icon icon-questions menu-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
                       <button ng-click="categorySelected('other')" class="icon icon-other menu-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
-                      <button class="menu-two menu-button" ng-click="menuSwitch()"></button>
+                      <button class="menu-two menu-button" ng-click="menuSwitch()" tooltip="Back"></button>
                       <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
                   </div>
               </div>
