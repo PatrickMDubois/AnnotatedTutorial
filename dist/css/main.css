@@ -1549,13 +1549,13 @@ img {
   opacity: 0;
   position: absolute;
   background-color: #000;
-  font-size: 0.7em;
+  font-size: 0.7em !important;
   font-family: 'Open sans', sans-serif;
-  border-radius: 10px;
+  border-radius: 4px;
   color: #fff;
   margin-left: -10px;
   margin-top: 20px;
-  padding: 2px;
+  padding: 3px;
   pointer-events: none;
   transition: all 0.1s ease;
   white-space: nowrap;
@@ -1770,6 +1770,7 @@ img {
   padding: 5px;
   position: fixed;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .note-container {
@@ -2038,7 +2039,7 @@ h2 {
 }
 
 .return-button-first {
-  margin-left: 15%;
+  margin-left: 16.45%;
 }
 
 .return-button-second {
