@@ -182,6 +182,7 @@ angular.module('AnnotatedTutorial')
                         if(!$scope.replyTo){
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
                         }
+                        console.log($scope.newNote);
                         $scope.newNote = null;
                         var returnedNote = TutorialService.post(note).then(function(result){
                             $scope.newNote = result;
