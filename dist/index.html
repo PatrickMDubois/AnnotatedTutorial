@@ -22,8 +22,8 @@
                     <h3 class="tutorial-author">by {{tutorial.author}}</h3>
                 <!-- Buttons to toggle the list of authors-->
                 <div ng-click="contributorFlag = showContributors(contributorFlag)">
-                        <div class="contributors-show" ng-show="!contributorFlag"></div>
-                        <div class="contributors-hide" ng-show="contributorFlag"></div>
+                        <div class="contributors-show" ng-show="!contributorFlag" tooltip="Show"></div>
+                        <div class="contributors-hide" ng-show="contributorFlag" tooltip="Hide"></div>
                 </div>
                 <div class="contributor-button"
                      ng-click="contributorFlag=showContributors(contributorFlag)">{{listOfContributors.length.toString()}} contributors

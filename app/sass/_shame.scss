@@ -111,8 +111,8 @@ img{
 }
 
 .reply-text{
-  margin:2px 20px;
-  margin-bottom:5px;
+  margin:0px 20px;
+  //margin-bottom:5px;
   color: #545454;
   font-size:13px;
   font-weight:600;
@@ -178,8 +178,8 @@ img{
 .input-text {
   width: 93%;
   background-color: white;
-  margin:0 15px;
-  padding:0 5px;
+  margin:2px 3.8%;
+  padding:3px 5px;
   font-family:'Open sans', sans-serif;
   border: solid 1px #e2e2e2;
 }
@@ -236,7 +236,7 @@ img{
   border-radius:3px;
   background-color:#62e2d9;
   padding: 6px 215.5px;
-  margin:4px 20px;
+  margin:2px 20px;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
   color: white;
@@ -308,11 +308,11 @@ h2 {
   margin-right: 4px;
 }
 .replyOne{
-  background-color: white !important;
+  background-color: white;
 }
 
 .replyTwo{
-  background-color: #ececec !important;
+  background-color: #ececec;
 }
 
 .contributors-show:hover{
