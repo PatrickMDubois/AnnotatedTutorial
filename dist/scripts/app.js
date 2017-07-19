@@ -60,7 +60,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = 'Panda'//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = 'Koala'//'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
