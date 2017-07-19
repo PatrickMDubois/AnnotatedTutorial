@@ -314,9 +314,14 @@ angular.module('AnnotatedTutorial')
                         $scope.extraInput = "";
                     }
 
-                    if($scope.selectedStepsList.length == 0){
-                        alert("Please go back and select a step.");
-                    }else if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
+                    /*if($scope.selectedStepsList.length == 0){
+                        //alert("Please go back and select a step.");
+
+                    }else*/
+                    console.log($scope.selectedStepsList);
+                    console.log($scope.newNote);
+                    console.log($scope.replyTo);
+                    if(($scope.selectedStepsList!==null||$scope.replyTo!==null) && $scope.newNote){
                         var note = {
                             "step_id":$scope.selectedStepsList,
                             "tutorial_id": $scope.tutorial.id,
@@ -326,6 +331,7 @@ angular.module('AnnotatedTutorial')
                             "contributor": $scope.contributor.name,
                             "reply_to": $scope.replyTo
                         };
+
 
                         if(!$scope.replyTo){
                             note.step_id = $scope.findStepId($scope.selectedStepsList);
