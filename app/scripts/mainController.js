@@ -85,12 +85,9 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.chosenGeneral = function(step){
-                    console.log($scope.general);
-                    console.log("chosen");
-                    console.log($scope.listOfSteps.indexOf(step));
-                    if($scope.listOfSteps.indexOf(step) !== $scope.listOfSteps.length-1 || !general) {
-                        console.log("got through");
+                    if(!$scope.general || $scope.listOfSteps.indexOf(step) !== $scope.listOfSteps.length-1) {
                         $scope.selectedStepsList.splice(0, $scope.selectedStepsList.length);
+
                         if (!$scope.general) {
                             $scope.selectedStepsList.push($scope.listOfSteps[$scope.listOfSteps.length - 1]);
 
@@ -263,9 +260,6 @@ angular.module('AnnotatedTutorial')
 
                     if($scope.general){
                         $scope.chosenGeneral(step);
-                        console.log($scope.general);
-                        console.log("removed general");
-                        console.log($scope.selectedStepsList);
                     }
                     $scope.selectedStepsList.push(step);
 
@@ -275,9 +269,6 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedStepsList.splice(index,1);
                     if($scope.selectedStepsList.length == 0){
                         $scope.chosenGeneral(step);
-                        console.log($scope.general);
-                        console.log("added general");
-                        console.log($scope.selectedStepsList);
                     }
                 };
 
