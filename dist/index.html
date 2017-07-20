@@ -68,12 +68,13 @@
 
               <div class="grid__item one-tenth input-start-container">
                   <!-- Button for adding a note -->
-                  <button class="input-start icon" ng-if="inputPos === null" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" ng-show="hover && selectedLine != $index" tooltip="Add a note"></button>
+                  <button class="input-start icon" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" ng-show="(hover && currentStep.length == 0)|| currentStep[0] == step" tooltip="Add a note"></button>
               </div>
 
               <button class="icon icon-corrections side-bar"
                       ng-if="checkForCategory(step, 'corrections')"
                       ng-click="noteOrder(step);$parent.showCorrections = showCategory($parent.showCorrections, 'corrections', step)"
+                      ng-class="{'selected-corrections': $parent.showCorrections}"
                       tooltip="Corrections">
                       <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
               </button>
@@ -81,6 +82,7 @@
               <button class="icon icon-details side-bar"
                       ng-if="checkForCategory(step, 'details')"
                       ng-click="noteOrder(step);$parent.showDetails = showCategory($parent.showDetails, 'details', step)"
+                      ng-class="{'selected-details': $parent.showDetails}"
                       tooltip="Tell me more!">
                       <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
               </button>
@@ -88,6 +90,7 @@
               <button class="icon icon-questions side-bar"
                       ng-if="checkForCategory(step, 'questions')"
                       ng-click="noteOrder(step);$parent.showQuestions = showCategory($parent.showQuestions, 'questions', step)"
+                      ng-class="{'selected-questions': $parent.showQuestions}"
                       tooltip="Questions">
                       <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
               </button>
@@ -95,6 +98,7 @@
               <button class="icon icon-other side-bar"
                       ng-if="checkForCategory(step, 'other')"
                       ng-click="noteOrder(step);$parent.showOther = showCategory($parent.showOther, 'other', step)"
+                      ng-class="{'selected-other': $parent.showOther}"
                       tooltip="Other notes">
                       <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
               </button>

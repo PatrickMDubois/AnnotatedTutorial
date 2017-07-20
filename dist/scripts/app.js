@@ -322,7 +322,7 @@ angular.module('AnnotatedTutorial')
                     $scope.selectedStepsList.splice(0,$scope.selectedStepsList.length);
                     $scope.stepAdd = false;
                     $scope.secondMenu = false;
-
+                    $scope.resetCurrent();
                     LoggerService.log("Closed input dialog: " 
                         + " Tutorial - " + $scope.tutorial.title
                         + " Interface - Embedded");
@@ -581,7 +581,7 @@ angular.module('AnnotatedTutorial')
 
                 $scope.menuSwitch=function(){
                     if(!$scope.secondMenu && $scope.selectedStepsList.length == 0){
-                        alert("Please select a step.");
+                        confirm("Please select a step.");
                     }else{
                         $scope.secondMenu = !$scope.secondMenu;
                         LoggerService.log("Menu switched:"
