@@ -105,7 +105,7 @@
           </div>
         </div><!--
 
-     --><div class="input-container grid__item three-tenths" ng-if="inputPos != null" ng-style="{'top':50 + 'px', 'right':1 + '%'}" style="height:300px;padding: 5px;">
+     --><div class="input-container grid__item three-tenths" ng-if="inputPos != null" ng-style="{'top':50 + 'px', 'right':1 + '%'}" style="height:33%;padding: 5px;">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
@@ -117,7 +117,7 @@
                           <a class="return-button-first return-button" ng-click="return(step)" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
                       </div>
                       <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
-                      <div>
+                      <div style="margin-bottom:2%">
                           <div class="selected-steps" ng-if="selectedStepsList.length !=0">Step(s): {{list.toString()}}</div>
                           <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true" tooltip="Next"></button>
                       </div>
@@ -139,17 +139,24 @@
                   <div ng-if="secondMenu">
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                       <script src="scripts/smooth-scrolling.js"></script>
-                      <div class="window-title categories-title" ng-if="secondMenu">CATEGORIES</div>
+                      <div class="window-title categories-title" ng-if="secondMenu">Note Categories</div>
+                      <div class="window-title">Commenting on</div>
+
                       <div ng-repeat="step in currentStep">
                           <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">X</a>
                           <a class="return-button-second return-button" ng-click="return(step);" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
 
                       </div>
-                      <button ng-click="categorySelected('corrections')" class="icon icon-corrections menu-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
-                      <button ng-click="categorySelected('details')" class="icon icon-details menu-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
-                      <button ng-click="categorySelected('questions')" class="icon icon-questions menu-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
-                      <button ng-click="categorySelected('other')" class="icon icon-other menu-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
-                      <button class="menu-two menu-button" ng-click="menuSwitch()" tooltip="Back"></button>
+                      <button class="menu-two menu-button" style="margin-left:1%" ng-click="menuSwitch()" tooltip="Back"></button>
+                      <button style="float:left; margin-right:1%;" ng-click="categorySelected('corrections')" class="icon icon-corrections menu-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
+                      <button style="float:left; margin-right:1%;" ng-click="categorySelected('details')" class="icon icon-details menu-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
+                      <button style="float:left; margin-right:1%;" ng-click="categorySelected('questions')" class="icon icon-questions menu-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
+                      <button style="float:left; margin-right:5.5%;" ng-click="categorySelected('other')" class="icon icon-other menu-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
+                      <div style="margin-bottom:2%">
+                          <div ng-if="selectedStepsList.length !=0">{{list.toString()}}</div>
+                          <div ng-if="selectedStepsList.length == 0">None Selected</div>
+                      </div>
+
                       <div ng-if="inputCategory==''">PLEASE SELECT A CATEGORY</div>
                   </div>
               </div>

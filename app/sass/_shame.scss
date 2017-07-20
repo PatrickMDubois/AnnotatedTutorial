@@ -101,17 +101,51 @@ img{
   //background-color: #d4ed96;
 }
 
-.selected-details,.menu-details:hover, .number-details, .icon-details:hover {
+.menu-corrections{
+  border:1.5px solid #ebb083;
+}
+
+.menu-corrections:hover{
+  background-color: #ebb083;
+  border:1.5px solid #ebb083;
+}
+
+.menu-details{
+  border:1.5px solid  #ccc0eb;
+}
+
+.menu-details:hover{
+  background-color:  #ccc0eb;
+  border:1.5px solid  #ccc0eb;
+}
+.menu-questions{
+  border:1.5px solid #ebdc69;
+}
+
+.menu-questions:hover{
+  background-color: #ebdc69;
+  border:1.5px solid #ebdc69;
+}
+.menu-other{
+  border:1.5px solid  #c0d982;
+}
+
+.menu-other:hover{
+  background-color:  #c0d982;
+  border:1.5px solid  #c0d982;
+}
+
+.selected-details, .number-details, .icon-details:hover {
   background-color: #ccc0eb;
 }
-.selected-corrections,.menu-corrections:hover,.number-corrections, .icon-corrections:hover {
+.selected-corrections,.number-corrections, .icon-corrections:hover {
   background-color: #ebb083;
 }
 
-.selected-questions,.number-questions,.menu-questions:hover, .icon-questions:hover {
+.selected-questions,.number-questions, .icon-questions:hover {
   background-color: #ebdc69;
 }
-.selected-other,.number-other, .menu-other:hover, .icon-other:hover {
+.selected-other,.number-other, .icon-other:hover {
   background-color: #c0d982;
 }
 
@@ -209,6 +243,7 @@ img{
   padding: 5px;
   position: fixed;
   overflow-y: auto;
+  overflow-x:hidden;
   right:5%;
 }
 
@@ -449,12 +484,13 @@ h2{
   font-weight: bold;
   font-family:'Open sans', sans-serif;
   color: #6f6f6f;
-  margin-left: 10px;
+  margin-left: 2%;
   float: left;
 }
 
-.categories-title{
-  margin-left:30px;
+.categories-title {
+  margin-left: 7.5%;
+  margin-right:3.5%;
 }
 
 .selected-steps {
@@ -488,18 +524,19 @@ h2{
   font-size: 1em;
   font-family:'Open sans', sans-serif;
   float: right;
-  margin-right:10px;
+  //margin-right:10px;
   color: #bababa;
   font-weight:bold;
 }
 
 .return-button-first {
-  margin-left: 15%;
+  margin-left: 16.45%;
 }
 
 .return-button-second {
-  margin-left: 47.2%;
+  margin-left: 19.4%;
 }
+
 
 
 .close-button:hover {
@@ -508,7 +545,7 @@ h2{
 }
 
 .close-button-second {
-  margin-right: 3.4%;
+  //margin-right: 3.4%;
 }
 
 .return-button {
@@ -623,29 +660,34 @@ h2{
 .preview-button:hover{
   background-image: url(../images/SVG/eyeSelected.svg);
 }
-.menu-one{
-  background-image: url(../images/PNG/arrow-right.png);
-  background-position: 0 0;
-  margin-right:10px;
-  float:right;
-  outline:none;
+
+.menu-one {
+  background-image: url(../images/SVG/rightArrow.svg);
+  background-size: 20px;
+  background-position: 0 1px;
+  height: 28px;
+  line-height: 9px;
+  width: 20px;
+  float: right;
 }
 
-.menu-two{
-  background-image: url(../images/PNG/arrow-left.png);
+.menu-two {
+  background-image: url(../images/SVG/leftArrow.svg);
+  background-size: 20px;
   background-position: 0 2px;
-  margin-right:20px;
-  margin-left:5px;
-  float:left;
-  outline:none;
+  height: 28px;
+  line-height: 9px;
+  width: 20px;
+  margin-right: 2.5%;
+  float: left;
 }
 
 .menu-one:hover{
-  background-image: url(../images/PNG/arrow-right-hover.png);
+  //background-image: url(../images/PNG/arrow-right-hover.png);
 }
 
 .menu-two:hover{
-  background-image: url(../images/PNG/arrow-left-hover.png);
+  //background-image: url(../images/PNG/arrow-left-hover.png);
 }
 
 .text{
