@@ -84,12 +84,20 @@ angular.module('AnnotatedTutorial')
                          + " Interface - Side Display");
                 };
 
-                $scope.chosenGeneral = function(){
-
-                    if(!$scope.general) {
+                $scope.chosenGeneral = function(step){
+                    console.log($scope.general);
+                    console.log("chosen");
+                    console.log($scope.listOfSteps.indexOf(step));
+                    if($scope.listOfSteps.indexOf(step) !== $scope.listOfSteps.length-1 || !general) {
+                        console.log("got through");
                         $scope.selectedStepsList.splice(0, $scope.selectedStepsList.length);
+                        if (!$scope.general) {
+                            $scope.selectedStepsList.push($scope.listOfSteps[$scope.listOfSteps.length - 1]);
+
+                        }
+                        $scope.general = !$scope.general;
                     }
-                    $scope.general = !$scope.general;
+
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -252,19 +260,24 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.stepAdded = function(step){
-                    $scope.selectedStepsList.push(step);
+
                     if($scope.general){
-                        $scope.selectedStepsList.splice(0,1);
-                        $scope.chosenGeneral();
+                        $scope.chosenGeneral(step);
+                        console.log($scope.general);
+                        console.log("removed general");
+                        console.log($scope.selectedStepsList);
                     }
+                    $scope.selectedStepsList.push(step);
 
                 };
 
                 $scope.stepRemoved = function(step,index){
                     $scope.selectedStepsList.splice(index,1);
                     if($scope.selectedStepsList.length == 0){
-                        $scope.chosenGeneral();
-                        $scope.selectedStepsList.push($scope.listOfSteps[$scope.listOfSteps.length-1]);
+                        $scope.chosenGeneral(step);
+                        console.log($scope.general);
+                        console.log("added general");
+                        console.log($scope.selectedStepsList);
                     }
                 };
 
