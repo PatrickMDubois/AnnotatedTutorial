@@ -320,7 +320,7 @@ angular.module('AnnotatedTutorial')
                     $scope.stepAdd = false;
                     $scope.secondMenu = false;
                     $scope.menuOpen = false;
-
+                    $scope.resetCurrent();
                     LoggerService.log("Closed input dialog:"
                         + " Tutorial - " + $scope.tutorial.title
                         + " Interface - Side Display");

@@ -1731,13 +1731,13 @@ img {
 }
 
 .input-start {
-  background-color: #fff;
   background-image: url(../images/SVG/unselectedAdd.svg);
   background-size: 22px;
   background-position: 4px 3px;
-  height: 30px;
+  height: 27px;
   position: absolute;
-  width: 30px;
+  width: 27px;
+  z-index: 100;
 }
 
 .input-start:hover {
