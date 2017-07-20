@@ -222,13 +222,14 @@ img{
   font-weight:bold;
 }
 
-.input-start{
+.input-start {
   background-image: url(../images/SVG/unselectedAdd.svg);
-  background-size: 28px;
-  background-position: 3px 1px;
-  height: 32px;
+  background-size: 22px;
+  background-position: 4px 3px;
+  height: 27px;
   position: absolute;
-  width: 32px;
+  width: 27px;
+  z-index:100;
   border:none;
 }
 
