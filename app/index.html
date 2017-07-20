@@ -111,7 +111,7 @@
                           <div class="note-display filter-steps">Steps</div>
                           <button class="clear-button" ng-click="clear()">CLEAR</button><br>
                           <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
-                              <select style="width:23%; float:left;margin-left:2%;margin-right:2.4%;" class="form-control" id="sort" onchange="sortSelected()">
+                              <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control" id="sort" onchange="sortSelected()">
                                   <option value="new" selected>RECENT</option>
                                   <option value="old">OLDEST</option>
                                   <option value="high">RATE:HIGH</option>
@@ -125,7 +125,7 @@
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
                               <div>
-                                  <ui-select on-select="newFilter($item.id)" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedItem" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                  <ui-select on-select="newFilter($item.id)" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedStepsList.selected" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
                                       <ui-select-match placeholder="Select a step">
                                           <span style="height:20%;" ng-bind="$item.name"></span>
                                       </ui-select-match>
@@ -213,10 +213,10 @@
                       <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">X</a>
                    </div>
                     <button class="menu-two menu-button" style="margin-left:1% "ng-click="menuSwitch()" tooltip="Back"></button>
-                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('corrections')" class="icon icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
-                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('details')" class="icon icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
-                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('questions')" class="icon icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
-                     <button style="float:left ;margin-right:5.5%" ng-click="categorySelected('other')" class="icon icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
+                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('corrections')" class="icon filter-icon-corrections icon-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
+                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('details')" class="icon icon-details filter-icon-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
+                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('questions')" class="icon icon-questions filter-icon-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
+                     <button style="float:left ;margin-right:5.5%" ng-click="categorySelected('other')" class="icon icon-other filter-icon-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
                      <div style="margin-bottom:2%">
                         <div ng-if="selectedStepsList.length !=0">{{list.toString()}}</div>
                         <div ng-if="selectedStepsList.length == 0">None Selected</div>

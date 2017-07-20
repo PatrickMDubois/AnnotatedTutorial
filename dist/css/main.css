@@ -1533,15 +1533,7 @@ img {
   width: 20px;
   position: relative;
   float: left;
-  margin: 2.5% 1%;
-}
-
-.filter-icon:hover {
-  border: none;
-}
-
-.selected, .icon:hover {
-  border: none;
+  margin: 0% 1%;
 }
 
 [tooltip]:before {
@@ -1583,26 +1575,30 @@ img {
 .filter-icon-details {
   background-image: url(../images/PNG/pin.png);
   background-size: 14px;
-  background-position: 2.5px 2.5px;
+  background-position: 2.5px 2px !important;
+  border: 1.5px solid #ccc0eb;
 }
 
 .filter-icon-corrections {
   background-image: url(../images/PNG/healing.png);
-  background-position: 2.5px 2.5px;
-  margin-left: 5%;
+  background-position: 1.9px 1.9px !important;
+  border: 1.5px solid #ebb083;
+  margin-left: 0 !important;
 }
 
 .filter-icon-questions {
   background-image: url(../images/PNG/question.png);
   background-size: 13px;
-  background-position: 3px 2.5px;
+  background-position: 3px 2.5px !important;
+  border: 1.5px solid  #ebdc69;
 }
 
 .filter-icon-other {
   background-image: url(../images/PNG/other.png);
   background-size: 17px;
-  background-position: 2px 2px;
+  background-position: -1px 1px !important;
   margin-right: 11% !Important;
+  border: 1.5px solid  #c0d982;
 }
 
 .note-icon-details {

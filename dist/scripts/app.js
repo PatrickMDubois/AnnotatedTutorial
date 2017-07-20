@@ -230,7 +230,7 @@ angular.module('AnnotatedTutorial')
                         newItem['name'] = k;
                     }else if(k=== $scope.listOfSteps.length-2){
                         newItem['name'] = "end";
-                    }else{
+                    }else if(k=== $scope.listOfSteps.length-1){
                         newItem['name'] = "general";
                     }
                     $scope.itemArray.push(newItem);
