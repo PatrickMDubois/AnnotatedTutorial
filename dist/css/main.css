@@ -1689,7 +1689,7 @@ img {
 .note {
   margin: 10px 0;
   padding: 5px 10px;
-  padding-bottomn: 10px;
+  padding-bottom: 10px;
   clear: both;
   border-radius: 2px;
 }
@@ -1730,6 +1730,10 @@ img {
   overflow-y: auto;
   overflow-x: hidden;
   right: 5%;
+}
+
+.reply-container {
+  height: 21% !important;
 }
 
 .description {
@@ -1777,6 +1781,10 @@ img {
 
 .filter-icon:hover {
   border: none;
+}
+
+.note-highlight {
+  background-color: rgba(204, 192, 235, 0.45) !important;
 }
 
 .filter-icon-details {

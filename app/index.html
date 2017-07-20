@@ -59,10 +59,10 @@
               <div id="{{tutorial.steps[tutorial.steps.length-2].id}}" ng-if="(step.step_number==(tutorial.steps.length-2))"></div>
               <div class="main-content note-area" ng-bind-html="step.html"></div>
               <!-- Step's notes, if toggled on--->
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
-              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'corrections'" ng-show="showCorrections" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true current-reply="replyTo"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'details'" ng-show="showDetails" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true current-reply="replyTo"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'questions'" ng-show="showQuestions" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true current-reply="replyTo"></note>
+              <note ng-repeat="note in step.notes" ng-if="canShowNote(note) && note.category === 'other'" ng-show="showOther" note="note" delete-it="deleteNote" rate-it="newRating" add-reply="addingReply" can-show-note="canShowNote" user="contributor" date="dateFormat(note)" notelist="getNoteList(note)" reply-one=true current-reply="replyTo"></note>
           </div><!--
 
             <!-- Buttons to toggle on/off notes
@@ -105,10 +105,10 @@
           </div>
         </div><!--
 
-     --><div class="input-container grid__item three-tenths" ng-if="inputPos != null" ng-style="{'top':50 + 'px', 'right':1 + '%'}" style="height:33%;padding: 5px;">
+     --><div class="input-container grid__item three-tenths" ng-if="inputPos != null" ng-class="{'reply-container': replyTo!= null}" ng-style="{'top':50 + 'px', 'right':1 + '%'}" style="height:33%;padding: 5px;">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-              <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
+              <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}: "{{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,50))}}..."</div>
               <div ng-if="replyTo==null">
                   <div ng-if="!secondMenu">
                       <div class="window-title" >Select the steps you want to comment on</div>

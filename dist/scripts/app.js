@@ -373,8 +373,6 @@ angular.module('AnnotatedTutorial')
                                 for(var index=0; index<$scope.tutorial.notes[noteIndex].step_id.length; index++){
                                     var stepIndex = $scope.findStepIndex($scope.newNote.step_id[index]);
                                     var noteStepIndex = $scope.findNoteInStep($scope.tutorial.steps[stepIndex].step_number, $scope.newNote.reply_to);
-                                    console.log(noteStepIndex);
-                                    console.log($scope.tutorial.steps[stepIndex].step_number);
                                     $scope.tutorial.steps[stepIndex].notes[noteStepIndex].replies.push($scope.newNote);
                                 }
                             }
@@ -622,7 +620,7 @@ angular.module('AnnotatedTutorial')
         return {
             restrict: 'E',
             templateUrl: 'note.html',
-            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=',currentNote:'=', notelist:'=', replyOne: '='},
+            scope: {note: '=',deleteIt: '=',rateIt:"=", addReply: '=', canShowNote: '=', user: '=', date: '=',currentNote:'=', notelist:'=', replyOne: '=', currentReply:'='},
             compile: function(element) {
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }

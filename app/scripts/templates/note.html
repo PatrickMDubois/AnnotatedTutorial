@@ -54,7 +54,7 @@
             <div ng-if="note.contributor_list.length==1">{{note.contributor_list.length}} person found this helpful.</div>
             <div ng-if="note.contributor_list.length<1">Not rated yet.</div>
         </div>
-        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date" current-note="currentNote" notelist="noteList" reply-one="!replyOne"></note>
+        <note ng-repeat="reply in note.replies" ng-if="note.replies.length > 0 && canShowNote(reply)" note="reply" delete-it = "deleteIt" rate-it = "rateIt" add-reply="addReply" can-show-note="canShowNote" user="user" date="date" current-note="currentNote" notelist="noteList" reply-one="!replyOne" current-reply="currentReply"></note>
 
     </div>
 </div>
