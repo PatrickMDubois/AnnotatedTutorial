@@ -170,7 +170,7 @@
               }
           </script>
           <div class="input-container" ng-if="inputPos != null" ng-style="{'top':2.2 + '%', 'right':1.1 + '%'}" style="height:32%;width:29.95%;padding: 5px;">
-              <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}.</div>
+              <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}: "{{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,50))}}..."</div>
               <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
                     <div class="window-title" >Select the steps you want to comment on</div>

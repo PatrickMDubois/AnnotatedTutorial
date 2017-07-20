@@ -1738,10 +1738,12 @@ img {
   position: absolute;
   width: 27px;
   z-index: 100;
+  border: none;
 }
 
 .input-start:hover {
   background-image: url(../images/SVG/hoverAdd.svg);
+  border: none;
 }
 
 .reply-content {

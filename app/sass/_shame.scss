@@ -269,10 +269,12 @@ img{
   position: absolute;
   width: 27px;
   z-index:100;
+  border:none;
 }
 
 .input-start:hover {
   background-image: url(../images/SVG/hoverAdd.svg);
+  border:none;
 }
 
 .note-replies{
@@ -284,11 +286,8 @@ img{
 }
 
 .reply-content{
-  ///Smargin-top:0 !important;
   margin-bottom:1px !important;
   border:1px solid #c6c6c6;
-  //border-top:none;
-  //position:relative;
 }
 
 .replyOne{
