@@ -187,15 +187,26 @@ angular.module('AnnotatedTutorial')
                     $scope.newSort();
                 };
 
-                $scope.stepIcon = function(step){
-                    $scope.newFilter(parseInt(step.step_number));
+                $scope.sideIcon = function(step,category){
+                    if($scope.categoryFilter == category && $scope.stepFilter[0] == parseInt(step.step_number)){
+                        $scope.categoryFilter = null;
+                        $scope.stepFilter.splice(0,$scope.stepFilter.length);
+                        $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+                        $scope.newSort();
+                    }else{
+                        $scope.categoryFilter = null;
+                        $scope.stepFilter.splice(0,$scope.stepFilter.length);
+                        $scope.newFilter(parseInt(step.step_number));
+                        $scope.newFilter(category)
+                    }
+
                 };
 
-                $scope.getStepNumber=function(){
+                /*$scope.getStepNumber=function(){
                   for(var i =0; i < chosenFilter.length; i++){
                       chosenFilter[i] = parseInt(chosenFilter[i].id);
                   }
-                };
+                };*/
 
                 $scope.getStepFilterNotes=function(){
                     $scope.listOfNotes.splice(0,$scope.listOfNotes.length);

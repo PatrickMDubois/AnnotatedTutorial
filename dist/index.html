@@ -71,28 +71,32 @@
 
               <button class="icon icon-corrections icon-bar"
                       ng-if="checkForCategory(step, 'corrections')"
-                      ng-click="stepIcon(step);newFilter('corrections')"
+                      ng-click="sideIcon(step,'corrections')"
+                      ng-class="{'selected selected-corrections': categoryFilter == 'corrections' && stepFilter[0] == step.step_number}"
                       tooltip="Corrections">
                   <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
               </button>
 
               <button class="icon icon-details icon-bar"
                       ng-if="checkForCategory(step, 'details')"
-                      ng-click="stepIcon(step);newFilter('details')"
+                      ng-click="sideIcon(step, 'details')"
+                      ng-class="{'selected selected-details': categoryFilter == 'details' && stepFilter[0] == step.step_number}"
                       tooltip="Tell me more!">
                   <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
               </button>
 
               <button class="icon icon-questions icon-bar"
                       ng-if="checkForCategory(step, 'questions')"
-                      ng-click="stepIcon(step);newFilter('questions')"
+                      ng-click="sideIcon(step, 'questions')"
+                      ng-class="{'selected selected-questions': categoryFilter == 'questions' && stepFilter[0] == step.step_number}"
                       tooltip="Questions">
                   <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
               </button>
 
               <button class="icon icon-other icon-bar"
                       ng-if="checkForCategory(step, 'other')"
-                      ng-click="stepIcon(step);newFilter('other')"
+                      ng-click="sideIcon(step, 'other')"
+                      ng-class="{'selected selected-other': categoryFilter == 'other' && stepFilter[0] == step.step_number}"
                       tooltip="Other">
                   <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
               </button>
@@ -115,7 +119,6 @@
                                   <option value="category">CATEGORY</option>
                               </select>
 
-                              <!--div class="note-display filter-title filter-section-title">CATEGORY:</div-->
                               <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
                               <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
