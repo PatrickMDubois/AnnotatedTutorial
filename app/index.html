@@ -113,7 +113,7 @@
                           <div class="note-display" style="margin-left:3%;">Sort</div>
                           <div class="note-display">Filter</div>
                           <div class="note-display filter-steps">Steps</div>
-                          <button class="clear-button" ng-click="clear()">CLEAR</button><br>
+                          <button class="clear-button" ng-click=" clear();">CLEAR</button><br>
                           <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
                               <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control" id="sort" onchange="sortSelected()">
                                   <option value="new" selected>RECENT</option>
@@ -128,13 +128,16 @@
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
                               <div>
-                                  <ui-select on-select="newFilter($item.id)" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" ng-model="selectedStepsList.selected" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
                                       <ui-select-match placeholder="Select a step">
                                           <span style="height:20%;" ng-bind="$item.name"></span>
                                       </ui-select-match>
-                                      <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                                      <ui-select-choices repeat="item in itemArray | filter: $select.search track by item.id">
                                           <div ng-bind="item.name"></div>
                                       </ui-select-choices>
+                                      <ui-select-no-choice>
+                                          No results
+                                      </ui-select-no-choice>
                                   </ui-select>
                               </div>
                           </div>
@@ -167,6 +170,13 @@
                   chosenSort = document.getElementById("sort").value.toString();
                   document.getElementById("apply").click();
                   console.log(chosenSort);
+                  $select.selected = undefined;
+                  $select.search = undefined;
+              }
+
+              function test(){
+                  console.log("hi");
+                  stepSearchBox = items[0];
               }
           </script>
           <div class="input-container" ng-if="inputPos != null" ng-style="{'top':2.2 + '%', 'right':1.1 + '%'}" style="height:32%;width:29.95%;padding: 5px;">

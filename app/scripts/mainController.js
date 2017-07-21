@@ -32,7 +32,9 @@ angular.module('AnnotatedTutorial')
                 $scope.itemArray = [
                     {id: 0, name: 'intro'}
                 ];
-                $scope.selectedItem = $scope.itemArray[0];
+
+                $scope.item= {};
+                $scope.item.selected = [];
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -150,6 +152,7 @@ angular.module('AnnotatedTutorial')
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
 
+
                   LoggerService.log("Pressed Clear:"
                       + " Tutorial - " + $scope.tutorial.title
                       + " Interface - Side Display");
@@ -191,22 +194,27 @@ angular.module('AnnotatedTutorial')
                     if($scope.categoryFilter == category && $scope.stepFilter[0] == parseInt(step.step_number)){
                         $scope.categoryFilter = null;
                         $scope.stepFilter.splice(0,$scope.stepFilter.length);
+                        $scope.item.selected.splice(0,$scope.item.selected.length);
                         $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
+
+
                         $scope.newSort();
                     }else{
                         $scope.categoryFilter = null;
                         $scope.stepFilter.splice(0,$scope.stepFilter.length);
+                        $scope.item.selected.splice(0,$scope.item.selected.length);
                         $scope.newFilter(parseInt(step.step_number));
-                        $scope.newFilter(category)
+                        $scope.newFilter(category);
+                        $scope.item.selected.push($scope.returnStep(step.step_number));
+
                     }
 
                 };
 
-                /*$scope.getStepNumber=function(){
-                  for(var i =0; i < chosenFilter.length; i++){
-                      chosenFilter[i] = parseInt(chosenFilter[i].id);
-                  }
-                };*/
+                $scope.returnStep=function(id){
+                    var result = $.grep($scope.itemArray, function(e){return e.id == id;});
+                    return result[0];
+                };
 
                 $scope.getStepFilterNotes=function(){
                     $scope.listOfNotes.splice(0,$scope.listOfNotes.length);
