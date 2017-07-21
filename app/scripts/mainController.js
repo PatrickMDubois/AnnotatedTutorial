@@ -25,7 +25,7 @@ angular.module('AnnotatedTutorial')
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
 
-                //the lsit of contributors
+                //the list of contributors
                 for(var i = 0; i < $scope.tutorial.notes.length; i++) {
                     if($scope.listOfContributors.indexOf($scope.tutorial.notes[i].contributor) == -1) {
                         if(!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].contributor === $scope.contributor.name) {
@@ -189,15 +189,15 @@ angular.module('AnnotatedTutorial')
                             $scope.newNote.replies=[];
 
                             $scope.tutorial.notes.push($scope.newNote);
-
-                            if(!$scope.replyTo){
+                            $scope.update($scope.newNote,true);
+                            /*if(!$scope.replyTo){
                                 for(var i=0; i<$scope.newNote.step_id.length; i++){
                                     console.log($scope.newNote.step_id[index]);
                                     $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[i])].notes.push($scope.newNote);
                                 }
-                            }
+                            }*/
 
-                            if($scope.replyTo){
+                            /*if($scope.replyTo){
                                 var noteIndex = $scope.findNoteIndex($scope.newNote.reply_to);
                                 $scope.tutorial.notes[noteIndex].replies.push($scope.newNote);
 
@@ -206,7 +206,7 @@ angular.module('AnnotatedTutorial')
                                     var noteStepIndex = $scope.findNoteInStep($scope.tutorial.steps[stepIndex].step_number, $scope.newNote.reply_to);
                                     $scope.tutorial.steps[stepIndex].notes[noteStepIndex].replies.push($scope.newNote);
                                 }
-                            }
+                            }*/
                             $scope.closeInput();
                         });
 
@@ -228,6 +228,95 @@ angular.module('AnnotatedTutorial')
                     }
                     return -1;
                 };
+
+                //really messy
+                $scope.update=function(note,newNote){
+                    var firstNote = $scope.findNote(note.reply_to);
+                    var mainIndex;
+                    var mainNote;
+                    var firstIndex;
+                    var index;
+                    var stepNumber;
+                    var stepIndex;
+
+                    if(firstNote.reply_to !== null && newNote){ //new note posted, second level of reply
+
+                        mainIndex = $scope.findNoteIndex(firstNote.reply_to);
+                        mainNote = $scope.findNote(firstNote.reply_to);
+                        firstIndex = $scope.findReplyIndex(note.reply_to,mainNote);
+                        $scope.tutorial.notes[mainIndex].replies[firstIndex].replies.push($scope.newNote);
+
+                    }else if(newNote && note.reply_to !== null) { //new note posted, first level of reply
+                        for(var m = 0; m<note.step_id.length; m++) {
+                            stepNumber = $scope.findStepNumber(note.step_id[m]);
+                            stepIndex = $scope.findStepIndex(note.step_id[m]);
+                            index = $scope.findNoteInStep(stepNumber,firstNote.id);
+                            $scope.tutorial.steps[stepIndex].notes[index].replies.push(note);
+                        }
+                    }else if(newNote){//new note posted
+                        for(var g=0; g<$scope.newNote.step_id.length; g++){
+                            $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[g])].notes.push($scope.newNote);
+                        }
+                    }else if(firstNote.reply_to !== null){ //new rating or deletion, second level of reply
+
+                        mainNote = $scope.findNote(firstNote.reply_to);
+                        mainIndex =  $scope.findNoteIndex(note.reply_to.reply_to);
+                        firstIndex = $scope.findReplyIndex(note.reply_to,mainNote);
+                        var replyIndex = $scope.findReplyIndex(note.id,firstNote);
+                        firstNote.replies[replyIndex] = note;
+                        mainNote.replies[firstIndex] = firstNote;
+                        $scope.tutorial.notes[mainIndex] = mainNote;
+
+                    }else if(note.reply_to !== null){ //new rating or deletion, first level of reply
+                        for(var k = 0; k<note.step_id.length; k++) {
+                            stepNumber = $scope.findStepNumber(note.step_id[k]);
+                            stepIndex = $scope.findStepIndex(note.step_id[k]);
+                            index = $scope.findNoteInStep(stepNumber,firstNote.id);
+                            var noteIndex = $scope.findReplyIndex(note.id, firstNote);
+                            firstNote.replies[noteIndex] = note;
+                            $scope.tutorial.steps[stepIndex].notes[index] = firstNote;
+                        }
+                    }else{ //new rating or deletion on a note
+                        for(var i = 0; i<note.step_id.length; i++){
+                            stepNumber = $scope.findStepNumber(note.step_id[i]);
+                            stepIndex = $scope.findStepIndex(note.step_id[i]);
+                            index = $scope.findNoteInStep(stepNumber, note.id);
+                            $scope.tutorial.steps[stepIndex].notes[index] = note;
+                        }
+                    }
+
+                };
+                $scope.findReplyIndex=function(reply, parent){
+                    for(var g=0; g<parent.replies.length; g++){
+                        if(parent.replies[g].id===reply){
+                            return parseInt(g);
+                        }
+                    }
+                    return -1;
+                };
+
+                $scope.findReply=function(reply, parent){
+                    for(var g=0; g<parent.replies.length; g++){
+                        if(parent.replies[g].id===reply){
+                            return parent.replies[g];
+                        }
+                    }
+                    return -1;
+                };
+
+                $scope.findSecondary=function(reply){
+                    for(var g=0; g<$scope.tutorial.notes.length; g++){
+                        for(var k = 0; k < $scope.tutorial.notes[g].replies.length; k++ )
+                        {
+                            if ($scope.tutorial.notes[g].replies[k].id === reply) {
+                                return $scope.tutorial.notes[g].replies[k];
+                            }
+                        }
+                    }
+                    return null;
+                };
+
+
 
                 $scope.dateFormat = function(note){
                     return moment(note.dateSubmitted).format("YYYY-MM-DD");
@@ -298,7 +387,7 @@ angular.module('AnnotatedTutorial')
                     $scope.deleteChange = true;
                     var note = $scope.findNote(note_id);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.update(note,note_id);
+                    $scope.update(note,false);
 
                     $scope.deleteChange = false;
 
@@ -355,12 +444,8 @@ angular.module('AnnotatedTutorial')
 
                     var note = $scope.findNote(note_id);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    if(note.reply_to== null){
-                        $scope.update(note,note_id);
-                    }else{
-                        $scope.update($scope.findNote(note.reply_to),note.reply_to);
-                    }
 
+                    $scope.update(note,false);
 
                     $scope.ratingChange = false;
                     LoggerService.log("Rated a note:"
@@ -369,13 +454,6 @@ angular.module('AnnotatedTutorial')
                         + " | Note - " + $scope.findNote(note_id).content);
                 };
 
-                $scope.update = function(note,note_id){
-                    for(var i = 0; i < note.step_id.length; i++){
-                        var stepNumber = $scope.findStepNumber(note.step_id[i]);
-                        var index = $scope.findNoteInStep(stepNumber, note_id);
-                        $scope.tutorial.steps[stepNumber].notes[index] = note;
-                    }
-                };
 
                 $scope.numberOfNotes = function(step,category)
                 {
