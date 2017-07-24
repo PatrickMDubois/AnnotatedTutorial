@@ -1809,6 +1809,14 @@ img {
 
 .note-icon {
   float: left;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  outline: none;
+  height: 20px;
+  line-height: 9px;
+  width: 20px;
+  margin-left: -10px !important;
+  margin-top: -5px !important;
 }
 
 .plain-button {
@@ -2049,7 +2057,6 @@ h2 {
   font-size: 0.6em;
   font-family: 'Open sans', sans-serif;
   float: right;
-  margin-right: 10px;
 }
 
 .rating-button {

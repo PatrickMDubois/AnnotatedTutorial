@@ -151,12 +151,12 @@ img{
 }
 .note-corrections {
   border: 1px solid #d3d3d3;
-  border-left:6px solid #ffc497
+  border-left:6px solid #ffc497;
 }
 
 .note-questions {
   border: 1px solid #d3d3d3;
-  border-left:6px solid #fff07d
+  border-left:6px solid #fff07d;
 }
 .note-other{
   border: 1px solid #d3d3d3;
@@ -200,13 +200,6 @@ img{
   border-radius: 2px;
 }
 
-.note-replies{
-  //margin-bottom:0 !important;
-  //border-bottom:none;
-  //z-index:1;
-  //position:relative;
-  //box-shadow:0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
-}
 
 .note-contributor{
   font-size: 11px;
@@ -322,6 +315,14 @@ img{
 
 .note-icon{
   float:left;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  outline:none;
+  height: 20px;
+  line-height: 9px;
+  width: 20px;
+  margin-left:-10px !important;
+  margin-top:-5px !important;
 }
 
 .plain-button {
@@ -577,7 +578,6 @@ h2{
   font-size: 0.6em;
   font-family:'Open sans', sans-serif;
   float: right;
-  margin-right: 10px;
 }
 
 .rating-button {
