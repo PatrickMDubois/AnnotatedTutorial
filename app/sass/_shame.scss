@@ -239,10 +239,10 @@ img{
 }
 
 .sortDropdown {
-  padding: 0 3px;
-  margin: 0 3%;
-  float:left;
-  margin-top:10px;
+  font-size: 15px;
+  color: #535353;
+  font-weight:400;
+  font-family:'Open sans', sans-serif;
 }
 
 .dropdown {
@@ -277,12 +277,11 @@ img{
   border:none;
 }
 
-.note-replies{
-  //margin-bottom:3px !important;
-  //border-bottom:none;
-  //z-index:1;
-  //position:relative;
-  //box-shadow:0 3px 5px 0 rgba(0, 0, 0, 0.12) !important;
+.ui-select-bootstrap .ui-select-choices-row.active>span {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #358af7;
 }
 
 .reply-content{

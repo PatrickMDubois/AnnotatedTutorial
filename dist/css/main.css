@@ -1708,10 +1708,10 @@ img {
 }
 
 .sortDropdown {
-  padding: 0 3px;
-  margin: 0 3%;
-  float: left;
-  margin-top: 10px;
+  font-size: 15px;
+  color: #535353;
+  font-weight: 400;
+  font-family: 'Open sans', sans-serif;
 }
 
 .dropdown {
@@ -1744,6 +1744,13 @@ img {
 .input-start:hover {
   background-image: url(../images/SVG/hoverAdd.svg);
   border: none;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > span {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #358af7;
 }
 
 .reply-content {

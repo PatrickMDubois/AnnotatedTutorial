@@ -115,12 +115,12 @@
                           <div class="note-display filter-steps">Steps</div>
                           <button class="clear-button" ng-click=" clear();">CLEAR</button><br>
                           <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
-                              <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control" id="sort" onchange="sortSelected()">
-                                  <option value="new" selected>RECENT</option>
-                                  <option value="old">OLDEST</option>
-                                  <option value="high">RATE:HIGH</option>
-                                  <option value="low">RATE:LOW</option>
-                                  <option value="category">CATEGORY</option>
+                              <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control sortDropdown" id="sort" onchange="sortSelected()">
+                                  <option value="new" selected>Recent</option>
+                                  <option value="old">Oldest</option>
+                                  <option value="high">Rate:High</option>
+                                  <option value="low">Rate:Low</option>
+                                  <option value="category">Category</option>
                               </select>
 
                               <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
@@ -133,7 +133,7 @@
                                           <span style="height:20%;" ng-bind="$item.name"></span>
                                       </ui-select-match>
                                       <ui-select-choices repeat="item in itemArray | filter: $select.search track by item.id">
-                                          <div ng-bind="item.name"></div>
+                                          <div  ng-bind="item.name"></div>
                                       </ui-select-choices>
                                       <ui-select-no-choice>
                                           No results
@@ -169,9 +169,6 @@
               function sortSelected(){
                   chosenSort = document.getElementById("sort").value.toString();
                   document.getElementById("apply").click();
-                  console.log(chosenSort);
-                  $select.selected = undefined;
-                  $select.search = undefined;
               }
 
               function test(){
