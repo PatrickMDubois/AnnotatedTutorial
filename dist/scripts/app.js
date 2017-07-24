@@ -366,7 +366,7 @@ angular.module('AnnotatedTutorial')
                                 + " | Step - " + $scope.selectedLine
                                 + " | Category - " + $scope.inputCategory
                                 + " | Extra Input - " + $scope.extraInput
-                                + " | Note - " + $scope.newNote.content.substring(0,150));
+                                + " | Note - " + $scope.newNote.content);
                         });
 
 
