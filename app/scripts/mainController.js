@@ -214,17 +214,24 @@ angular.module('AnnotatedTutorial')
 
                 $scope.sideIcon = function(step,category){
                     if($scope.categoryFilter == category && $scope.stepFilter[0] == parseInt(step.step_number)){
+                        LoggerService.log("Turned off Filter by Icon:"
+                            + " Tutorial - " + $scope.tutorial.title
+                            + " Interface - Side Display"
+                            + " Category - " + $scope.categoryFilter
+                            + " Step - " + $scope.stepFilter.toString());
+
                         $scope.categoryFilter = null;
                         $scope.stepFilter.splice(0,$scope.stepFilter.length);
                         $scope.item.selected.splice(0,$scope.item.selected.length);
                         $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
-
-
                         $scope.newSort();
                     }else{
                         $scope.categoryFilter = null;
                         $scope.stepFilter.splice(0,$scope.stepFilter.length);
                         $scope.item.selected.splice(0,$scope.item.selected.length);
+
+                        LoggerService.log("Filter by Icon");
+
                         $scope.newFilter(parseInt(step.step_number));
                         $scope.newFilter(category);
                         $scope.item.selected.push($scope.returnStep(step.step_number));
