@@ -111,7 +111,7 @@
                           <div class="note-display filter-steps">Steps</div>
                           <button class="clear-button" ng-click=" clear();">CLEAR</button><br>
                           <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
-                              <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control sortDropdown" id="sort" onchange="sortSelected()">
+                              <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control sortDropdown" id="sort" ng-click="$parent.sortSelected()">
                                   <option value="new" selected>Recent</option>
                                   <option value="old">Oldest</option>
                                   <option value="high">Rate:High</option>
@@ -137,7 +137,6 @@
                                   </ui-select>
                               </div>
                           </div>
-                          <button id="apply" ng-click="newSort();"></button>
                       </div>
 
                       <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':menuOpen || replyTo !== null}">
@@ -160,18 +159,6 @@
                       </div>
                   </div>
           </div>
-          <script>
-              var chosenSort = null;
-              function sortSelected(){
-                  chosenSort = document.getElementById("sort").value.toString();
-                  document.getElementById("apply").click();
-              }
-
-              function test(){
-                  console.log("hi");
-                  stepSearchBox = items[0];
-              }
-          </script>
           <div class="input-container" ng-if="inputPos != null" ng-style="{'top':2.2 + '%', 'right':1.1 + '%'}" style="height:32%;width:29.95%;padding: 5px;">
               <div class ="window-title" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}: "{{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,50))}}..."</div>
               <div ng-if="replyTo==null">
@@ -188,16 +175,17 @@
                     </div>
                     <br>
                     <div>
-                          <a class="menu-action-button preview-button" href="#general" tooltip="Preview"></a>
+                          <a class="menu-action-button preview-button" ng-click="loggerMethod('general');" href="#general" tooltip="Preview"></a>
                           <button class="menu-action-button" ng-click="chosenGeneral(listOfSteps[listOfSteps.length-1]);numberList();" ng-class="{'selected-menu-button':general}">
                               <div class="plus-action-button" ng-if="!general">+</div>
                               <div class="minus-action-button" ng-if="general">-</div>
                           </button>
                           <div style="margin-top:2%" class="step-list" ng-class="{'selected-menu-button':general}" ng-click="chosenGeneral(listOfSteps[listOfSteps.length-1]);numberList();">GENERAL</div>
                           <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1">
-                              <a class="menu-action-button preview-button" href="#{{step.id}}" ng-class="{'disabled-eye':general}" tooltip="Preview"></a>
+                              <a class="menu-action-button preview-button" ng-click="loggerMethod(step.step_number);" href="#{{step.id}}" ng-class="{'disabled-eye':general}" tooltip="Preview"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
-                                  <div class="plus-action-button" ng-class="{'disabled-steps':general}" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
+                                  <div class="plus-action-button" ng-class="{'disabled-steps':g
+                                  eneral}" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-class="{'disabledSteps':general}" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
                                </button>
                             <div class="step-list" ng-if="step.step_number==0" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">INTRO</div>

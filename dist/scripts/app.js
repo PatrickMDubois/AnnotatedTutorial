@@ -191,7 +191,7 @@ angular.module('AnnotatedTutorial')
                 $scope.secondMenu = false;
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
-
+                $scope.chosenSort = null;
                 $scope.noteStepList=[];
                 $scope.currentNote=null;
                 $scope.stepFilter = [];
@@ -294,19 +294,36 @@ angular.module('AnnotatedTutorial')
                     return list;
                 };
 
+                $scope.loggerMethod = function(step){
+                    LoggerService.log("Preview:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Side Display"
+                        + " Step - " + step);
+
+                };
+                
+                $scope.sortSelected =function(){
+                    $scope.chosenSort = document.getElementById("sort").value.toString();
+                    $scope.newSort();
+                    LoggerService.log("Changed Sort:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Side Display"
+                        + " Sort - " + $scope.chosenSort);
+                };
+
 
                 $scope.newSort = function(){
-                  if(chosenSort==="new" || chosenSort === undefined || chosenSort === null|| chosenSort==="old"){
+                  if($scope.chosenSort==="new" || $scope.chosenSort === undefined || $scope.chosenSort === null|| $scope.chosenSort==="old"){
                       $scope.orderDate($scope.listOfNotes);
-                      if(chosenSort==="old") {
+                      if($scope.chosenSort==="old") {
                         $scope.listOfNotes.reverse();
                       }
-                  }else if(chosenSort=="high" || chosenSort=="low"){
+                  }else if($scope.chosenSort=="high" || $scope.chosenSort=="low"){
                       $scope.orderRating($scope.listOfNotes);
-                        if(chosenSort=="low") {
+                        if($scope.chosenSort=="low") {
                             $scope.listOfNotes.reverse();
                         }
-                  }else if(chosenSort=="category"){
+                  }else if($scope.chosenSort=="category"){
                       var newList = ($scope.filterByCategory('corrections',$scope.listOfNotes.slice(0)));
                       newList = newList.concat($scope.filterByCategory('details',$scope.listOfNotes.slice(0)));
                       newList = newList.concat($scope.filterByCategory('questions',$scope.listOfNotes.slice(0)));
@@ -358,6 +375,11 @@ angular.module('AnnotatedTutorial')
                         $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
                     }
                     $scope.newSort();
+                    LoggerService.log("Changed Filter:"
+                        + " Tutorial - " + $scope.tutorial.title
+                        + " Interface - Side Display"
+                        + " Category - " + $scope.categoryFilter
+                        + " Step - " + $scope.stepFilter.toString());
                 };
 
                 $scope.sideIcon = function(step,category){
@@ -746,7 +768,7 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
-                chosenSort = "new";
+                $scope.chosenSort = "new";
                 $scope.newSort();
 
                 $scope.orderRating = function(list){
