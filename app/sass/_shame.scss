@@ -41,11 +41,26 @@ img{
   font-size:13px;
 }
 
+.prime-background{
+  background-color:#6397e8;
+}
+
+.prime-text{
+  color:#6397e8;
+}
+
+.prime-background:hover{
+  background-color:#1249a1;
+}
+
+.prime-text:hover{
+  color:#1249a1;
+}
+
 .icon{
   background-repeat: no-repeat;
   background-size: 16px;
   border-radius: 6px;
-  //background-color: rgba(209, 209, 209, 0.53);
   height: 24px;
   line-height: 9px;
   width: 24px;
@@ -63,7 +78,7 @@ img{
   width: 20px;
   position: relative;
   float:left;
-  margin:0% 1%;
+  margin:0 1%;
 }
 
 .filter-icon:hover{
@@ -145,12 +160,12 @@ img{
   background-position: 2px 2px;
 }
 .note-icon-corrections{
-  background-image: url(../images/PNG/note-healing.png); //border:1.5px solid #e0d4ff;
+  background-image: url(../images/PNG/note-healing.png);
   background-position: 2px 2px;
 }
 .note-icon-questions{
   background-image: url(../images/PNG/note-question.png);
-  background-size: 13px; //border:1.5px solid #e0d4ff;
+  background-size: 13px;
   background-position: 2px 2px;
 }
 .note-icon-other{
@@ -370,7 +385,6 @@ img{
 }
 
 .plain-button {
-  background-color: #62e2d9;
   float: right;
   padding: 1.5px 10px;
   position: relative;
@@ -386,7 +400,6 @@ img{
 }
 
 .clear-button {
-  color: #62e2d9;
   float: right;
   padding: 3px 8px;
   position: relative;
@@ -399,15 +412,6 @@ img{
   border-radius:2px;
   outline:none;
 }
-
-.clear-button:hover{
-  color: #4db2ab;
-}
-
-.plain-button:hover{
-  background-color: #4db2ab;
-}
-
 
 .reply-button {
   float: right;
@@ -453,12 +457,11 @@ h2 {
 }
 
 .contributors-show:hover{
-  //background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
-  //background-position: 0 2px;
+  background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
 }
 
 .contributors-hide:hover{
-  //background-image: url(../images/PNG/ContributorsShowLessHover.png);
+  background-image: url(../images/SVG/ContributorsShowLessHover.svg);
 }
 
 .contributors-hide {
@@ -552,7 +555,6 @@ h2 {
 }
 
 .selected-steps {
-  //font-weight: bold;
   font-family:'Open sans', sans-serif;
   color: #6f6f6f;
   padding-left: 10px;
@@ -569,7 +571,6 @@ h2 {
   margin: 0 10px;
   float: right;
   color: red;
-  //border-radius: 3px;
 }
 
 .delete-button:hover {
@@ -610,12 +611,10 @@ h2 {
 .return-button {
   font-size: 0.8em;
   font-family:'Open sans', sans-serif;
-  color:#62e2d9;
   font-weight:bold;
 }
 
 .return-button:hover {
-  color:#226B64;
   text-decoration: underline;
 }
 
@@ -635,8 +634,8 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/SVG/unSelectedThumb.svg);
-  background-position: 0px 0;
+  background-image: url(../images/SVG/unselectedThumb.svg);
+  background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
   height: 28px;
@@ -647,7 +646,7 @@ h2 {
 }
 
 .rated{
-  background-image: url(../images/SVG/thumbsupSelected.svg);
+  background-image: url(../images/SVG/selectedThumb.svg);
 }
 
 .step-list {
@@ -658,12 +657,10 @@ h2 {
   text-align: left;
   font-weight: bold;
   font-family:'Open sans', sans-serif;
-  color: #62e2d9;
   background-color: white;
 }
 
 .disabled-steps {
-  //background-color: rgba(146, 146, 146, 0.76);
   color: #d9d9d9 !important;
 }
 
@@ -678,7 +675,7 @@ h2 {
 }
 
 .disabled-steps:hover{
-  color:#226B64 !important;
+  color:#1249a1 !important;
 }
 
 .menu-action-button {
@@ -690,29 +687,24 @@ h2 {
   padding: 2px 10px;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
-  color:#62e2d9;
   font-size:22px;
 }
 
-.plus-action-button:hover{
-  color:#226B64;
-}
-
 .minus-action-button:hover{
-  color:#62e2d9;
+  color:#6397e8;
 }
 
 .minus-action-button {
-  padding: 0px 12px;
+  padding: 0 12px;
   border-top:1px solid #e6e6e6;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
-  color:#226B64;
+  color:#1249a1;
   font-size:22px;
 }
 
 .selected-menu-button {
-  color:#226B64;
+  color:#1249a1;
   background:#f9f9f9;
 }
 
@@ -774,11 +766,11 @@ h2 {
 }
 
 .menu-one:hover{
-  //background-image: url(../images/PNG/arrow-right-hover.png);
+  background-image: url(../images/SVG/rightHover.svg);
 }
 
 .menu-two:hover{
-  //background-image: url(../images/PNG/arrow-left-hover.png);
+  background-image: url(../images/SVG/leftHover.svg);
 }
 
 .date {
@@ -817,7 +809,6 @@ h2 {
   border-radius: 2px;
   font-size: 0.6em;
   font-family:'Open sans', sans-serif;
-  //background-color: white;
   line-height: 15px;
   margin-right: 20px;
   margin-top: 5px;

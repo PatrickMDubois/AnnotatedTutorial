@@ -113,7 +113,7 @@
                           <div class="note-display" style="margin-left:3%;">Sort</div>
                           <div class="note-display">Filter</div>
                           <div class="note-display filter-steps">Steps</div>
-                          <button class="clear-button" ng-click=" clear();">CLEAR</button><br>
+                          <button class="clear-button prime-text" ng-click=" clear();">CLEAR</button><br>
                           <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
                               <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control sortDropdown" id="sort" ng-click="$parent.sortSelected()">
                                   <option value="new" selected>Recent</option>
@@ -170,7 +170,7 @@
                     <div class="window-title" >Select the steps you want to comment on</div>
                     <div ng-repeat="step in currentStep">
                         <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">X</a>
-                        <a class="return-button-first return-button" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
+                        <a class="return-button-first return-button prime-text" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
                     </div>
                     <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                     <div>
@@ -181,20 +181,19 @@
                     <div>
                           <a class="menu-action-button preview-button" ng-click="loggerMethod('general');" href="#general" tooltip="Preview"></a>
                           <button class="menu-action-button" ng-click="chosenGeneral(listOfSteps[listOfSteps.length-1]);numberList();" ng-class="{'selected-menu-button':general}">
-                              <div class="plus-action-button" ng-if="!general">+</div>
+                              <div class="plus-action-button prime-text" ng-if="!general">+</div>
                               <div class="minus-action-button" ng-if="general">-</div>
                           </button>
-                          <div style="margin-top:2%" class="step-list" ng-class="{'selected-menu-button':general}" ng-click="chosenGeneral(listOfSteps[listOfSteps.length-1]);numberList();">GENERAL</div>
+                          <div style="margin-top:2%" class="step-list prime-text" ng-class="{'selected-menu-button':general}" ng-click="chosenGeneral(listOfSteps[listOfSteps.length-1]);numberList();">GENERAL</div>
                           <div ng-repeat="step in listOfSteps" ng-if="step.step_number <listOfSteps.length-1">
                               <a class="menu-action-button preview-button" ng-click="loggerMethod(step.step_number);" href="#{{step.id}}" ng-class="{'disabled-eye':general}" tooltip="Preview"></a>
                               <button class="menu-action-button" id="step {{step.step_number}}" ng-click="stepSelected(step);numberList()" ng-class="{'selected-menu-button':selectedStepsList.indexOf(step)!=-1}">
-                                  <div class="plus-action-button" ng-class="{'disabled-steps':g
-                                  eneral}" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
+                                  <div class="plus-action-button prime-text" ng-class="{'disabled-steps':general}" ng-if="selectedStepsList.indexOf(step)==-1">+</div>
                                   <div class="minus-action-button" ng-class="{'disabledSteps':general}" ng-if="selectedStepsList.indexOf(step)!=-1">-</div>
                                </button>
-                            <div class="step-list" ng-if="step.step_number==0" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">INTRO</div>
-                            <div class="step-list" ng-if="step.step_number==listOfSteps.length-2" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">END</div>
-                            <div class="step-list" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">STEP {{step.step_number}}</div>
+                            <div class="step-list prime-text" ng-if="step.step_number==0" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">INTRO</div>
+                            <div class="step-list prime-text" ng-if="step.step_number==listOfSteps.length-2" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">END</div>
+                            <div class="step-list prime-text" ng-if="step.step_number!=0 && step.step_number <listOfSteps.length-2" ng-class="{'disabled-steps':general,'selected-menu-button':selectedStepsList.indexOf(step)!=-1}"  ng-click="stepSelected(step);numberList()">STEP {{step.step_number}}</div>
                           </div>
                     </div>
                 </div>
@@ -207,7 +206,7 @@
 
 
                    <div ng-repeat="step in currentStep">
-                      <a class="return-button-second return-button" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
+                      <a class="return-button-second return-button prime-text" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
                       <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">X</a>
                    </div>
                     <button class="menu-two menu-button" style="margin-left:1% "ng-click="menuSwitch()" tooltip="Back"></button>
@@ -239,7 +238,7 @@
                       <br>
                 </div>
                 <textarea class="input-text" ng-model="$parent.newNote" rows="5" placeholder="Please enter your note here."></textarea>
-                <button ng-click="submitNote()" class="plain-button submit-button">SUBMIT</button>
+                <button ng-click="submitNote()" class="plain-button prime-background submit-button">SUBMIT</button>
               </div>
           </div>
           </div>

@@ -49,8 +49,8 @@ module.run(["$templateCache", function($templateCache) {
     "     'replyOne' : replyOne,\n" +
     "     'replyTwo' : replyOne== false,\n" +
     "     'note-highlight': currentReply === note.id}\">\n" +
-    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote && note.reply_to ==null && notelist.length>=1 \">show step(s)</button>\n" +
-    "    <button class=\"plain-button show-step-button\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote && note.reply_to ==null && notelist.length>=1 \">hide step(s)</button>\n" +
+    "    <button class=\"plain-button show-step-button prime-background\" ng-click=\"showList(note)\" ng-if=\"!general && !currentNote && note.reply_to ==null && notelist.length>=1 \">show step(s)</button>\n" +
+    "    <button class=\"plain-button show-step-button prime-background\" ng-click=\"showList(note)\" ng-if=\"!general && currentNote && note.reply_to ==null && notelist.length>=1 \">hide step(s)</button>\n" +
     "    <div class=\"note-steps text\">\n" +
     "        <div ng-if=\"notelist.length>=1 && !general\" >Steps: {{notelist}}</div>\n" +
     "        <div ng-if=\"notelist.length<1 && !general\"> No Associated Step</div>\n" +
@@ -79,7 +79,7 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"note-content\">{{note.content}}</div>\n" +
     "    <div class=\"comment-footer\">\n" +
     "\n" +
-    "        <button class=\"plain-button reply-button\"\n" +
+    "        <button class=\"plain-button reply-button prime-background\"\n" +
     "             ng-click=\"addReply($index, $event, note.id, note.contributor, note.step_id)\">\n" +
     "                REPLY\n" +
     "        </button>\n" +

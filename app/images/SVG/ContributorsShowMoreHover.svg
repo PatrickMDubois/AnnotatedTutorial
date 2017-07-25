@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
-    <title>ContributorsShowMore</title>
+    <title>ContributorsShowMore Copy 3</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Styleguide" transform="translate(-735.000000, -1336.000000)">
-            <g id="ContributorsShowMore" transform="translate(735.000000, 1336.000000)">
-                <g id="Group-3">
-                    <rect id="Rectangle" fill="#6397E8" x="0.358371542" y="0.278733421" width="19.3717568" height="15.066922" rx="4"></rect>
+        <g id="Styleguide" transform="translate(-775.000000, -1336.000000)">
+            <g id="ContributorsShowMore-Copy-3" transform="translate(775.000000, 1336.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" fill="#1249A1" x="0.358371542" y="0.278733421" width="19.3717568" height="15.066922" rx="4"></rect>
                     <path d="M10.2073536,9.86183118 L10.2073536,9.86183118 L10.2073536,9.86183118 L15.0308625,5.23214865 C15.1499273,5.11585279 15.3465227,5.11862174 15.4683564,5.23768655 L16.3156548,6.06560226 C16.4374885,6.18466706 16.4402575,6.37849348 16.3211927,6.49478934 L10.4316384,12.148983 C10.3707215,12.2098998 10.2876531,12.2375893 10.2073536,12.2320514 C10.1242851,12.2348204 10.0439856,12.2071309 9.98306869,12.148983 L4.09351442,6.49478934 C3.97444962,6.37849348 3.97721857,6.18466706 4.09905232,6.06560226 L4.94635068,5.23768655 C5.06818443,5.11862174 5.2647798,5.11585279 5.3838446,5.23214865 L10.2073536,9.86183118 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero" transform="translate(10.207354, 8.689687) rotate(-360.000000) translate(-10.207354, -8.689687) "></path>
                 </g>
                 <g id="chevron-down" transform="translate(3.720093, 4.720093)"></g>
