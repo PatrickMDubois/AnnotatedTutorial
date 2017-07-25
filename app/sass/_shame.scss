@@ -291,34 +291,6 @@ img{
   background-color: #ececec !important;
 }
 
-.note-header{
-  background-repeat: no-repeat;
-  background-size: 14px;
-  outline:none;
-  height: 15px;
-  line-height: 9px;
-  width: 15px;
-  position: relative;
-  margin-right:5px;
-}
-
-.note-header:after{
-  background:inherit;
-  bottom: 0;
-  display:block;
-  height:50%;
-  left:0;
-  position:absolute;
-  right:0;
-  transform:skewY(1.5deg);
-  transform-origin:100%;
-  z-index:-1;
-}
-
-.note-header:hover{
-  border:none;
-}
-
 .note-highlight{
   background-color: rgba(204, 192, 235, 0.45) !important;
 }
@@ -326,36 +298,40 @@ img{
 
 .note-header-details {
   background-image: url(../images/PNG/note-pin.png);
-  background-size: 14px;
   background-color:#e0d4ff;
+  background-position:60% 70%;
 }
 .note-header-corrections {
   background-image: url(../images/PNG/note-healing.png);
   background-color: #ffc497;
+  background-position:50% 70%;
 }
 
 .note-header-questions {
   background-image: url(../images/PNG/note-question.png);
-  background-size: 13px;
+  background-size: 13px !important;
   background-color:#fff07d;
+  background-position:60% 70%;
 }
 
 .note-header-other {
   background-image: url(../images/PNG/note-other.png);
-  background-size: 17px;
+  background-size: 17px !important;
   background-color: #d4ed96;
+  background-position:60% 70%;
 }
 
 .note-icon{
   float:left;
   background-repeat: no-repeat;
-  background-size: 16px;
+  background-size: 14px;
   outline:none;
-  height: 20px;
+  height: 25px;
   line-height: 9px;
-  width: 20px;
+  width: 25px;
   margin-left:-10px !important;
   margin-top:-5px !important;
+  margin-right:0.6%;
 }
 
 .plain-button {
