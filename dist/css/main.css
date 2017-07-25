@@ -1739,6 +1739,7 @@ img {
   color: #535353;
   font-weight: 400;
   font-family: 'Open sans', sans-serif;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -1940,6 +1941,7 @@ h2 {
   line-height: 9px;
   width: 26px;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .contributors-show:hover {
@@ -1962,6 +1964,7 @@ h2 {
   line-height: 9px;
   width: 26px;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .contributor {
@@ -2006,6 +2009,7 @@ h2 {
   font-size: medium;
   font-family: 'Open sans', sans-serif;
   color: #8d8d8d;
+  cursor: pointer;
 }
 
 .note-number {
@@ -2143,6 +2147,7 @@ h2 {
   font-weight: bold;
   font-family: 'Open sans', sans-serif;
   background-color: white;
+  cursor: pointer;
 }
 
 .disabled-steps {
