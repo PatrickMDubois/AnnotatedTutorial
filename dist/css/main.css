@@ -1894,6 +1894,7 @@ h2 {
   line-height: 9px;
   width: 26px;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .contributors-hide {
@@ -1908,6 +1909,7 @@ h2 {
   line-height: 9px;
   width: 26px;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .contributors-show:hover {
@@ -1966,6 +1968,7 @@ h2 {
   font-size: medium;
   font-family: 'Open sans', sans-serif;
   color: #a6a6a6;
+  cursor: pointer;
 }
 
 .note-number {
@@ -2088,6 +2091,7 @@ h2 {
   font-family: 'Open sans', sans-serif;
   background-color: white;
   margin: 0 -1%;
+  cursor: pointer;
 }
 
 .menu-action-button {
