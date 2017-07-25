@@ -232,13 +232,18 @@ img{
   background-size: 22px;
   background-position: 4px 3px;
   height: 27px;
-  position: absolute;
   width: 27px;
-  z-index:100;
-  border:none;
 }
 
-.input-start:hover{background-image: url(../images/SVG/hoverAdd.svg);border:none;}
+.input-gone{
+  background-image: url(../images/PNG/whiteAdd.png);
+  background-size: 22px;
+  background-position: 4px 3px;
+  height: 27px;
+  width: 27px;
+}
+
+.input-start:hover{background-image: url(../images/SVG/hoverAdd.svg);;}
 
 .input-container{
   background-color: #fff;
@@ -543,7 +548,7 @@ h2{
 }
 
 .return-button-second {
-  margin-left: 19.4%;
+ // margin-left: 19.4%;
 }
 
 
