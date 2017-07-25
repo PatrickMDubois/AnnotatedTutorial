@@ -120,9 +120,42 @@ img{
     margin-right:0 !important;
  }
 
+.note-header-details {
+  background-image: url(../images/PNG/note-pin.png);
+  background-color:#e0d4ff;
+  background-position:60% 70%;
+}
+.note-header-corrections {
+  background-image: url(../images/PNG/note-healing.png);
+  background-color: #ffc497;
+  background-position:50% 70%;
+}
+
+.note-header-questions {
+  background-image: url(../images/PNG/note-question.png);
+  background-size: 13px !important;
+  background-color:#fff07d;
+  background-position:60% 70%;
+}
+
+.note-header-other {
+  background-image: url(../images/PNG/note-other.png);
+  background-size: 17px !important;
+  background-color: #d4ed96;
+  background-position:60% 70%;
+}
+
 .note-icon{
   float:left;
-   margin:0 0;
+  background-repeat: no-repeat;
+  background-size: 14px;
+  outline:none;
+  height: 25px;
+  line-height: 9px;
+  width: 25px;
+  margin-left:-10px !important;
+  margin-top:-5px !important;
+  margin-right:0.6%;
 }
 
 .filter-icon-details {
@@ -152,26 +185,6 @@ img{
   background-position: -1px 1px !important;
   margin-right: 11% !Important;
   border:1.5px solid  #c0d982;
-}
-
-.note-icon-details{
-  background-image: url(../images/PNG/note-pin.png);
-  background-size: 14px;
-  background-position: 2px 2px;
-}
-.note-icon-corrections{
-  background-image: url(../images/PNG/note-healing.png);
-  background-position: 2px 2px;
-}
-.note-icon-questions{
-  background-image: url(../images/PNG/note-question.png);
-  background-size: 13px;
-  background-position: 2px 2px;
-}
-.note-icon-other{
-  background-image: url(../images/PNG/note-other.png);
-  background-size: 17px;
-  background-position: 2px 2px;
 }
 
 .icon-details{

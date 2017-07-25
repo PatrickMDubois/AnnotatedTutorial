@@ -57,19 +57,19 @@ module.run(["$templateCache", function($templateCache) {
     "        <div ng-if=\"general\">General</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='corrections'\">\n" +
-    "        <div class=\"filter-icon note-icon-corrections note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-header-corrections note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
     "        <div class=\"note-contributor\">Corrections</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='details'\">\n" +
-    "        <div class=\"filter-icon note-icon-details note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-header-details note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
     "        <div class=\"note-contributor\">Tell Me More!</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='questions'\">\n" +
-    "        <div class=\"filter-icon note-icon-questions note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-header-questions note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
     "        <div class=\"note-contributor\">Questions</div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"note.category=='other'\">\n" +
-    "        <div class=\"filter-icon note-icon-other note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
+    "        <div class=\"note-header-other note-icon\" style=\"margin-top:5px; margin-right:5px;\"></div>\n" +
     "        <div class=\"note-contributor\">Other</div>\n" +
     "    </div>\n" +
     "\n" +
