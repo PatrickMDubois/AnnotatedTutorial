@@ -1859,10 +1859,6 @@ img {
   font-weight: 600;
 }
 
-.submit-button:hover {
-  background-color: #226B64;
-}
-
 .submit-comment-container {
   border-top: solid 1px #aaa;
   margin: 10px;
