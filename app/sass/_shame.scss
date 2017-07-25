@@ -317,11 +317,12 @@ h2 {
 
 .contributors-show:hover{
   background-image: url(../images/SVG/ContributorsShowMoreHover.svg);
-  //background-position: 0 2.4px;
+  cursor:pointer;
 }
 
 .contributors-hide:hover{
   background-image: url(../images/PNG/ContributorsShowLessHover.png);
+  cursor:pointer;
 }
 
 .contributors-hide {
@@ -381,6 +382,7 @@ h2 {
   font-size: medium;
   font-family:'Open sans', sans-serif;
   color: #a6a6a6;
+  cursor:pointer;
 }
 
 .window-title {
