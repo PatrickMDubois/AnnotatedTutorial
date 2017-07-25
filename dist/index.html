@@ -164,7 +164,7 @@
                     <div class="window-title" >Select the steps you want to comment on</div>
                     <div ng-repeat="step in currentStep">
                         <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">X</a>
-                        <a class="return-button-first return-button prime-text" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
+                        <a class="prime-text" href="#{{step.id}}"></a>
                     </div>
                     <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
                     <div>
@@ -200,7 +200,7 @@
 
 
                    <div ng-repeat="step in currentStep">
-                      <a class="return-button-second return-button prime-text" href="#{{step.id}}">VIEW ORIGINAL STEP</a>
+                      <a class="on prime-text" href="#{{step.id}}"></a>
                       <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">X</a>
                    </div>
                     <button class="menu-two menu-button" style="margin-left:1% "ng-click="menuSwitch()" tooltip="Back"></button>

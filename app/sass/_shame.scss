@@ -81,14 +81,6 @@ img{
   margin:0 1%;
 }
 
-.filter-icon:hover{
-  //border:none;
-}
-
-.selected, .icon:hover{
-  //border:none;
-}
-
 [tooltip]:before {
   content : attr(tooltip);
   opacity : 0;
