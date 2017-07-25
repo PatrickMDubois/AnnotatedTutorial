@@ -30,7 +30,7 @@ angular.module('AnnotatedTutorial')
                 $scope.menuOpen = false;
                 $scope.stepList = [];
                 $scope.itemArray = [
-                    {id: 0, name: 'Intro'}
+                    {id:$scope.listOfSteps.length-1, name:'General'},{id: 0, name: 'Intro'}
                 ];
 
                 $scope.item= {};
@@ -54,7 +54,7 @@ angular.module('AnnotatedTutorial')
                     }
                 }
 
-                for(var k = 1; k < $scope.listOfSteps.length; k++){
+                for(var k = 1; k < $scope.listOfSteps.length-1; k++){
                     var newItem = {};
                     newItem['id'] = k;
                     if(k< $scope.listOfSteps.length-2) {
@@ -62,8 +62,6 @@ angular.module('AnnotatedTutorial')
                         newItem['name'] = k;
                     }else if(k=== $scope.listOfSteps.length-2){
                         newItem['name'] = "End";
-                    }else if(k=== $scope.listOfSteps.length-1){
-                        newItem['name'] = "General";
                     }
                     $scope.itemArray.push(newItem);
                 }
