@@ -63,10 +63,10 @@
                   <div ng-if="tutorial.notes" class="three-tenths">
                       <div class="grid__item three-tenths sort-container sort">
                           <div class="note-display"></div>
-                          <button class="sort-button" ng-click="sortSelected('new'); newSort()" ng-class="{'sort-button-selected':chosenSort =='new'}">RECENT</button>
-                          <button class="sort-button" ng-click="sortSelected('old');newSort()" ng-class="{'sort-button-selected':chosenSort =='old'}">OLDEST</button>
-                          <button class="sort-button" ng-click="sortSelected('high');newSort()" ng-class="{'sort-button-selected':chosenSort =='high'}">RATING HIGH</button>
-                          <button class="sort-button" ng-click="sortSelected('low');newSort()" ng-class="{'sort-button-selected':chosenSort =='low'}">RATING LOW</button>
+                          <button class="sort-button prime-text" ng-click="sortSelected('new'); newSort()" ng-class="{'sort-button-selected':chosenSort =='new'}">RECENT</button>
+                          <button class="sort-button prime-text" ng-click="sortSelected('old');newSort()" ng-class="{'sort-button-selected':chosenSort =='old'}">OLDEST</button>
+                          <button class="sort-button prime-text" ng-click="sortSelected('high');newSort()" ng-class="{'sort-button-selected':chosenSort =='high'}">RATING HIGH</button>
+                          <button class="sort-button prime-text" ng-click="sortSelected('low');newSort()" ng-class="{'sort-button-selected':chosenSort =='low'}">RATING LOW</button>
                       </div>
 
                       <div class="grid__item three-tenths note-container">
@@ -92,7 +92,7 @@
                               <div ng-if="replyTo==null"><br></div>
                           </div>
                           <textarea class="input-text" ng-model="$parent.newNote" rows="5" placeholder="Type in your comment here..."></textarea>
-                          <button ng-click="submitNote()" class="submit-button">COMMENT</button>
+                          <button ng-click="submitNote()" class="submit-button prime-background">COMMENT</button>
                       </div>
                   </div>
           </div>

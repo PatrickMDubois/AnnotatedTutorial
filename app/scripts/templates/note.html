@@ -9,8 +9,8 @@
     <div class="note-content">{{note.content}}</div>
 
     <div class="comment-footer">
-        <button class="plain-button reply-button" ng-if="currentReply !== note.id" ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)">REPLY</button>
-        <button class="plain-button reply-button" ng-if="currentReply === note.id" ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)">Cancel</button>
+        <button class="plain-button prime-background reply-button" ng-if="currentReply !== note.id" ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)">REPLY</button>
+        <button class="plain-button prime-background reply-button" ng-if="currentReply === note.id" ng-click="addReply($index, $event, note.id, note.contributor, note.step_id)">Cancel</button>
         <button ng-if="note.contributor==user.name" ng-click="deleteIt(note.id)" class="plain-button delete-button">DELETE</button>
         <button class="rating-button" ng-class="{'rated':note.contributor_list.indexOf(user.id)!=-1}" ng-click="rateIt(note.id)" tooltip="recommend"></button>
         <div class="note-rating">

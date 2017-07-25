@@ -37,7 +37,22 @@ img{
 .note-content{
   padding:0 15px;
   font-size:13px;
+}
 
+.prime-background{
+  background-color:#6397e8;
+}
+
+.prime-text{
+  color:#6397e8;
+}
+
+.prime-background:hover{
+  background-color:#1249a1;
+}
+
+.prime-text:hover{
+  color:#1249a1;
 }
 
 .note-highlight{
@@ -111,8 +126,7 @@ img{
 }
 
 .reply-text{
-  margin:0px 20px;
-  //margin-bottom:5px;
+  margin:0 20px;
   color: #545454;
   font-size:13px;
   font-weight:600;
@@ -185,7 +199,6 @@ img{
 }
 
 .plain-button {
-  background-color: #62e2d9;
   float: right;
   padding: 3px 8px;
   position: relative;
@@ -200,10 +213,6 @@ img{
   outline:none;
 }
 
-.plain-button:hover{
-  background-color: #4db2ab;
-}
-
 .sort-button {
   background-color: white;
   float: left;
@@ -211,17 +220,12 @@ img{
   position: relative;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
-  color: #62e2d9;
   line-height: 15px;
   outline:none;
 }
 
-.sort-button:hover {
-  box-shadow:inset 0 -4px 0 0 #62e2d9;
-}
-
-.sort-button-selected{
-  box-shadow:inset 0 -4px 0 0 #62e2d9;
+.sort-button-selected, .sort-button:hover{
+  box-shadow:inset 0 -4px 0 0 #6397e8;
 }
 
 .reply-button {
@@ -234,7 +238,6 @@ img{
 
 .submit-button{
   border-radius:3px;
-  background-color:#62e2d9;
   padding: 6px 215.5px;
   margin:2px 20px;
   font-weight:bold;
@@ -244,9 +247,6 @@ img{
   outline:none;
 }
 
-.submit-button:hover{
-  background-color: #51bbb4;
-}
 
 .baseline-content {
   background-color: #fff;
@@ -413,7 +413,7 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/SVG/unSelectedThumb.svg);
+  background-image: url(../images/SVG/unselectedThumb.svg);
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
