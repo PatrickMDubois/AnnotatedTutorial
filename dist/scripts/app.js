@@ -461,8 +461,6 @@ angular.module('AnnotatedTutorial')
                             stepNumber = $scope.findStepNumber(note.step_id[i]);
                             stepIndex = $scope.findStepIndex(note.step_id[i]);
                             index = $scope.findNoteInStep(stepNumber, note.id);
-                            console.log(note);
-                            console.log(oldNote);
                             $scope.tutorial.steps[stepIndex].notes[index] = note;
                         }
                     }
