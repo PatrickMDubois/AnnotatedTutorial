@@ -144,7 +144,7 @@ img{
   overflow-y: hidden;
   overflow-x: hidden;
   top:75.3%;
-  right:20px;
+  right:1.1%;
   height:21%;
   box-shadow:0 -3px 5px 0 rgba(0, 0, 0, 0.1);
 }
@@ -157,7 +157,7 @@ img{
   padding: 3px 10px;
   background: #d6d6d6;
   position: fixed;
-  right: 20px;
+  right: 1.1%;
   top: 10.3%;
   height: 66%;
 }
@@ -172,11 +172,7 @@ img{
 }
 
 .sort {
-  right: 20px;
-}
-
-.dropdown{
-  margin-left:10px;
+  right: 1.1%;
 }
 
 .description {
@@ -216,7 +212,8 @@ img{
 .sort-button {
   background-color: white;
   float: left;
-  padding: 10px 4.84%;
+  width:25%;
+  height:50%;
   position: relative;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
@@ -238,8 +235,9 @@ img{
 
 .submit-button{
   border-radius:3px;
-  padding: 6px 215.5px;
-  margin:2px 20px;
+  width:93%;
+  height:13%;
+  margin:0.5% 4%;
   font-weight:bold;
   font-family:'Open sans', sans-serif;
   color: white;
