@@ -126,9 +126,9 @@
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
                               <div>
-                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="4" close-on-select="false" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
-                                      <ui-select-match placeholder="Select a step">
-                                          <span style="height:20%;" ng-bind="$item.name"></span>
+                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="" close-on-select="false" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                      <ui-select-match placeholder="Select a step" style="overflow-y:auto;height:35px;">
+                                          <span ng-bind="$item.name"></span>
                                       </ui-select-match>
                                       <ui-select-choices repeat="item in itemArray | filter: $select.search track by item.id">
                                           <div  ng-bind="item.name"></div>

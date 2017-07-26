@@ -167,7 +167,7 @@ angular.module('AnnotatedTutorial')
                   $scope.stepFilter.splice(0,$scope.stepFilter.length);
                   $scope.currentNote = null;
                   $scope.noteStepList.splice(0,$scope.noteStepList.length);
-
+                  $scope.item.selected.splice(0,$scope.item.selected.length);
 
                   LoggerService.log("Pressed Clear:"
                       + " Tutorial - " + $scope.tutorial.title
