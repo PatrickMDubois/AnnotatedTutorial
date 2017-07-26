@@ -199,12 +199,6 @@ angular.module('AnnotatedTutorial')
                 $scope.general = false;
                 $scope.menuOpen = false;
                 $scope.stepList = [];
-                $scope.itemArray = [
-                    {id:$scope.listOfSteps.length-1, name:'General'},{id: 0, name: 'Intro'}
-                ];
-
-                $scope.item= {};
-                $scope.item.selected = [];
 
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -224,6 +218,13 @@ angular.module('AnnotatedTutorial')
                     }
                 }
 
+                $scope.itemArray = [
+                    {id:$scope.listOfSteps.length-1, name:'General'},{id: 0, name: 'Intro'}
+                ];
+
+                $scope.item= {};
+                $scope.item.selected = [];
+
                 for(var k = 1; k < $scope.listOfSteps.length-1; k++){
                     var newItem = {};
                     newItem['id'] = k;
@@ -235,7 +236,7 @@ angular.module('AnnotatedTutorial')
                     }
                     $scope.itemArray.push(newItem);
                 }
-
+                console.log($scope.itemArray);
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
 
                 $scope.resetCurrent=function(){
@@ -345,7 +346,6 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.newFilter = function(value){
-
                     if(typeof value === 'string') {
                         if(value=== $scope.categoryFilter){
                             $scope.categoryFilter = null;
@@ -357,7 +357,7 @@ angular.module('AnnotatedTutorial')
                         var index = $scope.stepFilter.indexOf(value);
                         if( index >= 0){
                             $scope.stepFilter.splice(index,1);
-                        }else{
+                        }else {
                             $scope.stepFilter.push(value);
                         }
 
@@ -416,7 +416,7 @@ angular.module('AnnotatedTutorial')
                 $scope.getStepFilterNotes=function(){
                     $scope.listOfNotes.splice(0,$scope.listOfNotes.length);
                     for(var i =0; i < $scope.stepFilter.length; i++){
-                        $scope.listOfNotes= $scope.listOfNotes.concat(($scope.tutorial.steps[$scope.stepFilter[i]].notes).slice(0));
+                        $scope.listOfNotes= $scope.listOfNotes.concat(($scope.listOfSteps[$scope.stepFilter[i]].notes).slice(0));
                     }
                 };
 
