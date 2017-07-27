@@ -219,24 +219,28 @@ angular.module('AnnotatedTutorial')
                 }
 
                 $scope.itemArray = [
-                    {id:$scope.listOfSteps.length-1, name:'General'},{id: 0, name: 'Intro'}
                 ];
 
                 $scope.item= {};
                 $scope.item.selected = [];
 
-                for(var k = 1; k < $scope.listOfSteps.length-1; k++){
-                    var newItem = {};
-                    newItem['id'] = k;
-                    if(k< $scope.listOfSteps.length-2) {
+                for(var k = 0; k < $scope.listOfSteps.length; k++){
 
-                        newItem['name'] = k;
-                    }else if(k=== $scope.listOfSteps.length-2){
-                        newItem['name'] = "End";
+                    if($scope.listOfSteps[k].notes.length !== 0) {
+                        var newItem = {};
+                        newItem['id'] = k;
+                        if (k == 0) {
+                            newItem['name'] = "Intro";
+                        } else if (k < $scope.listOfSteps.length-2) {
+                            newItem['name'] = k;
+                        } else if (k === $scope.listOfSteps.length-2) {
+                            newItem['name'] = "End";
+                        } else if (k === $scope.listOfSteps.length-1) {
+                            newItem['name'] = "General";
+                        }
+                        $scope.itemArray.push(newItem);
                     }
-                    $scope.itemArray.push(newItem);
                 }
-                console.log($scope.itemArray);
                 $scope.windowHeight = window.innerHeight - 88; // from stylesheet
 
                 $scope.resetCurrent=function(){
@@ -266,6 +270,27 @@ angular.module('AnnotatedTutorial')
                         $scope.general = !$scope.general;
                     }
 
+                };
+
+                $scope.updateDropdown = function(){
+                    $scope.itemArray.splice(0,$scope.itemArray.length);
+                    for(var k = 0; k < $scope.listOfSteps.length; k++){
+
+                        if($scope.listOfSteps[k].notes.length !== 0) {
+                            var newItem = {};
+                            newItem['id'] = k;
+                            if (k == 0) {
+                                newItem['name'] = "Intro";
+                            } else if (k < $scope.listOfSteps.length-2) {
+                                newItem['name'] = k;
+                            } else if (k === $scope.listOfSteps.length-2) {
+                                newItem['name'] = "End";
+                            } else if (k === $scope.listOfSteps.length-1) {
+                                newItem['name'] = "General";
+                            }
+                            $scope.itemArray.push(newItem);
+                        }
+                    }
                 };
 
                 $scope.addingReply = function($index, $event, id, contributor, step){
@@ -569,6 +594,7 @@ angular.module('AnnotatedTutorial')
                                 for(var index=0; index<$scope.newNote.step_id.length; index++){
                                     $scope.tutorial.steps[$scope.findStepIndex($scope.newNote.step_id[index])].notes.push($scope.newNote);
                                 }
+                                $scope.updateDropdown();
                             }
 
                             $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
