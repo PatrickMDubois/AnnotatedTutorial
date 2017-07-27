@@ -1800,27 +1800,27 @@ p {
 .note-header-details {
   background-image: url(../images/PNG/note-pin.png);
   background-color: #e0d4ff;
-  background-position: 60% 70%;
+  background-position: 40% 55%;
 }
 
 .note-header-corrections {
   background-image: url(../images/PNG/note-healing.png);
   background-color: #ffc497;
-  background-position: 50% 70%;
+  background-position: 40% 55%;
 }
 
 .note-header-questions {
   background-image: url(../images/PNG/note-question.png);
   background-size: 13px !important;
   background-color: #fff07d;
-  background-position: 60% 70%;
+  background-position: 40% 55%;
 }
 
 .note-header-other {
   background-image: url(../images/PNG/note-other.png);
   background-size: 17px !important;
   background-color: #d4ed96;
-  background-position: 60% 70%;
+  background-position: 40% 55%;
 }
 
 .note-icon {
@@ -1828,12 +1828,12 @@ p {
   background-repeat: no-repeat;
   background-size: 14px;
   outline: none;
-  height: 25px;
+  height: 30px;
   line-height: 9px;
   width: 25px;
   margin-left: -10px !important;
   margin-top: -5px !important;
-  margin-right: 0.6%;
+  margin-right: 3%;
 }
 
 .plain-button {
@@ -1937,7 +1937,7 @@ h2 {
 }
 
 .note-content {
-  padding: 0 15px;
+  padding: 0 5.5%;
   font-size: 13px;
   font-family: 'Open sans', sans-serif;
 }
