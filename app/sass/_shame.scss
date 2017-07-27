@@ -37,6 +37,7 @@ img{
 .note-content{
   padding:0 15px;
   font-size:13px;
+  font-family:'Open sans', sans-serif;
 }
 
 .prime-background{
@@ -86,6 +87,10 @@ img{
   transition: all 0.1s ease;
   white-space: nowrap;
   z-index:1;
+}
+
+p{
+  font-family:'Open sans', sans-serif;
 }
 
 [tooltip]:hover:before {
