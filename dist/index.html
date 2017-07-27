@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <title>Annotated Tutorial</title>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <!-- /build -->
     <link rel="stylesheet" href="css/main.css">
-    <script src="scripts/modernizr.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- build:[src] scripts/ -->
+    <script src="modernizr/modernizr.js"></script>
+
 
   </head>
   <body ng-controller="mainController">
@@ -134,7 +138,6 @@
 
                   <div ng-if="secondMenu">
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                      <script src="scripts/smooth-scrolling.js"></script>
                       <div class="window-title categories-title" ng-if="secondMenu">Note Categories</div>
                       <div class="window-title">Commenting on</div>
 
