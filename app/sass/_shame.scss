@@ -216,6 +216,9 @@ img{
   border-radius: 2px;
 }
 
+p{
+  font-family:'Open sans', sans-serif;
+}
 
 .note-contributor{
   font-size: 11px;
@@ -437,6 +440,7 @@ h2{
 .contributor-first{
   float:left;
   margin-right:2px;
+  font-family:'Open sans', sans-serif;
   font-size: small;
   color: #8d8d8d;
 }
