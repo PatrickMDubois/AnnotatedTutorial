@@ -1821,7 +1821,7 @@ img {
   padding: 10px;
   background-color: #efefef;
   position: fixed;
-  right: 20px;
+  right: 1.1%;
   top: 16%;
   height: 81%;
   z-index: 1;
@@ -1835,6 +1835,7 @@ img {
   position: fixed;
   top: 4.2%;
   height: 12%;
+  right: 1.1%;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -1846,15 +1847,6 @@ img {
 .note-open-container {
   top: 44.7%;
   height: 53%;
-}
-
-.sort {
-  right: calc(20% + 20px);
-}
-
-.filter {
-  right: 20px;
-  float: right;
 }
 
 .description {
@@ -2198,10 +2190,11 @@ h2 {
 }
 
 .submit-button {
-  padding: 1% 45%;
-  margin-top: 1%;
+  width: 99.8%;
+  margin: 0 0.2%;
   float: left;
   font-size: 14px;
+  line-height: 140%;
   font-weight: 600;
 }
 

@@ -8,13 +8,11 @@
     <!-- build:[src] css/ -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="/angular-ui-select/dist/select.css">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" >
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <!-- /build -->
       <link rel="stylesheet" href="css/main.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="scripts/smooth-scrolling.js"></script>
     <!-- build:[src] scripts/ -->
-    <script src="modernizr/modernizr.js"></script>
     <!-- /build -->
   </head>
   <div ng-controller="mainController">
@@ -107,7 +105,7 @@
 
            --><div>
                   <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item three-tenths filter-container filter" ng-class="{'filter-open-container': menuOpen || replyTo !== null}">
+                      <div class="grid__item three-tenths filter-container" ng-class="{'filter-open-container': menuOpen || replyTo !== null}">
                           <div class="note-display" style="margin-left:3%;">Sort</div>
                           <div class="note-display">Filter</div>
                           <div class="note-display filter-steps">Steps</div>
@@ -257,6 +255,7 @@
     <script src="/moment/moment.js"></script>
     <script src="/angular-moment/angular-moment.js"></script>
     <script src="/angular-ui-select/dist/select.js"></script>
+    <script src="modernizr/modernizr.js"></script>
     <!-- /build -->
 
     <!-- build:js scripts/templates.js -->
@@ -271,7 +270,6 @@
     <script src="/scripts/recursionHelper.js"></script>
     <script src="/scripts/noteDirective.js"></script>
     <script src="/scripts/noteFilterDirective.js"></script>
-    <script src="/scripts/smooth-scrolling.js"></script>
     <!-- /build -->
   </body>
 </html>
