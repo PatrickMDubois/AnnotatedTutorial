@@ -44,12 +44,10 @@
                ng-repeat="step in listOfSteps"
                ng-mouseenter="hover = true"
                ng-mouseleave="hover = false"
-               ng-if="step.step_number<listOfSteps.length-1"
-               ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1 || noteStepList.indexOf(step.id)!=-1}">
+               ng-if="step.step_number<listOfSteps.length-1">
 
-              <div class="grid__item one-tenth">
-                  <button class=""></button>
-              </div>
+              <div class="grid__item one-tenth"></div>
+
               <div class="grid__item six-eighths">
                   <div id="{{step.id}}">
                       <div class="step-title" ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</div>

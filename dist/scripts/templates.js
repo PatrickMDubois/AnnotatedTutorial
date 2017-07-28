@@ -6,7 +6,6 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("note.html",
     "<div class=\"note\" ng-class=\"{\n" +
     "    'reply-content': note.category === 'reply',\n" +
-    "    'note-replies': note.replies.length>0 && hasReply,\n" +
     "    'note-highlight': currentReply === note.id,\n" +
     "    'replyOne': replyOne,\n" +
     "    'replyTwo': replyOne== false}\">\n" +
