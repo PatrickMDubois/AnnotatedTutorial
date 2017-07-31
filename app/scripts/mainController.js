@@ -148,7 +148,7 @@ angular.module('AnnotatedTutorial')
                     for(var g=0; g<$scope.tutorial.steps.length; g++){
                         if($scope.tutorial.steps[g].id===id){
                             return parseInt(g);
-                        }  console.log(firstNote);
+                        }
                     }
                     return -1;
                 };
@@ -194,19 +194,19 @@ angular.module('AnnotatedTutorial')
                     var firstIndex;
                     var index;
 
-                    if(firstNote.reply_to !== null && newNote){
-
+                    if(newNote && firstNote !== null && firstNote.reply_to !== null){ //second level
+                        console.log("Second");
                         mainIndex = $scope.findNoteIndex(firstNote.reply_to);
                         mainNote = $scope.findNote(firstNote.reply_to);
                         firstIndex = $scope.findReplyIndex(note.reply_to,mainNote);
                         $scope.tutorial.notes[mainIndex].replies[firstIndex].replies.push($scope.newNote);
 
-                    }else if(newNote){
-
+                    }else if(newNote && firstNote !== null){ //first level
+                        console.log("first");
                         index = $scope.findNoteIndex($scope.newNote.reply_to);
                         $scope.tutorial.notes[index].replies.push($scope.newNote);
 
-                    }else if(firstNote.reply_to !== null){
+                    }else if(firstNote !== null && firstNote.reply_to !== null){
 
                         mainNote = $scope.findNote(firstNote.reply_to);
                         mainIndex =  $scope.findNoteIndex(note.reply_to.reply_to);
@@ -216,13 +216,13 @@ angular.module('AnnotatedTutorial')
                         mainNote.replies[firstIndex] = firstNote;
                         $scope.tutorial.notes[mainIndex] = mainNote;
 
-                    }else{
-
+                    }else if(firstNote !== null){
                         index = $scope.findNoteIndex(firstNote.id);
                         var noteIndex = $scope.findReplyIndex(note.id,firstNote);
                         firstNote.replies[noteIndex] = note;
                         $scope.tutorial.notes[index] = firstNote;
                     }
+                    console.log(note);
                 };
 
 
