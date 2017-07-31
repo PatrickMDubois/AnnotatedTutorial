@@ -801,14 +801,9 @@ angular.module('AnnotatedTutorial')
                     var note = $scope.findNote(note_id);
                     //var mainNote = $scope.findNote(note.reply_to);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.updateSteps(note);
-                    $scope.updateTutorial(note);
-                    /*if(note.reply_to !== null){
-                        var index = $scope.findNoteIndex (mainNote.id);
-                        var replyIndex = $scope.findReplyIndex(note.id,index);
-                        mainNote.replies[replyIndex] = note;
-                        $scope.tutorial.notes[index] = mainNote;
-                    }*/
+                    /*$scope.updateSteps(note);
+                    $scope.updateTutorial(note);*/
+
                     $scope.deleteChange = false;
 
                     LoggerService.log("Deleted a note:"
@@ -861,14 +856,8 @@ angular.module('AnnotatedTutorial')
                     var note = $scope.findNote(note_id);
                     //var mainNote = $scope.findNote(note.reply_to);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.updateSteps(note);
-                    $scope.updateTutorial(note);
-                    /*if(note.reply_to !== null){
-                        var index = $scope.findNoteIndex (mainNote.id);
-                        var replyIndex = $scope.findReplyIndex(note.id,index);
-                        mainNote.replies[replyIndex] = note;
-                        $scope.tutorial.notes[index] = mainNote;
-                    }*/
+                    /*$scope.updateSteps(note);
+                    $scope.updateTutorial(note);*/
 
                     $scope.ratingChange = false;
                 };
@@ -982,43 +971,4 @@ angular.module('AnnotatedTutorial')
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){});
             }
         };
-    });
-/**
- * Created by patrick on 01/06/17.
- */
-// Select all links with hashes
-$('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
-        // On-page links
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-            &&
-            location.hostname == this.hostname
-        ) {
-            // Figure out element to scroll to
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000, function() {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    }
-                });
-            }
-        }
     });

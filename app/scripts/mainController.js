@@ -631,14 +631,9 @@ angular.module('AnnotatedTutorial')
                     var note = $scope.findNote(note_id);
                     //var mainNote = $scope.findNote(note.reply_to);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.updateSteps(note);
-                    $scope.updateTutorial(note);
-                    /*if(note.reply_to !== null){
-                        var index = $scope.findNoteIndex (mainNote.id);
-                        var replyIndex = $scope.findReplyIndex(note.id,index);
-                        mainNote.replies[replyIndex] = note;
-                        $scope.tutorial.notes[index] = mainNote;
-                    }*/
+                    /*$scope.updateSteps(note);
+                    $scope.updateTutorial(note);*/
+
                     $scope.deleteChange = false;
 
                     LoggerService.log("Deleted a note:"
@@ -691,14 +686,8 @@ angular.module('AnnotatedTutorial')
                     var note = $scope.findNote(note_id);
                     //var mainNote = $scope.findNote(note.reply_to);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-                    $scope.updateSteps(note);
-                    $scope.updateTutorial(note);
-                    /*if(note.reply_to !== null){
-                        var index = $scope.findNoteIndex (mainNote.id);
-                        var replyIndex = $scope.findReplyIndex(note.id,index);
-                        mainNote.replies[replyIndex] = note;
-                        $scope.tutorial.notes[index] = mainNote;
-                    }*/
+                    /*$scope.updateSteps(note);
+                    $scope.updateTutorial(note);*/
 
                     $scope.ratingChange = false;
                 };

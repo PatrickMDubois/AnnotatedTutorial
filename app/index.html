@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
 
     <!-- build:[src] css/ -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css">
+    <!--<link rel="stylesheet" href="/angular-ui-select/dist/select.css">-->
     <!-- /build -->
       <link rel="stylesheet" href="css/main.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -123,12 +125,12 @@
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
                               <div>
-                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="" close-on-select="false" style="width:30.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
-                                      <ui-select-match placeholder="Select a step" style="overflow-y:auto;height:35px;">
+                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple close-on-select="false" style="width:30.5%;margin:0 0 !Important;position:fixed;" theme="bootstrap" append-to-body="true">
+                                      <ui-select-match placeholder="Select a step" style="overflow-y:auto;height:35px;font-family:'Open sans', sans-serif;">
                                           <span ng-bind="$item.name"></span>
                                       </ui-select-match>
                                       <ui-select-choices repeat="item in itemArray | filter: $select.search track by item.id">
-                                          <div  ng-bind="item.name"></div>
+                                          <div  ng-bind="item.name" style="font-family:'Open sans', sans-serif;"></div>
                                       </ui-select-choices>
                                       <ui-select-no-choice>
                                           No results
@@ -255,9 +257,8 @@
     <script src="/angular-moment/angular-moment.js"></script>
     <script src="/angular-ui-select/dist/select.js"></script>
     <script src="modernizr/modernizr.js"></script>
-    <link rel="stylesheet" href="/angular-ui-select/dist/select.css">
-    <!-- /build -->
 
+    <!-- /build -->
     <!-- build:js scripts/templates.js -->
     <script src="/scripts/templates/templates.js"></script>
     <!-- /build -->

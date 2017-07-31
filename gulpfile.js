@@ -45,8 +45,7 @@ gulp.task('app', function() {
             './app/scripts/app.js',
             './app/scripts/*Service.js',
             './app/scripts/*Controller.js',
-            './app/scripts/*Directive.js',
-            './app/scripts/smooth-scrolling.js'
+            './app/scripts/*Directive.js'
         ])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./dist/scripts'))
@@ -85,7 +84,7 @@ gulp.task('dist:dependencies', function() {
         .pipe(gulp.dest('./dist/scripts'));
 
     gulp.src([
-            './bower_components/anuglar-select-ui/dist/select.css'
+            '.angular-ui-select/dist/select.css'
         ])
         .pipe(gulp.dest('./dist/css'));
 });
