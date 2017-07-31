@@ -426,6 +426,7 @@ angular.module('AnnotatedTutorial')
                     var stepIndex;
 
                     if(firstNote !== null && firstNote.reply_to == null){ //new rating or deletion, first level of reply
+                        console.log("one");
                         stepNumber= $scope.findStepNumber(note.step_id[0]);
                         stepIndex = $scope.findStepIndex(note.step_id[0]);
                         firstNote = $scope.tutorial.steps[stepIndex].notes[$scope.findNoteInStep(stepNumber, firstNote.id)];
@@ -438,6 +439,7 @@ angular.module('AnnotatedTutorial')
                             $scope.tutorial.steps[stepIndex].notes[index] = firstNote;
                         }
                     }else if(firstNote !== null && firstNote.reply_to !== null){ //new rating or deletion, second level of reply
+                        console.log("two");
                         for(var z = 0; z<note.step_id.length; z++) {
                             stepNumber = $scope.findStepNumber(note.step_id[z]);
                             stepIndex = $scope.findStepIndex(note.step_id[z]);
@@ -451,6 +453,7 @@ angular.module('AnnotatedTutorial')
                         }
 
                     }else{ //new rating or deletion on a note
+                        console.log("MAIN");
                         stepNumber= $scope.findStepNumber(note.step_id[0]);
                         stepIndex = $scope.findStepIndex(note.step_id[0]);
                         var oldNote = note;
@@ -464,6 +467,7 @@ angular.module('AnnotatedTutorial')
                             $scope.tutorial.steps[stepIndex].notes[index] = note;
                         }
                     }
+                    console.log(note);
 
                 };
 
