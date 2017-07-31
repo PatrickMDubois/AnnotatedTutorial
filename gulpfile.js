@@ -79,7 +79,7 @@ gulp.task('dist:dependencies', function() {
             './bower_components/angular-sanitize/angular-sanitize.js',
             './bower_components/moment/moment.js',
             './bower_components/angular-moment/angular-moment.js',
-            './bower_components/angular-select-ui/dist/select.min.js'
+            './bower_components/angular-ui-select/dist/select.min.js'
         ])
         .pipe(concat('dependencies.js'))
         .pipe(gulp.dest('./dist/scripts'));

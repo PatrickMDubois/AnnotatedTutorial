@@ -7,7 +7,6 @@
 
     <!-- build:[src] css/ -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
-    <link rel="stylesheet" href="/angular-ui-select/dist/select.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <!-- /build -->
       <link rel="stylesheet" href="css/main.css">
@@ -124,7 +123,7 @@
                               <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
                               <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
                               <div>
-                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="" close-on-select="false" style="width:34.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple limit="" close-on-select="false" style="width:30.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
                                       <ui-select-match placeholder="Select a step" style="overflow-y:auto;height:35px;">
                                           <span ng-bind="$item.name"></span>
                                       </ui-select-match>
@@ -256,6 +255,7 @@
     <script src="/angular-moment/angular-moment.js"></script>
     <script src="/angular-ui-select/dist/select.js"></script>
     <script src="modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="/angular-ui-select/dist/select.css">
     <!-- /build -->
 
     <!-- build:js scripts/templates.js -->

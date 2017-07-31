@@ -60,7 +60,7 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = 'Koala'//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym = 'Koala' //'Assiniboine';//localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
             while (!pseudonym) {
@@ -983,18 +983,6 @@ angular.module('AnnotatedTutorial')
             }
         };
     });
-angular.module('AnnotatedTutorial')
-    .controller('ctrl', ['$scope', function ($scope){
-        $scope.itemArray = [
-            {id: 1, name: 'first'},
-            {id: 2, name: 'second'},
-            {id: 3, name: 'third'},
-            {id: 4, name: 'fourth'},
-            {id: 5, name: 'fifth'}
-        ];
-
-        $scope.selectedItem = $scope.itemArray[0];
-    }]);
 /**
  * Created by patrick on 01/06/17.
  */
