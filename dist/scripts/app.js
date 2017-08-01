@@ -313,7 +313,7 @@ angular.module('AnnotatedTutorial')
 
                     }
 
-                    if($scope.replyTo) {
+                    /*if($scope.replyTo) {
                         if (firstNote.reply_to !== null) { //second level
                             console.log("second");
                             mainIndex = $scope.findNoteIndex(firstNote.reply_to);
@@ -327,7 +327,7 @@ angular.module('AnnotatedTutorial')
                             $scope.tutorial.notes[index].replies.push(note);
 
                         }
-                    }
+                    }*/
                 };
 
 
@@ -736,16 +736,17 @@ angular.module('AnnotatedTutorial')
                         var returnedNote = TutorialService.post(note).then(function(result){
                             $scope.newNote = result;
                             $scope.newNote.replies=[];
-                            $scope.addNote($scope.newNote);
 
+                            $scope.addNote($scope.newNote);
+                            $scope.tutorial.notes.push($scope.newNote);
                             if(!$scope.replyTo){
                                 $scope.updateDropdown();
                             }
-                            if(!$scope.checkForNote($scope.tutorial.notes, $scope.newNote)){
+                            /*if(!$scope.checkForNote($scope.tutorial.notes, $scope.newNote)){
                                 //git log$scope.tutorial.notes.push($scope.newNote);
-                            }
-                            //$scope.newFilter(-1);
-                            //$scope.newSort();
+                            }*/
+                            $scope.newFilter(-1);
+                            $scope.newSort();
                             $scope.closeInput();
 
                             LoggerService.log("Submitted a note:"
