@@ -66,7 +66,7 @@ img{
   line-height: 9px;
   width: 24px;
   position: relative;
-  outline:none;
+  border:1.5px solid white;
 }
 
 .filter-icon{
@@ -183,37 +183,71 @@ img{
 .icon-details{
   background-image: url(../images/PNG/pin.png);
   background-size: 17px;
-  background-position: 3px 3px;
+  background-position: 40% 45%;
 }
 
 .icon-corrections{
   background-image: url(../images/SVG/healing.svg);
-  background-position: 3px 4px;
+  background-position: 40% 45%;
 }
 
 .icon-questions{
   background-image: url(../images/PNG/question.png);
   background-size: 14px;
-  background-position: 5px 4px;
+  background-position: 40% 45%;
 }
 
 .icon-other{
   background-image: url(../images/PNG/other.png);
   background-size: 23px;
-  background-position: 0 2px;
+  background-position: 40% 45%;
 }
 
-.selected-details,.menu-details:hover, .filter-icon-details:hover ,.number-details, .icon-details:hover {
+.menu-corrections{
+  border:1.5px solid #ebb083;
+}
+
+.menu-corrections:hover{
+  background-color: #ebb083;
+  border:1.5px solid #ebb083;
+}
+
+.menu-details{
+  border:1.5px solid  #ccc0eb;
+}
+
+.menu-details:hover{
+  background-color:  #ccc0eb;
+  border:1.5px solid  #ccc0eb;
+}
+.menu-questions{
+  border:1.5px solid #ebdc69;
+}
+
+.menu-questions:hover{
+  background-color: #ebdc69;
+  border:1.5px solid #ebdc69;
+}
+.menu-other{
+  border:1.5px solid  #c0d982;
+}
+
+.menu-other:hover{
+  background-color:  #c0d982;
+  border:1.5px solid  #c0d982;
+}
+
+.selected-details,.filter-icon-details:hover ,.number-details, .icon-details:hover {
   background-color: #ccc0eb;
 }
-.selected-corrections,.menu-corrections:hover,.filter-icon-corrections:hover, .number-corrections, .icon-corrections:hover {
+.selected-corrections,.filter-icon-corrections:hover, .number-corrections, .icon-corrections:hover {
   background-color: #ebb083;
 }
 
-.selected-questions,.number-questions,.filter-icon-questions:hover, .menu-questions:hover, .icon-questions:hover {
+.selected-questions,.filter-icon-questions:hover, .menu-questions:hover, .icon-questions:hover {
   background-color: #ebdc69;
 }
-.selected-other,.number-other, .menu-other:hover,.filter-icon-other:hover, .icon-other:hover {
+.selected-other,.number-other,.filter-icon-other:hover, .icon-other:hover {
   background-color: #c0d982;
 }
 
@@ -303,7 +337,7 @@ img{
   background-size: 22px;
   background-position: 0 3px;
   margin-left:16%;
-
+  border:none;
   height: 27px;
   width: 27px;
 }
@@ -520,7 +554,7 @@ h2 {
   font-size:20px;
   color:#3f3f3f;
   margin-bottom:10px;
-  font-weight:300;
+  font-weight:600;
   font-family:'Open sans', sans-serif;
 }
 
@@ -530,6 +564,7 @@ h2 {
   font-family:'Open sans', sans-serif;
   color: #8d8d8d;
   cursor:pointer;
+  width:24%;
 }
 
 .note-number {
@@ -644,20 +679,25 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/SVG/unselectedThumb.svg);
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
-  height: 28px;
+  height: 23px;
   line-height: 9px;
-  width: 35px;
+  width: 20px;
   float: left;
-  outline:none;
+  outline: none;
+  margin-right: 2%;
 }
 
-.rated{
+.rated,.unrated:hover{
   background-image: url(../images/SVG/selectedThumb.svg);
 }
+
+.unrated, .rated:hover{
+  background-image: url(../images/SVG/unselectedThumb.svg);
+}
+
 
 .step-list {
   border-top: 1px solid #e6e6e6;
