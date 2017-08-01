@@ -1730,6 +1730,8 @@ p {
   background-position: 4px 3px;
   height: 27px;
   width: 27px;
+  outline: none;
+  border: none;
 }
 
 .input-gone {
@@ -1738,10 +1740,14 @@ p {
   background-position: 4px 3px;
   height: 27px;
   width: 27px;
+  outline: none;
+  border: none;
 }
 
 .input-start:hover {
   background-image: url(../images/SVG/hoverAdd.svg);
+  outline: none;
+  border: none;
 }
 
 .input-container {
@@ -1764,6 +1770,7 @@ p {
 .description {
   border: 1px #ccc dotted;
   margin: 5px 0;
+  margin-top: 4%;
   padding: 2px;
 }
 
@@ -1960,7 +1967,7 @@ h2 {
   font-size: 20px;
   color: #3f3f3f;
   margin-bottom: 10px;
-  font-weight: 300;
+  font-weight: 600;
   font-family: 'Open sans', sans-serif;
 }
 
@@ -1992,16 +1999,21 @@ h2 {
 
 .window-title {
   font-weight: bold;
-  font-size: 98%;
+  font-size: 75%;
   font-family: 'Open sans', sans-serif;
   color: #6f6f6f;
-  margin-left: 2%;
+  margin-left: 1.5%;
   float: left;
+}
+
+.placeholder-text {
+  margin-left: 8%;
+  margin-top: 5%;
 }
 
 .categories-title {
   margin-left: 7.5%;
-  margin-right: 3.5%;
+  margin-right: 9%;
 }
 
 .selected-steps {
@@ -2070,18 +2082,23 @@ h2 {
 }
 
 .rating-button {
-  background-image: url(../images/SVG/unselectedThumb.svg);
+  background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
-  height: 28px;
+  height: 23px;
   line-height: 9px;
-  width: 35px;
+  width: 20px;
   float: left;
   outline: none;
+  margin-right: 2%;
 }
 
-.rated {
+.rated, .unrated:hover {
   background-image: url(../images/SVG/selectedThumb.svg);
+}
+
+.unrated, .rated:hover {
+  background-image: url(../images/SVG/unselectedThumb.svg);
 }
 
 .step-list {
