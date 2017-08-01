@@ -17,7 +17,6 @@ angular.module('AnnotatedTutorial')
         'use strict';
 
         var contributor = null;
-
         var promise = $http.get(annotatedTutorialServer + '/tutorials/contributor/' + currentParticipant)
             .then(function(response) {
 
