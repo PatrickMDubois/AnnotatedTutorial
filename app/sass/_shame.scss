@@ -322,7 +322,6 @@ p{
 }
 
 .rating-button {
-  background-image: url(../images/SVG/unselectedThumb.svg);
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -334,8 +333,12 @@ p{
   margin-right: 2%;
 }
 
-.rated,.rating-button:hover{
+.rated,.unrated:hover{
   background-image: url(../images/SVG/selectedThumb.svg);
+}
+
+.unrated, .rated:hover{
+  background-image: url(../images/SVG/unselectedThumb.svg);
 }
 
 .note-rating {
