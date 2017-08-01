@@ -1569,11 +1569,13 @@ img {
   transition: all 0.1s ease;
   white-space: nowrap;
   z-index: 1;
+  outline: none;
 }
 
 [tooltip]:hover:before {
   opacity: 1;
   white-space: nowrap;
+  outline: none;
 }
 
 .selected-step {
@@ -1677,6 +1679,7 @@ img {
 
 .menu-corrections {
   border: 1.5px solid #ebb083;
+  outline: none;
 }
 
 .menu-corrections:hover {
@@ -1686,6 +1689,7 @@ img {
 
 .menu-details {
   border: 1.5px solid  #ccc0eb;
+  outline: none;
 }
 
 .menu-details:hover {
@@ -1695,6 +1699,7 @@ img {
 
 .menu-questions {
   border: 1.5px solid #ebdc69;
+  outline: none;
 }
 
 .menu-questions:hover {
@@ -1704,6 +1709,7 @@ img {
 
 .menu-other {
   border: 1.5px solid  #c0d982;
+  outline: none;
 }
 
 .menu-other:hover {
@@ -1879,12 +1885,12 @@ img {
 }
 
 .filter-open-container {
-  top: 34.2%;
+  top: 32.2%;
   height: 12%;
 }
 
 .note-open-container {
-  top: 46%;
+  top: 44%;
   height: 52%;
 }
 
@@ -2062,16 +2068,16 @@ h2 {
 
 .window-title {
   font-weight: bold;
-  font-size: 98%;
+  font-size: 75%;
   font-family: 'Open sans', sans-serif;
   color: #6f6f6f;
-  margin-left: 2%;
+  margin-left: 1.5%;
   float: left;
 }
 
 .categories-title {
   margin-left: 7.5%;
-  margin-right: 3.5%;
+  margin-right: 9%;
 }
 
 .selected-steps {
