@@ -1538,6 +1538,7 @@ img {
   width: 24px;
   position: relative;
   border: 1.5px solid white;
+  outline: none;
 }
 
 .filter-icon {
@@ -1725,7 +1726,7 @@ img {
   background-color: #ebb083;
 }
 
-.selected-questions, .filter-icon-questions:hover, .menu-questions:hover, .icon-questions:hover {
+.selected-questions, .filter-icon-questions:hover, .number-questions, .menu-questions:hover, .icon-questions:hover {
   background-color: #ebdc69;
 }
 
