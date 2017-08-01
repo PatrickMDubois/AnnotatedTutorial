@@ -146,7 +146,7 @@ p{
   font-size:20px;
   color:#3f3f3f;
   margin-bottom:10px;
-  font-weight:300;
+  font-weight:600;
   font-family:'Open sans', sans-serif;
 }
 
@@ -183,6 +183,7 @@ p{
   font-weight:bold;
   font-family:'Open sans', sans-serif;
   line-height: 15px;
+  font-size:90%;
   outline:none;
 }
 
@@ -216,7 +217,7 @@ p{
   position: fixed;
   right: 1.1%;
   top: 10.3%;
-  height: 66%;
+  height: 63%;
 }
 
 .note:before {
@@ -330,10 +331,10 @@ p{
   width: 20px;
   float: left;
   outline: none;
-  margin-right: 5px;
+  margin-right: 2%;
 }
 
-.rated{
+.rated,.rating-button:hover{
   background-image: url(../images/SVG/selectedThumb.svg);
 }
 
@@ -353,9 +354,9 @@ p{
   font-family:'Open sans', sans-serif;
   padding: 5px;
   position: fixed;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
-  top:75.3%;
+  top:72.3%;
   right:1.1%;
   height:21%;
   box-shadow:0 -3px 5px 0 rgba(0, 0, 0, 0.1);
@@ -364,7 +365,7 @@ p{
 .reply-text{
   margin:0 20px;
   color: #545454;
-  font-size:13px;
+  font-size:80%;
   font-weight:600;
   font-family:'Open sans', sans-serif;
 }
