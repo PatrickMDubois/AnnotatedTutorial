@@ -1596,6 +1596,7 @@ p {
   font-family: 'Open sans', sans-serif;
   color: #a6a6a6;
   cursor: pointer;
+  width: 24%;
 }
 
 .contributor-first {
