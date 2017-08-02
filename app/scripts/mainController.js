@@ -227,6 +227,8 @@ angular.module('AnnotatedTutorial')
                             stepNumber = $scope.findStepNumber(note.step_id[m]);
                             stepIndex = $scope.findStepIndex(note.step_id[m]);
                             index = $scope.findNoteInStep(stepNumber,firstNote.id);
+                            console.log($scope.tutorial.steps[stepIndex].notes[index]);
+                            console.log($scope.tutorial.steps[stepIndex].notes[index].replies[0]);
                             $scope.tutorial.steps[stepIndex].notes[index].replies.push(note);
                         }
                     }else if(firstNote === null){//new note posted
