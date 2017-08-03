@@ -1786,6 +1786,34 @@ p {
   font-family: 'Open sans', sans-serif;
 }
 
+.alert {
+  top: 40%;
+  right: 1%;
+  font-family: 'Open sans', sans-serif;
+  background-color: rgba(255, 255, 255, 0.67);
+  border: 1px solid #949494;
+  color: black;
+  border-radius: 3px;
+  width: 30%;
+  height: 5%;
+  position: fixed;
+  text-align: center;
+  font-weight: 600;
+  font-size: 110%;
+}
+
+.alert-icon {
+  background-image: url(../images/PNG/error.png);
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: 45% 45%;
+  background-color: red;
+  height: 100%;
+  line-height: 9px;
+  width: 10%;
+  float: left;
+}
+
 .reply-content {
   margin-top: 0 !important;
   margin-bottom: 1px !important;

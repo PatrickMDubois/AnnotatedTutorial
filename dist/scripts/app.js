@@ -676,9 +676,7 @@ angular.module('AnnotatedTutorial')
                 };
 
                 $scope.menuSwitch=function(){
-                    if(!$scope.secondMenu && $scope.selectedStepsList.length == 0){
-                        confirm("Please select a step.");
-                    }else{
+                    if($scope.secondMenu || $scope.selectedStepsList.length > 0){
                         $scope.secondMenu = !$scope.secondMenu;
                         LoggerService.log("Menu switched:"
                             + " Tutorial - " + $scope.tutorial.title

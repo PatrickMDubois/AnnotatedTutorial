@@ -116,7 +116,7 @@
                           <a class="close-button" ng-click="closeInput()" href="#{{step.id}}">X</a>
                           <a class=" prime-text" ng-click="return(step)" href="#{{step.id}}"></a><!--return-button-first return-button-->
                       </div>
-                      <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected</div>
+                      <div class="selected-steps" ng-if="selectedStepsList.length == 0">None Selected.</div>
                       <div style="margin-bottom:2%">
                           <div class="selected-steps" ng-if="selectedStepsList.length !=0">Step(s): {{list.toString()}}</div>
                           <button class="menu-button menu-one" ng-click="menuSwitch()" ng-show="true" tooltip="Next"></button>
@@ -135,7 +135,10 @@
                           </div>
                       </div>
                   </div>
-
+                  <div class="alert" ng-if="selectedStepsList.length == 0">
+                      <div class="alert-icon"></div>
+                      <div style="line-height:300%;">Please select a step</div>
+                  </div>
                   <div ng-if="secondMenu">
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                       <div class="window-title categories-title" ng-if="secondMenu">Note Categories</div>
@@ -153,7 +156,6 @@
                       <button style="float:left; margin-right:5.5%;" ng-click="categorySelected('other')" class="icon icon-other menu-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
                       <div style="margin-bottom:2%">
                           <div ng-if="selectedStepsList.length !=0">{{list.toString()}}</div>
-                          <div ng-if="selectedStepsList.length == 0">None Selected</div>
                       </div>
 
                       <div class="placeholder-text" ng-if="inputCategory==''">Please select a category.</div>
