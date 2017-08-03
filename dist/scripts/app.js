@@ -366,7 +366,7 @@ angular.module('AnnotatedTutorial')
                             $scope.tutorial.steps[stepIndex].notes[mainIndex] = mainNote;
                         }
 
-                    } else { //new rating or deletion on a note
+                    } else if(firstNote == null ){ //new rating or deletion on a note
                         stepNumber = $scope.findStepNumber(note.step_id[0]);
                         stepIndex = $scope.findStepIndex(note.step_id[0]);
                         var oldNote = note;
