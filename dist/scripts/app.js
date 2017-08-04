@@ -117,7 +117,6 @@ angular.module('AnnotatedTutorial')
         var contributor = null;
         var promise = $http.get(annotatedTutorialServer + '/tutorials/contributor/' + currentParticipant)
             .then(function(response) {
-
                 contributor = response.data;
             });
 
@@ -325,8 +324,8 @@ angular.module('AnnotatedTutorial')
                             mainNote = $scope.tutorial.steps[stepIndex].notes[mainIndex];
                             firstIndex = $scope.findReplyIndex(note.reply_to, mainNote);
                             $scope.tutorial.steps[stepIndex].notes[mainIndex] = updatedNote;
+                            console.log($scope.tutorial.steps[stepIndex].notes[mainIndex]);
                         }
-
                     }
                     $scope.tutorial.notes.push(note);
                 };
@@ -353,7 +352,7 @@ angular.module('AnnotatedTutorial')
                             $scope.tutorial.steps[stepIndex].notes[index] = firstNote;
                         }
                     } else if (firstNote !== null && firstNote.reply_to !== null) { //new rating or deletion, second level of reply
-
+                        console.log("second level");
                         for (var z = 0; z < note.step_id.length; z++) {
                             stepNumber = $scope.findStepNumber(note.step_id[z]);
                             stepIndex = $scope.findStepIndex(note.step_id[z]);
@@ -364,6 +363,7 @@ angular.module('AnnotatedTutorial')
                             firstNote.replies[replyIndex] = note;
                             mainNote.replies[firstIndex] = firstNote;
                             $scope.tutorial.steps[stepIndex].notes[mainIndex] = mainNote;
+                            console.log($scope.tutorial.steps[stepIndex].notes[mainIndex]);
                         }
 
                     } else if(firstNote == null ){ //new rating or deletion on a note
@@ -399,6 +399,7 @@ angular.module('AnnotatedTutorial')
                         firstNote.replies[replyIndex] = note;
                         mainNote.replies[firstIndex] = firstNote;
                         $scope.tutorial.notes[mainIndex] = mainNote;
+                        console.log($scope.tutorial.notes[mainIndex]);
 
                     } else if (firstNote !== null) {
                         index = $scope.findNoteIndex(firstNote.id);
