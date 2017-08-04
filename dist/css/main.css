@@ -1760,7 +1760,8 @@ p {
   position: fixed;
   overflow-y: auto;
   overflow-x: hidden;
-  right: 5%;
+  right: 2%;
+  top: 12%;
 }
 
 .reply-container {
@@ -1787,12 +1788,11 @@ p {
 }
 
 .alert {
-  top: 40%;
-  right: 1%;
+  top: 6%;
+  right: 2%;
   font-family: 'Open sans', sans-serif;
-  background-color: rgba(255, 255, 255, 0.67);
-  border: 1px solid #949494;
-  color: black;
+  background-color: #ff7800;
+  color: #ffffff;
   border-radius: 3px;
   width: 30%;
   height: 5%;
@@ -1805,12 +1805,13 @@ p {
 .alert-icon {
   background-image: url(../images/PNG/error.png);
   background-repeat: no-repeat;
-  background-size: 70%;
+  background-size: 60%;
   background-position: 45% 45%;
-  background-color: red;
+  background-color: #ff7800;
   height: 100%;
   line-height: 9px;
   width: 10%;
+  border-radius: 3px;
   float: left;
 }
 
