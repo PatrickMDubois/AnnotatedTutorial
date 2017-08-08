@@ -5,7 +5,13 @@ angular.module('AnnotatedTutorial')
         TutorialService.loaded
         .then(function() {
                 $scope.contributor = TutorialService.get();
-                $scope.tutorial = $scope.contributor.current_tutorial;
+                if($scope.contributor.current_interface.url == $scope.contributor.interface_one.url){
+                    $scope.tutorial = $scope.contributor.tutorial_one;
+                }else if($scope.contributor.current_interface.url == $scope.contributor.interface_two.url){
+                    $scope.tutorial = $scope.contributor.tutorial_two;
+                }else{
+                    $scope.tutorial = $scope.contributor.tutorial_three;
+                }
                 $scope.newNote = "";
                 $scope.extraInput = "";
                 $scope.inputCategory = "";
