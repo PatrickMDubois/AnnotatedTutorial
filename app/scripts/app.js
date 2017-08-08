@@ -13,17 +13,18 @@
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = 'Koala';//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym=window.location.search.substring(1); //localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
-            while (!pseudonym) {
+            /*while (!pseudonym) {
                 pseudonym = "";//prompt('Please, enter your pseudonym');
             }
 
-            localStorage.setItem('pseudonym', pseudonym);
+            localStorage.setItem('pseudonym', pseudonym);*/
           }
 
         return pseudonym;
     });
 
 })(window);
+
