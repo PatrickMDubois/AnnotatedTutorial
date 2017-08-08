@@ -60,15 +60,15 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
     });
 
     app.factory('currentParticipant', function() {
-        var pseudonym = ''//'Assiniboine';//localStorage.getItem('pseudonym');
+        var pseudonym=window.location.search.substring(1); //localStorage.getItem('pseudonym');
 
         if (!pseudonym) {
-            while (!pseudonym) {
-                pseudonym = prompt('Please, enter your pseudonym');
-            }
+            /*while (!pseudonym) {
+             pseudonym = "";//prompt('Please, enter your pseudonym');
+             }
 
-            localStorage.setItem('pseudonym', pseudonym);
-          }
+             localStorage.setItem('pseudonym', pseudonym);*/
+        }
 
         return pseudonym;
     });
