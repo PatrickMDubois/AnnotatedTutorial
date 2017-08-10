@@ -1486,6 +1486,7 @@ html, body {
 }
 
 img {
+  margin-top: 10px;
   max-width: 500px;
   max-height: 200px;
   border: 1px solid #e0e0e0;
@@ -1995,7 +1996,6 @@ h2 {
 .step-title {
   font-size: 20px;
   color: #3f3f3f;
-  margin-bottom: 10px;
   font-weight: 600;
   font-family: 'Open sans', sans-serif;
 }
