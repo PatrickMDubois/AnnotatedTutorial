@@ -143,9 +143,12 @@ angular.module('AnnotatedTutorial')
 
                 var newNote;
                 var promise2 = $http.post(annotatedTutorialServer + '/tutorials/notes', theNote)
-                    .then(function(response) {
+                    .success(function(response) {
                         newNote = response.data;
                         return newNote;
+                    })
+                    .error(function(response) {
+                        return null;
                     });
                 return promise2;
             },
@@ -298,25 +301,39 @@ angular.module('AnnotatedTutorial')
                         }
 
                         var returnedNote = TutorialService.post(note).then(function(result){
-                            $scope.newNote = result;
-                            if($scope.replyTo){
-                                $scope.update($scope.newNote,true);
-                            }
-                            $scope.newNote.replies=[];
-                            $scope.tutorial.notes.push($scope.newNote);
+                            if(result == null){
+                                prompt("There was an error posting your note please refresh the page and try again.");
+                                LoggerService.log("Error to post a note:"
+                                    + " Tutorial - " + $scope.tutorial.title
+                                    + " Interface - FreeForm"
+                                    + " | Category - comment"
+                                    + " | Extra Input - " + $scope.extraInput
+                                    + " | Note - " + $scope.newNote);
+                            }else{
+                                $scope.newNote = result;
 
-                            $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
-                            $scope.newSort();
-                            $scope.closeInput();
+                                if($scope.replyTo){
+                                    $scope.update($scope.newNote,true);
+                                }
+                                $scope.newNote.replies=[];
+                                $scope.tutorial.notes.push($scope.newNote);
+
+                                $scope.listOfNotes = ($scope.tutorial.notes.slice(0));
+                                $scope.newSort();
+                                $scope.closeInput();
+
+                                LoggerService.log("Submitted a note:"
+                                    + " Tutorial - " + $scope.tutorial.title
+                                    + " Interface - FreeForm"
+                                    + " | Category - comment"
+                                    + " | Extra Input - " + $scope.extraInput
+                                    + " | Note - " + $scope.newNote);
+                            }
+
                         });
 
 
-                        LoggerService.log("Submitted a note:"
-                         + " Tutorial - " + $scope.tutorial.title
-                         + " Interface - FreeForm"
-                         + " | Category - comment"
-                         + " | Extra Input - " + $scope.extraInput
-                         + " | Note - " + $scope.newNote);
+
 
                     }
                 };
@@ -372,14 +389,12 @@ angular.module('AnnotatedTutorial')
                     var index;
 
                     if(newNote && firstNote !== null && firstNote.reply_to !== null){ //second level
-                        console.log("Second");
                         mainIndex = $scope.findNoteIndex(firstNote.reply_to);
                         mainNote = $scope.findNote(firstNote.reply_to);
                         firstIndex = $scope.findReplyIndex(note.reply_to,mainNote);
                         $scope.tutorial.notes[mainIndex].replies[firstIndex].replies.push($scope.newNote);
 
                     }else if(newNote && firstNote !== null){ //first level
-                        console.log("first");
                         index = $scope.findNoteIndex($scope.newNote.reply_to);
                         $scope.tutorial.notes[index].replies.push($scope.newNote);
 
@@ -399,7 +414,6 @@ angular.module('AnnotatedTutorial')
                         firstNote.replies[noteIndex] = note;
                         $scope.tutorial.notes[index] = firstNote;
                     }
-                    console.log(note);
                 };
 
 
