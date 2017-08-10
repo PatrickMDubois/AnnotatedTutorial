@@ -1488,6 +1488,7 @@ html, body {
 img {
   max-width: 500px;
   max-height: 200px;
+  margin-top: 10px;
   border: 1px solid #000000;
   display: block;
   margin-bottom: 20px;
@@ -1618,7 +1619,6 @@ p {
 .step-title {
   font-size: 20px;
   color: #3f3f3f;
-  margin-bottom: 10px;
   font-weight: 600;
   font-family: 'Open sans', sans-serif;
 }
