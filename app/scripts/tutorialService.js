@@ -42,9 +42,12 @@ angular.module('AnnotatedTutorial')
 
                 var newNote;
                 var promise2 = $http.post(annotatedTutorialServer + '/tutorials/notes', theNote)
-                    .then(function(response) {
+                    .success(function(response) {
                         newNote = response.data;
                         return newNote;
+                    })
+                    .error(function(response) {
+                        return null;
                     });
                 return promise2;
             },
