@@ -199,26 +199,26 @@ angular.module('AnnotatedTutorial')
                                     + " | Extra Input - " + $scope.extraInput
                                     + " | Note - " + $scope.newNote);
                             }else{
-                                $scope.newNote = result;
-
-                                $scope.newNote.replies=[];
-                                $scope.tutorial.notes.push($scope.newNote);
-                                $scope.addNote($scope.newNote);
+                                $scope.newNote = result.data;
+                                $scope.newNote.replies = [];
+                                $scope.temp = $scope.addNote($scope.newNote);
+                                if (!$scope.replyTo) {
+                                    $scope.updateDropdown();
+                                }
+                                $scope.newFilter(-1);
+                                $scope.newSort();
                                 $scope.closeInput();
 
                                 LoggerService.log("Submitted a note:"
                                     + " Tutorial - " + $scope.tutorial.title
-                                    + " Interface - Embedded"
+                                    + " Interface - Side Display"
                                     + " | Step - " + $scope.selectedLine
                                     + " | Category - " + $scope.inputCategory
                                     + " | Extra Input - " + $scope.extraInput
-                                    + " | Note - " + $scope.newNote.content);
+                                    + " | Note - " + $scope.newNote);
                             }
 
-
                         });
-
-
                     }
                 };
 
