@@ -126,8 +126,6 @@ angular.module('AnnotatedTutorial')
                     var firstIndex;
                     var index;
                     var updatedNote;
-                    var test;
-                    var p1;
 
                     if ($scope.replyTo) {
                         if (firstNote.reply_to !== null && firstNote.reply_to.reply_to == null) {  //second level
@@ -135,7 +133,6 @@ angular.module('AnnotatedTutorial')
                             mainNote = $scope.findNote(firstNote.reply_to);
                             firstIndex = $scope.findReplyIndex(note.reply_to, mainNote);
                             $scope.tutorial.notes[mainIndex].replies[firstIndex].replies.push(note);
-                            p1 = mainIndex;
                             updatedNote = $scope.tutorial.notes[mainIndex];
                         }else if (firstNote.reply_to == null){    //first level
                              index = $scope.findNoteIndex(note.reply_to);
@@ -165,7 +162,6 @@ angular.module('AnnotatedTutorial')
                             mainNote = $scope.tutorial.steps[stepIndex].notes[mainIndex];
                             firstIndex = $scope.findReplyIndex(note.reply_to, mainNote);
                             $scope.tutorial.steps[stepIndex].notes[mainIndex].replies[firstIndex] = updatedNote;
-                            test = $scope.tutorial.steps[stepIndex].notes[mainIndex];
                         }
                     }
                     $scope.tutorial.notes.push(note);
@@ -578,7 +574,7 @@ angular.module('AnnotatedTutorial')
                                     + " | Extra Input - " + $scope.extraInput
                                     + " | Note - " + $scope.newNote);
                             }else{
-                                $scope.newNote = result;
+                                $scope.newNote = result.data;
                                 $scope.newNote.replies = [];
                                 $scope.temp = $scope.addNote($scope.newNote);
                                 if (!$scope.replyTo) {
