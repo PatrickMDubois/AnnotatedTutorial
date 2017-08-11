@@ -214,11 +214,7 @@ angular.module('AnnotatedTutorial')
                                     + " | Extra Input - " + $scope.extraInput
                                     + " | Note - " + $scope.newNote.content);
                             }
-
-
                         });
-
-
                     }
                 };
 
