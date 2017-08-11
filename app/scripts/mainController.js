@@ -136,7 +136,7 @@ angular.module('AnnotatedTutorial')
                                     + " | Extra Input - " + $scope.extraInput
                                     + " | Note - " + $scope.newNote);
                             }else{
-                                $scope.newNote = result;
+                                $scope.newNote = result.data;
 
                                 if($scope.replyTo){
                                     $scope.update($scope.newNote,true);
