@@ -114,7 +114,7 @@ angular.module('AnnotatedTutorial')
                     if(($scope.replyTo!==null) || $scope.newNote){
                         var note = {
                             "step_id":[],
-                            "tutorial_id": $scope.tutorial.id,
+                            "tutorial_id": $scope.tutorial,
                             "category": $scope.inputCategory,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
@@ -219,12 +219,15 @@ angular.module('AnnotatedTutorial')
                         mainNote = $scope.findNote(firstNote.reply_to);
                         firstIndex = $scope.findReplyIndex(note.reply_to,mainNote);
                         $scope.tutorial.notes[mainIndex].replies[firstIndex].replies.push($scope.newNote);
+                        console.log($scope.tutorial.notes[mainIndex].replies[firstIndex]);
+                        console.log(mainNote);
+                        console.log("HERE");
 
                     }else if(newNote && firstNote !== null){ //first level
                         index = $scope.findNoteIndex($scope.newNote.reply_to);
                         $scope.tutorial.notes[index].replies.push($scope.newNote);
 
-                    }else if(firstNote !== null && firstNote.reply_to !== null){
+                    }else if(firstNote !== null && firstNote.reply_to !== null){ //second
 
                         mainNote = $scope.findNote(firstNote.reply_to);
                         mainIndex =  $scope.findNoteIndex(note.reply_to.reply_to);
@@ -248,6 +251,7 @@ angular.module('AnnotatedTutorial')
                 {
                     for(var i =0; i < $scope.tutorial.notes.length; i++) {
                         if($scope.tutorial.notes[i].id === note_id) {
+                            console.log($scope.tutorial.notes[i]);
                             return $scope.tutorial.notes[i];
                         }
                     }
@@ -314,6 +318,8 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     var note = $scope.findNote(note_id);
                     var mainNote = $scope.findNote(note.reply_to);
+                    console.log("RATING");
+                    console.log(mainNote);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
 
                     $scope.update(note,false);
