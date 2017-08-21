@@ -4,6 +4,7 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
+                //loading up the correct tutorial for the current interface
                 $scope.contributor = TutorialService.get();
                 if($scope.contributor.current_interface.url == $scope.contributor.interface_one.url){
                     $scope.tutorial = $scope.contributor.tutorial_one;
@@ -12,6 +13,7 @@ angular.module('AnnotatedTutorial')
                 }else{
                     $scope.tutorial = $scope.contributor.tutorial_three;
                 }
+
                 $scope.newNote = "";
                 $scope.extraInput = "";
                 $scope.inputCategory = "";
@@ -20,9 +22,13 @@ angular.module('AnnotatedTutorial')
                 $scope.listOfContributors = [];
                 $scope.listOfSteps = [];
                 $scope.chosenSort ="new";
+                $scope.level=0;
+
+                //if someone has liked a comment or pressed delete
                 $scope.ratingChange = false;
                 $scope.deleteChange = false;
-                $scope.level=0;
+
+
                 //the list of notes that are going to be shown
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
@@ -34,6 +40,7 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                 }
+
                 //creates the list of steps and organizes them based on step number
                 for(var g = 0; g < $scope.tutorial.steps.length; g++) {
                     for(var j = 0; j < $scope.tutorial.steps.length; j++) {
@@ -114,7 +121,7 @@ angular.module('AnnotatedTutorial')
                     if(($scope.replyTo!==null) || $scope.newNote){
                         var note = {
                             "step_id":[],
-                            "tutorial_id": $scope.tutorial,
+                            "tutorial_id": $scope.tutorial.id,
                             "category": $scope.inputCategory,
                             "extra_info": $scope.extraInput,
                             "content": $scope.newNote,
@@ -155,12 +162,7 @@ angular.module('AnnotatedTutorial')
                                     + " | Extra Input - " + $scope.extraInput
                                     + " | Note - " + $scope.newNote);
                             }
-
                         });
-
-
-
-
                     }
                 };
 
@@ -219,9 +221,6 @@ angular.module('AnnotatedTutorial')
                         mainNote = $scope.findNote(firstNote.reply_to);
                         firstIndex = $scope.findReplyIndex(note.reply_to,mainNote);
                         $scope.tutorial.notes[mainIndex].replies[firstIndex].replies.push($scope.newNote);
-                        console.log($scope.tutorial.notes[mainIndex].replies[firstIndex]);
-                        console.log(mainNote);
-                        console.log("HERE");
 
                     }else if(newNote && firstNote !== null){ //first level
                         index = $scope.findNoteIndex($scope.newNote.reply_to);
@@ -245,13 +244,10 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
-
-
                 $scope.findNote = function(note_id)
                 {
                     for(var i =0; i < $scope.tutorial.notes.length; i++) {
                         if($scope.tutorial.notes[i].id === note_id) {
-                            console.log($scope.tutorial.notes[i]);
                             return $scope.tutorial.notes[i];
                         }
                     }
@@ -318,15 +314,9 @@ angular.module('AnnotatedTutorial')
                     $scope.ratingChange = true;
                     var note = $scope.findNote(note_id);
                     var mainNote = $scope.findNote(note.reply_to);
-                    console.log("RATING");
-                    console.log(mainNote);
                     TutorialService.put(note,$scope.deleteChange, $scope.ratingChange);
-
                     $scope.update(note,false);
-
                     $scope.ratingChange = false;
-
-
                     $scope.listOfNotes = $scope.tutorial.notes.slice(0);
                     $scope.newSort();
 
@@ -392,6 +382,8 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                 };
+
+                //to set the starting filter
                 $scope.chosenSort = "new";
                 $scope.newSort();
 
