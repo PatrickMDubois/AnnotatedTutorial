@@ -51,10 +51,10 @@
                ng-class="{'selected-step':selectedStepsList.indexOf(step)!=-1 || noteStepList.indexOf(step.id)!=-1}">
               
               <div class="grid__item one-tenth input-start-container is-center-aligned">
-                  <!--<button class="input-start icon" ng-if="inputPos === null" ng-show="hover && selectedLine != $index" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" tooltip="Add a note"></button>-->
+                  <!--<button></button>-->
               </div>
               <!-- Buttons to toggle on/off notes -->
-              <div class="grid__item six-eighths">
+              <div class="gri  d__item six-eighths">
                   <div id="{{step.id}}">
                       <div class="step-title" ng-if="!(step.step_number==0) && (step.step_number<(tutorial.steps.length-2))">Step {{step.step_number}}</div>
                   </div>
@@ -62,103 +62,105 @@
                   <div class="main-content" ng-bind-html="step.html"></div>
               </div><!--
 
-                --><div class="grid__item one-twelfth is-left-aligned" >
+           --><div class="grid__item one-twelfth is-left-aligned">
 
-              <button class="icon input-start" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" ng-show="(hover && currentStep.length == 0)|| currentStep[0] == step" tooltip="Add a note"></button>
-              <button class="icon input-gone" ng-show="!((hover && currentStep.length == 0)|| currentStep[0] == step)" tooltip="Add a note"></button>
+                  <button class="icon input-start" ng-click="resetCurrent();lineClicked($index, $event,step);stepSelected(step);numberList()" ng-show="(hover && currentStep.length == 0)|| currentStep[0] == step" tooltip="Add a note"></button>
+                  <button class="icon input-gone" ng-show="!((hover && currentStep.length == 0)|| currentStep[0] == step)" tooltip="Add a note"></button>
 
-              <button class="icon icon-corrections icon-bar"
-                      ng-if="checkForCategory(step, 'corrections')"
-                      ng-click="sideIcon(step,'corrections')"
-                      ng-class="{'selected selected-corrections': categoryFilter == 'corrections' && stepFilter[0] == step.step_number, 'menu-corrections':currentStep[0] == step}"
-                      tooltip="Corrections">
-                  <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
-              </button>
+                  <button class="icon icon-corrections icon-bar"
+                          ng-if="checkForCategory(step, 'corrections')"
+                          ng-click="sideIcon(step,'corrections')"
+                          ng-class="{'selected selected-corrections': categoryFilter == 'corrections' && stepFilter[0] == step.step_number, 'menu-corrections':currentStep[0] == step}"
+                          tooltip="Corrections">
+                      <div class = "icon__number number-corrections">{{numberOfNotes(step,"corrections")}}</div>
+                  </button>
 
-              <button class="icon icon-details icon-bar"
-                      ng-if="checkForCategory(step, 'details')"
-                      ng-click="sideIcon(step, 'details')"
-                      ng-class="{'selected selected-details': categoryFilter == 'details' && stepFilter[0] == step.step_number, 'menu-details':currentStep[0] == step}"
-                      tooltip="Tell me more!">
-                  <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
-              </button>
+                  <button class="icon icon-details icon-bar"
+                          ng-if="checkForCategory(step, 'details')"
+                          ng-click="sideIcon(step, 'details')"
+                          ng-class="{'selected selected-details': categoryFilter == 'details' && stepFilter[0] == step.step_number, 'menu-details':currentStep[0] == step}"
+                          tooltip="Tell me more!">
+                      <div class="icon__number number-details">{{numberOfNotes(step,"details")}}</div>
+                  </button>
 
-              <button class="icon icon-questions icon-bar"
-                      ng-if="checkForCategory(step, 'questions')"
-                      ng-click="sideIcon(step, 'questions')"
-                      ng-class="{'selected selected-questions': categoryFilter == 'questions' && stepFilter[0] == step.step_number, 'menu-questions':currentStep[0] == step}"
-                      tooltip="Questions">
-                  <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
-              </button>
+                  <button class="icon icon-questions icon-bar"
+                          ng-if="checkForCategory(step, 'questions')"
+                          ng-click="sideIcon(step, 'questions')"
+                          ng-class="{'selected selected-questions': categoryFilter == 'questions' && stepFilter[0] == step.step_number, 'menu-questions':currentStep[0] == step}"
+                          tooltip="Questions">
+                      <div class="icon__number number-questions">{{numberOfNotes(step,"questions")}}</div>
+                  </button>
 
-              <button class="icon icon-other icon-bar"
-                      ng-if="checkForCategory(step, 'other')"
-                      ng-click="sideIcon(step, 'other')"
-                      ng-class="{'selected selected-other': categoryFilter == 'other' && stepFilter[0] == step.step_number, 'menu-other':currentStep[0] == step}"
-                      tooltip="Other">
-                  <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
-              </button>
+                  <button class="icon icon-other icon-bar"
+                          ng-if="checkForCategory(step, 'other')"
+                          ng-click="sideIcon(step, 'other')"
+                          ng-class="{'selected selected-other': categoryFilter == 'other' && stepFilter[0] == step.step_number, 'menu-other':currentStep[0] == step}"
+                          tooltip="Other">note-
+                      <div class="icon__number number-other">{{numberOfNotes(step,"other")}}</div>
+                  </button>
 
-          </div></div><!--
+              </div>
+          </div><!--
 
-           --><div>
-                  <div ng-if="tutorial.notes" class="three-tenths">
-                      <div class="grid__item three-tenths filter-container" ng-class="{'filter-open-container': menuOpen || replyTo !== null}">
-                          <div class="note-display" style="margin-left:3%;">Sort</div>
-                          <div class="note-display">Filter</div>
-                          <div class="note-display filter-steps">Steps</div>
-                          <button class="clear-button prime-text" ng-click=" clear();">CLEAR</button><br>
-                          <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
-                              <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control sortDropdown" id="sort" ng-click="$parent.sortSelected()">
-                                  <option value="new" selected>Recent</option>
-                                  <option value="old">Oldest</option>
-                                  <option value="high">Rate:High</option>
-                                  <option value="low">Rate:Low</option>
-                                  <option value="category">Category</option>
-                              </select>
+       --><div>
+              <div ng-if="tutorial.notes" class="three-tenths">
+                  <div class="grid__item three-tenths filter-container" ng-class="{'filter-open-container': menuOpen || replyTo !== null}">
+                      <div class="note-display" style="margin-left:3%;">Sort</div>
+                      <div class="note-display">Filter</div>
+                      <div class="note-display filter-steps">Steps</div>
+                      <button class="clear-button prime-text" ng-click=" clear();">CLEAR</button><br>
+                      <div style="width:29.3%;height:6%;position:fixed;margin-top:10px">
+                          <select style="width:23%; float:left;margin-left:2%;margin-right:7.4%" class="form-control sortDropdown" id="sort" ng-click="$parent.sortSelected()">
+                              <option value="new" selected>Recent</option>
+                              <option value="old">Oldest</option>
+                              <option value="high">Rate:High</option>
+                              <option value="low">Rate:Low</option>
+                              <option value="category">Category</option>
+                          </select>
 
-                              <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
-                              <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
-                              <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
-                              <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
-                              <div>
-                                  <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple close-on-select="false" style="width:30.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
-                                      <ui-select-match placeholder="Select a step" style="overflow-y:auto;height:35px;font-family:'Open sans', sans-serif;">
-                                          <span ng-bind="$item.name" style="font-family:'Open sans', sans-serif;"></span>
-                                      </ui-select-match>
-                                      <ui-select-choices repeat="item in itemArray | filter: $select.search track by item.id">
-                                          <div  ng-bind="item.name" style="font-family:'Open sans', sans-serif;"></div>
-                                      </ui-select-choices>
-                                      <ui-select-no-choice>
-                                          No results
-                                      </ui-select-no-choice>
-                                  </ui-select>
-                              </div>
+                          <button class="filter-icon filter-icon-corrections" ng-class="{'selected selected-corrections': categoryFilter == 'corrections'}" ng-click="newFilter('corrections')" tooltip="Corrections"></button>
+                          <button class="filter-icon filter-icon-details" ng-class="{'selected selected-details': categoryFilter == 'details'}"  ng-click="newFilter('details')" tooltip="Tell me more!"></button>
+                          <button class="filter-icon filter-icon-questions" ng-class="{'selected selected-questions': categoryFilter == 'questions'}"  ng-click="newFilter('questions')" tooltip="Questions"></button>
+                          <button class="filter-icon filter-icon-other" ng-class="{'selected selected-other': categoryFilter == 'other'}"  ng-click="newFilter('other')" tooltip="Other"></button>
+                          <div>
+                              <ui-select on-select="newFilter($item.id)" ng-model="item.selected" placeholder="Select a step" on-remove="newFilter($item.id)" multiple close-on-select="false" style="width:30.5%;margin:0 0 !Important;" theme="bootstrap" append-to-body="true">
+                                  <ui-select-match placeholder="Select a step" style="overflow-y:auto;height:35px;font-family:'Open sans', sans-serif;">
+                                      <span ng-bind="$item.name" style="font-family:'Open sans', sans-serif;"></span>
+                                  </ui-select-match>
+                                  <ui-select-choices repeat="item in itemArray | filter: $select.search track by item.id">
+                                      <div  ng-bind="item.name" style="font-family:'Open sans', sans-serif;"></div>
+                                  </ui-select-choices>
+                                  <ui-select-no-choice>
+                                      No results
+                                  </ui-select-no-choice>
+                              </ui-select>
                           </div>
                       </div>
-
-                      <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':menuOpen || replyTo !== null}">
-                      <note ng-repeat="note in listOfNotes"
-                            ng-if="canShowNote(note) && note.reply_to == null"
-                            note="note"
-                            delete-it="deleteNote"
-                            rate-it="newRating"
-                            add-reply="addingReply"
-                            can-show-note="canShowNote"
-                            show-list="showStepList"
-                            user="contributor"
-                            general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id"
-                            date="dateFormat(note)"
-                            current-note="note === currentNote"
-                            notelist="getNoteList(note)"
-                            current-reply="replyTo"
-                            reply-one="true">
-                      </note>
-                      </div>
                   </div>
+
+                  <div class="grid__item three-tenths note-container" ng-class="{'note-open-container':menuOpen || replyTo !== null}">
+                  <note ng-repeat="note in listOfNotes"
+                        ng-if="canShowNote(note) && note.reply_to == null"
+                        note="note"
+                        delete-it="deleteNote"
+                        rate-it="newRating"
+                        add-reply="addingReply"
+                        can-show-note="canShowNote"
+                        show-list="showStepList"
+                        user="contributor"
+                        general="note.step_id[0] === listOfSteps[listOfSteps.length-1].id"
+                        date="dateFormat(note)"
+                        current-note="note === currentNote"
+                        notelist="getNoteList(note)"
+                        current-reply="replyTo"
+                        reply-one="true">
+                  </note>
+                  </div>
+              </div>
           </div>
+
           <div class="input-container" ng-if="inputPos != null" ng-style="{'top':2.2 + '%', 'right':1.1 + '%'}" style="height:30%;width:29.95%;">
-              <div class ="window-title" style="margin-left:0% !important;" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}: "{{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,50))}}..."</div>
+              <div class ="window-title" style="margin-left:0 !important;" ng-if="replyTo != null">Replying to {{$parent.replyToContributor}}: "{{(tutorial.notes[findNoteIndex(replyTo)].content.substring(0,50))}}..."</div>
               <div ng-if="replyTo==null">
                 <div ng-if="!secondMenu">
                     <div class="window-title" >Select the steps you want to comment on</div>
@@ -196,23 +198,22 @@
                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
                    <div class="window-title categories-title">Note Categories</div>
-                    <div class="window-title">Commenting on</div>
-
+                   <div class="window-title">Commenting on</div>
 
                    <div ng-repeat="step in currentStep">
-                      <a class="on prime-text" href="#{{step.id}}"></a>
+                      <a class="prime-text" href="#{{step.id}}"></a>
                       <a class="close-button close-button-second" ng-click="closeInput()" href="#{{step.id}}">X</a>
                    </div>
-                    <button class="menu-two menu-button" style="margin-left:1% "ng-click="menuSwitch()" tooltip="Back"></button>
-                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('corrections')" class="icon icon-corrections menu-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
-                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('details')" class="icon icon-details menu-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
-                     <button style="float:left; margin-right:1%;" ng-click="categorySelected('questions')" class="icon icon-questions menu-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
-                     <button style="float:left ;margin-right:5.5%" ng-click="categorySelected('other')" class="icon icon-other menu-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
-                     <div style="margin-bottom:2%">
-                        <div ng-if="selectedStepsList.length !=0">{{list.toString()}}</div>
-                        <div ng-if="selectedStepsList.length == 0">None Selected</div>
-                     </div>
-                     <div style="margin-left:5%" ng-if="inputCategory==''">Please select a note category</div>
+                   <button class="menu-two menu-button" style="margin-left:1% "ng-click="menuSwitch()" tooltip="Back"></button>
+                   <button style="float:left; margin-right:1%;" ng-click="categorySelected('corrections')" class="icon icon-corrections menu-corrections" ng-class="{'selected selected-corrections': inputCategory == 'corrections'}" tooltip="Corrections"></button>
+                   <button style="float:left; margin-right:1%;" ng-click="categorySelected('details')" class="icon icon-details menu-details" ng-class="{'selected selected-details': inputCategory == 'details'}" tooltip="Tell me more!"></button>
+                   <button style="float:left; margin-right:1%;" ng-click="categorySelected('questions')" class="icon icon-questions menu-questions" ng-class="{'selected selected-questions': inputCategory == 'questions'}" tooltip="Questions"></button>
+                   <button style="float:left ;margin-right:5.5%" ng-click="categorySelected('other')" class="icon icon-other menu-other" ng-class="{'selected selected-other': inputCategory == 'other'}" tooltip="Other notes"></button>
+                   <div style="margin-bottom:2%">
+                      <div ng-if="selectedStepsList.length !=0">{{list.toString()}}</div>
+                      <div ng-if="selectedStepsList.length == 0">None Selected</div>
+                   </div>
+                   <div style="margin-left:5%" ng-if="inputCategory==''">Please select a note category</div>
                 </div>
               </div>
 
@@ -239,7 +240,6 @@
       </div>
     </div>
     </div>
-
 
     <script src="scripts/dependencies.js"></script>
     <script src="scripts/templates.js"></script>
