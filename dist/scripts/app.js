@@ -175,6 +175,7 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
+                //loading up the correct tutorial for the current interface
                 $scope.contributor = TutorialService.get();
                 if($scope.contributor.current_interface.url == $scope.contributor.interface_one.url){
                     $scope.tutorial = $scope.contributor.tutorial_one;
@@ -183,6 +184,7 @@ angular.module('AnnotatedTutorial')
                 }else{
                     $scope.tutorial = $scope.contributor.tutorial_three;
                 }
+
                 $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
@@ -398,6 +400,7 @@ angular.module('AnnotatedTutorial')
                     return -1;
                 };
 
+                //super messy code to make it look like notes are live being posted
                 $scope.addNote = function(note){
                     var firstNote = $scope.findNote(note.reply_to);
                     var stepNumber;
@@ -432,6 +435,7 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
+                //super messy code to make it look like notes are live being posted
                 $scope.update = function(note){
                     var firstNote = $scope.findNote(note.reply_to);
                     var mainIndex;
@@ -512,8 +516,6 @@ angular.module('AnnotatedTutorial')
                     }
                     return null;
                 };
-
-
 
                 $scope.dateFormat = function(note){
                     return moment(note.dateSubmitted).format("YYYY-MM-DD");
