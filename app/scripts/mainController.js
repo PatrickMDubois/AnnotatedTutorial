@@ -4,6 +4,7 @@ angular.module('AnnotatedTutorial')
 
         TutorialService.loaded
         .then(function() {
+                //loading up the correct tutorial for the current interface
                 $scope.contributor = TutorialService.get();
                 if($scope.contributor.current_interface.url == $scope.contributor.interface_one.url){
                     $scope.tutorial = $scope.contributor.tutorial_one;
@@ -12,6 +13,7 @@ angular.module('AnnotatedTutorial')
                 }else{
                     $scope.tutorial = $scope.contributor.tutorial_three;
                 }
+
                 $scope.selectedLine = null;
                 $scope.newNote = "";
                 $scope.extraInput = "";
@@ -39,6 +41,7 @@ angular.module('AnnotatedTutorial')
                 $scope.temp = 0;
                 $scope.listOfNotes = ($scope.tutorial.notes.slice(0)).reverse();
 
+                //creating the list of contributors
                 for (var i = 0; i < $scope.tutorial.notes.length; i++) {
                     if ($scope.listOfContributors.indexOf($scope.tutorial.notes[i].contributor) == -1) {
                         if (!$scope.tutorial.notes[i].user_submitted || $scope.tutorial.notes[i].contributor === $scope.contributor.name) {
@@ -46,6 +49,8 @@ angular.module('AnnotatedTutorial')
                         }
                     }
                 }
+
+                //creating the list of steps
                 for (var g = 0; g < $scope.tutorial.steps.length; g++) {
                     for (var j = 0; j < $scope.tutorial.steps.length; j++) {
                         if ($scope.tutorial.steps[j].step_number == g) {
@@ -117,6 +122,7 @@ angular.module('AnnotatedTutorial')
                     return -1;
                 };
 
+                //messy code to fake live reload
                 $scope.addNote = function (note) {
                     var firstNote = $scope.findNote(note.reply_to);
                     var stepNumber;
@@ -168,7 +174,7 @@ angular.module('AnnotatedTutorial')
 
                 };
 
-
+                //messy code to fake live reload
                 $scope.updateSteps = function (note) {
                     var firstNote = $scope.findNote(note.reply_to);
                     var mainIndex;
@@ -219,6 +225,7 @@ angular.module('AnnotatedTutorial')
                     }
                 };
 
+                //messy code to fake live reload
                 $scope.updateTutorial = function (note) {
                     var firstNote = $scope.findNote(note.reply_to);
                     var mainIndex;
@@ -427,7 +434,6 @@ angular.module('AnnotatedTutorial')
                         $scope.listOfNotes = $scope.listOfNotes.concat(stepList);
                     }
                 };
-
 
                 $scope.filterByCategory = function (category, list) {
                     var tempList = [];
